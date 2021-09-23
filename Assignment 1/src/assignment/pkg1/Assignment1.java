@@ -20,14 +20,14 @@ public class Assignment1 {
     private int ssn;
     private int medrec;
     private int hp; /*Health Plan*/
+    private int ba; /*Bank account*/
+    private String ln; /*Licence Number*/
+    private String vi; /*Vehichle id*/
+    private String di; /*Device id*/
+    private String li; /*LinkedIn*/
+    private String uc; /*Unique Code*/
+    /*private String photo;*/
     
     
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
 }
