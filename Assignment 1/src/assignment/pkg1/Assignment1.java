@@ -10,6 +10,18 @@ package assignment.pkg1;
  * @author kanis
  */
 public class Assignment1 {
+    
+    private String name;
+    private String location;
+    private String date;
+    private int telephone;
+    private int fax;
+    private String mail;
+    private int ssn;
+    private int medrec;
+    private int hp; /*Health Plan*/
+    
+    
 
     /**
      * @param args the command line arguments
