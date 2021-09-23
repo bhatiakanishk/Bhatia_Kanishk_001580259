@@ -44,21 +44,21 @@
                   <Component id="txtDevID" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtLocation" alignment="1" pref="308" max="32767" attributes="0"/>
+                          <Component id="txtLocation" alignment="1" pref="309" max="32767" attributes="0"/>
                           <Component id="txtName" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtDOB" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtPhone" alignment="1" max="32767" attributes="0"/>
-                          <Component id="txtFAX" alignment="1" pref="308" max="32767" attributes="0"/>
-                          <Component id="txtEmail" alignment="1" pref="308" max="32767" attributes="0"/>
+                          <Component id="txtFAX" alignment="1" pref="309" max="32767" attributes="0"/>
+                          <Component id="txtEmail" alignment="1" pref="309" max="32767" attributes="0"/>
                           <Component id="txtHealth" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtSSN" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtMed" alignment="1" max="32767" attributes="0"/>
-                          <Component id="txtBankAcc" alignment="0" pref="308" max="32767" attributes="0"/>
-                          <Component id="txtLinkedIn" alignment="1" pref="308" max="32767" attributes="0"/>
+                          <Component id="txtBankAcc" alignment="0" pref="309" max="32767" attributes="0"/>
+                          <Component id="txtLinkedIn" alignment="1" pref="309" max="32767" attributes="0"/>
                           <Component id="txtLicence" alignment="1" max="32767" attributes="0"/>
-                          <Component id="txtUID" alignment="0" pref="308" max="32767" attributes="0"/>
+                          <Component id="txtUID" alignment="0" pref="309" max="32767" attributes="0"/>
                           <Component id="txtIP" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jTextField17" alignment="1" pref="308" max="32767" attributes="0"/>
+                          <Component id="jTextField17" alignment="1" pref="309" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -175,7 +175,7 @@
           <Font name="Segoe UI" size="18" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Create"/>
+        <Property name="text" type="java.lang.String" value="Create Profile"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblName">
