@@ -5,6 +5,8 @@
  */
 package ui;
 
+import model.Product;
+
 /**
  *
  * @author kanis
@@ -14,9 +16,15 @@ public class ViewJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewJPanel
      */
-    public ViewJPanel() {
+    
+    Product product;
+    public ViewJPanel(Product product) {
         initComponents();
+        
+        this.product = product;
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
