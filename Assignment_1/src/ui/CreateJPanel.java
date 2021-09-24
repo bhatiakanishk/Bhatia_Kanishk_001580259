@@ -5,6 +5,8 @@
  */
 package ui;
 
+import model.Product;
+
 /**
  *
  * @author kanis
@@ -13,10 +15,15 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form CreateJPanel
+     * @param product
      */
-    public CreateJPanel() {
+    
+    Product product;
+    public CreateJPanel(Product product) {
         initComponents();
+        this.product = product;
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -186,6 +193,11 @@ public class CreateJPanel extends javax.swing.JPanel {
         });
 
         btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -361,6 +373,16 @@ public class CreateJPanel extends javax.swing.JPanel {
     private void txtLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLocationActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLocationActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        
+        product.setName(txtName.getText());
+        product.setLocation(txtLocation.getText());
+        product.setDob(txtDOB.getText());
+        product.setPhone(Integer.parseInt(txtPhone.getText())); /*Integer.parseInt used to convert String to integer*/
+        product.setFax(Integer.parseInt(txtFAX.getText()));
+    }//GEN-LAST:event_btnSaveActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
