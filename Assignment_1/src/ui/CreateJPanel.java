@@ -5,6 +5,7 @@
  */
 package ui;
 
+import javax.swing.JOptionPane;
 import model.Product;
 
 /**
@@ -388,7 +389,14 @@ public class CreateJPanel extends javax.swing.JPanel {
         product.setHp(Integer.parseInt(txtHealth.getText()));
         product.setBa(Integer.parseInt(txtBankAcc.getText()));
         product.setLn(Integer.parseInt(txtLicence.getText()));
+        product.setVid(Integer.parseInt(txtVehID.getText()));
+        product.setDid(Integer.parseInt(txtDevID.getText()));
+        product.setLink(txtLinkedIn.getText());
+        product.setIp(Integer.parseInt(txtIP.getText()));
+        product.setUid(Integer.parseInt(txtUID.getText()));
         
+        
+       JOptionPane.showMessageDialog(this, "Product Information Saved");
     }//GEN-LAST:event_btnSaveActionPerformed
 
 
