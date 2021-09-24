@@ -407,5 +407,17 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtLocation.setText(product.getLocation());
         txtDOB.setText(product.getDob());
         txtPhone.setText(String.valueOf(product.getPhone()));
+        txtFAX.setText(String.valueOf(product.getFax()));
+        txtEmail.setText(product.getEmail());
+        txtSSN.setText(String.valueOf(product.getSsn()));
+        txtMed.setText(String.valueOf(product.getMed()));
+        txtHealth.setText(String.valueOf(product.getHp()));
+        txtBankAcc.setText(String.valueOf(product.getBa()));
+        txtLicence.setText(String.valueOf(product.getLn()));
+        txtVehID.setText(String.valueOf(product.getVid()));
+        txtDevID.setText(String.valueOf(product.getDid()));
+        txtLinkedIn.setText(product.getLink());
+        txtIP.setText(String.valueOf(product.getIp()));
+        txtUID.setText(String.valueOf(product.getUid()));
     }
 }
