@@ -382,6 +382,13 @@ public class CreateJPanel extends javax.swing.JPanel {
         product.setDob(txtDOB.getText());
         product.setPhone(Integer.parseInt(txtPhone.getText())); /*Integer.parseInt used to convert String to integer*/
         product.setFax(Integer.parseInt(txtFAX.getText()));
+        product.setEmail(txtEmail.getText());
+        product.setSsn(Integer.parseInt(txtSSN.getText()));
+        product.setMed(Integer.parseInt(txtMed.getText()));
+        product.setHp(Integer.parseInt(txtHealth.getText()));
+        product.setBa(Integer.parseInt(txtBankAcc.getText()));
+        product.setLn(Integer.parseInt(txtLicence.getText()));
+        
     }//GEN-LAST:event_btnSaveActionPerformed
 
 
