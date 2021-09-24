@@ -22,6 +22,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         initComponents();
         
         this.product = product;
+        displyProduct();
     }
 
     
@@ -399,4 +400,12 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtUID;
     private javax.swing.JTextField txtVehID;
     // End of variables declaration//GEN-END:variables
+
+    private void displyProduct() {
+        
+        txtName.setText(product.getName());
+        txtLocation.setText(product.getLocation());
+        txtDOB.setText(product.getDob());
+        txtPhone.setText(String.valueOf(product.getPhone()));
+    }
 }
