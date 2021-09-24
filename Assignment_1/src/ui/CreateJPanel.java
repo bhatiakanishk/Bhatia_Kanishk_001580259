@@ -396,7 +396,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         product.setUid(Integer.parseInt(txtUID.getText()));
         
         
-       JOptionPane.showMessageDialog(this, "Product Information Saved");
+       JOptionPane.showMessageDialog(this, "Profile Information Saved");
     }//GEN-LAST:event_btnSaveActionPerformed
 
 
