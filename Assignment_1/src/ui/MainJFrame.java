@@ -62,10 +62,12 @@ public class MainJFrame extends javax.swing.JFrame {
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnView, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnCreate, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addComponent(btnView)
                 .addContainerGap())
+            .addGroup(controlPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnCreate)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         controlPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCreate, btnView});
@@ -73,9 +75,9 @@ public class MainJFrame extends javax.swing.JFrame {
         controlPanelLayout.setVerticalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelLayout.createSequentialGroup()
-                .addContainerGap(303, Short.MAX_VALUE)
+                .addGap(190, 190, 190)
                 .addComponent(btnCreate)
-                .addGap(146, 146, 146)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 259, Short.MAX_VALUE)
                 .addComponent(btnView)
                 .addGap(307, 307, 307))
         );
@@ -88,7 +90,7 @@ public class MainJFrame extends javax.swing.JFrame {
         workArea.setLayout(workAreaLayout);
         workAreaLayout.setHorizontalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
+            .addGap(0, 682, Short.MAX_VALUE)
         );
         workAreaLayout.setVerticalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
