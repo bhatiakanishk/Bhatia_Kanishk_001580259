@@ -54,7 +54,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblUID = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
-        txtDOB = new javax.swing.JTextField();
+        txtdateMonth = new javax.swing.JTextField();
         txtLocation = new javax.swing.JTextField();
         txtFAX = new javax.swing.JTextField();
         txtPhone = new javax.swing.JTextField();
@@ -71,6 +71,8 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtIP = new javax.swing.JTextField();
         jTextField17 = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
+        txtdateDay = new javax.swing.JTextField();
+        txtdateYear = new javax.swing.JTextField();
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -227,13 +229,12 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(lblIP, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblUID, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtVehID, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtHealth, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtSSN, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtBankAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -245,20 +246,23 @@ public class CreateJPanel extends javax.swing.JPanel {
                             .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtMed, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtLicence, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDevID, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(53, Short.MAX_VALUE))
+                            .addComponent(txtDevID, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtdateMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtdateDay, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtdateYear)))
+                        .addContainerGap(45, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSave)
                             .addComponent(txtLinkedIn, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtIP, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(305, 305, 305)
-                .addComponent(btnSave)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextField17, txtBankAcc, txtDOB, txtDevID, txtEmail, txtFAX, txtHealth, txtIP, txtLicence, txtLinkedIn, txtLocation, txtMed, txtName, txtPhone, txtSSN, txtUID, txtVehID});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextField17, txtBankAcc, txtDevID, txtEmail, txtFAX, txtHealth, txtIP, txtLicence, txtLinkedIn, txtLocation, txtMed, txtName, txtPhone, txtSSN, txtUID, txtVehID});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,8 +279,10 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(lblLocation))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDOB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDOB))
+                    .addComponent(txtdateMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDOB)
+                    .addComponent(txtdateDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtdateYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -333,12 +339,12 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(btnSave)
-                .addContainerGap())
+                .addGap(28, 28, 28))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jTextField17, txtBankAcc, txtDOB, txtDevID, txtEmail, txtFAX, txtHealth, txtIP, txtLicence, txtLinkedIn, txtLocation, txtMed, txtName, txtPhone, txtSSN, txtUID, txtVehID});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jTextField17, txtBankAcc, txtDevID, txtEmail, txtFAX, txtHealth, txtIP, txtLicence, txtLinkedIn, txtLocation, txtMed, txtName, txtPhone, txtSSN, txtUID, txtVehID, txtdateMonth});
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -387,11 +393,12 @@ public class CreateJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_txtLocationActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        // TODO add your handling code here:
-        
+        // TODO add your handling code here:     
         product.setName(txtName.getText());
         product.setLocation(txtLocation.getText());
-        product.setDob(txtDOB.getText());
+        product.setDateDay(Integer.parseInt(txtdateDay.getText()));
+        product.setDateMonth(Integer.parseInt(txtdateMonth.getText()));
+        product.setDateYear(Integer.parseInt(txtdateYear.getText()));
         product.setPhone(Integer.parseInt(txtPhone.getText())); 
         product.setFax(Integer.parseInt(txtFAX.getText()));
         product.setEmail(txtEmail.getText());
@@ -406,8 +413,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         product.setIp(Integer.parseInt(txtIP.getText()));
         product.setUid(Integer.parseInt(txtUID.getText()));
         
-        
-       
         
        JOptionPane.showMessageDialog(this, "Profile Information Saved");
     }//GEN-LAST:event_btnSaveActionPerformed
@@ -435,7 +440,6 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblUID;
     private javax.swing.JLabel lblVehID;
     private javax.swing.JTextField txtBankAcc;
-    private javax.swing.JTextField txtDOB;
     private javax.swing.JTextField txtDevID;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFAX;
@@ -450,5 +454,8 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtSSN;
     private javax.swing.JTextField txtUID;
     private javax.swing.JTextField txtVehID;
+    private javax.swing.JTextField txtdateDay;
+    private javax.swing.JTextField txtdateMonth;
+    private javax.swing.JTextField txtdateYear;
     // End of variables declaration//GEN-END:variables
 }

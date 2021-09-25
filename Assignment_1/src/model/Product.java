@@ -13,7 +13,9 @@ public class Product {
     
     private String name; /*Name*/
     private String location; /*Geographic data*/
-    private String dob; /*Date of Birth*/
+    private int dateDay; /*Day of Birth*/
+    private int dateMonth; /*Month of Birth*/
+    private int dateYear; /*Year of Birth*/
     private int phone; /*Telephone number*/
     private int fax; /*FAX number*/
     private String email; /*Email address*/
@@ -45,12 +47,28 @@ public class Product {
         this.location = location;
     }
 
-    public String getDob() {
-        return dob;
+    public int getDateDay() {
+        return dateDay;
     }
 
-    public void setDob(String dob) {
-        this.dob = dob;
+    public void setDateDay(int dateDay) {
+        this.dateDay = dateDay;
+    }
+
+    public int getDateMonth() {
+        return dateMonth;
+    }
+
+    public void setDateMonth(int dateMonth) {
+        this.dateMonth = dateMonth;
+    }
+
+    public int getDateYear() {
+        return dateYear;
+    }
+
+    public void setDateYear(int dateYear) {
+        this.dateYear = dateYear;
     }
 
     public int getPhone() {
@@ -156,6 +174,6 @@ public class Product {
     public void setUid(int uid) {
         this.uid = uid;
     }
-    
-    
-}
+
+   
+    }
