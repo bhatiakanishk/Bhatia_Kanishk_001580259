@@ -394,7 +394,7 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:     
-        product.setName(txtName.getText());
+        product.setName(txtName.getText());      
         product.setLocation(txtLocation.getText());
         product.setDateDay(Integer.parseInt(txtdateDay.getText()));
         product.setDateMonth(Integer.parseInt(txtdateMonth.getText()));
