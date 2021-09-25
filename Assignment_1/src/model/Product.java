@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package model;
+import java.util.*;
 
 /**
  *
@@ -30,6 +31,8 @@ public class Product {
     private int ip; /*IP Address*/
     private int uid; /*Unique ID*/
     /*Photos*/
+    
+    Scanner sc=new Scanner(System.in);
 
     public String getName() {
         return name;
@@ -54,7 +57,6 @@ public class Product {
     public void setDateDay(int dateDay) {
         if(dateDay>31)
             throw new IllegalArgumentException("Please enter valid day");
-        
         this.dateDay = dateDay;
     }
 
@@ -73,9 +75,11 @@ public class Product {
     }
 
     public void setDateYear(int dateYear) {
-        if (this.dateYear>12)
+        if (dateYear<1900){
             throw new IllegalArgumentException("Please enter valid year");
-        
+        } else if(dateYear>2021){
+            throw new IllegalArgumentException("Please enter valid year.");
+        }
         this.dateYear = dateYear;
     }
 
@@ -84,6 +88,17 @@ public class Product {
     }
 
     public void setPhone(int phone) {
+        int phonecount=0;
+        phone=sc.nextInt();
+        while(phone!=0){
+            phone=phone/10;
+            phonecount++;             
+        }
+        if (phonecount<1900){
+            throw new IllegalArgumentException("Please enter valid number");
+        } else if(phonecount>2021){
+            throw new IllegalArgumentException("Please enter valid number.");
+        }
         this.phone = phone;
     }
 
@@ -108,6 +123,17 @@ public class Product {
     }
 
     public void setSsn(int ssn) {
+        int ssncount=0;
+        ssn=sc.nextInt();
+        while(phone!=0){
+            phone=phone/10;
+            ssncount++;             
+        }
+        if (ssncount<10){
+            throw new IllegalArgumentException("Please enter valid ssn number");
+        } else if(ssncount>10){
+            throw new IllegalArgumentException("Please enter valid ssn number.");
+        }
         this.ssn = ssn;
     }
 
@@ -132,6 +158,17 @@ public class Product {
     }
 
     public void setBa(int ba) {
+        int bacount=0;
+        ba=sc.nextInt();
+        while(phone!=0){
+            phone=phone/10;
+            bacount++;             
+        }
+        if (bacount<10){
+            throw new IllegalArgumentException("Please enter valid bank account number");
+        } else if(bacount>12){
+            throw new IllegalArgumentException("Please enter valid bank account number.");
+        }
         this.ba = ba;
     }
 
