@@ -174,9 +174,9 @@
                   <Component id="jTextField17" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="51" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnSave" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace pref="61" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -206,7 +206,7 @@
     <Component class="javax.swing.JLabel" name="lblDOB">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value="Date of Birth:"/>
+        <Property name="text" type="java.lang.String" value="Date of Birth (MM/DD/YYY):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblPhone">
@@ -371,6 +371,9 @@
     <Component class="javax.swing.JTextField" name="txtdateDay">
     </Component>
     <Component class="javax.swing.JTextField" name="txtdateYear">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtdateYearActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
