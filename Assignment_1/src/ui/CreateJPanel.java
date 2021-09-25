@@ -381,7 +381,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         product.setName(txtName.getText());
         product.setLocation(txtLocation.getText());
         product.setDob(txtDOB.getText());
-        product.setPhone(Integer.parseInt(txtPhone.getText())); /*Integer.parseInt used to convert String to integer*/
+        product.setPhone(Integer.parseInt(txtPhone.getText())); 
         product.setFax(Integer.parseInt(txtFAX.getText()));
         product.setEmail(txtEmail.getText());
         product.setSsn(Integer.parseInt(txtSSN.getText()));
@@ -394,6 +394,9 @@ public class CreateJPanel extends javax.swing.JPanel {
         product.setLink(txtLinkedIn.getText());
         product.setIp(Integer.parseInt(txtIP.getText()));
         product.setUid(Integer.parseInt(txtUID.getText()));
+        
+
+        
         
         
        JOptionPane.showMessageDialog(this, "Profile Information Saved");
