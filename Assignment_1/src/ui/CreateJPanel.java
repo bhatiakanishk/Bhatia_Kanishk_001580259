@@ -85,7 +85,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblLocation.setText("Location:");
 
         lblDOB.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblDOB.setText("Date of Birth:");
+        lblDOB.setText("Date of Birth (MM/DD/YYY):");
 
         lblPhone.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblPhone.setText("Phone Number:");
@@ -199,6 +199,12 @@ public class CreateJPanel extends javax.swing.JPanel {
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
+            }
+        });
+
+        txtdateYear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtdateYearActionPerformed(evt);
             }
         });
 
@@ -339,9 +345,9 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnSave)
-                .addGap(28, 28, 28))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jTextField17, txtBankAcc, txtDevID, txtEmail, txtFAX, txtHealth, txtIP, txtLicence, txtLinkedIn, txtLocation, txtMed, txtName, txtPhone, txtSSN, txtUID, txtVehID, txtdateMonth});
@@ -416,6 +422,10 @@ public class CreateJPanel extends javax.swing.JPanel {
         
        JOptionPane.showMessageDialog(this, "Profile Information Saved");
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void txtdateYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdateYearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtdateYearActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
