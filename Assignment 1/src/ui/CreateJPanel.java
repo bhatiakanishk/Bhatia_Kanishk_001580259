@@ -5,6 +5,8 @@
  */
 package ui;
 
+import model.Form;
+
 /**
  *
  * @author kanis
@@ -14,8 +16,11 @@ public class CreateJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateJPanel
      */
-    public CreateJPanel() {
+    Form form;
+    
+    public CreateJPanel(Form form) {
         initComponents();
+        this.form=form;
     }
 
     /**
@@ -47,7 +52,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         jLabel17 = new javax.swing.JLabel();
         btnSave = new javax.swing.JButton();
         txtName = new javax.swing.JTextField();
-        txtState = new javax.swing.JTextField();
         txtMonth = new javax.swing.JTextField();
         txtDay = new javax.swing.JTextField();
         txtYear = new javax.swing.JTextField();
@@ -67,6 +71,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtIP2 = new javax.swing.JTextField();
         txtIP3 = new javax.swing.JTextField();
         txtIP4 = new javax.swing.JTextField();
+        lstState = new javax.swing.JComboBox<>();
 
         lblcTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblcTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -126,10 +131,13 @@ public class CreateJPanel extends javax.swing.JPanel {
 
         btnSave.setText("Save");
         btnSave.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         txtName.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        txtState.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         txtMonth.setText("MM");
         txtMonth.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -187,6 +195,14 @@ public class CreateJPanel extends javax.swing.JPanel {
 
         txtIP4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        lstState.setModel(new javax.swing.DefaultComboBoxModel(getStates())
+        );
+        lstState.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lstStateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -228,7 +244,6 @@ public class CreateJPanel extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtIP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(txtState)
                             .addComponent(txtPhone)
                             .addComponent(txtFax)
                             .addComponent(txtEmail)
@@ -241,7 +256,8 @@ public class CreateJPanel extends javax.swing.JPanel {
                             .addComponent(txtVehID)
                             .addComponent(txtLinkedIn)
                             .addComponent(txtDevID)
-                            .addComponent(txtLicencePlate))
+                            .addComponent(txtLicencePlate)
+                            .addComponent(lstState, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addComponent(txtIP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(209, 209, 209))
@@ -266,7 +282,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnState)
-                            .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lstState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnDOB)
@@ -350,6 +366,45 @@ public class CreateJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLinkedInActionPerformed
 
+    private void lstStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lstStateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lstStateActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        
+        //final int num_fields=16;
+        //int correct_fields=0;
+        //String errorMessage="";
+        
+        
+        
+        
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    
+    private String[] states = {
+        "Alabama", "Alaska", "Arizona",
+        "Arkansas", "California", "Colorado",
+        "Connecticut", "Delaware", "Florida",
+        "Georgia", "Hawaii", "Idaho",
+        "Illinos", "Indiana", "Lowa",
+        "Kansas", "Kentucky", "Louisiana",
+        "Maine", "Maryland", "Massachusetts",
+        "Michigan", "Minnesota", "Mississipi",
+        "Missouri", "Montana", "Nebraska",
+        "Nevada", "New Hampshire", "New Jersey",
+        "New Mexico", "New York", "North Carolina",
+        "North Dakota", "Ohio", "Oklahoma",
+        "Oregon", "Penssylvania","Rhode Island",
+        "South Carolina", "South Dakota", "Tennesses",
+        "Texas", "Utah", "Vermont",
+        "Virginia", "Washington", "West Virginia",
+        "Wisconsin", "Wyoming"};
+    
+    public String[] getStates(){
+        return states;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnBankAcc;
@@ -371,6 +426,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel btnVehID;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel lblcTitle;
+    private javax.swing.JComboBox<String> lstState;
     private javax.swing.JTextField txtBankAcc;
     private javax.swing.JTextField txtDay;
     private javax.swing.JTextField txtDevID;
@@ -389,7 +445,6 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPhone;
     private javax.swing.JTextField txtSSN;
-    private javax.swing.JTextField txtState;
     private javax.swing.JTextField txtVehID;
     private javax.swing.JTextField txtYear;
     // End of variables declaration//GEN-END:variables

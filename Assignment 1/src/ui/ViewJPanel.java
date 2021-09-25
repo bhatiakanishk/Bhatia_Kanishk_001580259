@@ -5,6 +5,8 @@
  */
 package ui;
 
+import model.Form;
+
 /**
  *
  * @author kanis
@@ -16,6 +18,10 @@ public class ViewJPanel extends javax.swing.JPanel {
      */
     public ViewJPanel() {
         initComponents();
+    }
+
+    ViewJPanel(Form form) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**

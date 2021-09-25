@@ -5,6 +5,8 @@
  */
 package ui;
 
+import model.Form;
+
 /**
  *
  * @author kanis
@@ -14,8 +16,12 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
+    
+    Form form;
     public MainJFrame() {
         initComponents();
+        
+        form = new Form();
     }
 
     /**
@@ -37,9 +43,19 @@ public class MainJFrame extends javax.swing.JFrame {
 
         btnCreate.setText("Create");
         btnCreate.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
 
         btnView.setText("View");
         btnView.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout controlPanelLayout = new javax.swing.GroupLayout(controlPanel);
         controlPanel.setLayout(controlPanelLayout);
@@ -101,6 +117,19 @@ public class MainJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        // TODO add your handling code here:
+        CreateJPanel createPanel = new CreateJPanel(form);
+        splitPane.setRightComponent(createPanel);
+    }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        // TODO add your handling code here:
+        
+        ViewJPanel viewPanel = new ViewJPanel(form);
+        splitPane.setRightComponent(viewPanel);
+    }//GEN-LAST:event_btnViewActionPerformed
 
     /**
      * @param args the command line arguments

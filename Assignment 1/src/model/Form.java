@@ -11,7 +11,7 @@ package model;
  */
 public class Form {
     
-    private String name;
+    String name;
     private String state;
     private int dateMonth; private int dateDay; private int dateYear;
     private int fax;

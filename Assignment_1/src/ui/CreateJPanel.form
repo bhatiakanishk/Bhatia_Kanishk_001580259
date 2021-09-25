@@ -18,56 +18,65 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="lblTitle" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblBankAcc" alignment="1" max="32767" attributes="0"/>
-                  <Component id="lblLicence" alignment="1" max="32767" attributes="0"/>
-                  <Component id="lblName" alignment="1" max="32767" attributes="0"/>
-                  <Component id="lblVehID" alignment="1" max="32767" attributes="0"/>
-                  <Component id="lblLocation" alignment="1" max="32767" attributes="0"/>
-                  <Component id="lblDevID" alignment="1" max="32767" attributes="0"/>
-                  <Component id="lblDOB" alignment="1" max="32767" attributes="0"/>
-                  <Component id="lblLinkedIn" alignment="1" max="32767" attributes="0"/>
-                  <Component id="lblPhone" alignment="1" max="32767" attributes="0"/>
-                  <Component id="lblIP" alignment="1" max="32767" attributes="0"/>
-                  <Component id="lblFAX" alignment="1" max="32767" attributes="0"/>
-                  <Component id="lblUID" alignment="1" max="32767" attributes="0"/>
-                  <Component id="lblEmail" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jLabel17" alignment="1" max="32767" attributes="0"/>
-                  <Component id="lblSSN" alignment="1" max="32767" attributes="0"/>
-                  <Component id="lblMed" alignment="1" max="32767" attributes="0"/>
-                  <Component id="lblHealth" alignment="1" pref="173" max="32767" attributes="0"/>
-              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtDevID" alignment="1" max="32767" attributes="0"/>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="txtVehID" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtLocation" alignment="1" pref="309" max="32767" attributes="0"/>
-                          <Component id="txtName" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtDOB" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtPhone" alignment="1" max="32767" attributes="0"/>
-                          <Component id="txtFAX" alignment="1" pref="309" max="32767" attributes="0"/>
-                          <Component id="txtEmail" alignment="1" pref="309" max="32767" attributes="0"/>
-                          <Component id="txtHealth" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtSSN" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtMed" alignment="1" max="32767" attributes="0"/>
-                          <Component id="txtBankAcc" alignment="0" pref="309" max="32767" attributes="0"/>
-                          <Component id="txtLinkedIn" alignment="1" pref="309" max="32767" attributes="0"/>
-                          <Component id="txtLicence" alignment="1" max="32767" attributes="0"/>
-                          <Component id="txtUID" alignment="0" pref="309" max="32767" attributes="0"/>
-                          <Component id="txtIP" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jTextField17" alignment="1" pref="309" max="32767" attributes="0"/>
+                  <Component id="lblName" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="lblLocation" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="lblDOB" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPhone" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
+                  <Component id="lblFAX" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
+                  <Component id="lblEmail" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="lblMed" alignment="0" pref="135" max="32767" attributes="0"/>
+                      <Component id="lblSSN" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="lblHealth" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
+                  <Component id="lblBankAcc" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="lblDevID" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblVehID" alignment="0" pref="98" max="32767" attributes="0"/>
+                      <Component id="lblLicence" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="lblLinkedIn" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
+                  <Component id="lblIP" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                  <Component id="lblUID" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
+                  <Component id="jLabel17" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="110" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtVehID" linkSize="2" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
+                          <Component id="txtName" linkSize="2" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
+                          <Component id="txtDOB" linkSize="2" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
+                          <Component id="txtHealth" linkSize="2" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
+                          <Component id="txtSSN" linkSize="2" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
+                          <Component id="txtBankAcc" linkSize="2" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
+                          <Component id="txtUID" linkSize="2" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
+                          <Component id="jTextField17" linkSize="2" alignment="0" min="-2" pref="412" max="-2" attributes="0"/>
+                          <Component id="txtLocation" linkSize="2" min="-2" pref="459" max="-2" attributes="0"/>
+                          <Component id="txtPhone" linkSize="2" min="-2" pref="459" max="-2" attributes="0"/>
+                          <Component id="txtFAX" linkSize="2" min="-2" pref="459" max="-2" attributes="0"/>
+                          <Component id="txtEmail" linkSize="2" min="-2" pref="459" max="-2" attributes="0"/>
+                          <Component id="txtMed" linkSize="2" min="-2" pref="459" max="-2" attributes="0"/>
+                          <Component id="txtLicence" linkSize="2" min="-2" pref="459" max="-2" attributes="0"/>
+                          <Component id="txtDevID" linkSize="2" min="-2" pref="465" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace pref="53" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtLinkedIn" linkSize="2" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
+                          <Component id="txtIP" linkSize="2" min="-2" pref="459" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="305" max="-2" attributes="0"/>
               <Component id="btnSave" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="213" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -76,94 +85,94 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtName" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtLocation" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblLocation" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtLocation" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtDOB" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblDOB" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtDOB" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtPhone" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblPhone" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtPhone" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtFAX" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblFAX" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtFAX" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblSSN" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtSSN" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblMed" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtMed" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblHealth" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtHealth" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblBankAcc" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtBankAcc" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblLicence" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtLicence" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblVehID" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtVehID" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblDevID" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtDevID" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtEmail" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtSSN" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblSSN" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtMed" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblMed" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtHealth" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblHealth" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtBankAcc" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblBankAcc" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtLicence" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblLicence" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtVehID" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblVehID" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtDevID" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblDevID" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtLinkedIn" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblLinkedIn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtLinkedIn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtIP" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblIP" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtIP" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtUID" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblUID" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtUID" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jTextField17" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField17" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace pref="43" max="32767" attributes="0"/>
               <Component id="btnSave" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="19" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -180,103 +189,103 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblName">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="Name:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblLocation">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="Location:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblDOB">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="Date of Birth:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblPhone">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="Phone Number:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblFAX">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="Fax Number:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblEmail">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="Email:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblSSN">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="Social Security Number:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblMed">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="Medical Record Number:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblHealth">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="Health Plan Beneficiary Number:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblBankAcc">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="Bank Account Number:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblLicence">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="Licence Number:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblVehID">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="Vehicle Identifier:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblDevID">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="Device Identifier:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblLinkedIn">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="LinkedIn:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblIP">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="Internet Protocol Address:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblUID">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="Unique Identification:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel17">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="jLabel17"/>
       </Properties>
     </Component>

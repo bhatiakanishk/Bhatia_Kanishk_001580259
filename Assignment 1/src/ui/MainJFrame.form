@@ -83,12 +83,18 @@
                 <Property name="text" type="java.lang.String" value="Create"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnView">
               <Properties>
                 <Property name="text" type="java.lang.String" value="View"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
