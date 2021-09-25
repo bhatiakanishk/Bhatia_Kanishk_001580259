@@ -333,6 +333,11 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     private void txtHealthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHealthActionPerformed
         // TODO add your handling code here:
+        if (product.getHp()== 0) {
+            System.out.println("Invalid");
+            
+        } else {
+        }
     }//GEN-LAST:event_txtHealthActionPerformed
 
     private void txtMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMedActionPerformed
@@ -395,9 +400,8 @@ public class CreateJPanel extends javax.swing.JPanel {
         product.setIp(Integer.parseInt(txtIP.getText()));
         product.setUid(Integer.parseInt(txtUID.getText()));
         
-
         
-        
+       
         
        JOptionPane.showMessageDialog(this, "Profile Information Saved");
     }//GEN-LAST:event_btnSaveActionPerformed
