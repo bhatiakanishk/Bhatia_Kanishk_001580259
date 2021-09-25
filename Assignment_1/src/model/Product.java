@@ -52,6 +52,9 @@ public class Product {
     }
 
     public void setDateDay(int dateDay) {
+        if(dateDay>31)
+            throw new IllegalArgumentException("Please enter valid day");
+        
         this.dateDay = dateDay;
     }
 
@@ -60,6 +63,8 @@ public class Product {
     }
 
     public void setDateMonth(int dateMonth) {
+        if (dateMonth>12)
+            throw new IllegalArgumentException("Please enter valid month");
         this.dateMonth = dateMonth;
     }
 
@@ -68,6 +73,9 @@ public class Product {
     }
 
     public void setDateYear(int dateYear) {
+        if (this.dateYear>12)
+            throw new IllegalArgumentException("Please enter valid year");
+        
         this.dateYear = dateYear;
     }
 
