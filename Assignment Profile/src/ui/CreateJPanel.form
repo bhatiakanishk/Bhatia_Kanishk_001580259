@@ -16,9 +16,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="label" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="lblTitle" min="-2" pref="428" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
@@ -27,19 +28,32 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblUID" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblPhoto" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblName" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblState" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblDOB" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblPhone" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblSSN" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblMed" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblHealth" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblBankAcc" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblLicenceNumber" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblVehID" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblLicencePlate" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblDeviceID" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblLinkedIn" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblIPAddress" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="txtName" min="-2" pref="436" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblBankAcc" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblLicenceNumber" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblVehID" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblLicencePlate" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblDeviceID" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblLinkedIn" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblIPAddress" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblUID" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblPhoto" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+                              <EmptySpace min="54" pref="54" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="txtBankAcc" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtLicenceNumber" alignment="0" max="32767" attributes="0"/>
@@ -48,71 +62,43 @@
                                   <Component id="txtDeviceID" max="32767" attributes="0"/>
                                   <Component id="txtLinkedIn" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtUID" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="btnFile" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="txtIP1" min="-2" pref="100" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtIP2" min="-2" pref="100" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtIP3" min="-2" pref="100" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtIP4" pref="92" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblMed" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblHealth" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="txtMed" max="32767" attributes="0"/>
                                   <Component id="txtHealth" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblSSN" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
-                                  <Component id="txtSSN" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
-                                  <Component id="txtEmail" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblState" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblDOB" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblPhone" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="txtDateDay" min="-2" pref="108" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                          <Component id="txtDateMonth" min="-2" pref="107" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="txtDateYear" min="-2" pref="108" max="-2" attributes="0"/>
+                                  <Component id="txtSSN" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtEmail" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtFAX" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="btnFile" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="txtDateDay" min="-2" pref="108" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="txtDateMonth" min="-2" pref="107" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="txtDateYear" min="-2" pref="108" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="txtPhone" alignment="0" min="-2" pref="436" max="-2" attributes="0"/>
+                                          <Component id="txtState" alignment="0" min="-2" pref="436" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="txtIP1" min="-2" pref="100" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="txtIP2" min="-2" pref="100" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="txtIP3" min="-2" pref="100" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="txtIP4" min="-2" pref="105" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <Component id="txtState" alignment="0" pref="436" max="32767" attributes="0"/>
-                                      <Component id="txtName" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtPhone" alignment="0" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="26" max="32767" attributes="0"/>
                                   </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblFAX" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
-                                  <Component id="txtFAX" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
+                      <Component id="lblFAX" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -139,9 +125,9 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblDOB" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtDateDay" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtDateMonth" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtDateYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtDateDay" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -221,7 +207,9 @@
                   <Component id="lblPhoto" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnFile" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="252" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="label" pref="228" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -391,6 +379,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFileActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="label">
     </Component>
   </SubComponents>
 </Form>
