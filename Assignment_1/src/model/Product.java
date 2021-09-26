@@ -107,6 +107,17 @@ public class Product {
     }
 
     public void setFax(int fax) {
+        int faxcount=0;
+        ssn=sc.nextInt();
+        while(phone!=0){
+            phone=phone/10;
+            faxcount++;             
+        }
+        if (faxcount<10){
+            throw new IllegalArgumentException("Please enter valid FAX number");
+        } else if(faxcount>10){
+            throw new IllegalArgumentException("Please enter valid FAX number.");
+        }
         this.fax = fax;
     }
 
@@ -130,9 +141,9 @@ public class Product {
             ssncount++;             
         }
         if (ssncount<10){
-            throw new IllegalArgumentException("Please enter valid ssn number");
+            throw new IllegalArgumentException("Please enter valid SSN");
         } else if(ssncount>10){
-            throw new IllegalArgumentException("Please enter valid ssn number.");
+            throw new IllegalArgumentException("Please enter valid SSN.");
         }
         this.ssn = ssn;
     }
