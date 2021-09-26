@@ -5,6 +5,7 @@
  */
 package ui;
 
+import java.awt.Image;
 import model.Product;
 
 /**
@@ -18,6 +19,7 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     
     Product product;
+    
     
     public MainJFrame() {
         initComponents();

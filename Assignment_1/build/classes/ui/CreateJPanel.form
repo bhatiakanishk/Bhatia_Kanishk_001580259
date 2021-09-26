@@ -40,10 +40,18 @@
                   <Component id="lblLinkedIn" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
                   <Component id="lblIP" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                   <Component id="lblUID" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
-                  <Component id="jLabel17" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
+                  <Component id="lblPhoto" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="102" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnSave" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtLinkedIn" linkSize="2" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
+                          <Component id="txtIP" linkSize="2" min="-2" pref="459" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="txtVehID" linkSize="2" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
@@ -52,7 +60,6 @@
                           <Component id="txtSSN" linkSize="2" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
                           <Component id="txtBankAcc" linkSize="2" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
                           <Component id="txtUID" linkSize="2" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
-                          <Component id="jTextField17" linkSize="2" alignment="0" min="-2" pref="412" max="-2" attributes="0"/>
                           <Component id="txtLocation" linkSize="2" min="-2" pref="459" max="-2" attributes="0"/>
                           <Component id="txtPhone" linkSize="2" min="-2" pref="459" max="-2" attributes="0"/>
                           <Component id="txtFAX" linkSize="2" min="-2" pref="459" max="-2" attributes="0"/>
@@ -67,16 +74,13 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="txtdateYear" max="32767" attributes="0"/>
                           </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="btnFile" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblMessage" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace pref="45" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnSave" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtLinkedIn" linkSize="2" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
-                          <Component id="txtIP" linkSize="2" min="-2" pref="459" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -171,12 +175,13 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField17" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPhoto" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnFile" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblMessage" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace pref="45" max="32767" attributes="0"/>
               <Component id="btnSave" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="61" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -287,10 +292,10 @@
         <Property name="text" type="java.lang.String" value="Unique Identification:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel17">
+    <Component class="javax.swing.JLabel" name="lblPhoto">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value="jLabel17"/>
+        <Property name="text" type="java.lang.String" value="Photo:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtName">
@@ -355,11 +360,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIPActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField17">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField17ActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="btnSave">
       <Properties>
         <Property name="text" type="java.lang.String" value="Save"/>
@@ -373,6 +373,19 @@
     <Component class="javax.swing.JTextField" name="txtdateYear">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtdateYearActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnFile">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Select File"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFileActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="lblMessage">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lblMessageActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

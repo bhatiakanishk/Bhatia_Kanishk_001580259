@@ -5,6 +5,13 @@
  */
 package model;
 import java.util.*;
+import java.awt.*;  
+import java.awt.event.*;  
+import java.awt.image.*;  
+import javax.swing.*;  
+import java.awt.Frame;  
+import java.awt.event.WindowAdapter;  
+import java.awt.event.WindowEvent;
 
 /**
  *
@@ -35,8 +42,7 @@ public class Product {
     private int ip3; /*IP Address*/
     private int ip4; /*IP Address*/
     private int uid; /*Unique ID*/
-    /*Photos*/
-
+    
     public int getIp1() {
         return ip1;
     }

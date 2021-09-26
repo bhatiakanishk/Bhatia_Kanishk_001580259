@@ -5,7 +5,13 @@
  */
 package ui;
 
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import model.Product;
 
 /**
@@ -13,6 +19,8 @@ import model.Product;
  * @author kanis
  */
 public class CreateJPanel extends javax.swing.JPanel {
+    private final JFileChooser openFileChooser;
+    private BufferedImage orignalBI;
 
     /**
      * Creates new form CreateJPanel
@@ -23,6 +31,10 @@ public class CreateJPanel extends javax.swing.JPanel {
     public CreateJPanel(Product product) {
         initComponents();
         this.product = product;
+        openFileChooser = new JFileChooser();
+        openFileChooser.setFileFilter(new FileNameExtensionFilter("png images","png"));
+        
+             
     }
 
 
@@ -52,7 +64,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblLinkedIn = new javax.swing.JLabel();
         lblIP = new javax.swing.JLabel();
         lblUID = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
+        lblPhoto = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         txtdateMonth = new javax.swing.JTextField();
         txtLocation = new javax.swing.JTextField();
@@ -69,10 +81,11 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtLicence = new javax.swing.JTextField();
         txtUID = new javax.swing.JTextField();
         txtIP = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         txtdateDay = new javax.swing.JTextField();
         txtdateYear = new javax.swing.JTextField();
+        btnFile = new javax.swing.JButton();
+        lblMessage = new javax.swing.JTextField();
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -126,8 +139,8 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblUID.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblUID.setText("Unique Identification:");
 
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel17.setText("jLabel17");
+        lblPhoto.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblPhoto.setText("Photo:");
 
         txtLocation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,12 +202,6 @@ public class CreateJPanel extends javax.swing.JPanel {
             }
         });
 
-        jTextField17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField17ActionPerformed(evt);
-            }
-        });
-
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,6 +212,19 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtdateYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtdateYearActionPerformed(evt);
+            }
+        });
+
+        btnFile.setText("Select File");
+        btnFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFileActionPerformed(evt);
+            }
+        });
+
+        lblMessage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lblMessageActionPerformed(evt);
             }
         });
 
@@ -234,9 +254,15 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(lblLinkedIn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblIP, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblUID, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSave)
+                            .addComponent(txtLinkedIn, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIP, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtVehID, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -245,7 +271,6 @@ public class CreateJPanel extends javax.swing.JPanel {
                             .addComponent(txtSSN, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtBankAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtUID, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtFAX, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -258,17 +283,15 @@ public class CreateJPanel extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addComponent(txtdateDay, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtdateYear)))
-                        .addContainerGap(45, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSave)
-                            .addComponent(txtLinkedIn, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtIP, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(txtdateYear))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnFile)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblMessage)))
+                        .addContainerGap(45, Short.MAX_VALUE))))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextField17, txtBankAcc, txtDevID, txtEmail, txtFAX, txtHealth, txtIP, txtLicence, txtLinkedIn, txtLocation, txtMed, txtName, txtPhone, txtSSN, txtUID, txtVehID});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtBankAcc, txtDevID, txtEmail, txtFAX, txtHealth, txtIP, txtLicence, txtLinkedIn, txtLocation, txtMed, txtName, txtPhone, txtSSN, txtUID, txtVehID});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,14 +366,15 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(lblUID))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17))
-                .addGap(18, 18, 18)
+                    .addComponent(lblPhoto)
+                    .addComponent(btnFile)
+                    .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(btnSave)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addGap(34, 34, 34))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jTextField17, txtBankAcc, txtDevID, txtEmail, txtFAX, txtHealth, txtIP, txtLicence, txtLinkedIn, txtLocation, txtMed, txtName, txtPhone, txtSSN, txtUID, txtVehID, txtdateMonth});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtBankAcc, txtDevID, txtEmail, txtFAX, txtHealth, txtIP, txtLicence, txtLinkedIn, txtLocation, txtMed, txtName, txtPhone, txtSSN, txtUID, txtVehID, txtdateMonth});
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -390,10 +414,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIPActionPerformed
 
-    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField17ActionPerformed
-
     private void txtLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLocationActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLocationActionPerformed
@@ -430,11 +450,30 @@ public class CreateJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtdateYearActionPerformed
 
+    private void btnFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFileActionPerformed
+        // TODO add your handling code here:
+        int returnValue=openFileChooser.showOpenDialog(this);
+        
+        if(returnValue==JFileChooser.APPROVE_OPTION){
+            try{
+                orignalBI=ImageIO.read(openFileChooser.getSelectedFile());
+                lblMessage.setText("File Loaded");
+                
+            }catch(IOException ioe){
+                lblMessage.setText("Failed to load");
+            }   
+    }//GEN-LAST:event_btnFileActionPerformed
+    }
+    
+    
+    private void lblMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblMessageActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblMessageActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnFile;
     private javax.swing.JButton btnSave;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JTextField jTextField17;
     private javax.swing.JLabel lblBankAcc;
     private javax.swing.JLabel lblDOB;
     private javax.swing.JLabel lblDevID;
@@ -446,8 +485,10 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblLinkedIn;
     private javax.swing.JLabel lblLocation;
     private javax.swing.JLabel lblMed;
+    private javax.swing.JTextField lblMessage;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPhone;
+    private javax.swing.JLabel lblPhoto;
     private javax.swing.JLabel lblSSN;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUID;
