@@ -416,7 +416,10 @@ public class CreateJPanel extends javax.swing.JPanel {
         product.setVid(Integer.parseInt(txtVehID.getText()));
         product.setDid(Integer.parseInt(txtDevID.getText()));
         product.setLink(txtLinkedIn.getText());
-        product.setIp(Integer.parseInt(txtIP.getText()));
+        product.setIp1(Integer.parseInt(txtIP.getText()));
+        product.setIp2(Integer.parseInt(txtIP.getText()));
+        product.setIp3(Integer.parseInt(txtIP.getText()));
+        product.setIp4(Integer.parseInt(txtIP.getText()));
         product.setUid(Integer.parseInt(txtUID.getText()));
         
         
