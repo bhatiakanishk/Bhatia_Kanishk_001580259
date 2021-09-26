@@ -5,6 +5,9 @@
  */
 package ui;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import model.Product;
 
 /**
@@ -358,5 +361,12 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtIP3.setText(String.valueOf(product.getIp3()));
         txtIP4.setText(String.valueOf(product.getIp4()));
         txtUID.setText(String.valueOf(product.getUid()));
+        
+        JOptionPane.showMessageDialog(null, getselectedImage);
+        ImageIcon imIco = new ImageIcon(getselectedImage);
+        //make image fit on jlabel.
+        Image imFit = imIco.getImage();
+        Image imgFit = imFit.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH);
+        label.setIcon(new ImageIcon(imgFit));
     }
 }
