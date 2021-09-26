@@ -42,7 +42,6 @@
                           <Component id="lblLinkedIn" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
                           <Component id="lblIP" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                           <Component id="lblUID" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
-                          <Component id="jLabel17" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="102" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -67,25 +66,22 @@
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lblPhoto" min="-2" pref="459" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtName" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
-                                      <Component id="txtSSN" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
-                                      <Component id="txtLocation" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
-                                      <Component id="txtPhone" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
-                                      <Component id="txtFAX" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
-                                      <Component id="txtEmail" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
-                                      <Component id="txtMed" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="txtdateMonth" min="-2" pref="140" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="txtdateDay" min="-2" pref="140" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="txtdateYear" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Component id="txtUID" alignment="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtName" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
+                                  <Component id="txtSSN" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
+                                  <Component id="txtLocation" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
+                                  <Component id="txtPhone" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
+                                  <Component id="txtFAX" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
+                                  <Component id="txtEmail" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
+                                  <Component id="txtMed" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="txtdateMonth" min="-2" pref="140" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="txtdateDay" min="-2" pref="140" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="txtdateYear" max="32767" attributes="0"/>
                                   </Group>
+                                  <Component id="txtUID" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace pref="51" max="32767" attributes="0"/>
                           </Group>
@@ -186,26 +182,12 @@
                   <Component id="txtUID" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblUID" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="321" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="lblPhoto" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace pref="361" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel17">
-      <Properties>
-        <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value="Photo:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JTextField" name="txtName">
     </Component>
     <Component class="javax.swing.JTextField" name="txtdateMonth">
@@ -385,8 +367,6 @@
     <Component class="javax.swing.JTextField" name="txtIP3">
     </Component>
     <Component class="javax.swing.JTextField" name="txtIP4">
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblPhoto">
     </Component>
   </SubComponents>
 </Form>

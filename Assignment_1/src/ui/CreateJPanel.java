@@ -484,7 +484,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         product.setIp4(Integer.parseInt(txtIP4.getText()));
         product.setUid(Integer.parseInt(txtUID.getText()));
         
-        
        JOptionPane.showMessageDialog(this, "Profile Information Saved");
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -494,21 +493,7 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     private void btnFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFileActionPerformed
         // TODO add your handling code here:
-        /*int returnValue=openFileChooser.showOpenDialog(this);
-        
-        if(returnValue==JFileChooser.APPROVE_OPTION){
-            try{
-                orignalBI=ImageIO.read(openFileChooser.getSelectedFile());
-                lblMessage.setText("File Loaded");
-                
-            }catch(IOException ioe){
-                lblMessage.setText("Failed to load");
-            }   
-    }//GEN-LAST:event_btnFileActionPerformed
-    }
-    */
-        
-        JFileChooser fileChooser = new JFileChooser();
+       /* JFileChooser fileChooser = new JFileChooser();
         FileNameExtensionFilter filter=new FileNameExtensionFilter("3 extensions supported", "jpg", "jpeg","png");
         fileChooser.setFileFilter(filter);
         int selected = fileChooser.showOpenDialog(this);
@@ -516,18 +501,15 @@ public class CreateJPanel extends javax.swing.JPanel {
         if (selected==JFileChooser.APPROVE_OPTION){
             File file=fileChooser.getSelectedFile();
             String getselectedImage = file.getAbsolutePath();
-            //JOptionPane.showMessageDialog(null, getselectedImage);
+            
             ImageIcon imIco = new ImageIcon(getselectedImage);
-            Image imFit = imIco.getImage();
-            Image imgFit = imFit.getScaledInstance(lblPhoto.getWidth(), lblPhoto.getHeight(), Image.SCALE_SMOOTH);
- 
-            /*Image imFit = imIco.getImage();
-            Image imFit=imFit.getScaledInstance(lblPhoto.getWidth(), HEIGHT, WIDTH);*/
-            lblPhoto.setIcon(imIco);
-        }
-        
-        
-    }
+            Image imFit=imIco.getImage();
+            Image imgFit=imFit.getScaledInstance(lblPhoto.getWidth(), lblPhoto.getHeight(), Image.SCALE_SMOOTH);
+             lblPhoto.setIcon(imIco);
+           
+    }//GEN-LAST:event_btnFileActionPerformed
+*/    
+}
     
     private void lblMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblMessageActionPerformed
         // TODO add your handling code here:

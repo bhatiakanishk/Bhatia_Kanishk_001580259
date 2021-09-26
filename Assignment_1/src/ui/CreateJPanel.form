@@ -28,23 +28,17 @@
                   <Component id="lblName" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
                   <Component id="lblLocation" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
                   <Component id="lblEmail" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="lblDevID" alignment="0" max="32767" attributes="0"/>
-                      <Component id="lblVehID" alignment="0" max="32767" attributes="0"/>
-                      <Component id="lblLicence" alignment="0" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="lblDevID" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblVehID" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblLicence" alignment="0" max="32767" attributes="0"/>
                   <Component id="lblLinkedIn" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
                   <Component id="lblIP" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                   <Component id="lblPhoto" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="lblPhone" alignment="0" max="32767" attributes="0"/>
-                      <Component id="lblDOB" alignment="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="lblFAX" alignment="0" max="32767" attributes="0"/>
-                      <Component id="lblMed" alignment="0" max="32767" attributes="0"/>
-                      <Component id="lblSSN" alignment="0" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="lblPhone" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblDOB" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblFAX" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblMed" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblSSN" alignment="0" max="32767" attributes="0"/>
                   <Component id="lblHealth" alignment="0" pref="236" max="32767" attributes="0"/>
                   <Component id="lblBankAcc" alignment="0" max="32767" attributes="0"/>
                   <Component id="lblUID" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>

@@ -5,14 +5,6 @@
  */
 package model;
 import java.util.*;
-import java.awt.*;  
-import java.awt.event.*;  
-import java.awt.image.*;  
-import javax.swing.*;  
-import java.awt.Frame;  
-import java.awt.event.WindowAdapter;  
-import java.awt.event.WindowEvent;
-
 /**
  *
  * @author kanis
