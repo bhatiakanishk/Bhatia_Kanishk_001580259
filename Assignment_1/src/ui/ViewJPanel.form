@@ -75,7 +75,15 @@
                                   <Component id="txtVehID" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtDevID" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtLinkedIn" alignment="0" pref="459" max="32767" attributes="0"/>
-                                  <Component id="txtIP" alignment="0" pref="459" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="txtIP1" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="txtIP2" min="-2" pref="99" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="txtIP3" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="txtIP4" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -165,8 +173,11 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtIP" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtIP1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblIP" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtIP2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtIP3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtIP4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -322,9 +333,9 @@
         <Property name="text" type="java.lang.String" value="Licence Number:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtIP">
+    <Component class="javax.swing.JTextField" name="txtIP1">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIPActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIP1ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblVehID">
@@ -365,6 +376,15 @@
         <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="Unique Identification:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtIP2">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIP2ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtIP3">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtIP4">
     </Component>
   </SubComponents>
 </Form>
