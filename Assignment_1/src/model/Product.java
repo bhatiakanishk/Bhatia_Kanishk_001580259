@@ -12,6 +12,8 @@ import java.util.*;
  */
 public class Product {
     
+    Scanner sc=new Scanner(System.in);
+    
     private String name; /*Name*/
     private String location; /*Geographic data*/
     private int dateDay; /*Day of Birth*/
@@ -28,12 +30,65 @@ public class Product {
     private int vid; /*Vehicle identifier*/
     private int did; /*Device identifier*/
     private String link; /*LinkedIn*/
-    private int ip; /*IP Address*/
+    private int ip1; /*IP Address*/
+    private int ip2; /*IP Address*/
+    private int ip3; /*IP Address*/
+    private int ip4; /*IP Address*/
     private int uid; /*Unique ID*/
     /*Photos*/
-    
-    Scanner sc=new Scanner(System.in);
 
+    public int getIp1() {
+        return ip1;
+    }
+
+    public void setIp1(int ip1) {
+        if (ip1<0){
+            throw new IllegalArgumentException("Please enter valid ip address");
+        } else if(ip1>999){
+            throw new IllegalArgumentException("Please enter valid ip address.");
+        }
+        this.ip1 = ip1;
+    }
+
+    public int getIp2() {
+        return ip2;
+    }
+
+    public void setIp2(int ip2) {
+        if (ip2<0){
+            throw new IllegalArgumentException("Please enter valid ip address");
+        } else if(ip2>999){
+            throw new IllegalArgumentException("Please enter valid ip address.");
+        }
+        this.ip2 = ip2;
+    }
+
+    public int getIp3() {
+        return ip3;
+    }
+
+    public void setIp3(int ip3) {
+        if (ip3<0){
+            throw new IllegalArgumentException("Please enter valid ip address");
+        } else if(ip3>999){
+            throw new IllegalArgumentException("Please enter valid ip address.");
+        }
+        this.ip3 = ip3;
+    }
+
+    public int getIp4() {
+        return ip4;
+    }
+
+    public void setIp4(int ip4) {
+        if (ip4<0){
+            throw new IllegalArgumentException("Please enter valid ip address");
+        } else if(ip4>999){
+            throw new IllegalArgumentException("Please enter valid ip address.");
+        }
+        this.ip4 = ip4;
+    }
+    
     public String getName() {
         return name;
     }
@@ -109,8 +164,8 @@ public class Product {
     public void setFax(int fax) {
         int faxcount=0;
         ssn=sc.nextInt();
-        while(phone!=0){
-            phone=phone/10;
+        while(fax!=0){
+            fax=fax/10;
             faxcount++;             
         }
         if (faxcount<10){
@@ -136,8 +191,8 @@ public class Product {
     public void setSsn(int ssn) {
         int ssncount=0;
         ssn=sc.nextInt();
-        while(phone!=0){
-            phone=phone/10;
+        while(ssn!=0){
+            ssn=ssn/10;
             ssncount++;             
         }
         if (ssncount<10){
@@ -171,8 +226,8 @@ public class Product {
     public void setBa(int ba) {
         int bacount=0;
         ba=sc.nextInt();
-        while(phone!=0){
-            phone=phone/10;
+        while(ba!=0){
+            ba=ba/10;
             bacount++;             
         }
         if (bacount<10){
@@ -215,19 +270,22 @@ public class Product {
         this.link = link;
     }
 
-    public int getIp() {
-        return ip;
-    }
-
-    public void setIp(int ip) {
-        this.ip = ip;
-    }
-
     public int getUid() {
         return uid;
     }
 
     public void setUid(int uid) {
+        int uidcount=0;
+        uid=sc.nextInt();
+        while(uid!=0){
+            phone=phone/10;
+            uidcount++;             
+        }
+        if (uid<10){
+            throw new IllegalArgumentException("Please enter valid ssn number");
+        } else if(uid>10){
+            throw new IllegalArgumentException("Please enter valid ssn number.");
+        }
         this.uid = uid;
     }
 
