@@ -331,7 +331,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17))
-                .addContainerGap(332, Short.MAX_VALUE))
+                .addContainerGap(201, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
