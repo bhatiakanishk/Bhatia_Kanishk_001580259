@@ -108,34 +108,34 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblDOB.setText("Date of Birth (MM/DD/YYY):");
 
         lblPhone.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblPhone.setText("Phone Number:");
+        lblPhone.setText("Phone Number (10 digits):");
 
         lblFAX.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblFAX.setText("Fax Number:");
+        lblFAX.setText("Fax Number (10 digits):");
 
         lblEmail.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblEmail.setText("Email:");
 
         lblSSN.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblSSN.setText("Social Security Number:");
+        lblSSN.setText("Social Security Number (10 digits):");
 
         lblMed.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblMed.setText("Medical Record Number:");
+        lblMed.setText("Medical Record Number (10 digits):");
 
         lblHealth.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblHealth.setText("Health Plan Beneficiary Number:");
+        lblHealth.setText("Health Plan Beneficiary Number (10 digits):");
 
         lblBankAcc.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblBankAcc.setText("Bank Account Number:");
+        lblBankAcc.setText("Bank Account Number (10  to 12 digits):");
 
         lblLicence.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblLicence.setText("Licence Number:");
+        lblLicence.setText("Licence Number (8 digits):");
 
         lblVehID.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblVehID.setText("Vehicle Identifier:");
+        lblVehID.setText("Vehicle Identifier (10 digits):");
 
         lblDevID.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblDevID.setText("Device Identifier:");
+        lblDevID.setText("Device Identifier (9 digits):");
 
         lblLinkedIn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblLinkedIn.setText("LinkedIn:");
@@ -144,7 +144,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblIP.setText("Internet Protocol Address:");
 
         lblUID.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblUID.setText("Unique Identification:");
+        lblUID.setText("Unique Identification (10 digits):");
 
         lblPhoto.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblPhoto.setText("Photo:");
@@ -264,27 +264,28 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDOB)
-                    .addComponent(lblPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblFAX, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(lblMed, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                        .addComponent(lblSSN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(lblHealth, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblBankAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(lblDevID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblVehID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
+                        .addComponent(lblVehID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblLicence, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(lblLinkedIn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblIP, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUID, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                    .addComponent(lblPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(lblPhone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblDOB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(lblFAX, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblMed, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblSSN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblHealth, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+                    .addComponent(lblBankAcc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblUID, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -324,7 +325,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(lblMessage)))
                             .addComponent(lblPhoto1, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(45, Short.MAX_VALUE))))
+                        .addContainerGap(43, Short.MAX_VALUE))))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtBankAcc, txtDevID, txtEmail, txtFAX, txtHealth, txtLicence, txtLinkedIn, txtLocation, txtMed, txtName, txtPhone, txtSSN, txtUID, txtVehID});
@@ -410,9 +411,9 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(lblPhoto)
                     .addComponent(btnFile)
                     .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(lblPhoto1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(142, 142, 142))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblPhoto1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtBankAcc, txtDevID, txtEmail, txtFAX, txtHealth, txtIP1, txtLicence, txtLinkedIn, txtLocation, txtMed, txtName, txtPhone, txtSSN, txtUID, txtVehID, txtdateMonth});

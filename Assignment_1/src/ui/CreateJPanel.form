@@ -24,30 +24,32 @@
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="lblName" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
                   <Component id="lblLocation" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
-                  <Component id="lblDOB" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblPhone" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
-                  <Component id="lblFAX" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
                   <Component id="lblEmail" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="lblMed" alignment="0" pref="135" max="32767" attributes="0"/>
-                      <Component id="lblSSN" alignment="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="lblHealth" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
-                  <Component id="lblBankAcc" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                       <Component id="lblDevID" alignment="0" max="32767" attributes="0"/>
-                      <Component id="lblVehID" alignment="0" pref="98" max="32767" attributes="0"/>
+                      <Component id="lblVehID" alignment="0" max="32767" attributes="0"/>
                       <Component id="lblLicence" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <Component id="lblLinkedIn" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
                   <Component id="lblIP" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
-                  <Component id="lblUID" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
                   <Component id="lblPhoto" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="lblPhone" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblDOB" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="lblFAX" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblMed" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblSSN" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="lblHealth" alignment="0" pref="236" max="32767" attributes="0"/>
+                  <Component id="lblBankAcc" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblUID" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="102" max="32767" attributes="0"/>
+              <EmptySpace pref="50" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -94,7 +96,7 @@
                           </Group>
                           <Component id="lblPhoto1" alignment="1" min="-2" pref="459" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="45" max="32767" attributes="0"/>
+                      <EmptySpace pref="43" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -199,9 +201,9 @@
                   <Component id="btnFile" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblMessage" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="43" max="32767" attributes="0"/>
-              <Component id="lblPhoto1" min="-2" pref="240" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="lblPhoto1" min="-2" pref="350" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -237,13 +239,13 @@
     <Component class="javax.swing.JLabel" name="lblPhone">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value="Phone Number:"/>
+        <Property name="text" type="java.lang.String" value="Phone Number (10 digits):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblFAX">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value="Fax Number:"/>
+        <Property name="text" type="java.lang.String" value="Fax Number (10 digits):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblEmail">
@@ -255,43 +257,43 @@
     <Component class="javax.swing.JLabel" name="lblSSN">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value="Social Security Number:"/>
+        <Property name="text" type="java.lang.String" value="Social Security Number (10 digits):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblMed">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value="Medical Record Number:"/>
+        <Property name="text" type="java.lang.String" value="Medical Record Number (10 digits):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblHealth">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value="Health Plan Beneficiary Number:"/>
+        <Property name="text" type="java.lang.String" value="Health Plan Beneficiary Number (10 digits):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblBankAcc">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value="Bank Account Number:"/>
+        <Property name="text" type="java.lang.String" value="Bank Account Number (10  to 12 digits):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblLicence">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value="Licence Number:"/>
+        <Property name="text" type="java.lang.String" value="Licence Number (8 digits):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblVehID">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value="Vehicle Identifier:"/>
+        <Property name="text" type="java.lang.String" value="Vehicle Identifier (10 digits):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblDevID">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value="Device Identifier:"/>
+        <Property name="text" type="java.lang.String" value="Device Identifier (9 digits):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblLinkedIn">
@@ -309,7 +311,7 @@
     <Component class="javax.swing.JLabel" name="lblUID">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value="Unique Identification:"/>
+        <Property name="text" type="java.lang.String" value="Unique Identification (10 digits):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblPhoto">

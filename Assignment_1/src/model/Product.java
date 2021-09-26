@@ -100,6 +100,10 @@ public class Product {
     }
 
     public void setName(String name) {
+        String namevar=sc.nextLine();
+        if (namevar==null || namevar.isEmpty()) {
+            throw new IllegalArgumentException("Please enter a name");  
+        }
         this.name = name;
     }
 
@@ -108,6 +112,10 @@ public class Product {
     }
 
     public void setLocation(String location) {
+        String locvar=sc.nextLine();
+        if (locvar==null || locvar.isEmpty()) {
+            throw new IllegalArgumentException("Please enter a location");  
+        }
         this.location = location;
     }
 
@@ -155,9 +163,9 @@ public class Product {
             phone=phone/10;
             phonecount++;             
         }
-        if (phonecount<1900){
+        if (phonecount<10){
             throw new IllegalArgumentException("Please enter valid number");
-        } else if(phonecount>2021){
+        } else if(phonecount>10){
             throw new IllegalArgumentException("Please enter valid number.");
         }
         this.phone = phone;
@@ -187,6 +195,10 @@ public class Product {
     }
 
     public void setEmail(String email) {
+        String mailvar=sc.nextLine();
+        if (!mailvar.contains("@") ||!mailvar.contains(".") ) {
+            throw new IllegalArgumentException("Please enter valid email");  
+        }
         this.email = email;
     }
 
@@ -328,6 +340,10 @@ public class Product {
     }
 
     public void setLink(String link) {
+        String linkvar=sc.nextLine();
+        if (!linkvar.contains(".") ) {
+            throw new IllegalArgumentException("Please enter valid link");  
+        }
         this.link = link;
     }
 
