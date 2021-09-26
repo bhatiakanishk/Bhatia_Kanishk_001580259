@@ -64,7 +64,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         lblBankAcc = new javax.swing.JLabel();
         txtUID = new javax.swing.JTextField();
         lblLicence = new javax.swing.JLabel();
-        txtIP = new javax.swing.JTextField();
+        txtIP1 = new javax.swing.JTextField();
         lblVehID = new javax.swing.JLabel();
         jTextField17 = new javax.swing.JTextField();
         lblDevID = new javax.swing.JLabel();
@@ -73,6 +73,9 @@ public class ViewJPanel extends javax.swing.JPanel {
         lblIP = new javax.swing.JLabel();
         txtdateYear = new javax.swing.JTextField();
         lblUID = new javax.swing.JLabel();
+        txtIP2 = new javax.swing.JTextField();
+        txtIP3 = new javax.swing.JTextField();
+        txtIP4 = new javax.swing.JTextField();
 
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel17.setText("jLabel17");
@@ -168,9 +171,9 @@ public class ViewJPanel extends javax.swing.JPanel {
         lblLicence.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblLicence.setText("Licence Number:");
 
-        txtIP.addActionListener(new java.awt.event.ActionListener() {
+        txtIP1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIPActionPerformed(evt);
+                txtIP1ActionPerformed(evt);
             }
         });
 
@@ -194,6 +197,12 @@ public class ViewJPanel extends javax.swing.JPanel {
 
         lblUID.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblUID.setText("Unique Identification:");
+
+        txtIP2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIP2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -252,7 +261,14 @@ public class ViewJPanel extends javax.swing.JPanel {
                                     .addComponent(txtVehID, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtDevID, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtLinkedIn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
-                                    .addComponent(txtIP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(txtIP1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtIP2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtIP3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtIP4)))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
@@ -321,8 +337,11 @@ public class ViewJPanel extends javax.swing.JPanel {
                     .addComponent(lblLinkedIn))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblIP))
+                    .addComponent(txtIP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblIP)
+                    .addComponent(txtIP2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtUID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -371,13 +390,17 @@ public class ViewJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUIDActionPerformed
 
-    private void txtIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIPActionPerformed
+    private void txtIP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIP1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIPActionPerformed
+    }//GEN-LAST:event_txtIP1ActionPerformed
 
     private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField17ActionPerformed
+
+    private void txtIP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIP2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIP2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -405,7 +428,10 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFAX;
     private javax.swing.JTextField txtHealth;
-    private javax.swing.JTextField txtIP;
+    private javax.swing.JTextField txtIP1;
+    private javax.swing.JTextField txtIP2;
+    private javax.swing.JTextField txtIP3;
+    private javax.swing.JTextField txtIP4;
     private javax.swing.JTextField txtLicence;
     private javax.swing.JTextField txtLinkedIn;
     private javax.swing.JTextField txtLocation;
@@ -438,7 +464,10 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtVehID.setText(String.valueOf(product.getVid()));
         txtDevID.setText(String.valueOf(product.getDid()));
         txtLinkedIn.setText(product.getLink());
-        txtIP.setText(String.valueOf(product.getIp()));
+        txtIP1.setText(String.valueOf(product.getIp1()));
+        txtIP2.setText(String.valueOf(product.getIp2()));
+        txtIP3.setText(String.valueOf(product.getIp3()));
+        txtIP4.setText(String.valueOf(product.getIp4()));
         txtUID.setText(String.valueOf(product.getUid()));
     }
 }
