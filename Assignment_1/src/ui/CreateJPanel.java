@@ -22,8 +22,7 @@ import model.Product;
  * @author kanis
  */
 public class CreateJPanel extends javax.swing.JPanel {
-    private final JFileChooser openFileChooser;
-    private BufferedImage orignalBI;
+  
 
     /**
      * Creates new form CreateJPanel
@@ -34,8 +33,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     public CreateJPanel(Product product) {
         initComponents();
         this.product = product;
-        openFileChooser = new JFileChooser();
-        openFileChooser.setFileFilter(new FileNameExtensionFilter("png images","png"));
+       
         
              
     }

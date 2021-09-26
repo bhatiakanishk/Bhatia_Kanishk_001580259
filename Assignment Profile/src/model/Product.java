@@ -220,9 +220,4 @@ public class Product {
         this.uid = uid;
     }
     
-    
-
-    
-    
-    
 }

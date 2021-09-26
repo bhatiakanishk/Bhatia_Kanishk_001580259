@@ -5,6 +5,9 @@
  */
 package ui;
 
+import javax.swing.JOptionPane;
+import model.Product;
+
 /**
  *
  * @author kanis
@@ -14,8 +17,12 @@ public class CreateJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateJPanel
      */
-    public CreateJPanel() {
+    Product product;
+    
+    public CreateJPanel(Product product) {
         initComponents();
+        this.product=product;
+        
     }
 
     /**
@@ -116,6 +123,11 @@ public class CreateJPanel extends javax.swing.JPanel {
         });
 
         btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         btnFile.setText("Select File");
 
@@ -300,6 +312,39 @@ public class CreateJPanel extends javax.swing.JPanel {
     private void txtLicencePlateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLicencePlateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLicencePlateActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        
+        product.setName(txtName.getText());
+        product.setLocation(txtState.getText());
+        product.setDateDay(Integer.parseInt(txtDateDay.getText()));
+        product.setDateMonth(Integer.parseInt(txtDateMonth.getText()));
+        product.setDateYear(Integer.parseInt(txtDateYear.getText()));
+        product.setPhone(Integer.parseInt(txtPhone.getText()));
+        product.setFax(Integer.parseInt(txtFAX.getText()));
+        product.setEmail(txtEmail.getText());
+        product.setSsn(Integer.parseInt(txtSSN.getText()));
+        product.setMed(Integer.parseInt(txtMed.getText()));
+        product.setHp(Integer.parseInt(txtHealth.getText()));
+        product.setBa(Integer.parseInt(txtBankAcc.getText()));
+        product.setLn(Integer.parseInt(txtLicenceNumber.getText()));
+        product.setVid(Integer.parseInt(txtVehID.getText()));
+        product.setLicence(txtLicencePlate.getText());
+        product.setDid(Integer.parseInt(txtDeviceID.getText()));
+        product.setLink(txtBankAcc.getText());
+        product.setIp1(Integer.parseInt(txtIP1.getText()));
+        product.setIp2(Integer.parseInt(txtIP2.getText()));
+        product.setIp3(Integer.parseInt(txtIP3.getText()));
+        product.setIp4(Integer.parseInt(txtIP4.getText()));
+        product.setUid(Integer.parseInt(txtUID.getText()));
+        
+        
+        
+                
+        
+        JOptionPane.showMessageDialog(this, "Profile Information Saved");
+    }//GEN-LAST:event_btnSaveActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
