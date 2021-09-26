@@ -43,9 +43,9 @@ public class Product {
 
     public void setIp1(int ip1) {
         if (ip1<0){
-            throw new IllegalArgumentException("Please enter valid ip address");
+            throw new IllegalArgumentException("Please enter valid ip1 address");
         } else if(ip1>999){
-            throw new IllegalArgumentException("Please enter valid ip address.");
+            throw new IllegalArgumentException("Please enter valid ip1 address.");
         }
         this.ip1 = ip1;
     }
@@ -56,9 +56,9 @@ public class Product {
 
     public void setIp2(int ip2) {
         if (ip2<0){
-            throw new IllegalArgumentException("Please enter valid ip address");
+            throw new IllegalArgumentException("Please enter valid ip2 address");
         } else if(ip2>999){
-            throw new IllegalArgumentException("Please enter valid ip address.");
+            throw new IllegalArgumentException("Please enter valid ip2 address.");
         }
         this.ip2 = ip2;
     }
@@ -69,9 +69,9 @@ public class Product {
 
     public void setIp3(int ip3) {
         if (ip3<0){
-            throw new IllegalArgumentException("Please enter valid ip address");
+            throw new IllegalArgumentException("Please enter valid ip3 address");
         } else if(ip3>999){
-            throw new IllegalArgumentException("Please enter valid ip address.");
+            throw new IllegalArgumentException("Please enter valid ip3 address.");
         }
         this.ip3 = ip3;
     }
@@ -82,9 +82,9 @@ public class Product {
 
     public void setIp4(int ip4) {
         if (ip4<0){
-            throw new IllegalArgumentException("Please enter valid ip address");
+            throw new IllegalArgumentException("Please enter valid ip4 address");
         } else if(ip4>999){
-            throw new IllegalArgumentException("Please enter valid ip address.");
+            throw new IllegalArgumentException("Please enter valid ip4 address.");
         }
         this.ip4 = ip4;
     }
@@ -208,6 +208,17 @@ public class Product {
     }
 
     public void setMed(int med) {
+        int medcount=0;
+        med=sc.nextInt();
+        while(med!=0){
+            med=med/10;
+            medcount++;             
+        }
+        if (medcount<10){
+            throw new IllegalArgumentException("Please enter valid medical record number");
+        } else if(medcount>10){
+            throw new IllegalArgumentException("Please enter valid medical record number.");
+        }
         this.med = med;
     }
 
@@ -216,6 +227,17 @@ public class Product {
     }
 
     public void setHp(int hp) {
+        int hpcount=0;
+        hp=sc.nextInt();
+        while(hp!=0){
+            hp=hp/10;
+            hpcount++;             
+        }
+        if (hpcount<10){
+            throw new IllegalArgumentException("Please enter valid health plan number");
+        } else if(hpcount>10){
+            throw new IllegalArgumentException("Please enter valid health plan number.");
+        }
         this.hp = hp;
     }
 
@@ -243,6 +265,17 @@ public class Product {
     }
 
     public void setLn(int ln) {
+        int lncount=0;
+        ln=sc.nextInt();
+        while(ln!=0){
+            ln=ln/10;
+            lncount++;             
+        }
+        if (lncount<8){
+            throw new IllegalArgumentException("Please enter valid licence number");
+        } else if(lncount>8){
+            throw new IllegalArgumentException("Please enter valid licence number.");
+        }
         this.ln = ln;
     }
 
@@ -251,6 +284,17 @@ public class Product {
     }
 
     public void setVid(int vid) {
+        int vidcount=0;
+        vid=sc.nextInt();
+        while(vid!=0){
+            vid=vid/10;
+            vidcount++;             
+        }
+        if (vidcount<10){
+            throw new IllegalArgumentException("Please enter valid vehicle identification");
+        } else if(vidcount>10){
+            throw new IllegalArgumentException("Please enter valid behicle identification.");
+        }
         this.vid = vid;
     }
 
@@ -259,6 +303,17 @@ public class Product {
     }
 
     public void setDid(int did) {
+        int didcount=0;
+        did=sc.nextInt();
+        while(did!=0){
+            did=did/10;
+            didcount++;             
+        }
+        if (didcount<9){
+            throw new IllegalArgumentException("Please enter valid device identification");
+        } else if(didcount>9){
+            throw new IllegalArgumentException("Please enter valid device identification.");
+        }
         this.did = did;
     }
 
@@ -288,6 +343,4 @@ public class Product {
         }
         this.uid = uid;
     }
-
-   
     }
