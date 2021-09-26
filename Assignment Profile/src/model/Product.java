@@ -27,7 +27,7 @@ public class Product {
     private int ba; /*Bank Acoount Number*/
     private int ln; /*Licence Number*/
     private int vid; /*Vehicle identifier*/
-    private String licence;
+    private String licence; /*Licence Plate*/
     private int did; /*Device identifier*/
     private String link; /*LinkedIn*/
     private int ip1; /*IP Address*/
@@ -49,6 +49,7 @@ public class Product {
     }
 
     public void setName(String name) {
+        
         this.name = name;
     }
 

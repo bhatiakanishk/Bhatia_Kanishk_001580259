@@ -138,6 +138,11 @@ public class CreateJPanel extends javax.swing.JPanel {
         });
 
         btnFile.setText("Select File");
+        btnFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFileActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -351,6 +356,12 @@ public class CreateJPanel extends javax.swing.JPanel {
     private void txtDateMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateMonthActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDateMonthActionPerformed
+
+    private void btnFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFileActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_btnFileActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

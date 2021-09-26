@@ -77,6 +77,8 @@ public class ViewJPanel extends javax.swing.JPanel {
 
         lblUID.setText("Unique ID:");
 
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("View");
 
         lblName.setText("Name:");
