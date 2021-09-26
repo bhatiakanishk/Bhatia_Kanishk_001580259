@@ -343,9 +343,9 @@ public class Product {
             uidcount++;             
         }
         if (uid<10){
-            throw new IllegalArgumentException("Please enter valid ssn number");
+            throw new IllegalArgumentException("Please enter valid uid");
         } else if(uid>10){
-            throw new IllegalArgumentException("Please enter valid ssn number.");
+            throw new IllegalArgumentException("Please enter valid uid.");
         }
         this.uid = uid;
     }
