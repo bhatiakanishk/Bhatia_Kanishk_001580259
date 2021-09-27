@@ -51,7 +51,6 @@ public class Product {
     }
 
     public void setName(String name) {
-        
         this.name = name;
     }
 
@@ -110,7 +109,10 @@ public class Product {
     }
 
     public void setPhone(int phone) {
-        int count=0;
+        if(phone<1000000000){
+            throw new IllegalArgumentException("Invalid Number");
+        }
+        /*int count=0;
         while(phone!=0){
             phone=phone/10;
             count++;
@@ -119,7 +121,7 @@ public class Product {
             throw new IllegalArgumentException("Phone cannot be less than 10 digits");
         }
         else if(count<10){
-            throw new IllegalArgumentException("Phone cannot be more than 10 digits");}
+            throw new IllegalArgumentException("Phone cannot be more than 10 digits");}*/
         this.phone = phone;
     }
 
@@ -128,7 +130,9 @@ public class Product {
     }
 
     public void setFax(int fax) {
-        int count=0;
+        if(fax<1000000000){
+            throw new IllegalArgumentException("Invalid fax");}
+        /*int count=0;
         while(fax!=0){
             fax=fax/10;
             count++;
@@ -137,7 +141,8 @@ public class Product {
             throw new IllegalArgumentException("Fax cannot be less than 10 digits");
         }
         else if(count<10){
-            throw new IllegalArgumentException("Fax cannot be more than 10 digits");}
+            throw new IllegalArgumentException("Fax cannot be more than 10 digits");}*/
+        
         this.fax = fax;
     }
 
@@ -146,6 +151,10 @@ public class Product {
     }
 
     public void setEmail(String email) {
+        /*int s=email.length();
+        for(int i=0;i<0;i++){
+        }*/
+            
         this.email = email;
     }
 
@@ -154,7 +163,9 @@ public class Product {
     }
 
     public void setSsn(int ssn) {
-        int count=0;
+        if(ssn<1000000000){
+        throw new IllegalArgumentException("Invalid SSN");}
+        /*int count=0;
         while(ssn!=0){
             ssn=ssn/10;
             count++;
@@ -163,7 +174,7 @@ public class Product {
             throw new IllegalArgumentException("SSN cannot be less than 10 digits");
         }
         else if(count<10){
-            throw new IllegalArgumentException("SSN cannot be more than 10 digits");}
+            throw new IllegalArgumentException("SSN cannot be more than 10 digits");}*/
         this.ssn = ssn;
     }
 
@@ -172,7 +183,9 @@ public class Product {
     }
 
     public void setMed(int med) {
-        int count=0;
+        if(med<1000000000){
+        throw new IllegalArgumentException("Invalid medical number");}
+        /*int count=0;
         while(med!=0){
             med=med/10;
             count++;
@@ -181,7 +194,7 @@ public class Product {
             throw new IllegalArgumentException("Medical Number cannot be less than 10 digits");
         }
         else if(count<10){
-            throw new IllegalArgumentException("Medical Number cannot be more than 10 digits");}
+            throw new IllegalArgumentException("Medical Number cannot be more than 10 digits");}*/
         this.med = med;
     }
 
@@ -190,7 +203,9 @@ public class Product {
     }
 
     public void setHp(int hp) {
-        int count=0;
+                if(hp<1000000000){
+            throw new IllegalArgumentException("Invalid health number");}
+        /*int count=0;
         while(hp!=0){
             hp=hp/10;
             count++;
@@ -199,7 +214,7 @@ public class Product {
             throw new IllegalArgumentException("Health Plan Number cannot be less than 10 digits");
         }
         else if(count<10){
-            throw new IllegalArgumentException("Health Plan Number cannot be more than 10 digits");}
+            throw new IllegalArgumentException("Health Plan Number cannot be more than 10 digits");}*/
         this.hp = hp;
     }
 
@@ -208,7 +223,9 @@ public class Product {
     }
 
     public void setBa(int ba) {
-        int count=0;
+                if(ba<1000000000){
+            throw new IllegalArgumentException("Invalid bank account");}
+        /*int count=0;
         while(ba!=0){
             ba=ba/10;
             count++;
@@ -217,7 +234,7 @@ public class Product {
             throw new IllegalArgumentException("Bank Account cannot be less than 10 digits");
         }
         else if(count<10){
-            throw new IllegalArgumentException("Bank Account cannot be more than 10 digits");}
+            throw new IllegalArgumentException("Bank Account cannot be more than 10 digits");}*/
         this.ba = ba;
     }
 
@@ -226,7 +243,9 @@ public class Product {
     }
 
     public void setLn(int ln) {
-        int count=0;
+            if(ln<1000000000){
+            throw new IllegalArgumentException("Invalid licence number");}
+        /*int count=0;
         while(ln!=0){
             ln=ln/10;
             count++;
@@ -235,7 +254,7 @@ public class Product {
             throw new IllegalArgumentException("Licence Number cannot be less than 10 digits");
         }
         else if(count<10){
-            throw new IllegalArgumentException("Licence Number cannot be more than 10 digits");}
+            throw new IllegalArgumentException("Licence Number cannot be more than 10 digits");}*/
         this.ln = ln;
     }
 
@@ -270,7 +289,9 @@ public class Product {
     }
 
     public void setDid(int did) {
-        int count=0;
+                if(did<1000000000){
+            throw new IllegalArgumentException("Invalid Device ID");}
+        /*int count=0;
         while(did!=0){
             did=did/10;
             count++;
@@ -279,7 +300,7 @@ public class Product {
             throw new IllegalArgumentException("Device ID cannot be less than 10 digits");
         }
         else if(count<0){
-            throw new IllegalArgumentException("Device ID cannot be more than 10 digits");}
+            throw new IllegalArgumentException("Device ID cannot be more than 10 digits");}*/
         this.did = did;
     }
 
@@ -368,7 +389,9 @@ public class Product {
     }
 
     public void setUid(int uid) {
-        int count=0;
+                if(uid<1000000000){
+            throw new IllegalArgumentException("Invalid Unique ID");}
+        /*int count=0;
         while(uid!=0){
             uid=uid/10;
             count++;
@@ -377,7 +400,7 @@ public class Product {
             throw new IllegalArgumentException("Unique ID cannot be less than 10 digits");
         }
         else if(count<10){
-            throw new IllegalArgumentException("Unique ID cannot be more than 10 digits");}
+            throw new IllegalArgumentException("Unique ID cannot be more than 10 digits");}*/
         this.uid = uid;
     }
 
@@ -388,7 +411,4 @@ public class Product {
     public void setSelectedImagePath(String SelectedImagePath) {
         this.SelectedImagePath = SelectedImagePath;
     }
-
-    
-    
 }
