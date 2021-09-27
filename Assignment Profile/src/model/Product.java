@@ -6,6 +6,7 @@
 package model;
 import java.util.*;
 
+
 /**
  *
  * @author kanis
@@ -35,6 +36,7 @@ public class Product {
     private int ip3; /*IP Address*/
     private int ip4; /*IP Address*/
     private int uid; /*Unique ID*/
+    private String SelectedImagePath;
 
     public Scanner getSc() {
         return sc;
@@ -66,6 +68,12 @@ public class Product {
     }
 
     public void setDateDay(int dateDay) {
+        if (dateDay>31) {
+            throw new IllegalArgumentException("Day cannot be above 31");
+        }
+        else if (dateDay<0) {
+            throw new IllegalArgumentException("Day cannot be below 0");            
+        }
         this.dateDay = dateDay;
     }
 
@@ -74,6 +82,12 @@ public class Product {
     }
 
     public void setDateMonth(int dateMonth) {
+        if (dateMonth>12) {
+            throw new IllegalArgumentException("Month cannot be above 31");
+        }
+        else if (dateMonth<0) {
+            throw new IllegalArgumentException("Month cannot be below 0");            
+        }
         this.dateMonth = dateMonth;
     }
 
@@ -82,6 +96,12 @@ public class Product {
     }
 
     public void setDateYear(int dateYear) {
+        if (dateYear>2021) {
+            throw new IllegalArgumentException("Year cannot be above 2021");
+        }
+        else if (dateYear<0) {
+            throw new IllegalArgumentException("Year cannot be below 0");            
+        }
         this.dateYear = dateYear;
     }
 
@@ -90,6 +110,16 @@ public class Product {
     }
 
     public void setPhone(int phone) {
+        int count=0;
+        while(phone!=0){
+            phone=phone/10;
+            count++;
+        }
+        if(count>10){
+            throw new IllegalArgumentException("Phone cannot be less than 10 digits");
+        }
+        else if(count<10){
+            throw new IllegalArgumentException("Phone cannot be more than 10 digits");}
         this.phone = phone;
     }
 
@@ -98,6 +128,16 @@ public class Product {
     }
 
     public void setFax(int fax) {
+        int count=0;
+        while(fax!=0){
+            fax=fax/10;
+            count++;
+        }
+        if(count>10){
+            throw new IllegalArgumentException("Fax cannot be less than 10 digits");
+        }
+        else if(count<10){
+            throw new IllegalArgumentException("Fax cannot be more than 10 digits");}
         this.fax = fax;
     }
 
@@ -114,6 +154,16 @@ public class Product {
     }
 
     public void setSsn(int ssn) {
+        int count=0;
+        while(ssn!=0){
+            ssn=ssn/10;
+            count++;
+        }
+        if(count>10){
+            throw new IllegalArgumentException("SSN cannot be less than 10 digits");
+        }
+        else if(count<10){
+            throw new IllegalArgumentException("SSN cannot be more than 10 digits");}
         this.ssn = ssn;
     }
 
@@ -122,6 +172,16 @@ public class Product {
     }
 
     public void setMed(int med) {
+        int count=0;
+        while(med!=0){
+            med=med/10;
+            count++;
+        }
+        if(count>10){
+            throw new IllegalArgumentException("Medical Number cannot be less than 10 digits");
+        }
+        else if(count<10){
+            throw new IllegalArgumentException("Medical Number cannot be more than 10 digits");}
         this.med = med;
     }
 
@@ -130,6 +190,16 @@ public class Product {
     }
 
     public void setHp(int hp) {
+        int count=0;
+        while(hp!=0){
+            hp=hp/10;
+            count++;
+        }
+        if(count>10){
+            throw new IllegalArgumentException("Health Plan Number cannot be less than 10 digits");
+        }
+        else if(count<10){
+            throw new IllegalArgumentException("Health Plan Number cannot be more than 10 digits");}
         this.hp = hp;
     }
 
@@ -138,6 +208,16 @@ public class Product {
     }
 
     public void setBa(int ba) {
+        int count=0;
+        while(ba!=0){
+            ba=ba/10;
+            count++;
+        }
+        if(count>10){
+            throw new IllegalArgumentException("Bank Account cannot be less than 10 digits");
+        }
+        else if(count<10){
+            throw new IllegalArgumentException("Bank Account cannot be more than 10 digits");}
         this.ba = ba;
     }
 
@@ -146,6 +226,16 @@ public class Product {
     }
 
     public void setLn(int ln) {
+        int count=0;
+        while(ln!=0){
+            ln=ln/10;
+            count++;
+        }
+        if(count>10){
+            throw new IllegalArgumentException("Licence Number cannot be less than 10 digits");
+        }
+        else if(count<10){
+            throw new IllegalArgumentException("Licence Number cannot be more than 10 digits");}
         this.ln = ln;
     }
 
@@ -154,6 +244,16 @@ public class Product {
     }
 
     public void setVid(int vid) {
+        int count=0;
+        while(vid!=0){
+            vid=vid/10;
+            count++;
+        }
+        if(count>10){
+            throw new IllegalArgumentException("Vehicle ID cannot be less than 10 digits");
+        }
+        else if(count<10){
+            throw new IllegalArgumentException("Vehicle ID cannot be more than 10 digits");}
         this.vid = vid;
     }
 
@@ -170,6 +270,16 @@ public class Product {
     }
 
     public void setDid(int did) {
+        int count=0;
+        while(did!=0){
+            did=did/10;
+            count++;
+        }
+        if(count>10){
+            throw new IllegalArgumentException("Device ID cannot be less than 10 digits");
+        }
+        else if(count<0){
+            throw new IllegalArgumentException("Device ID cannot be more than 10 digits");}
         this.did = did;
     }
 
@@ -186,6 +296,16 @@ public class Product {
     }
 
     public void setIp1(int ip1) {
+        int count=0;
+        while(ip1!=0){
+            ip1=ip1/10;
+            count++;
+        }
+        if(count>999){
+            throw new IllegalArgumentException("IP1 cannot be less than 10 digits");
+        }
+        else if(count<0){
+            throw new IllegalArgumentException("IP1 cannot be more than 10 digits");}
         this.ip1 = ip1;
     }
 
@@ -194,6 +314,16 @@ public class Product {
     }
 
     public void setIp2(int ip2) {
+        int count=0;
+        while(ip2!=0){
+            ip2=ip2/10;
+            count++;
+        }
+        if(count>999){
+            throw new IllegalArgumentException("IP2 cannot be less than 10 digits");
+        }
+        else if(count<0){
+            throw new IllegalArgumentException("IP2 cannot be more than 10 digits");}
         this.ip2 = ip2;
     }
 
@@ -202,6 +332,16 @@ public class Product {
     }
 
     public void setIp3(int ip3) {
+        int count=0;
+        while(ip3!=0){
+            ip3=ip3/10;
+            count++;
+        }
+        if(count>999){
+            throw new IllegalArgumentException("IP3 cannot be less than 10 digits");
+        }
+        else if(count<0){
+            throw new IllegalArgumentException("IP3 cannot be more than 10 digits");}
         this.ip3 = ip3;
     }
 
@@ -210,6 +350,16 @@ public class Product {
     }
 
     public void setIp4(int ip4) {
+        int count=0;
+        while(ip4!=0){
+            ip4=ip4/10;
+            count++;
+        }
+        if(count>999){
+            throw new IllegalArgumentException("IP4 cannot be less than 10 digits");
+        }
+        else if(count<0){
+            throw new IllegalArgumentException("IP4 cannot be more than 10 digits");}
         this.ip4 = ip4;
     }
 
@@ -218,7 +368,27 @@ public class Product {
     }
 
     public void setUid(int uid) {
+        int count=0;
+        while(uid!=0){
+            uid=uid/10;
+            count++;
+        }
+        if(count>10){
+            throw new IllegalArgumentException("Unique ID cannot be less than 10 digits");
+        }
+        else if(count<10){
+            throw new IllegalArgumentException("Unique ID cannot be more than 10 digits");}
         this.uid = uid;
     }
+
+    public String getSelectedImagePath() {
+        return SelectedImagePath;
+    }
+
+    public void setSelectedImagePath(String SelectedImagePath) {
+        this.SelectedImagePath = SelectedImagePath;
+    }
+
+    
     
 }
