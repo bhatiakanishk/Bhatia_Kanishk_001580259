@@ -6,8 +6,11 @@
 package ui;
 
 import java.awt.Image;
+import java.io.File;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import model.Product;
 
 /**
@@ -77,10 +80,10 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtLinkedIn = new javax.swing.JTextField();
         lblLinkedIn = new javax.swing.JLabel();
         lblIPAddress = new javax.swing.JLabel();
+        lbllicense = new javax.swing.JLabel();
 
         lblUID.setText("Unique ID:");
 
-        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("View");
 
@@ -121,6 +124,9 @@ public class ViewJPanel extends javax.swing.JPanel {
         lblLinkedIn.setText("LinkedIn:");
 
         lblIPAddress.setText("IP Address:");
+
+        lbllicense.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbllicense.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "License", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_BOTTOM));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -194,14 +200,16 @@ public class ViewJPanel extends javax.swing.JPanel {
                                             .addComponent(txtBankAcc))
                                         .addGap(92, 92, 92))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(txtUID, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(txtIP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(txtIP2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(txtIP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lbllicense, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(txtUID, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                    .addComponent(txtIP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(txtIP2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(txtIP3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                         .addGap(18, 18, 18)
                                         .addComponent(txtIP4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(108, 108, 108)))
@@ -285,7 +293,9 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUID)
                     .addComponent(txtUID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(286, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
+                .addComponent(lbllicense, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -313,6 +323,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUID;
     private javax.swing.JLabel lblVehID;
+    private javax.swing.JLabel lbllicense;
     private javax.swing.JTextField txtBankAcc;
     private javax.swing.JTextField txtDateDay;
     private javax.swing.JTextField txtDateMonth;
@@ -362,11 +373,12 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtIP4.setText(String.valueOf(product.getIp4()));
         txtUID.setText(String.valueOf(product.getUid()));
         
-        JOptionPane.showMessageDialog(null, getselectedImage);
-        ImageIcon imIco = new ImageIcon(getselectedImage);
-        //make image fit on jlabel.
-        Image imFit = imIco.getImage();
-        Image imgFit = imFit.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH);
-        label.setIcon(new ImageIcon(imgFit));
+        
+        
+        /*ImageIcon imgicn = new ImageIcon(product.getSelectedImagePath());  
+        //Creating an image using the specfied file path and setting image size using ScaledInstance.
+        Image img = imgicn.getImage().getScaledInstance(lbllicense.getWidth(), lbllicense.getHeight(), Image.SCALE_SMOOTH);
+        //Setting the image to label lbllicense.
+        lbllicense.setIcon(new ImageIcon(img));*/
     }
 }
