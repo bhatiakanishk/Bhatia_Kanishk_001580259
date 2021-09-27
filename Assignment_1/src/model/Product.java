@@ -92,8 +92,8 @@ public class Product {
     }
 
     public void setName(String name) {
-        String namevar=sc.nextLine();
-        if (namevar==null || namevar.isEmpty()) {
+        
+        if (name.isEmpty()) {
             throw new IllegalArgumentException("Please enter a name");  
         }
         this.name = name;
@@ -188,7 +188,7 @@ public class Product {
 
     public void setEmail(String email) {
         String mailvar=sc.nextLine();
-        if (!mailvar.contains("@") ||!mailvar.contains(".") ) {
+        if (!mailvar.contains("@") && !mailvar.contains(".") ) {
             throw new IllegalArgumentException("Please enter valid email");  
         }
         this.email = email;
