@@ -263,7 +263,7 @@ public class Product {
     }
 
     public void setVid(int vid) {
-        int count=0;
+        /*int count=0;
         while(vid!=0){
             vid=vid/10;
             count++;
@@ -272,7 +272,7 @@ public class Product {
             throw new IllegalArgumentException("Vehicle ID cannot be less than 10 digits");
         }
         else if(count<10){
-            throw new IllegalArgumentException("Vehicle ID cannot be more than 10 digits");}
+            throw new IllegalArgumentException("Vehicle ID cannot be more than 10 digits");}*/
         this.vid = vid;
     }
 
@@ -323,10 +323,10 @@ public class Product {
             count++;
         }
         if(count>999){
-            throw new IllegalArgumentException("IP1 cannot be less than 10 digits");
+            throw new IllegalArgumentException(" Invalid IP1");
         }
         else if(count<0){
-            throw new IllegalArgumentException("IP1 cannot be more than 10 digits");}
+            throw new IllegalArgumentException("Invalid IP1. ");}
         this.ip1 = ip1;
     }
 
@@ -341,10 +341,10 @@ public class Product {
             count++;
         }
         if(count>999){
-            throw new IllegalArgumentException("IP2 cannot be less than 10 digits");
+            throw new IllegalArgumentException("Invalid IP2");
         }
         else if(count<0){
-            throw new IllegalArgumentException("IP2 cannot be more than 10 digits");}
+            throw new IllegalArgumentException("Invalid IP2.");}
         this.ip2 = ip2;
     }
 
@@ -359,10 +359,10 @@ public class Product {
             count++;
         }
         if(count>999){
-            throw new IllegalArgumentException("IP3 cannot be less than 10 digits");
+            throw new IllegalArgumentException("Invalid IP3 ");
         }
         else if(count<0){
-            throw new IllegalArgumentException("IP3 cannot be more than 10 digits");}
+            throw new IllegalArgumentException("Invalid IP3.");}
         this.ip3 = ip3;
     }
 
@@ -377,10 +377,10 @@ public class Product {
             count++;
         }
         if(count>999){
-            throw new IllegalArgumentException("IP4 cannot be less than 10 digits");
+            throw new IllegalArgumentException("Invalid IP4");
         }
         else if(count<0){
-            throw new IllegalArgumentException("IP4 cannot be more than 10 digits");}
+            throw new IllegalArgumentException("Invalid IP4.");}
         this.ip4 = ip4;
     }
 
