@@ -384,7 +384,18 @@ public class Main extends javax.swing.JFrame {
     private void tblViewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblViewMouseClicked
         // TODO add your handling code here:
         
-        row = t
+        row = tblView.getSelectedRow();
+        col = tblView.getSelectedColumn();
+        System.out.println(row + "" + col);
+        txtManufacturer.setText(dtm.getValueAt(row, 0).toString());
+        txtModel.setText(dtm.getValueAt(row, 1).toString());
+        txtYear.setText(dtm.getValueAt(row, 2).toString());
+        txtSeats.setText(dtm.getValueAt(row, 3).toString());
+        txtSrNo.setText(dtm.getValueAt(row, 4).toString());
+        txtCity.setText(dtm.getValueAt(row, 5).toString());
+        txtCertificate.setText(dtm.getValueAt(row, 6).toString());
+        txtAvailable.setText(dtm.getValueAt(row, 7).toString());
+        
     }//GEN-LAST:event_tblViewMouseClicked
     
     private void clearField() {
