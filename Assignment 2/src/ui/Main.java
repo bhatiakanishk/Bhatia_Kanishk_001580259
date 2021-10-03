@@ -61,10 +61,10 @@ public class Main extends javax.swing.JFrame {
         txtCertificate = new javax.swing.JTextField();
         txtAvailable = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblView = new javax.swing.JTable();
@@ -168,18 +168,33 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Add");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Delete");
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Update");
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Search");
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -187,13 +202,13 @@ public class Main extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(btnAdd)
                 .addGap(128, 128, 128)
-                .addComponent(jButton2)
+                .addComponent(btnDelete)
                 .addGap(115, 115, 115)
-                .addComponent(jButton3)
+                .addComponent(btnUpdate)
                 .addGap(133, 133, 133)
-                .addComponent(jButton4)
+                .addComponent(btnSearch)
                 .addContainerGap(418, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -201,10 +216,10 @@ public class Main extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(btnAdd)
+                    .addComponent(btnDelete)
+                    .addComponent(btnUpdate)
+                    .addComponent(btnSearch))
                 .addGap(23, 23, 23))
         );
 
@@ -219,6 +234,11 @@ public class Main extends javax.swing.JFrame {
                 "Manufacturer", "Model", "Year", "Number of Seats", "Serial Number", "City", "Maintenance Certificate", "Car Available"
             }
         ));
+        tblView.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblViewMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblView);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -272,7 +292,7 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSeatsActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
         
         String manufacturer = txtManufacturer.getText();
@@ -292,7 +312,80 @@ public class Main extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(this, "Information Added");
         clearField();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Delete this data", "Delete", dialogButton);
+        if(dialogResult == 0){
+            dtm.removeRow(row);
+            carlist.remove(row);
+            dtm.setRowCount(0);
+            for(int i = 0; i < carlist.size();i++){
+                Object[] objs = {carlist.get(i).manufacturer, carlist.get(i).model, carlist.get(i).year, carlist.get(i).seats, carlist.get(i).srno, carlist.get(i).city, carlist.get(i).certificate, carlist.get(i).available};
+                dtm.addRow(objs);
+            }
+            clearField();
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        
+        String updatemanufacturer = txtManufacturer.getText();
+        String updatemodel = txtModel.getText();
+        int updateyear = Integer.parseInt(txtYear.getText());
+        int updateseats = Integer.parseInt(txtSeats.getText());
+        String updatesrno = txtSrNo.getText();
+        String updatecity = txtCity.getText();
+        String updatecertificate = txtCertificate.getText();
+        String updateavailable = txtAvailable.getText();
+        
+        carlist.get(row).manufacturer = updatemanufacturer;
+        carlist.get(row).model = updatemodel;
+        carlist.get(row).year = updateyear;
+        carlist.get(row).seats = updateseats;
+        carlist.get(row).srno = updatesrno;
+        carlist.get(row).city = updatecity;
+        carlist.get(row).certificate = updatecertificate;
+        carlist.get(row).available = updateavailable;
+        dtm.setRowCount(0); //Reset table and populate
+        for(int i = 0; i < carlist.size();i++){
+                Object[] objs = {carlist.get(i).manufacturer, carlist.get(i).model, carlist.get(i).year, carlist.get(i).seats, carlist.get(i).srno, carlist.get(i).city, carlist.get(i).certificate, carlist.get(i).available};
+                dtm.addRow(objs);
+            }
+        
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        
+        String input = JOptionPane.showInputDialog(this, "Search Car Manufacturer");
+        for(int i = 0; i<carlist.size();i++){
+            if(carlist.get(i).manufacturer.equalsIgnoreCase(input)){
+                JOptionPane.showMessageDialog(btnSearch, "Found", "Search Car",2);
+                txtManufacturer.setText(carlist.get(i).manufacturer);
+                txtModel.setText(carlist.get(i).model);
+                txtYear.setText(String.valueOf(carlist.get(i).year));
+                txtSeats.setText(String.valueOf(carlist.get(i).seats));
+                txtSrNo.setText(carlist.get(i).srno);
+                txtCity.setText(carlist.get(i).city);
+                txtCertificate.setText(carlist.get(i).certificate);
+                txtAvailable.setText(carlist.get(i).available);
+            }
+            return;
+        }
+        JOptionPane.showMessageDialog(btnSearch, "Not Found", "Search Car", 2);
+        
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void tblViewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblViewMouseClicked
+        // TODO add your handling code here:
+        
+        row = t
+    }//GEN-LAST:event_tblViewMouseClicked
     
     private void clearField() {
         
@@ -345,10 +438,10 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
