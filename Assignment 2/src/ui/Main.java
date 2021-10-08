@@ -470,6 +470,7 @@ public class Main extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(btnSearchA, "Not Found", "Search Car", 2);
         
 <<<<<<< HEAD
+<<<<<<< HEAD
         
         
     }//GEN-LAST:event_btnSearchAActionPerformed
@@ -488,6 +489,9 @@ public class Main extends javax.swing.JFrame {
         txtCertificate.setText(dtm.getValueAt(row, 6).toString());
         txtAvailable.setText(dtm.getValueAt(row, 7).toString());
         
+=======
+        row = t
+>>>>>>> parent of 7f99122 (Update Main.java)
 =======
         row = t
 >>>>>>> parent of 7f99122 (Update Main.java)
