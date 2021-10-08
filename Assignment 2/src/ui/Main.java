@@ -15,6 +15,7 @@ import model.Cars;
  */
 public class Main extends javax.swing.JFrame {
     
+    Cars cars;
     ArrayList<Cars> carlist;
     String header[] = new String[] {"Manufacturer","Model","Year","Seats","SrNo","City","Certificate","Available"};
     DefaultTableModel dtm;
@@ -26,10 +27,12 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        
+        cars = new Cars();
         carlist= new ArrayList<>();
         dtm = new DefaultTableModel(header,0);
         tblView.setModel(dtm);
-       this.setLocationRelativeTo(null); //Set Interface to center
+        this.setLocationRelativeTo(null); //Set Interface to center
     }
 
     /**
@@ -65,6 +68,7 @@ public class Main extends javax.swing.JFrame {
         btnDelete = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
+        btnSearchA = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblView = new javax.swing.JTable();
@@ -196,6 +200,13 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        btnSearchA.setText("Search A");
+        btnSearchA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchAActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -203,13 +214,15 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnAdd)
-                .addGap(128, 128, 128)
+                .addGap(18, 18, 18)
                 .addComponent(btnDelete)
-                .addGap(115, 115, 115)
+                .addGap(18, 18, 18)
                 .addComponent(btnUpdate)
-                .addGap(133, 133, 133)
+                .addGap(18, 18, 18)
                 .addComponent(btnSearch)
-                .addContainerGap(418, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnSearchA)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,7 +232,8 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(btnAdd)
                     .addComponent(btnDelete)
                     .addComponent(btnUpdate)
-                    .addComponent(btnSearch))
+                    .addComponent(btnSearch)
+                    .addComponent(btnSearchA))
                 .addGap(23, 23, 23))
         );
 
@@ -247,7 +261,7 @@ public class Main extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1088, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -397,6 +411,12 @@ public class Main extends javax.swing.JFrame {
         txtAvailable.setText(dtm.getValueAt(row, 7).toString());
         
     }//GEN-LAST:event_tblViewMouseClicked
+
+    private void btnSearchAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchAActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_btnSearchAActionPerformed
     
     private void clearField() {
         
@@ -452,6 +472,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnSearchA;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;
