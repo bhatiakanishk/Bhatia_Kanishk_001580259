@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package ui;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import model.Cars;
 
 /**
  *
@@ -14,8 +17,18 @@ public class ViewJFrame extends javax.swing.JFrame {
     /**
      * Creates new form ViewJFrame
      */
+    Cars cars;
+    ArrayList<Cars> carlist;
+    String header[] = new String[] {"Manufacturer","Model","Year","Seats","SrNo","City","Certificate","Available"};
+    DefaultTableModel dtm;
+    int row;
+    int col;
     public ViewJFrame() {
         initComponents();
+        carlist= new ArrayList<>();
+        dtm = new DefaultTableModel(header,0);
+        tblViewA.setModel(dtm);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -28,11 +41,11 @@ public class ViewJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblView = new javax.swing.JTable();
+        tblViewA = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        tblView.setModel(new javax.swing.table.DefaultTableModel(
+        tblViewA.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -43,12 +56,12 @@ public class ViewJFrame extends javax.swing.JFrame {
                 "Manufacturer", "Model", "Year", "Number of Seats", "Serial Number", "City", "Maintenance Certificate", "Car Available"
             }
         ));
-        tblView.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblViewA.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblViewMouseClicked(evt);
+                tblViewAMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tblView);
+        jScrollPane1.setViewportView(tblViewA);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -69,9 +82,10 @@ public class ViewJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tblViewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblViewMouseClicked
+    private void tblViewAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblViewAMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tblViewMouseClicked
+        
+    }//GEN-LAST:event_tblViewAMouseClicked
 
     /**
      * @param args the command line arguments
@@ -110,6 +124,6 @@ public class ViewJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblView;
+    private javax.swing.JTable tblViewA;
     // End of variables declaration//GEN-END:variables
 }
