@@ -6,7 +6,9 @@
 package ui;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import model.Cars;
 
 /**
@@ -18,6 +20,7 @@ public class Main extends javax.swing.JFrame {
     ArrayList<Cars> carlist;
     String header[] = new String[] {"Manufacturer","Model","Year","Seats","SrNo","City","Certificate","Available"};
     DefaultTableModel dtm;
+    DefaultTableModel dtm2;
     int row;
     int col;
 
@@ -29,6 +32,8 @@ public class Main extends javax.swing.JFrame {
         carlist= new ArrayList<>();
         dtm = new DefaultTableModel(header,0);
         tblView.setModel(dtm);
+        dtm2 = new DefaultTableModel(header,0);
+        tblSearch.setModel(dtm2);
        this.setLocationRelativeTo(null); //Set Interface to center
     }
 
@@ -66,6 +71,8 @@ public class Main extends javax.swing.JFrame {
         btnUpdate = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblSearch = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblView = new javax.swing.JTable();
 
@@ -227,15 +234,33 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        tblSearch.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Manufacturer", "Model", "Year", "Number of seats", "Serial Number", "City", "Maintainance Certificate", "Car Available"
+            }
+        ));
+        jScrollPane2.setViewportView(tblSearch);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1263, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 415, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(108, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
 
         tblView.setModel(new javax.swing.table.DefaultTableModel(
@@ -360,19 +385,32 @@ public class Main extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-        
-        String input = JOptionPane.showInputDialog(this, "Search Car Manufacturer");
+        String input = JOptionPane.showInputDialog(this, "Search Car Manufacturer");      
         for(int i = 0; i<carlist.size();i++){
             if(carlist.get(i).manufacturer.equalsIgnoreCase(input)){
                 JOptionPane.showMessageDialog(btnSearch, "Found", "Search Car",2);
-                txtManufacturer.setText(carlist.get(i).manufacturer);
+                String manufacturer = carlist.get(i).manufacturer;
+                String model = carlist.get(i).model;
+                int year = carlist.get(i).year;
+                int seats = carlist.get(i).seats;
+                String srno = carlist.get(i).srno;
+                String city = carlist.get(i).city;
+                String certificate = carlist.get(i).certificate;
+                String available = carlist.get(i).available;
+                carlist.add(new Cars(manufacturer, model, year, seats, srno, city, certificate, available));
+                dtm2.setRowCount(0);
+                for(int j=1; j<carlist.size();j++){
+                    Object[] objs = {carlist.get(j).manufacturer, carlist.get(j).model, carlist.get(j).year, carlist.get(j).seats, carlist.get(j).srno, carlist.get(j).city, carlist.get(j).certificate, carlist.get(j).available};
+                    dtm2.addRow(objs);
+                }
+                /*txtManufacturer.setText(carlist.get(i).manufacturer);
                 txtModel.setText(carlist.get(i).model);
                 txtYear.setText(String.valueOf(carlist.get(i).year));
                 txtSeats.setText(String.valueOf(carlist.get(i).seats));
                 txtSrNo.setText(carlist.get(i).srno);
                 txtCity.setText(carlist.get(i).city);
                 txtCertificate.setText(carlist.get(i).certificate);
-                txtAvailable.setText(carlist.get(i).available);
+                txtAvailable.setText(carlist.get(i).available);*/
             }
             return;
         }
@@ -458,6 +496,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblAvailable;
     private javax.swing.JLabel lblCertificate;
     private javax.swing.JLabel lblCity;
@@ -466,6 +505,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lblSeats;
     private javax.swing.JLabel lblSrNo;
     private javax.swing.JLabel lblYear;
+    private javax.swing.JTable tblSearch;
     private javax.swing.JTable tblView;
     private javax.swing.JTextField txtAvailable;
     private javax.swing.JTextField txtCertificate;
