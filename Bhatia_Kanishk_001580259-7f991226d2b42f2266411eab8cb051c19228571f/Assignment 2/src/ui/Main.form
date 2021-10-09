@@ -100,6 +100,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanel2" min="-2" pref="175" max="-2" attributes="0"/>
                       <Component id="btnSearchManufacturer" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSearchAvailability" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -133,6 +134,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblSeats" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtSeats" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSearchAvailability" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -320,6 +322,14 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="No"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnSearchAvailability">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Search Availability"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchAvailabilityActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
