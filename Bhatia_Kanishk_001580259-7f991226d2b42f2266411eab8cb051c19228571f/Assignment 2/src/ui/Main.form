@@ -87,8 +87,14 @@
                       <Component id="txtSeats" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtSrNo" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtCity" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtCertificate" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtAvailable" alignment="0" pref="400" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="txtCertificate" min="-2" pref="39" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -142,6 +148,8 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblCertificate" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtCertificate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -299,6 +307,19 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchManufacturerActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Yes"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="No"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
