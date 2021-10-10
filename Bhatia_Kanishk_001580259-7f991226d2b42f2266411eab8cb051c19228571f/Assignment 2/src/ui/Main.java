@@ -20,6 +20,7 @@ public class Main extends javax.swing.JFrame {
     
     ArrayList<Cars> carlist;
     ArrayList<Cars> queryRes;
+    ArrayList<Cars> newList;
     String header[] = new String[] {"Manufacturer","Model","Year","Seats","Serial Number","City","Certificate","Available"};
     DefaultTableModel dtm;
     DefaultTableModel dtm2;
@@ -938,9 +939,9 @@ public class Main extends javax.swing.JFrame {
             String certificate = carlist.get(i).certificate;
             String available = carlist.get(i).available;
             queryRes.add(new Cars(manufacturer, model, year, seats, srno, city, certificate, available));
-            HashSet<Cars> hset = new HashSet<Cars>(queryRes);
-            for(int j=0; j<queryRes.size();j++){
-                        Object[] objs = {queryRes.get(j).manufacturer};
+            ArrayList<Cars> newList = new ArrayList<Cars>(new HashSet<Cars>(queryRes));
+            for(int j=0; j<newList.size();j++){
+                        Object[] objs = {newList.get(j).manufacturer};
                         dtm2.addRow(objs);
                     }
             /*JOptionPane.showMessageDialog(null, "Manufacturers: "+manufacturer);
