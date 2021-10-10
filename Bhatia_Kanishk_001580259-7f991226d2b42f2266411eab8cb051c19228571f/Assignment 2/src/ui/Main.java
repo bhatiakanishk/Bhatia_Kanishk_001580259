@@ -86,6 +86,7 @@ public class Main extends javax.swing.JFrame {
         btnSearchMaintenance = new javax.swing.JButton();
         btnSearchNoAva = new javax.swing.JButton();
         btnSearchCity = new javax.swing.JButton();
+        btnSearchModel = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblSearch = new javax.swing.JTable();
@@ -239,6 +240,18 @@ public class Main extends javax.swing.JFrame {
         });
 
         btnSearchCity.setText("Search City");
+        btnSearchCity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchCityActionPerformed(evt);
+            }
+        });
+
+        btnSearchModel.setText("Search Model");
+        btnSearchModel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchModelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -272,27 +285,32 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jRadioButton2)))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSearchManufacturer)
-                            .addComponent(btnSearchAvailability))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnSearchManufacturer)
+                                    .addComponent(btnSearchAvailability))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(btnSearchSrNo))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btnSearchYear, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnSearchSrNo))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnSearchYear, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSearchNoAva)
+                                .addComponent(btnSearchMaintenance)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnSearchCity))
+                            .addComponent(btnSearchNoAva))
+                        .addGap(67, 67, 67))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnSearchMaintenance)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSearchCity)))
-                .addGap(67, 67, 67))
+                        .addComponent(btnSearchModel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnSearchAvailability, btnSearchMaintenance, btnSearchManufacturer, btnSearchSrNo, btnSearchYear});
@@ -326,14 +344,15 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(btnSearchAvailability)
                     .addComponent(btnSearchSrNo)
                     .addComponent(btnSearchNoAva))
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSrNo)
                     .addComponent(txtSrNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCity)
-                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearchModel))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCertificate)
@@ -393,7 +412,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -414,7 +433,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -508,7 +527,6 @@ public class Main extends javax.swing.JFrame {
         queryRes = new ArrayList<>();
         boolean found = false;
         for(int i=0; i<carlist.size();i++){
-            
                 if(carlist.get(i).manufacturer.equalsIgnoreCase(input)){
                     found = true;
                     JOptionPane.showMessageDialog(btnSearchManufacturer, "Found", "Search Car",2);
@@ -696,6 +714,66 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Avaliable: "+Ava);
             JOptionPane.showMessageDialog(null, "Not Avaliable: "+NoAva);
     }//GEN-LAST:event_btnSearchNoAvaActionPerformed
+
+    private void btnSearchCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchCityActionPerformed
+        // TODO add your handling code here:
+        String input = JOptionPane.showInputDialog(this, "Search City");   
+        queryRes = new ArrayList<>();
+        boolean found = false;
+        for(int i=0; i<carlist.size();i++){
+                if(carlist.get(i).city.equalsIgnoreCase(input)){
+                    found = true;
+                    JOptionPane.showMessageDialog(btnSearchCity, "Found", "Search Car",2);
+                    String manufacturer = carlist.get(i).manufacturer;
+                    String model = carlist.get(i).model;
+                    String year = carlist.get(i).year;
+                    String seats = carlist.get(i).seats;
+                    String srno = carlist.get(i).srno;
+                    String city = carlist.get(i).city;
+                    String certificate = carlist.get(i).certificate;
+                    String available = carlist.get(i).available;
+                    queryRes.add(new Cars(manufacturer, model, year, seats, srno, city, certificate, available));
+                    dtm2.setRowCount(0);
+                    for(int j=0; j<queryRes.size();j++){
+                        Object[] objs = {queryRes.get(j).manufacturer, queryRes.get(j).model, queryRes.get(j).year, queryRes.get(j).seats, queryRes.get(j).srno, queryRes.get(j).city, queryRes.get(j).certificate, queryRes.get(j).available};
+                        dtm2.addRow(objs);
+                    }
+                }  
+            }
+            if(found == false){
+            JOptionPane.showMessageDialog(btnSearchCity, "Not Found", "Search Car", 2);
+        }
+    }//GEN-LAST:event_btnSearchCityActionPerformed
+
+    private void btnSearchModelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchModelActionPerformed
+        // TODO add your handling code here:
+        String input = JOptionPane.showInputDialog(this, "Search Car Model");   
+        queryRes = new ArrayList<>();
+        boolean found = false;
+        for(int i=0; i<carlist.size();i++){
+                if(carlist.get(i).model.equalsIgnoreCase(input)){
+                    found = true;
+                    JOptionPane.showMessageDialog(btnSearchModel, "Found", "Search Car",2);
+                    String manufacturer = carlist.get(i).manufacturer;
+                    String model = carlist.get(i).model;
+                    String year = carlist.get(i).year;
+                    String seats = carlist.get(i).seats;
+                    String srno = carlist.get(i).srno;
+                    String city = carlist.get(i).city;
+                    String certificate = carlist.get(i).certificate;
+                    String available = carlist.get(i).available;
+                    queryRes.add(new Cars(manufacturer, model, year, seats, srno, city, certificate, available));
+                    dtm2.setRowCount(0);
+                    for(int j=0; j<queryRes.size();j++){
+                        Object[] objs = {queryRes.get(j).manufacturer, queryRes.get(j).model, queryRes.get(j).year, queryRes.get(j).seats, queryRes.get(j).srno, queryRes.get(j).city, queryRes.get(j).certificate, queryRes.get(j).available};
+                        dtm2.addRow(objs);
+                    }
+                }  
+            }
+            if(found == false){
+            JOptionPane.showMessageDialog(btnSearchModel, "Not Found", "Search Car", 2);
+        }
+    }//GEN-LAST:event_btnSearchModelActionPerformed
     
     private void clearField() {
         txtManufacturer.requestFocus();
@@ -751,6 +829,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnSearchCity;
     private javax.swing.JButton btnSearchMaintenance;
     private javax.swing.JButton btnSearchManufacturer;
+    private javax.swing.JButton btnSearchModel;
     private javax.swing.JButton btnSearchNoAva;
     private javax.swing.JButton btnSearchSrNo;
     private javax.swing.JButton btnSearchYear;
