@@ -18,17 +18,17 @@ import java.util.HashSet;
  */
 public class Main extends javax.swing.JFrame {
     
-    ArrayList<Cars> carlist;
-    ArrayList<Cars> queryRes;
-    ArrayList<Cars> newList;
-    String header[] = new String[] {"Manufacturer","Model","Year","Seats","Serial Number","City","Certificate","Available"};
-    DefaultTableModel dtm;
-    DefaultTableModel dtm2;
+    ArrayList<Cars> carlist; //Main ArrayList
+    ArrayList<Cars> queryRes; //Temporary ArryList
+    ArrayList<Cars> newList; 
+    String header[] = new String[] {"Manufacturer","Model","Year","Seats","Serial Number","City","Valid Certificate","Available"}; //Table Header
+    DefaultTableModel dtm; //View Table
+    DefaultTableModel dtm2; //Search Table
     int row;
     int col;
-    String rbtn1;
-    String rbtn2;
-    Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+    String rbtn1; //Radio Button 1 variable
+    String rbtn2; //Radio Button 2 variable
+    Timestamp timestamp = new Timestamp(System.currentTimeMillis()); //Time Stamp
 
     /**
      * Creates new form Main
@@ -600,6 +600,8 @@ public class Main extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
+        //ADD Button
+        //Check for NULL
         if(txtManufacturer.getText().isEmpty()|| txtModel.getText().isEmpty()|| txtYear.getText().isEmpty()|| txtSeats.getText().isEmpty()|| txtSrNo.getText().isEmpty()|| txtCity.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Don't leave empty","Error",JOptionPane.ERROR_MESSAGE);
         }
@@ -614,9 +616,9 @@ public class Main extends javax.swing.JFrame {
                 String certificate = rbtn1;
                 String available = rbtn2;
                 String time=timestamp.toString();
-                carlist.add(new Cars(manufacturer, model, year, seats, srno, city, certificate, available));
+                carlist.add(new Cars(manufacturer, model, year, seats, srno, city, certificate, available)); //Add to carlist
                 dtm.setRowCount(0);
-                for(int i=0; i<carlist.size();i++){
+                for(int i=0; i<carlist.size();i++){ //Print carlist on view table
                     Object[] objs = {carlist.get(i).manufacturer, carlist.get(i).model, carlist.get(i).year, carlist.get(i).seats, carlist.get(i).srno, carlist.get(i).city, carlist.get(i).certificate, carlist.get(i).available};
                     dtm.addRow(objs);
                 }
@@ -630,7 +632,7 @@ public class Main extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        
+        //DELETE Button
         int dialogButton = JOptionPane.YES_NO_OPTION;
         int dialogResult = JOptionPane.showConfirmDialog(this, "Delete this data", "Delete", dialogButton);
         if(dialogResult == 0){
@@ -647,7 +649,7 @@ public class Main extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        
+        //UPDATE Button
         String updatemanufacturer = txtManufacturer.getText();
         String updatemodel = txtModel.getText();
         String updateyear = txtYear.getText();
@@ -689,9 +691,9 @@ public class Main extends javax.swing.JFrame {
                     String city = carlist.get(i).city;
                     String certificate = carlist.get(i).certificate;
                     String available = carlist.get(i).available;
-                    queryRes.add(new Cars(manufacturer, model, year, seats, srno, city, certificate, available));
+                    queryRes.add(new Cars(manufacturer, model, year, seats, srno, city, certificate, available));//Add to temp ArrayList
                     dtm2.setRowCount(0);
-                    for(int j=0; j<queryRes.size();j++){
+                    for(int j=0; j<queryRes.size();j++){ //Print temp ArrayList
                         Object[] objs = {queryRes.get(j).manufacturer, queryRes.get(j).model, queryRes.get(j).year, queryRes.get(j).seats, queryRes.get(j).srno, queryRes.get(j).city, queryRes.get(j).certificate, queryRes.get(j).available};
                         dtm2.addRow(objs);
                     }
@@ -721,6 +723,7 @@ public class Main extends javax.swing.JFrame {
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         // TODO add your handling code here:
+        //CLEAR Button
         tblSearch.setModel(new DefaultTableModel(null, new String[]{"Manufacturer","Model","Year","Seats","SrNo","City","Certificate","Available"}));
         
     }//GEN-LAST:event_btnClearActionPerformed
@@ -822,7 +825,7 @@ public class Main extends javax.swing.JFrame {
 
     private void btnSearchMaintenanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchMaintenanceActionPerformed
         // TODO add your handling code here:
-        String input = JOptionPane.showInputDialog(this, "Search Maintenance");   
+        String input = JOptionPane.showInputDialog(this, "Search Valid Maintenance");   
         queryRes = new ArrayList<>();
         boolean found = false;
         for(int i=0; i<carlist.size();i++){
@@ -852,8 +855,8 @@ public class Main extends javax.swing.JFrame {
 
     private void btnSearchNoAvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchNoAvaActionPerformed
         // TODO add your handling code here:
-        int Ava=0;
-        int NoAva=0;
+        int Ava=0; //Available variable
+        int NoAva=0; //Not available variable
         for(int i=0; i<carlist.size();i++){
                 if(carlist.get(i).available.contains("Yes")){
                     Ava++;     
@@ -954,8 +957,8 @@ public class Main extends javax.swing.JFrame {
 
     private void btnSearchSeatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchSeatsActionPerformed
         // TODO add your handling code here:
-        String min = JOptionPane.showInputDialog(this, "Enter minumum seats"); 
-        String max = JOptionPane.showInputDialog(this, "Enter maximum seats");
+        String min = JOptionPane.showInputDialog(this, "Enter minumum seats"); //Minimum Seats 
+        String max = JOptionPane.showInputDialog(this, "Enter maximum seats"); //Maximum Seats
         int minseats = Integer.parseInt(min);
         int maxseats = Integer.parseInt(max);
         queryRes = new ArrayList<>();
@@ -1003,11 +1006,13 @@ public class Main extends javax.swing.JFrame {
 
     private void btnTimeUpdatedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimeUpdatedActionPerformed
         // TODO add your handling code here:
+        //TimeStamp Button
         JOptionPane.showMessageDialog(null, "Last update: "+timestamp);
     }//GEN-LAST:event_btnTimeUpdatedActionPerformed
 
     private void txtManufacturerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtManufacturerKeyReleased
         // TODO add your handling code here:
+        //Manufacturer Validation
         String PATTERN = "^[a-zA-Z0-9]{2,30}$";
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match=patt.matcher(txtManufacturer.getText());
@@ -1021,6 +1026,7 @@ public class Main extends javax.swing.JFrame {
 
     private void txtModelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtModelKeyReleased
         // TODO add your handling code here:
+        //Model Validation
         String PATTERN = "^[a-zA-Z0-9]{2,30}$";
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match=patt.matcher(txtModel.getText());
@@ -1034,6 +1040,7 @@ public class Main extends javax.swing.JFrame {
 
     private void txtYearKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtYearKeyReleased
         // TODO add your handling code here:
+        //Year Validation
         String PATTERN = "^[12][0-9]{3}$";
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match=patt.matcher(txtYear.getText());
@@ -1047,6 +1054,7 @@ public class Main extends javax.swing.JFrame {
 
     private void txtSeatsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSeatsKeyReleased
         // TODO add your handling code here:
+        //Seat Validation
         String PATTERN = "^[0-9]{1,1000}$";
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match=patt.matcher(txtSeats.getText());
@@ -1060,6 +1068,7 @@ public class Main extends javax.swing.JFrame {
 
     private void txtSrNoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSrNoKeyReleased
         // TODO add your handling code here:
+        //Serial Number Validation
         String PATTERN = "^[0-9]{5}$";
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match=patt.matcher(txtSrNo.getText());
@@ -1073,6 +1082,7 @@ public class Main extends javax.swing.JFrame {
 
     private void txtCityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCityKeyReleased
         // TODO add your handling code here:
+        //City Validation
         String PATTERN = "^([a-zA-Z\\u0080-\\u024F]+(?:. |-| |'))*[a-zA-Z\\u0080-\\u024F]*$";
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match=patt.matcher(txtCity.getText());
