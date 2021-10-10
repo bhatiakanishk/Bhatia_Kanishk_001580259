@@ -138,6 +138,8 @@
                                   <Component id="btnViewManufacturer" linkSize="1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="btnSearchSeats" linkSize="1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnTimeUpdated" linkSize="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -209,6 +211,7 @@
                       <Component id="txtSrNo" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnViewManufacturer" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnSearchSeats" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnTimeUpdated" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -490,6 +493,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton2ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnTimeUpdated">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Time Updated"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTimeUpdatedActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
