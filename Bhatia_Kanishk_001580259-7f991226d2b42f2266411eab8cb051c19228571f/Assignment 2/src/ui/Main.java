@@ -25,7 +25,7 @@ public class Main extends javax.swing.JFrame {
     int row;
     int col;
     String rbtn1;
-    String tbtn2;
+    String rbtn2;
 
     /**
      * Creates new form Main
@@ -74,12 +74,11 @@ public class Main extends javax.swing.JFrame {
         txtSeats = new javax.swing.JTextField();
         txtSrNo = new javax.swing.JTextField();
         txtCity = new javax.swing.JTextField();
-        txtAvailable = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
-        btnAdd = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
         btnSearchManufacturer = new javax.swing.JButton();
         rbtnYes = new javax.swing.JRadioButton();
         rbtnNo = new javax.swing.JRadioButton();
@@ -92,6 +91,8 @@ public class Main extends javax.swing.JFrame {
         btnSearchModel = new javax.swing.JButton();
         btnViewManufacturer = new javax.swing.JButton();
         btnSearchSeats = new javax.swing.JButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblSearch = new javax.swing.JTable();
@@ -132,13 +133,6 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        btnAdd.setText("Add");
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
-            }
-        });
-
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,34 +154,39 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnClear)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnUpdate))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnAdd)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnDelete)))
-                .addGap(180, 180, 180))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnAdd)
+                    .addComponent(btnClear))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnDelete)
+                    .addComponent(btnUpdate))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdd)
+                .addGap(0, 6, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAdd)
+                            .addComponent(btnUpdate))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnClear))
                     .addComponent(btnDelete))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnClear)
-                    .addComponent(btnUpdate))
                 .addContainerGap())
         );
 
@@ -277,6 +276,22 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup2.add(jRadioButton1);
+        jRadioButton1.setText("Yes");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup2.add(jRadioButton2);
+        jRadioButton2.setText("No");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -301,93 +316,92 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(txtSeats, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtSrNo, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtCity, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAvailable, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtManufacturer))
                         .addGap(64, 64, 64)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnSearchManufacturer)
-                                            .addComponent(btnSearchAvailability))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(0, 249, Short.MAX_VALUE)
-                                                .addComponent(btnSearchSrNo))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(btnSearchYear, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                    .addComponent(btnSearchManufacturer)
+                                    .addComponent(btnSearchAvailability))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btnSearchSrNo)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnSearchNoAva)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnSearchModel))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btnSearchYear, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
                                         .addComponent(btnSearchMaintenance)
                                         .addGap(18, 18, 18)
-                                        .addComponent(btnSearchCity))
-                                    .addComponent(btnSearchNoAva))
-                                .addGap(67, 67, 67))
+                                        .addComponent(btnSearchCity))))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnSearchModel)
-                                .addGap(18, 18, 18)
                                 .addComponent(btnViewManufacturer)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnSearchSeats)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(btnSearchSeats)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(rbtnYes)
-                        .addGap(18, 18, 18)
-                        .addComponent(rbtnNo)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(rbtnYes)
+                                .addGap(18, 18, 18)
+                                .addComponent(rbtnNo))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jRadioButton1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jRadioButton2)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnSearchAvailability, btnSearchMaintenance, btnSearchManufacturer, btnSearchSrNo, btnSearchYear});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnSearchAvailability, btnSearchCity, btnSearchMaintenance, btnSearchManufacturer, btnSearchModel, btnSearchNoAva, btnSearchSeats, btnSearchSrNo, btnSearchYear, btnViewManufacturer});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblManufacturer)
                             .addComponent(txtManufacturer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblModel)
-                            .addComponent(txtModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(12, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblYear)
-                            .addComponent(btnSearchManufacturer)
-                            .addComponent(btnSearchYear)
-                            .addComponent(btnSearchMaintenance)
-                            .addComponent(btnSearchCity)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblYear)
+                        .addComponent(btnSearchManufacturer)
+                        .addComponent(btnSearchYear)
+                        .addComponent(btnSearchMaintenance)
+                        .addComponent(btnSearchCity))
+                    .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSeats)
                     .addComponent(txtSeats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearchAvailability)
                     .addComponent(btnSearchSrNo)
-                    .addComponent(btnSearchNoAva))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSearchNoAva)
+                    .addComponent(btnSearchModel))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSrNo)
-                    .addComponent(txtSrNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCity)
-                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearchModel)
+                    .addComponent(txtSrNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnViewManufacturer)
                     .addComponent(btnSearchSeats))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCity)
+                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCertificate)
@@ -396,8 +410,9 @@ public class Main extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAvailable)
-                    .addComponent(txtAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         tblSearch.setModel(new javax.swing.table.DefaultTableModel(
@@ -438,15 +453,15 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1372, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1372, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1449, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1449, Short.MAX_VALUE)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGap(18, 30, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -467,7 +482,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -484,7 +499,7 @@ public class Main extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        if(txtManufacturer.getText().isEmpty()|| txtModel.getText().isEmpty()|| txtYear.getText().isEmpty()|| txtSeats.getText().isEmpty()|| txtSrNo.getText().isEmpty()|| txtCity.getText().isEmpty()|| txtAvailable.getText().isEmpty()){
+        if(txtManufacturer.getText().isEmpty()|| txtModel.getText().isEmpty()|| txtYear.getText().isEmpty()|| txtSeats.getText().isEmpty()|| txtSrNo.getText().isEmpty()|| txtCity.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Don't leave empty","Error",JOptionPane.ERROR_MESSAGE);
         }
         else{
@@ -496,7 +511,7 @@ public class Main extends javax.swing.JFrame {
                 String srno = txtSrNo.getText();
                 String city = txtCity.getText();
                 String certificate = rbtn1;
-                String available = txtAvailable.getText();
+                String available = rbtn2;
                 carlist.add(new Cars(manufacturer, model, year, seats, srno, city, certificate, available));
                 dtm.setRowCount(0);
                 for(int i=0; i<carlist.size();i++){
@@ -538,7 +553,7 @@ public class Main extends javax.swing.JFrame {
         String updatesrno = txtSrNo.getText();
         String updatecity = txtCity.getText();
         String updatecertificate = rbtn1;
-        String updateavailable = txtAvailable.getText();
+        String updateavailable = rbtn2;
         
         carlist.get(row).manufacturer = updatemanufacturer;
         carlist.get(row).model = updatemodel;
@@ -598,7 +613,7 @@ public class Main extends javax.swing.JFrame {
         txtSrNo.setText(dtm.getValueAt(row, 4).toString());
         txtCity.setText(dtm.getValueAt(row, 5).toString());
         //txtCertificate.setText(dtm.getValueAt(row, 6).toString());
-        txtAvailable.setText(dtm.getValueAt(row, 7).toString());
+        //txtAvailable.setText(dtm.getValueAt(row, 7).toString());
         
     }//GEN-LAST:event_tblViewMouseClicked
 
@@ -871,6 +886,16 @@ public class Main extends javax.swing.JFrame {
         //NO
         rbtn1="no";
     }//GEN-LAST:event_rbtnNoActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+        rbtn2="yes";
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+        rbtn2="no";
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
     
     private void clearField() {
         txtManufacturer.requestFocus();
@@ -879,9 +904,7 @@ public class Main extends javax.swing.JFrame {
         txtYear.setText("");
         txtSeats.setText("");
         txtSrNo.setText("");
-        txtCity.setText("");
-        
-        txtAvailable.setText(""); 
+        txtCity.setText(""); 
     }
     /**
      * @param args the command line arguments
@@ -945,6 +968,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblAvailable;
@@ -959,7 +984,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbtnYes;
     private javax.swing.JTable tblSearch;
     private javax.swing.JTable tblView;
-    private javax.swing.JTextField txtAvailable;
     private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtManufacturer;
     private javax.swing.JTextField txtModel;
