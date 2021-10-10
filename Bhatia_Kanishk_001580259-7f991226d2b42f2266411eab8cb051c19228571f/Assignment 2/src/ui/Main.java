@@ -48,6 +48,13 @@ public class Main extends javax.swing.JFrame {
 
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
+        buttonGroup5 = new javax.swing.ButtonGroup();
+        buttonGroup6 = new javax.swing.ButtonGroup();
+        buttonGroup7 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         lblManufacturer = new javax.swing.JLabel();
         lblModel = new javax.swing.JLabel();
@@ -74,6 +81,9 @@ public class Main extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         btnSearchAvailability = new javax.swing.JButton();
+        btnSearchYear = new javax.swing.JButton();
+        btnSearchSrNo = new javax.swing.JButton();
+        btnSearchMaintenance = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblSearch = new javax.swing.JTable();
@@ -180,6 +190,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButton1);
         jRadioButton1.setText("Yes");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,12 +198,34 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("No");
 
         btnSearchAvailability.setText("Search Availability");
         btnSearchAvailability.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchAvailabilityActionPerformed(evt);
+            }
+        });
+
+        btnSearchYear.setText("Search Year");
+        btnSearchYear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchYearActionPerformed(evt);
+            }
+        });
+
+        btnSearchSrNo.setText("Search Serial Number");
+        btnSearchSrNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchSrNoActionPerformed(evt);
+            }
+        });
+
+        btnSearchMaintenance.setText("Search Maintenance");
+        btnSearchMaintenance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchMaintenanceActionPerformed(evt);
             }
         });
 
@@ -229,14 +262,23 @@ public class Main extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearchManufacturer)
-                    .addComponent(btnSearchAvailability))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSearchManufacturer)
+                            .addComponent(btnSearchAvailability))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSearchSrNo)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnSearchYear)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnSearchMaintenance)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -251,12 +293,15 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblYear)
                     .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearchManufacturer))
+                    .addComponent(btnSearchManufacturer)
+                    .addComponent(btnSearchYear)
+                    .addComponent(btnSearchMaintenance))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSeats)
                     .addComponent(txtSeats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearchAvailability))
+                    .addComponent(btnSearchAvailability)
+                    .addComponent(btnSearchSrNo))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSrNo)
@@ -291,22 +336,6 @@ public class Main extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblSearch);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(86, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
-        );
-
         tblView.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -325,17 +354,33 @@ public class Main extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblView);
 
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1257, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1257, Short.MAX_VALUE)))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1263, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -343,9 +388,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -369,8 +412,8 @@ public class Main extends javax.swing.JFrame {
             try{
                 String manufacturer = txtManufacturer.getText();
                 String model = txtModel.getText();
-                int year = Integer.parseInt(txtYear.getText());
-                int seats = Integer.parseInt(txtSeats.getText());
+                String year = txtYear.getText();
+                String seats = txtSeats.getText();
                 String srno = txtSrNo.getText();
                 String city = txtCity.getText();
                 String certificate = txtCertificate.getText();
@@ -411,8 +454,8 @@ public class Main extends javax.swing.JFrame {
         
         String updatemanufacturer = txtManufacturer.getText();
         String updatemodel = txtModel.getText();
-        int updateyear = Integer.parseInt(txtYear.getText());
-        int updateseats = Integer.parseInt(txtSeats.getText());
+        String updateyear = txtYear.getText();
+        String updateseats = txtSeats.getText();
         String updatesrno = txtSrNo.getText();
         String updatecity = txtCity.getText();
         String updatecertificate = txtCertificate.getText();
@@ -445,8 +488,8 @@ public class Main extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(btnSearchManufacturer, "Found", "Search Car",2);
                     String manufacturer = carlist.get(i).manufacturer;
                     String model = carlist.get(i).model;
-                    int year = carlist.get(i).year;
-                    int seats = carlist.get(i).seats;
+                    String year = carlist.get(i).year;
+                    String seats = carlist.get(i).seats;
                     String srno = carlist.get(i).srno;
                     String city = carlist.get(i).city;
                     String certificate = carlist.get(i).certificate;
@@ -489,42 +532,128 @@ public class Main extends javax.swing.JFrame {
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void btnSearchAvailabilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchAvailabilityActionPerformed
         // TODO add your handling code here:
-        String input = JOptionPane.showInputDialog(this, "Search Car Availability");      
-        
-        for(int i = 0; i<=carlist.size();i++){
-            if(carlist.get(i).available.equalsIgnoreCase(input)){
-                JOptionPane.showMessageDialog(btnSearchAvailability, "Found", "Search Car",2);
-                String manufacturer = carlist.get(i).manufacturer;
-                String model = carlist.get(i).model;
-                int year = carlist.get(i).year;
-                int seats = carlist.get(i).seats;
-                String srno = carlist.get(i).srno;
-                String city = carlist.get(i).city;
-                String certificate = carlist.get(i).certificate;
-                String available = carlist.get(i).available;
-                queryRes.add(new Cars(manufacturer, model, year, seats, srno, city, certificate, available));
-                dtm2.setRowCount(0);
-                for(int j=1; j<queryRes.size();j++){
-                    Object[] objs = {carlist.get(j).manufacturer, carlist.get(j).model, carlist.get(j).year, carlist.get(j).seats, carlist.get(j).srno, carlist.get(j).city, carlist.get(j).certificate, carlist.get(j).available};
-                    dtm2.addRow(objs);
-                }
-                /*txtManufacturer.setText(carlist.get(i).manufacturer);
-                txtModel.setText(carlist.get(i).model);
-                txtYear.setText(String.valueOf(carlist.get(i).year));
-                txtSeats.setText(String.valueOf(carlist.get(i).seats));
-                txtSrNo.setText(carlist.get(i).srno);
-                txtCity.setText(carlist.get(i).city);
-                txtCertificate.setText(carlist.get(i).certificate);
-                txtAvailable.setText(carlist.get(i).available);*/
+        String input = JOptionPane.showInputDialog(this, "Search Car Availability");   
+        queryRes = new ArrayList<>();
+        boolean found = false;
+        for(int i=0; i<carlist.size();i++){
+                if(carlist.get(i).available.equalsIgnoreCase(input)){
+                    found = true;
+                    JOptionPane.showMessageDialog(btnSearchAvailability, "Found", "Search Car",2);
+                    String manufacturer = carlist.get(i).manufacturer;
+                    String model = carlist.get(i).model;
+                    String year = carlist.get(i).year;
+                    String seats = carlist.get(i).seats;
+                    String srno = carlist.get(i).srno;
+                    String city = carlist.get(i).city;
+                    String certificate = carlist.get(i).certificate;
+                    String available = carlist.get(i).available;
+                    queryRes.add(new Cars(manufacturer, model, year, seats, srno, city, certificate, available));
+                    dtm2.setRowCount(0);
+                    for(int j=0; j<queryRes.size();j++){
+                        Object[] objs = {queryRes.get(j).manufacturer, queryRes.get(j).model, queryRes.get(j).year, queryRes.get(j).seats, queryRes.get(j).srno, queryRes.get(j).city, queryRes.get(j).certificate, queryRes.get(j).available};
+                        dtm2.addRow(objs);
+                    }
+                }  
             }
-            return;
+            if(found == false){
+            JOptionPane.showMessageDialog(btnSearchAvailability, "Not Found", "Search Car", 2);
         }
-        JOptionPane.showMessageDialog(btnSearchAvailability, "Not Found", "Search Car", 2);
     }//GEN-LAST:event_btnSearchAvailabilityActionPerformed
+
+    private void btnSearchYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchYearActionPerformed
+        // TODO add your handling code here:
+        String input = JOptionPane.showInputDialog(this, "Search Manufacturing Year");   
+        queryRes = new ArrayList<>();
+        boolean found = false;
+        for(int i=0; i<carlist.size();i++){
+                if(carlist.get(i).year.equalsIgnoreCase(input)){
+                    found = true;
+                    JOptionPane.showMessageDialog(btnSearchYear, "Found", "Search Car",2);
+                    String manufacturer = carlist.get(i).manufacturer;
+                    String model = carlist.get(i).model;
+                    String year = carlist.get(i).year;
+                    String seats = carlist.get(i).seats;
+                    String srno = carlist.get(i).srno;
+                    String city = carlist.get(i).city;
+                    String certificate = carlist.get(i).certificate;
+                    String available = carlist.get(i).available;
+                    queryRes.add(new Cars(manufacturer, model, year, seats, srno, city, certificate, available));
+                    dtm2.setRowCount(0);
+                    for(int j=0; j<queryRes.size();j++){
+                        Object[] objs = {queryRes.get(j).manufacturer, queryRes.get(j).model, queryRes.get(j).year, queryRes.get(j).seats, queryRes.get(j).srno, queryRes.get(j).city, queryRes.get(j).certificate, queryRes.get(j).available};
+                        dtm2.addRow(objs);
+                    }
+                }  
+            }
+            if(found == false){
+            JOptionPane.showMessageDialog(btnSearchYear, "Not Found", "Search Car", 2);
+        }
+    }//GEN-LAST:event_btnSearchYearActionPerformed
+
+    private void btnSearchSrNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchSrNoActionPerformed
+        // TODO add your handling code here:
+        String input = JOptionPane.showInputDialog(this, "Search Serial Number");   
+        queryRes = new ArrayList<>();
+        boolean found = false;
+        for(int i=0; i<carlist.size();i++){
+                if(carlist.get(i).srno.equalsIgnoreCase(input)){
+                    found = true;
+                    JOptionPane.showMessageDialog(btnSearchSrNo, "Found", "Search Car",2);
+                    String manufacturer = carlist.get(i).manufacturer;
+                    String model = carlist.get(i).model;
+                    String year = carlist.get(i).year;
+                    String seats = carlist.get(i).seats;
+                    String srno = carlist.get(i).srno;
+                    String city = carlist.get(i).city;
+                    String certificate = carlist.get(i).certificate;
+                    String available = carlist.get(i).available;
+                    queryRes.add(new Cars(manufacturer, model, year, seats, srno, city, certificate, available));
+                    dtm2.setRowCount(0);
+                    for(int j=0; j<queryRes.size();j++){
+                        Object[] objs = {queryRes.get(j).manufacturer, queryRes.get(j).model, queryRes.get(j).year, queryRes.get(j).seats, queryRes.get(j).srno, queryRes.get(j).city, queryRes.get(j).certificate, queryRes.get(j).available};
+                        dtm2.addRow(objs);
+                    }
+                }  
+            }
+            if(found == false){
+            JOptionPane.showMessageDialog(btnSearchSrNo, "Not Found", "Search Car", 2);
+        }
+    }//GEN-LAST:event_btnSearchSrNoActionPerformed
+
+    private void btnSearchMaintenanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchMaintenanceActionPerformed
+        // TODO add your handling code here:
+        String input = JOptionPane.showInputDialog(this, "Search Maintenance");   
+        queryRes = new ArrayList<>();
+        boolean found = false;
+        for(int i=0; i<carlist.size();i++){
+                if(carlist.get(i).certificate.equalsIgnoreCase(input)){
+                    found = true;
+                    JOptionPane.showMessageDialog(btnSearchMaintenance, "Found", "Search Car",2);
+                    String manufacturer = carlist.get(i).manufacturer;
+                    String model = carlist.get(i).model;
+                    String year = carlist.get(i).year;
+                    String seats = carlist.get(i).seats;
+                    String srno = carlist.get(i).srno;
+                    String city = carlist.get(i).city;
+                    String certificate = carlist.get(i).certificate;
+                    String available = carlist.get(i).available;
+                    queryRes.add(new Cars(manufacturer, model, year, seats, srno, city, certificate, available));
+                    dtm2.setRowCount(0);
+                    for(int j=0; j<queryRes.size();j++){
+                        Object[] objs = {queryRes.get(j).manufacturer, queryRes.get(j).model, queryRes.get(j).year, queryRes.get(j).seats, queryRes.get(j).srno, queryRes.get(j).city, queryRes.get(j).certificate, queryRes.get(j).available};
+                        dtm2.addRow(objs);
+                    }
+                }  
+            }
+            if(found == false){
+            JOptionPane.showMessageDialog(btnSearchMaintenance, "Not Found", "Search Car", 2);
+        }
+    }//GEN-LAST:event_btnSearchMaintenanceActionPerformed
     
     private void clearField() {
         
@@ -580,8 +709,18 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSearchAvailability;
+    private javax.swing.JButton btnSearchMaintenance;
     private javax.swing.JButton btnSearchManufacturer;
+    private javax.swing.JButton btnSearchSrNo;
+    private javax.swing.JButton btnSearchYear;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.ButtonGroup buttonGroup5;
+    private javax.swing.ButtonGroup buttonGroup6;
+    private javax.swing.ButtonGroup buttonGroup7;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
