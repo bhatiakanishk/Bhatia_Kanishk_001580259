@@ -436,38 +436,32 @@ public class Main extends javax.swing.JFrame {
     private void btnSearchManufacturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchManufacturerActionPerformed
         // TODO add your handling code here:
         String input = JOptionPane.showInputDialog(this, "Search Car Manufacturer");   
-        //initialize queryRes as empty
         queryRes = new ArrayList<>();
+        boolean found = false;
         for(int i=0; i<carlist.size();i++){
-            if(carlist.get(i).manufacturer.equalsIgnoreCase(input)){
-                JOptionPane.showMessageDialog(btnSearchManufacturer, "Found", "Search Car",2);
-                String manufacturer = carlist.get(i).manufacturer;
-                String model = carlist.get(i).model;
-                int year = carlist.get(i).year;
-                int seats = carlist.get(i).seats;
-                String srno = carlist.get(i).srno;
-                String city = carlist.get(i).city;
-                String certificate = carlist.get(i).certificate;
-                String available = carlist.get(i).available;
-                queryRes.add(new Cars(manufacturer, model, year, seats, srno, city, certificate, available));
-                dtm2.setRowCount(0);
-                for(int j=0; j<queryRes.size();j++){
-                    Object[] objs = {queryRes.get(j).manufacturer, queryRes.get(j).model, queryRes.get(j).year, queryRes.get(j).seats, queryRes.get(j).srno, queryRes.get(j).city, queryRes.get(j).certificate, queryRes.get(j).available};
-                    dtm2.addRow(objs);
-                }
-                /*txtManufacturer.setText(carlist.get(i).manufacturer);
-                txtModel.setText(carlist.get(i).model);
-                txtYear.setText(String.valueOf(carlist.get(i).year));
-                txtSeats.setText(String.valueOf(carlist.get(i).seats));
-                txtSrNo.setText(carlist.get(i).srno);
-                txtCity.setText(carlist.get(i).city);
-                txtCertificate.setText(carlist.get(i).certificate);
-                txtAvailable.setText(carlist.get(i).available);*/
+            
+                if(carlist.get(i).manufacturer.equalsIgnoreCase(input)){
+                    found = true;
+                    JOptionPane.showMessageDialog(btnSearchManufacturer, "Found", "Search Car",2);
+                    String manufacturer = carlist.get(i).manufacturer;
+                    String model = carlist.get(i).model;
+                    int year = carlist.get(i).year;
+                    int seats = carlist.get(i).seats;
+                    String srno = carlist.get(i).srno;
+                    String city = carlist.get(i).city;
+                    String certificate = carlist.get(i).certificate;
+                    String available = carlist.get(i).available;
+                    queryRes.add(new Cars(manufacturer, model, year, seats, srno, city, certificate, available));
+                    dtm2.setRowCount(0);
+                    for(int j=0; j<queryRes.size();j++){
+                        Object[] objs = {queryRes.get(j).manufacturer, queryRes.get(j).model, queryRes.get(j).year, queryRes.get(j).seats, queryRes.get(j).srno, queryRes.get(j).city, queryRes.get(j).certificate, queryRes.get(j).available};
+                        dtm2.addRow(objs);
+                    }
+                }  
             }
-            return;
+            if(found == false){
+            JOptionPane.showMessageDialog(btnSearchManufacturer, "Not Found", "Search Car", 2);
         }
-        JOptionPane.showMessageDialog(btnSearchManufacturer, "Not Found", "Search Car", 2);
-        
     }//GEN-LAST:event_btnSearchManufacturerActionPerformed
 
     private void tblViewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblViewMouseClicked
@@ -500,7 +494,8 @@ public class Main extends javax.swing.JFrame {
     private void btnSearchAvailabilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchAvailabilityActionPerformed
         // TODO add your handling code here:
         String input = JOptionPane.showInputDialog(this, "Search Car Availability");      
-        for(int i = 0; i<carlist.size();i++){
+        
+        for(int i = 0; i<=carlist.size();i++){
             if(carlist.get(i).available.equalsIgnoreCase(input)){
                 JOptionPane.showMessageDialog(btnSearchAvailability, "Found", "Search Car",2);
                 String manufacturer = carlist.get(i).manufacturer;
@@ -511,9 +506,9 @@ public class Main extends javax.swing.JFrame {
                 String city = carlist.get(i).city;
                 String certificate = carlist.get(i).certificate;
                 String available = carlist.get(i).available;
-                carlist.add(new Cars(manufacturer, model, year, seats, srno, city, certificate, available));
+                queryRes.add(new Cars(manufacturer, model, year, seats, srno, city, certificate, available));
                 dtm2.setRowCount(0);
-                for(int j=1; j<carlist.size();j++){
+                for(int j=1; j<queryRes.size();j++){
                     Object[] objs = {carlist.get(j).manufacturer, carlist.get(j).model, carlist.get(j).year, carlist.get(j).seats, carlist.get(j).srno, carlist.get(j).city, carlist.get(j).certificate, carlist.get(j).available};
                     dtm2.addRow(objs);
                 }
@@ -541,8 +536,7 @@ public class Main extends javax.swing.JFrame {
         txtSrNo.setText("");
         txtCity.setText("");
         txtCertificate.setText("");
-        txtAvailable.setText("");
-        
+        txtAvailable.setText(""); 
     }
     
     
@@ -616,5 +610,5 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField txtSrNo;
     private javax.swing.JTextField txtYear;
     // End of variables declaration//GEN-END:variables
-   
+  
 }
