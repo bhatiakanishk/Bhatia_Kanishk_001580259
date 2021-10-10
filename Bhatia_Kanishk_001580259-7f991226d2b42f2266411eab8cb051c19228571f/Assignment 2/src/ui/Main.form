@@ -66,7 +66,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="86" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="jPanel3" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -143,6 +143,10 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="btnSearchModel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnViewManufacturer" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnSearchSeats" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -194,6 +198,8 @@
                       <Component id="lblCity" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtCity" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnSearchModel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnViewManufacturer" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSearchSeats" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -434,6 +440,19 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchModelActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JButton" name="btnViewManufacturer">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="View Manufacturer"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewManufacturerActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnSearchSeats">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Search Seats"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel3">
@@ -454,8 +473,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="200" max="-2" attributes="0"/>
-                  <EmptySpace pref="51" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="272" max="-2" attributes="0"/>
+                  <EmptySpace pref="30" max="32767" attributes="0"/>
                   <Component id="jScrollPane2" min="-2" pref="286" max="-2" attributes="0"/>
               </Group>
           </Group>
