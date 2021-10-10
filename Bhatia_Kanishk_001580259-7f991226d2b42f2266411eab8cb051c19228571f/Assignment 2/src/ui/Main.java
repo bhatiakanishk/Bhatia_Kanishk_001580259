@@ -87,6 +87,8 @@ public class Main extends javax.swing.JFrame {
         btnSearchNoAva = new javax.swing.JButton();
         btnSearchCity = new javax.swing.JButton();
         btnSearchModel = new javax.swing.JButton();
+        btnViewManufacturer = new javax.swing.JButton();
+        btnSearchSeats = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblSearch = new javax.swing.JTable();
@@ -253,6 +255,15 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        btnViewManufacturer.setText("View Manufacturer");
+        btnViewManufacturer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewManufacturerActionPerformed(evt);
+            }
+        });
+
+        btnSearchSeats.setText("Search Seats");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -310,6 +321,10 @@ public class Main extends javax.swing.JFrame {
                         .addGap(67, 67, 67))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnSearchModel)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnViewManufacturer)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSearchSeats)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -352,7 +367,9 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCity)
                     .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearchModel))
+                    .addComponent(btnSearchModel)
+                    .addComponent(btnViewManufacturer)
+                    .addComponent(btnSearchSeats))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCertificate)
@@ -411,8 +428,8 @@ public class Main extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -433,7 +450,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -774,6 +791,28 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(btnSearchModel, "Not Found", "Search Car", 2);
         }
     }//GEN-LAST:event_btnSearchModelActionPerformed
+
+    private void btnViewManufacturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewManufacturerActionPerformed
+        // TODO add your handling code here:
+        queryRes = new ArrayList<>();
+        for(int i=0; i<carlist.size();i++){
+                    JOptionPane.showMessageDialog(btnSearchModel, "Found", "Search Car",2);
+                    String manufacturer = carlist.get(i).manufacturer;
+                    String model = carlist.get(i).model;
+                    String year = carlist.get(i).year;
+                    String seats = carlist.get(i).seats;
+                    String srno = carlist.get(i).srno;
+                    String city = carlist.get(i).city;
+                    String certificate = carlist.get(i).certificate;
+                    String available = carlist.get(i).available;
+                    queryRes.add(new Cars(manufacturer, model, year, seats, srno, city, certificate, available));
+                    dtm2.setRowCount(0);
+                    for(int j=0; j<queryRes.size();j++){
+                        Object[] objs = {queryRes.get(j).manufacturer, queryRes.get(j).model, queryRes.get(j).year, queryRes.get(j).seats, queryRes.get(j).srno, queryRes.get(j).city, queryRes.get(j).certificate, queryRes.get(j).available};
+                        dtm2.addRow(objs);
+                    }    
+            }
+    }//GEN-LAST:event_btnViewManufacturerActionPerformed
     
     private void clearField() {
         txtManufacturer.requestFocus();
@@ -831,9 +870,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnSearchManufacturer;
     private javax.swing.JButton btnSearchModel;
     private javax.swing.JButton btnSearchNoAva;
+    private javax.swing.JButton btnSearchSeats;
     private javax.swing.JButton btnSearchSrNo;
     private javax.swing.JButton btnSearchYear;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnViewManufacturer;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
