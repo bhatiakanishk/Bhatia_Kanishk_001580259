@@ -5,6 +5,7 @@
  */
 package ui;
 import java.util.*;  
+import java.sql.Timestamp;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Cars;
@@ -26,6 +27,7 @@ public class Main extends javax.swing.JFrame {
     int col;
     String rbtn1;
     String rbtn2;
+    Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
     /**
      * Creates new form Main
@@ -93,6 +95,7 @@ public class Main extends javax.swing.JFrame {
         btnSearchSeats = new javax.swing.JButton();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
+        btnTimeUpdated = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblSearch = new javax.swing.JTable();
@@ -296,6 +299,13 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        btnTimeUpdated.setText("Time Updated");
+        btnTimeUpdated.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTimeUpdatedActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -345,7 +355,9 @@ public class Main extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnViewManufacturer)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnSearchSeats)))
+                                .addComponent(btnSearchSeats)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnTimeUpdated)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -360,7 +372,7 @@ public class Main extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnSearchAvailability, btnSearchCity, btnSearchMaintenance, btnSearchManufacturer, btnSearchModel, btnSearchNoAva, btnSearchSeats, btnSearchSrNo, btnSearchYear, btnViewManufacturer});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnSearchAvailability, btnSearchCity, btnSearchMaintenance, btnSearchManufacturer, btnSearchModel, btnSearchNoAva, btnSearchSeats, btnSearchSrNo, btnSearchYear, btnTimeUpdated, btnViewManufacturer});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -401,7 +413,8 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(lblSrNo)
                     .addComponent(txtSrNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnViewManufacturer)
-                    .addComponent(btnSearchSeats))
+                    .addComponent(btnSearchSeats)
+                    .addComponent(btnTimeUpdated))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCity)
@@ -533,6 +546,7 @@ public class Main extends javax.swing.JFrame {
                 String city = txtCity.getText();
                 String certificate = rbtn1;
                 String available = rbtn2;
+                String time=timestamp.toString();
                 carlist.add(new Cars(manufacturer, model, year, seats, srno, city, certificate, available));
                 dtm.setRowCount(0);
                 for(int i=0; i<carlist.size();i++){
@@ -575,7 +589,7 @@ public class Main extends javax.swing.JFrame {
         String updatecity = txtCity.getText();
         String updatecertificate = rbtn1;
         String updateavailable = rbtn2;
-        
+        String time=timestamp.toString();
         carlist.get(row).manufacturer = updatemanufacturer;
         carlist.get(row).model = updatemodel;
         carlist.get(row).year = updateyear;
@@ -646,7 +660,7 @@ public class Main extends javax.swing.JFrame {
 
     private void rbtnYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnYesActionPerformed
         // TODO add your handling code here:
-        rbtn1="yes";
+        rbtn1="Yes";
     }//GEN-LAST:event_rbtnYesActionPerformed
 
     private void btnSearchAvailabilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchAvailabilityActionPerformed
@@ -905,18 +919,23 @@ public class Main extends javax.swing.JFrame {
     private void rbtnNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnNoActionPerformed
         // TODO add your handling code here:
         //NO
-        rbtn1="no";
+        rbtn1="No";
     }//GEN-LAST:event_rbtnNoActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
-        rbtn2="yes";
+        rbtn2="Yes";
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         // TODO add your handling code here:
-        rbtn2="no";
+        rbtn2="No";
     }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void btnTimeUpdatedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimeUpdatedActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Avaliable: "+timestamp);
+    }//GEN-LAST:event_btnTimeUpdatedActionPerformed
     
     private void clearField() {
         txtManufacturer.requestFocus();
@@ -975,6 +994,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnSearchSeats;
     private javax.swing.JButton btnSearchSrNo;
     private javax.swing.JButton btnSearchYear;
+    private javax.swing.JButton btnTimeUpdated;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnViewManufacturer;
     private javax.swing.ButtonGroup buttonGroup1;
