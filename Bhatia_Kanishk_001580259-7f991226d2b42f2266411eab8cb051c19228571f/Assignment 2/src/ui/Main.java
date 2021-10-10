@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Cars;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  *
@@ -263,6 +264,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         btnSearchSeats.setText("Search Seats");
+        btnSearchSeats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchSeatsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -796,6 +802,29 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         queryRes = new ArrayList<>();
         for(int i=0; i<carlist.size();i++){
+            String manufacturer = carlist.get(i).manufacturer;
+            String model = carlist.get(i).model;
+            String year = carlist.get(i).year;
+            String seats = carlist.get(i).seats;
+            String srno = carlist.get(i).srno;
+            String city = carlist.get(i).city;
+            String certificate = carlist.get(i).certificate;
+            String available = carlist.get(i).available;
+            queryRes.add(new Cars(manufacturer, model, year, seats, srno, city, certificate, available));
+            HashSet<Cars> hset = new HashSet<Cars>(queryRes);
+            JOptionPane.showMessageDialog(null, "Manufacturers: "+hset);
+        }
+    }//GEN-LAST:event_btnViewManufacturerActionPerformed
+
+    private void btnSearchSeatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchSeatsActionPerformed
+        // TODO add your handling code here:
+        String minseats = JOptionPane.showInputDialog(this, "Enter minumum seats"); 
+        String maxseats = JOptionPane.showInputDialog(this, "Enter maximum seats");
+        queryRes = new ArrayList<>();
+        boolean found = false;
+        for(int i=0; i<carlist.size();i++){
+                if(carlist.get(i).seats.equalsIgnoreCase(minseats)){
+                    found = true;
                     JOptionPane.showMessageDialog(btnSearchModel, "Found", "Search Car",2);
                     String manufacturer = carlist.get(i).manufacturer;
                     String model = carlist.get(i).model;
@@ -810,9 +839,13 @@ public class Main extends javax.swing.JFrame {
                     for(int j=0; j<queryRes.size();j++){
                         Object[] objs = {queryRes.get(j).manufacturer, queryRes.get(j).model, queryRes.get(j).year, queryRes.get(j).seats, queryRes.get(j).srno, queryRes.get(j).city, queryRes.get(j).certificate, queryRes.get(j).available};
                         dtm2.addRow(objs);
-                    }    
+                    }
+                }  
             }
-    }//GEN-LAST:event_btnViewManufacturerActionPerformed
+            if(found == false){
+            JOptionPane.showMessageDialog(btnSearchModel, "Not Found", "Search Car", 2);
+        }    
+    }//GEN-LAST:event_btnSearchSeatsActionPerformed
     
     private void clearField() {
         txtManufacturer.requestFocus();
