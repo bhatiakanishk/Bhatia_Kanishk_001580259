@@ -887,12 +887,14 @@ public class Main extends javax.swing.JFrame {
 
     private void btnSearchSeatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchSeatsActionPerformed
         // TODO add your handling code here:
-        String minseats = JOptionPane.showInputDialog(this, "Enter minumum seats"); 
-        String maxseats = JOptionPane.showInputDialog(this, "Enter maximum seats");
+        String min = JOptionPane.showInputDialog(this, "Enter minumum seats"); 
+        String max = JOptionPane.showInputDialog(this, "Enter maximum seats");
+        int minseats = Integer.parseInt(min);
+        int maxseats = Integer.parseInt(max);
         queryRes = new ArrayList<>();
         boolean found = false;
         for(int i=0; i<carlist.size();i++){
-                if(carlist.get(i).seats.equalsIgnoreCase(minseats)){
+                if(Integer.parseInt(carlist.get(i).seats) >= minseats && Integer.parseInt(carlist.get(i).seats) <= maxseats){
                     found = true;
                     JOptionPane.showMessageDialog(btnSearchModel, "Found", "Search Car",2);
                     String manufacturer = carlist.get(i).manufacturer;
