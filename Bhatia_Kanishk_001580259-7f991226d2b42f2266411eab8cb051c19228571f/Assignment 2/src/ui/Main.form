@@ -52,7 +52,10 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel3" max="32767" attributes="0"/>
-                  <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel1" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -76,7 +79,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblManufacturer" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="lblModel" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -109,21 +112,32 @@
                       <Component id="jPanel2" min="-2" pref="175" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnSearchManufacturer" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnSearchAvailability" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnSearchManufacturer" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnSearchAvailability" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnSearchSrNo" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="btnSearchYear" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="btnSearchMaintenance" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="btnSearchSrNo" linkSize="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="btnSearchYear" linkSize="1" min="-2" pref="92" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="btnSearchNoAva" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="btnSearchMaintenance" linkSize="1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnSearchCity" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -152,6 +166,7 @@
                       <Component id="btnSearchManufacturer" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnSearchYear" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnSearchMaintenance" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSearchCity" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -159,6 +174,7 @@
                       <Component id="txtSeats" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnSearchAvailability" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnSearchSrNo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSearchNoAva" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -385,6 +401,19 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchMaintenanceActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JButton" name="btnSearchNoAva">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Search Number of Available"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchNoAvaActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnSearchCity">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Search City"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel3">
@@ -395,8 +424,8 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane2" pref="1257" max="32767" attributes="0"/>
-                      <Component id="jScrollPane1" alignment="0" pref="1257" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" pref="1372" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" alignment="0" pref="1372" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
