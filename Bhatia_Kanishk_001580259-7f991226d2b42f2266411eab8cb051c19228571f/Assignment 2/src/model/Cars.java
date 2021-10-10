@@ -17,15 +17,15 @@ public class Cars {
     
     public String manufacturer; //Car Company
     public String model; //Car Model
-    public int year; //Year of manufacturing
-    public int seats; //number of seats
+    public String year; //Year of manufacturing
+    public String seats; //number of seats
     public String srno; //Serial Number
     public String city; //City 
     public String certificate; //Valid Maintenance Certificate
     public String available; //Availability
   
 
-    public Cars(String manufacturer, String model, int year, int seats, String srno, String city, String certificate, String available) {
+    public Cars(String manufacturer, String model, String year, String seats, String srno, String city, String certificate, String available) {
         this.manufacturer = manufacturer;
         this.model = model;
         this.year = year;
@@ -53,19 +53,27 @@ public class Cars {
         this.model = model;
     }
 
-    public int getYear() {
+    public ArrayList<Cars> getCars() {
+        return cars;
+    }
+
+    public void setCars(ArrayList<Cars> cars) {
+        this.cars = cars;
+    }
+
+    public String getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(String year) {
         this.year = year;
     }
 
-    public int getSeats() {
+    public String getSeats() {
         return seats;
     }
 
-    public void setSeats(int seats) {
+    public void setSeats(String seats) {
         this.seats = seats;
     }
 
