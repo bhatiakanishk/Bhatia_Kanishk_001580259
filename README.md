@@ -1,6 +1,6 @@
 # Bhatia_Kanishk_001580259
 
-Assignment 1
+Assignments
 
 Name: Kanishk Bhatia
 
