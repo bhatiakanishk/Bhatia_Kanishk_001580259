@@ -22,12 +22,21 @@ public class Main extends javax.swing.JFrame {
     ArrayList<VitalSigns> newList; //Temporary ArryList
     
     String header[] = new String[] {"Temperature","Blood Pressure","Pulse","Age","Date"}; //Table Header
-
+    DefaultTableModel dtm; //View Table
+    DefaultTableModel dtm2; //Search Table
+    
     /**
      * Creates new form Main
      */
     public Main() {
         initComponents();
+        vslist= new ArrayList<>();
+        queryRes=new ArrayList<>();
+        dtm = new DefaultTableModel(header,0);
+        tblView.setModel(dtm);
+        dtm2 = new DefaultTableModel(header,0);
+        tblSearch.setModel(dtm2);
+       this.setLocationRelativeTo(null); //Set Interface to center
     }
 
     /**
@@ -39,17 +48,52 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblTemperature = new javax.swing.JLabel();
+        lblBloodPressure = new javax.swing.JLabel();
+        lblPulse = new javax.swing.JLabel();
+        lblAge = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblTemperature.setText("Temperature");
+
+        lblBloodPressure.setText("Blood Pressure");
+
+        lblPulse.setText("jLabel3");
+
+        lblAge.setText("jLabel4");
+
+        lblDate.setText("jLabel5");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1100, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTemperature)
+                    .addComponent(lblBloodPressure)
+                    .addComponent(lblPulse)
+                    .addComponent(lblAge)
+                    .addComponent(lblDate))
+                .addContainerGap(1016, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 875, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTemperature)
+                .addGap(18, 18, 18)
+                .addComponent(lblBloodPressure)
+                .addGap(18, 18, 18)
+                .addComponent(lblPulse)
+                .addGap(18, 18, 18)
+                .addComponent(lblAge)
+                .addGap(18, 18, 18)
+                .addComponent(lblDate)
+                .addContainerGap(717, Short.MAX_VALUE))
         );
 
         pack();
@@ -91,5 +135,10 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lblAge;
+    private javax.swing.JLabel lblBloodPressure;
+    private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblPulse;
+    private javax.swing.JLabel lblTemperature;
     // End of variables declaration//GEN-END:variables
 }
