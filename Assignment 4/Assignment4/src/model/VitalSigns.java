@@ -4,40 +4,67 @@
  * and open the template in the editor.
  */
 package model;
-
+import java.util.ArrayList;
 /**
  *
  * @author kanis
  */
 public class VitalSigns {
     
-    private double temperature; //decimal value   
-    private double bloodPressure; //decimal balue
-    private int pulse; //integer value
-    private String date; 
+    public ArrayList<VitalSigns> vitalsigns;
+    
+    private String temperature;
+    private String bloodpressure;
+    private String pulse;
+    private String age;
+    private String date;
+    
+    public VitalSigns(String temperature, String bloodpressure, String pulse, String age, String date){
+        this.temperature = temperature;
+        this.bloodpressure = bloodpressure;
+        this.pulse = pulse;
+        this.age = age;
+        this.date = date;
+    }
 
-    public double getTemperature() {
+    public ArrayList<VitalSigns> getVitalsigns() {
+        return vitalsigns;
+    }
+
+    public void setVitalsigns(ArrayList<VitalSigns> vitalsigns) {
+        this.vitalsigns = vitalsigns;
+    }
+
+    public String getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(double temperature) {
+    public void setTemperature(String temperature) {
         this.temperature = temperature;
     }
 
-    public double getBloodPressure() {
-        return bloodPressure;
+    public String getBloodpressure() {
+        return bloodpressure;
     }
 
-    public void setBloodPressure(double bloodPressure) {
-        this.bloodPressure = bloodPressure;
+    public void setBloodpressure(String bloodpressure) {
+        this.bloodpressure = bloodpressure;
     }
 
-    public int getPulse() {
+    public String getPulse() {
         return pulse;
     }
 
-    public void setPulse(int pulse) {
+    public void setPulse(String pulse) {
         this.pulse = pulse;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
     }
 
     public String getDate() {
@@ -46,9 +73,5 @@ public class VitalSigns {
 
     public void setDate(String date) {
         this.date = date;
-    }  
-    @Override
-        public String toString(){
-            return date;
-        }
+    }
 }
