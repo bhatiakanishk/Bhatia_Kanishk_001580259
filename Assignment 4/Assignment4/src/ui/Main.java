@@ -43,6 +43,7 @@ public class Main extends javax.swing.JFrame {
     
     private void clearField() {
         txtTemperature.requestFocus();
+        txtTemperature.setText("");
         txtBloodPressure.setText("");
         txtPulse.setText("");
         txtAge.setText("");
@@ -107,6 +108,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -223,6 +229,27 @@ public class Main extends javax.swing.JFrame {
             clearField();
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        String updatemanufacturer = txtTemperature.getText();
+        String updatemodel = txtBloodPressure.getText();
+        String updateyear = txtPulse.getText();
+        String updateseats = txtAge.getText();
+        String updatesrno = txtDate.getText();
+        
+        vslist.get(row).temperature = updatemanufacturer;
+        vslist.get(row).bloodpressure = updatemodel;
+        vslist.get(row).pulse = updateyear;
+        vslist.get(row).age = updateseats;
+        vslist.get(row).date = updatesrno;
+        
+        dtm.setRowCount(0); //Reset table and populate
+        for(int i = 0; i < vslist.size();i++){
+                Object[] objs = {vslist.get(i).temperature, vslist.get(i).bloodpressure, vslist.get(i).pulse, vslist.get(i).age, vslist.get(i).date};
+                dtm.addRow(objs);
+            }
+    }//GEN-LAST:event_btnUpdateActionPerformed
     /**
      * @param args the command line arguments
      */
