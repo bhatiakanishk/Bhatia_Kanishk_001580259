@@ -35,8 +35,16 @@ public class Main extends javax.swing.JFrame {
         dtm = new DefaultTableModel(header,0);
         tblView.setModel(dtm);
         dtm2 = new DefaultTableModel(header,0);
-        tblSearch.setModel(dtm2);
-       this.setLocationRelativeTo(null); //Set Interface to center
+        //tblSearch.setModel(dtm2);
+        this.setLocationRelativeTo(null); //Set Interface to center
+    }
+    
+    private void clearField() {
+        txtTemperature.requestFocus();
+        txtBloodPressure.setText("");
+        txtPulse.setText("");
+        txtAge.setText("");
+        txtDate.setText("");
     }
 
     /**
@@ -53,18 +61,52 @@ public class Main extends javax.swing.JFrame {
         lblPulse = new javax.swing.JLabel();
         lblAge = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
+        txtBloodPressure = new javax.swing.JTextField();
+        txtTemperature = new javax.swing.JTextField();
+        txtPulse = new javax.swing.JTextField();
+        txtAge = new javax.swing.JTextField();
+        txtDate = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblView = new javax.swing.JTable();
+        btnAdd = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblTemperature.setText("Temperature");
+        lblTemperature.setText("Temperature:");
 
-        lblBloodPressure.setText("Blood Pressure");
+        lblBloodPressure.setText("Blood Pressure:");
 
-        lblPulse.setText("jLabel3");
+        lblPulse.setText("Pulse:");
 
-        lblAge.setText("jLabel4");
+        lblAge.setText("Age:");
 
-        lblDate.setText("jLabel5");
+        lblDate.setText("Date:");
+
+        tblView.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Temperature", "Blood Pressure", "Pulse", "Age", "Date"
+            }
+        ));
+        jScrollPane1.setViewportView(tblView);
+
+        btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+
+        btnUpdate.setText("Update");
+
+        btnDelete.setText("Delete");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -73,31 +115,90 @@ public class Main extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTemperature)
-                    .addComponent(lblBloodPressure)
-                    .addComponent(lblPulse)
-                    .addComponent(lblAge)
-                    .addComponent(lblDate))
-                .addContainerGap(1016, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1021, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblBloodPressure)
+                            .addComponent(lblTemperature)
+                            .addComponent(lblPulse)
+                            .addComponent(lblAge)
+                            .addComponent(lblDate))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtTemperature, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(txtBloodPressure)
+                            .addComponent(txtPulse)
+                            .addComponent(txtAge)
+                            .addComponent(txtDate))
+                        .addGap(85, 85, 85)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAdd)
+                            .addComponent(btnUpdate)
+                            .addComponent(btnDelete))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTemperature)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTemperature)
+                    .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdd))
                 .addGap(18, 18, 18)
-                .addComponent(lblBloodPressure)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblBloodPressure)
+                    .addComponent(txtBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUpdate))
                 .addGap(18, 18, 18)
-                .addComponent(lblPulse)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPulse)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtPulse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnDelete)))
                 .addGap(18, 18, 18)
-                .addComponent(lblAge)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAge)
+                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(lblDate)
-                .addContainerGap(717, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDate)
+                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(514, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+        
+        if(txtTemperature.getText().isEmpty()|| txtBloodPressure.getText().isEmpty()|| txtPulse.getText().isEmpty()|| txtAge.getText().isEmpty()|| txtDate.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Don't leave empty","Error",JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            try{
+                String temperature = txtTemperature.getText();
+                String bloodpressure = txtBloodPressure.getText();
+                String pulse = txtPulse.getText();
+                String age = txtAge.getText();
+                String date = txtDate.getText();
+          
+                vslist.add(new VitalSigns(temperature, bloodpressure, pulse, age, date)); //Add to vslist
+                dtm.setRowCount(0);
+                for(int i=0; i<vslist.size();i++){ //Print vslist on view table
+                    Object[] objs = {vslist.get(i).temperature, vslist.get(i).bloodpressure, vslist.get(i).pulse, vslist.get(i).age, vslist.get(i).date};
+                    dtm.addRow(objs);
+                }
+                JOptionPane.showMessageDialog(this, "Information Added");
+                clearField();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        } 
+    }//GEN-LAST:event_btnAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,10 +236,20 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblBloodPressure;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblPulse;
     private javax.swing.JLabel lblTemperature;
+    private javax.swing.JTable tblView;
+    private javax.swing.JTextField txtAge;
+    private javax.swing.JTextField txtBloodPressure;
+    private javax.swing.JTextField txtDate;
+    private javax.swing.JTextField txtPulse;
+    private javax.swing.JTextField txtTemperature;
     // End of variables declaration//GEN-END:variables
 }
