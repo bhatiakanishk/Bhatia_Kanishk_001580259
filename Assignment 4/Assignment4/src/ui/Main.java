@@ -24,6 +24,8 @@ public class Main extends javax.swing.JFrame {
     String header[] = new String[] {"Temperature","Blood Pressure","Pulse","Age","Date"}; //Table Header
     DefaultTableModel dtm; //View Table
     DefaultTableModel dtm2; //Search Table
+    int row;
+    int col;
     
     /**
      * Creates new form Main
@@ -107,6 +109,11 @@ public class Main extends javax.swing.JFrame {
         btnUpdate.setText("Update");
 
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -200,6 +207,22 @@ public class Main extends javax.swing.JFrame {
         } 
     }//GEN-LAST:event_btnAddActionPerformed
 
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Delete this data", "Delete", dialogButton);
+        if(dialogResult == 0){
+            dtm.removeRow(row);
+            vslist.remove(row);
+            dtm.setRowCount(0);
+            for(int i = 0; i < vslist.size();i++){
+                Object[] objs = {vslist.get(i).temperature, vslist.get(i).bloodpressure, vslist.get(i).pulse, vslist.get(i).age, vslist.get(i).date};
+                dtm.addRow(objs);
+            }
+            clearField();
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
     /**
      * @param args the command line arguments
      */
