@@ -13,11 +13,11 @@ public class VitalSigns {
     
     public ArrayList<VitalSigns> vitalsigns;
     
-    private String temperature;
-    private String bloodpressure;
-    private String pulse;
-    private String age;
-    private String date;
+    public String temperature;
+    public String bloodpressure;
+    public String pulse;
+    public String age;
+    public String date;
     
     public VitalSigns(String temperature, String bloodpressure, String pulse, String age, String date){
         this.temperature = temperature;
