@@ -15,9 +15,4 @@ public class Encounter extends Patient {
 	public Encounter(VitalSigns vs) {
 		this.evs=vs;
 	}
-
-	/*@Override
-	public String toString() {
-		return "Encounter [evs=" + evs + "]";
-	}*/
 }
