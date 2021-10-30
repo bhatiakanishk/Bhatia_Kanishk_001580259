@@ -21,8 +21,7 @@ public class Person extends Person_Directory {
         this.contact = contact;
         this.zipcode = zipcode;
     }
-    
-
+ 
     public String getFirstName() {
         return firstName;
     }
