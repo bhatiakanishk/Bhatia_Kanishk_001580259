@@ -12,6 +12,6 @@ import java.util.List;
  * @author kanis
  */
 public class Person_Directory {
-    List <Person> person = new ArrayList<Person>();
+    public ArrayList<Person_Directory> persondirectory;
     
 }
