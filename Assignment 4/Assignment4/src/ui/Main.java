@@ -5,7 +5,6 @@
  */
 package ui;
 import java.util.regex.*;  
-import java.sql.Timestamp;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.VitalSigns;
@@ -26,7 +25,10 @@ public class Main extends javax.swing.JFrame {
     DefaultTableModel dtm2; //Search Table
     int row;
     int col;
-    
+    String rbtn1;
+    String rbtn2;
+    String rbtn3;
+    String rbtn4;    
     /**
      * Creates new form Main
      */
@@ -174,30 +176,75 @@ public class Main extends javax.swing.JFrame {
 
         buttonGroup1.add(rbtnNewYork);
         rbtnNewYork.setText("New York");
+        rbtnNewYork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnNewYorkActionPerformed(evt);
+            }
+        });
 
         buttonGroup2.add(rbtnA);
         rbtnA.setText("A");
+        rbtnA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnAActionPerformed(evt);
+            }
+        });
 
         buttonGroup2.add(rbtnB);
         rbtnB.setText("B");
+        rbtnB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnBActionPerformed(evt);
+            }
+        });
 
         buttonGroup2.add(rbtnC);
         rbtnC.setText("C");
+        rbtnC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnCActionPerformed(evt);
+            }
+        });
 
         buttonGroup2.add(rbtnD);
         rbtnD.setText("D");
+        rbtnD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnDActionPerformed(evt);
+            }
+        });
 
         buttonGroup3.add(jRadioButton1);
         jRadioButton1.setText("W");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
 
         buttonGroup3.add(jRadioButton2);
         jRadioButton2.setText("X");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
         buttonGroup3.add(jRadioButton3);
         jRadioButton3.setText("Y");
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
 
         buttonGroup3.add(jRadioButton4);
         jRadioButton4.setText("Z");
+        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton4ActionPerformed(evt);
+            }
+        });
 
         lblFirstName1.setText("Contact Number:");
 
@@ -207,9 +254,19 @@ public class Main extends javax.swing.JFrame {
 
         buttonGroup4.add(jRadioButton5);
         jRadioButton5.setText("Yes");
+        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton5ActionPerformed(evt);
+            }
+        });
 
         buttonGroup4.add(jRadioButton6);
         jRadioButton6.setText("No");
+        jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -273,7 +330,7 @@ public class Main extends javax.swing.JFrame {
                                     .addComponent(txtLastName)
                                     .addComponent(txtContactNo)
                                     .addComponent(txtZipCode))))
-                        .addGap(582, 582, 582))
+                        .addContainerGap(582, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -473,7 +530,63 @@ public class Main extends javax.swing.JFrame {
 
     private void rbtnBostonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnBostonActionPerformed
         // TODO add your handling code here:
+        rbtn1="Boston";
     }//GEN-LAST:event_rbtnBostonActionPerformed
+
+    private void rbtnNewYorkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnNewYorkActionPerformed
+        // TODO add your handling code here:
+        rbtn1="New York";
+    }//GEN-LAST:event_rbtnNewYorkActionPerformed
+
+    private void rbtnAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnAActionPerformed
+        // TODO add your handling code here:
+        rbtn2="A";
+    }//GEN-LAST:event_rbtnAActionPerformed
+
+    private void rbtnBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnBActionPerformed
+        // TODO add your handling code here:
+        rbtn2="B";
+    }//GEN-LAST:event_rbtnBActionPerformed
+
+    private void rbtnCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnCActionPerformed
+        // TODO add your handling code here:
+        rbtn2="C";
+    }//GEN-LAST:event_rbtnCActionPerformed
+
+    private void rbtnDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnDActionPerformed
+        // TODO add your handling code here:
+        rbtn2="D";
+    }//GEN-LAST:event_rbtnDActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+        rbtn3="W";
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+        rbtn3="X";
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        // TODO add your handling code here:
+        rbtn3="Y";
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+        // TODO add your handling code here:
+        rbtn3="Z";
+    }//GEN-LAST:event_jRadioButton4ActionPerformed
+
+    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
+        // TODO add your handling code here:
+        rbtn4="Yes";
+    }//GEN-LAST:event_jRadioButton5ActionPerformed
+
+    private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
+        // TODO add your handling code here:
+        rbtn4="No";
+    }//GEN-LAST:event_jRadioButton6ActionPerformed
     /**
      * @param args the command line arguments
      */
