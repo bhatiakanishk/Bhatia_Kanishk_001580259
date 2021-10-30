@@ -8,6 +8,14 @@ import java.util.regex.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.VitalSigns;
+import model.City;
+import model.Community;
+import model.Encounter;
+import model.House;
+import model.Patient;
+import model.Patient_Directory;
+import model.Person;
+import model.Person_Directory;
 import java.util.ArrayList;
 import java.util.HashSet;
 /**
@@ -453,21 +461,29 @@ public class Main extends javax.swing.JFrame {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
         
-        if(txtTemperature.getText().isEmpty()|| txtBloodPressure.getText().isEmpty()|| txtPulse.getText().isEmpty()|| txtAge.getText().isEmpty()|| txtDate.getText().isEmpty()){
+        if(txtFirstName.getText().isEmpty() || txtLastName.getText().isEmpty() || txtContactNo.getText().isEmpty() ||txtZipCode.getText().isEmpty() || txtTemperature.getText().isEmpty()|| txtBloodPressure.getText().isEmpty()|| txtPulse.getText().isEmpty()|| txtAge.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Don't leave empty","Error",JOptionPane.ERROR_MESSAGE);
         }
         else{
             try{
+                String city = rbtn1;
+                String community = rbtn2;
+                String house = rbtn3;
+                String firstName = txtFirstName.getText();
+                String lastName = txtLastName.getText();
+                String contact = txtContactNo.getText();
+                String zipcode = txtZipCode.getText();
+                String patient = rbtn4;
                 String temperature = txtTemperature.getText();
                 String bloodpressure = txtBloodPressure.getText();
                 String pulse = txtPulse.getText();
                 String age = txtAge.getText();
                 String date = txtDate.getText();
           
-                vslist.add(new VitalSigns(temperature, bloodpressure, pulse, age, date)); //Add to vslist
+                vslist.add(new VitalSigns(temperature, bloodpressure, pulse, age)); //Add to vslist
                 dtm.setRowCount(0);
                 for(int i=0; i<vslist.size();i++){ //Print vslist on view table
-                    Object[] objs = {vslist.get(i).temperature, vslist.get(i).bloodpressure, vslist.get(i).pulse, vslist.get(i).age, vslist.get(i).date};
+                    Object[] objs = {vslist.get(i).temperature, vslist.get(i).bloodpressure, vslist.get(i).pulse, vslist.get(i).age};
                     dtm.addRow(objs);
                 }
                 JOptionPane.showMessageDialog(this, "Information Added");
@@ -488,7 +504,7 @@ public class Main extends javax.swing.JFrame {
             vslist.remove(row);
             dtm.setRowCount(0);
             for(int i = 0; i < vslist.size();i++){
-                Object[] objs = {vslist.get(i).temperature, vslist.get(i).bloodpressure, vslist.get(i).pulse, vslist.get(i).age, vslist.get(i).date};
+                Object[] objs = {vslist.get(i).temperature, vslist.get(i).bloodpressure, vslist.get(i).pulse, vslist.get(i).age};
                 dtm.addRow(objs);
             }
             clearField();
@@ -507,11 +523,10 @@ public class Main extends javax.swing.JFrame {
         vslist.get(row).bloodpressure = updatebloodpressure;
         vslist.get(row).pulse = updatepulse;
         vslist.get(row).age = updateage;
-        vslist.get(row).date = updatedate;
-        
+                
         dtm.setRowCount(0); //Reset table and populate
         for(int i = 0; i < vslist.size();i++){
-                Object[] objs = {vslist.get(i).temperature, vslist.get(i).bloodpressure, vslist.get(i).pulse, vslist.get(i).age, vslist.get(i).date};
+                Object[] objs = {vslist.get(i).temperature, vslist.get(i).bloodpressure, vslist.get(i).pulse, vslist.get(i).age};
                 dtm.addRow(objs);
             }
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -525,7 +540,6 @@ public class Main extends javax.swing.JFrame {
         txtBloodPressure.setText(dtm.getValueAt(row, 1).toString());
         txtPulse.setText(dtm.getValueAt(row, 2).toString());
         txtAge.setText(dtm.getValueAt(row, 3).toString());
-        txtDate.setText(dtm.getValueAt(row, 4).toString());
     }//GEN-LAST:event_tblViewMouseClicked
 
     private void rbtnBostonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnBostonActionPerformed
