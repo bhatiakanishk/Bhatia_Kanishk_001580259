@@ -98,6 +98,11 @@ public class Main extends javax.swing.JFrame {
                 "Temperature", "Blood Pressure", "Pulse", "Age", "Date"
             }
         ));
+        tblView.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblViewMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblView);
 
         btnAdd.setText("Add");
@@ -241,17 +246,17 @@ public class Main extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        String updatemanufacturer = txtTemperature.getText();
-        String updatemodel = txtBloodPressure.getText();
-        String updateyear = txtPulse.getText();
-        String updateseats = txtAge.getText();
-        String updatesrno = txtDate.getText();
+        String updatetemperature = txtTemperature.getText();
+        String updatebloodpressure = txtBloodPressure.getText();
+        String updatepulse = txtPulse.getText();
+        String updateage = txtAge.getText();
+        String updatedate = txtDate.getText();
         
-        vslist.get(row).temperature = updatemanufacturer;
-        vslist.get(row).bloodpressure = updatemodel;
-        vslist.get(row).pulse = updateyear;
-        vslist.get(row).age = updateseats;
-        vslist.get(row).date = updatesrno;
+        vslist.get(row).temperature = updatetemperature;
+        vslist.get(row).bloodpressure = updatebloodpressure;
+        vslist.get(row).pulse = updatepulse;
+        vslist.get(row).age = updateage;
+        vslist.get(row).date = updatedate;
         
         dtm.setRowCount(0); //Reset table and populate
         for(int i = 0; i < vslist.size();i++){
@@ -259,6 +264,18 @@ public class Main extends javax.swing.JFrame {
                 dtm.addRow(objs);
             }
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void tblViewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblViewMouseClicked
+        // TODO add your handling code here:
+        row = tblView.getSelectedRow();
+        col = tblView.getSelectedColumn();
+        System.out.println(row + "" + col);
+        txtTemperature.setText(dtm.getValueAt(row, 0).toString());
+        txtBloodPressure.setText(dtm.getValueAt(row, 1).toString());
+        txtPulse.setText(dtm.getValueAt(row, 2).toString());
+        txtAge.setText(dtm.getValueAt(row, 3).toString());
+        txtDate.setText(dtm.getValueAt(row, 4).toString());
+    }//GEN-LAST:event_tblViewMouseClicked
     /**
      * @param args the command line arguments
      */
