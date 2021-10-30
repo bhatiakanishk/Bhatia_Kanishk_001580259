@@ -17,14 +17,12 @@ public class VitalSigns {
     public String bloodpressure;
     public String pulse;
     public String age;
-    public String date;
     
-    public VitalSigns(String temperature, String bloodpressure, String pulse, String age, String date){
+    public VitalSigns(String temperature, String bloodpressure, String pulse, String age){
         this.temperature = temperature;
         this.bloodpressure = bloodpressure;
         this.pulse = pulse;
         this.age = age;
-        this.date = date;
     }
 
     public ArrayList<VitalSigns> getVitalsigns() {
@@ -65,13 +63,5 @@ public class VitalSigns {
 
     public void setAge(String age) {
         this.age = age;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 }
