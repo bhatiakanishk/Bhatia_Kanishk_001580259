@@ -4,9 +4,7 @@
  * and open the template in the editor.
  */
 package model;
-
-import java.util.List;
-
+import java.util.ArrayList;
 /**
  *
  * @author kanis
@@ -16,6 +14,14 @@ public class Person extends Person_Directory {
     public String lastName;
     public String contact;
     public String zipcode;
+    
+    public Person(String firstName, String lastName, String contact, String zipcode){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.contact = contact;
+        this.zipcode = zipcode;
+    }
+    
 
     public String getFirstName() {
         return firstName;
@@ -47,13 +53,5 @@ public class Person extends Person_Directory {
 
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
-    }
-
-    public List<Person> getPerson() {
-        return person;
-    }
-
-    public void setPerson(List<Person> person) {
-        this.person = person;
     }
 }
