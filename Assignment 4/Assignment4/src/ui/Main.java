@@ -434,7 +434,6 @@ public class Main extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        Patient_Directory pd = new Patient_Directory();
         
         if(txtFirstName.getText().isEmpty() || txtLastName.getText().isEmpty() || txtContactNo.getText().isEmpty() ||txtZipCode.getText().isEmpty() || txtRespiratoryRate.getText().isEmpty()|| txtBloodPressure.getText().isEmpty()|| txtHeartRate.getText().isEmpty()|| txtWeight.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Don't leave empty","Error",JOptionPane.ERROR_MESSAGE);
@@ -459,17 +458,18 @@ public class Main extends javax.swing.JFrame {
                     Patient pat1 = new Patient();
                     VitalSigns vs1 = new VitalSigns();
                 
-                    pat1.setFirstname(firstName);
-                    pat1.setLastname(lastName);
-                    pat1.setContact(contact);
-                    pat1.setZipcode(zipcode);
+                    pat1.setFirstname("Lee");
+                    pat1.setLastname("Amber");
+                    pat1.setContactno(3878765876L);
+                    pat1.setZipcode(02120);
                     
-                    vs1.setAge(age);
-                    vs1.setDate(date);
-                    vs1.setRes_rate(respiratoryrate);
-                    vs1.setHeart_rate(heartrate);
-                    vs1.setBlood_press(bloodpressure); 
-                    vs1.setWeight_kg(weight);
+                    vs1.setAge(1);
+                    vs1.setDate("22/02/22");
+                    vs1.setRes_rate(37);
+                    vs1.setHeart_rate(130);
+                    vs1.setSys_blood_press(56); 
+                    vs1.setWeight_kgs(2.4);
+                    vs1.setWeight_pounds(5.2);
                     
                     //Create Encounter for vs1
                     Encounter en1 = new Encounter(vs1);
