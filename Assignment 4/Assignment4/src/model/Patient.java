@@ -5,14 +5,16 @@
  */
 package model;
 import java.util.ArrayList;
+
 /**
  *
  * @author kanis
  */
-public class Patient extends Person {
+public class Patient extends Person{
     public ArrayList <Encounter> Enclist = new ArrayList<Encounter>();
-    @Override
+
+	@Override
 	public String toString() {
         return  "Patient{"  +  "Encounter List"  +  Enclist  +  '}';
-	}
+        }
 }
