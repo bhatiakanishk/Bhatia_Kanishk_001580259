@@ -252,9 +252,9 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAge)
                     .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(172, 172, 172))
+                .addContainerGap())
         );
 
         pack();
@@ -262,7 +262,9 @@ public class Main extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        
+        Patient_Directory pd = new Patient_Directory();
+        Patient pat = new Patient();
+        VitalSigns vs1 = new VitalSigns();
         if(txtFirstName.getText().isEmpty() || txtLastName.getText().isEmpty() || txtContactNo.getText().isEmpty() ||txtZipCode.getText().isEmpty() || txtTemperature.getText().isEmpty()|| txtBloodPressure.getText().isEmpty()|| txtPulse.getText().isEmpty()|| txtAge.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Don't leave empty","Error",JOptionPane.ERROR_MESSAGE);
         }
@@ -272,13 +274,13 @@ public class Main extends javax.swing.JFrame {
                 String lastName = txtLastName.getText();
                 String contact = txtContactNo.getText();
                 String zipcode = txtZipCode.getText();
-                String patient = rbtn4;
                 String temperature = txtTemperature.getText();
                 String bloodpressure = txtBloodPressure.getText();
                 String pulse = txtPulse.getText();
                 String age = txtAge.getText();
                 String date = txtDate.getText();
-          
+                
+                
                 vslist.add(new VitalSigns(temperature, bloodpressure, pulse, age)); //Add to vslist
                 dtm.setRowCount(0);
                 for(int i=0; i<vslist.size();i++){ //Print vslist on view table
