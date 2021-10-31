@@ -12,59 +12,59 @@ package model;
 public class Main {
     public static void main(String[] args){
         Patient_Directory pd = new Patient_Directory();
-            //Total Patients = 9
-            //Patients with abnormal vitals = 5
-            //Total Houses = 4
-            //Total Communities = 2
-            //Total City = 1
+        //Total Patients = 9
+        //Patients with abnormal vitals = 5
+        //Total Houses = 4
+        //Total Communities = 2
+        //Total City = 1
 		
-            //Step 1 : Creating patients.
+        //Step 1 : Creating patients.
 	
-            // Patient 1: Newborn, Vitals Signs normal.
-            Patient pat1 = new Patient();
-            // Setting Person details.
-            pat1.setFirstname("Lee");
-            pat1.setLastname("Amber");
-            pat1.setContactno(3878765876L);
-            pat1.setZipcode(02120);
-            VitalSigns vs1 = new VitalSigns();
-            // Setting Vital Signs.
-            vs1.setAge(1);
-            vs1.setDate("22/02/22");
-            vs1.setRes_rate(37);
-            vs1.setHeart_rate(130);
-            vs1.setSys_blood_press(56);
-            vs1.setWeight_kgs(2.4);
-            vs1.setWeight_pounds(5.2);
-            Encounter en1 = new Encounter(vs1);
-            pat1.Enclist.add(en1);
-            pd.addPatient(pat1);
+        // Patient 1: Newborn, Vitals Signs normal.
+        Patient pat1 = new Patient();
+        // Setting Person details.
+        pat1.setFirstname("Lee");
+        pat1.setLastname("Amber");
+        pat1.setContactno(3878765876L);
+        pat1.setZipcode(02120);
+        VitalSigns vs1 = new VitalSigns();
+        // Setting Vital Signs.
+        vs1.setAge(1);
+        vs1.setDate("22/02/22");
+        vs1.setRes_rate(37);
+        vs1.setHeart_rate(130);
+        vs1.setSys_blood_press(56);
+        vs1.setWeight_kgs(2.4);
+        vs1.setWeight_pounds(5.2);
+        Encounter en1 = new Encounter(vs1);
+        pat1.Enclist.add(en1);
+        pd.addPatient(pat1);
 
 		
-            // Patient 2: Toddler, Vitals Signs normal.
-            Patient pat2 = new Patient();
-            // Setting Person details.
-            pat2.setFirstname("Davis");
-            pat2.setLastname("Brady");
-            pat2.setContactno(8264858746L);
-            pat2.setZipcode(02120);
-            VitalSigns vs2 = new VitalSigns();
-            // Setting Vital Signs.
-            vs2.setAge(3);
-            vs2.setDate("25/03/17");
-            vs2.setRes_rate(27);
-            vs2.setHeart_rate(120);
-            vs2.setSys_blood_press(93);
-            vs2.setWeight_kgs(12.4);
-            vs2.setWeight_pounds(24.9);
-            Encounter en2 = new Encounter(vs2);
-            pat2.Enclist.add(en2);
-            pd.addPatient(pat2);
-            
-            // Patient 3: Adult, Vitals Signs abnormal.
-            Patient pat3 = new Patient();
-            // Setting Person details.
-            pat3.setFirstname("Val");
+        // Patient 2: Toddler, Vitals Signs normal.
+        Patient pat2 = new Patient();
+        // Setting Person details.
+        pat2.setFirstname("Davis");
+        pat2.setLastname("Brady");
+        pat2.setContactno(8264858746L);
+        pat2.setZipcode(02120);
+        VitalSigns vs2 = new VitalSigns();
+        // Setting Vital Signs.
+        vs2.setAge(3);
+        vs2.setDate("25/03/17");
+        vs2.setRes_rate(27);
+        vs2.setHeart_rate(120);
+        vs2.setSys_blood_press(93);
+        vs2.setWeight_kgs(12.4);
+        vs2.setWeight_pounds(24.9);
+        Encounter en2 = new Encounter(vs2);
+        pat2.Enclist.add(en2);
+        pd.addPatient(pat2);
+         
+        // Patient 3: Adult, Vitals Signs abnormal.
+        Patient pat3 = new Patient();
+        // Setting Person details.
+        pat3.setFirstname("Val");
             pat3.setLastname("Clara");
             pat3.setContactno(8826578746L);
             pat3.setZipcode(02120);
@@ -238,32 +238,37 @@ public class Main {
             City city = new City();
             city.cmty.add(comm1);
             city.cmty.add(comm2);
-
+            
+            //Patients in community 1
+            System.out.println("Patient with abnormal blood pressure in first community:");
             int comm1cnt = 0;
             for (House h : comm1.houses) {
                 for (Person p : h.prsn) {
                     Patient pat = (Patient) p;            
                     if (!pat.Enclist.get(pat.Enclist.size() - 1).evs.isThisVitalSignNormal("BloodPressure")) {
                         comm1cnt++;
-                        System.out.println("Patient with Abnormal Blood Pressure: " + pat);
+                        System.out.println(pat);
                     }
                 }
             }
             
-            System.out.println("Count of patients with abnormal blood pressure for first comunity is: " + comm1cnt);
-        
+            System.out.println("Number of patients with abnormal blood pressure for first comunity is: " + comm1cnt);
+            
+            //Patients in community 2
+            System.out.println("Patient with abnormal blood pressure in second community:");
             int comm2cnt= 0;
             for (House h : comm2.houses) {
                 for (Person p : h.prsn) {
                     Patient pat = (Patient) p;
                     if (!pat.Enclist.get(pat.Enclist.size() - 1).evs.isThisVitalSignNormal("BloodPressure")) {
                         comm2cnt++;
-                        System.out.println("patient with Abnormal Blood Pressure: " + pat);
+                        System.out.println(pat);
                     }
                 }
             }
-            System.out.println("Count of patients with abnormal blood pressure for second comunity is: " + comm2cnt);
-        
+            System.out.println("Number of patients with abnormal blood pressure for second comunity is: " + comm2cnt);
+            
+            //Total number of patients
             int cityab = comm1cnt + comm2cnt;
             System.out.println("Total number of patients with abnormal blood pressure in the entire city is: " + cityab);
     }
