@@ -5,13 +5,13 @@
  */
 package model;
 import java.util.ArrayList;
-
+import java.util.List;
 
 /**
  *
  * @author kanis
  */
 public class Person_Directory {
-    public ArrayList<Person_Directory> persondirectory;
+    List <Person> person = new ArrayList<Person>();
     
 }
