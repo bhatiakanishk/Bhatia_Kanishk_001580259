@@ -11,7 +11,7 @@ import java.util.List;
  * @author kanis
  */
 public class Patient_Directory extends Person_Directory {
-    List <Patient> patient = new ArrayList<>();
+   List <Patient> patient = new ArrayList<>();
 
 	 public void addPatient(Patient p) {
 	        this.patient.add(p);
