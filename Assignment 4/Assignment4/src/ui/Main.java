@@ -25,11 +25,8 @@ import java.util.ArrayList;
  */
 public class Main extends javax.swing.JFrame {
     
-    ArrayList<VitalSigns> vslist; //Main ArrayList
-    ArrayList<VitalSigns> queryRes; //Temporary ArryList
-    ArrayList<VitalSigns> newList; //Temporary ArryList
     
-    String header[] = new String[] {"Temperature","Blood Pressure","Pulse","Age","Date"}; //Table Header
+    //String header[] = new String[] {"Temperature","Blood Pressure","Pulse","Age","Date"}; //Table Header
     DefaultTableModel dtm; //View Table
     DefaultTableModel dtm2; //Search Table
     int row;
@@ -67,10 +64,10 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         Patient_Directory pd = new Patient_Directory();
-        vslist= new ArrayList<>();
-        queryRes=new ArrayList<>();
-        dtm = new DefaultTableModel(header,0);
-        tblView.setModel(dtm);
+        //vslist= new ArrayList<>();
+        //queryRes=new ArrayList<>();
+        //dtm = new DefaultTableModel(header,0);
+        //tblView.setModel(dtm);
         this.setLocationRelativeTo(null); //Set Interface to center
     }
     
