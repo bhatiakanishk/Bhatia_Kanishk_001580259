@@ -11,5 +11,5 @@ import java.util.List;
  * @author kanis
  */
 public class House {
-    List<Person> prsn = new ArrayList<Person>();   
+    public List<Person> prsn = new ArrayList<Person>();   
 }
