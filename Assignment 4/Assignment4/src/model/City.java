@@ -11,5 +11,5 @@ import java.util.List;
  * @author kanis
  */
 public class City {
-    List <Community> cmty = new ArrayList<Community>();
+    public List <Community> cmty = new ArrayList<Community>();
 }
