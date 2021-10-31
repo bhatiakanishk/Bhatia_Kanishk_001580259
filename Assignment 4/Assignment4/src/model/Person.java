@@ -4,46 +4,40 @@
  * and open the template in the editor.
  */
 package model;
-import java.util.ArrayList;
+
 /**
  *
  * @author kanis
  */
-public class Person extends Person_Directory {
-    public String firstName;
-    public String lastName;
-    public String contact;
-    public String zipcode;
- 
-    public String getFirstName() {
-        return firstName;
-    }
+public class Person extends Person_Directory{
+    private String firstname;
+	private String lastname;
+	private long contactno;
+	private int zipcode;
+	
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getContact() {
-        return contact;
-    }
-
-    public void setContact(String contact) {
-        this.contact = contact;
-    }
-
-    public String getZipcode() {
-        return zipcode;
-    }
-
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
-    }
+	public String getFirstname() {
+		return firstname;
+	}
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+	public String getLastname() {
+		return lastname;
+	}
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+	public long getContactno() {
+		return contactno;
+	}
+	public void setContactno(long contactno) {
+		this.contactno = contactno;
+	}
+	public int getZipcode() {
+		return zipcode;
+	}
+	public void setZipcode(int zipcode) {
+		this.zipcode = zipcode;
+	}
 }
