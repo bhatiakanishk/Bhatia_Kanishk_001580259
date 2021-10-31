@@ -98,6 +98,8 @@ public class Main extends javax.swing.JFrame {
         lblFirstName1 = new javax.swing.JLabel();
         lblZipCode = new javax.swing.JLabel();
         txtContactNo = new javax.swing.JTextField();
+        lblAge = new javax.swing.JLabel();
+        txtAge = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -158,6 +160,8 @@ public class Main extends javax.swing.JFrame {
 
         lblZipCode.setText("Zip Code:");
 
+        lblAge.setText("Age:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -165,9 +169,6 @@ public class Main extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -186,6 +187,7 @@ public class Main extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtAge)
                                     .addComponent(txtBloodPressure, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                                     .addComponent(txtRespiratoryRate)
                                     .addComponent(txtWeight)
@@ -198,7 +200,12 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnDelete)
                             .addComponent(btnUpdate))
-                        .addGap(592, 592, 592))))
+                        .addGap(592, 592, 592))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAdd, btnDelete, btnUpdate});
@@ -232,7 +239,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblZipCode)
                     .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 22, Short.MAX_VALUE)
+                .addGap(0, 19, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDate))
@@ -252,7 +259,11 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblWeight)
                     .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAge)
+                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -279,14 +290,27 @@ public class Main extends javax.swing.JFrame {
                 int heartrate = Integer.parseInt(txtHeartRate.getText());
                 double weight = Double.parseDouble(txtWeight.getText());
                 String date = txtDate.getText();
+                int age = Integer.parseInt(txtAge.getText());
                 
+                pat.setFirstName(firstName);
+		pat.setLastName(lastName);
+		pat.setContact(contact);
+		pat.setZipcode(zipcode);
                 
-                /*vslist.add(new VitalSigns(temperature, bloodpressure, pulse, age)); //Add to vslist
-                dtm.setRowCount(0);
-                for(int i=0; i<vslist.size();i++){ //Print vslist on view table
-                    Object[] objs = {vslist.get(i).temperature, vslist.get(i).bloodpressure, vslist.get(i).pulse, vslist.get(i).age};
-                    dtm.addRow(objs);
-                }*/
+                vs.setAge(age);
+		vs.setDate(date);
+		vs.setRes_rate(respiratoryrate);
+		vs.setHeart_rate(heartrate);
+		vs.setBlood_press(bloodpressure); 
+		vs.setWeight_kg(weight);
+                
+                //Create Encounter for vs1
+		Encounter en = new Encounter(vs);
+		//Add en1 to patient 1 encounter list
+		pat.Enclist.add(en);
+		//Add patient 1 to patient directory
+		pd.addPatient(pat);
+                
                 JOptionPane.showMessageDialog(this, "Information Added");
                 clearField();
             }catch (Exception e){
@@ -386,6 +410,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblBloodPressure;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblFirstName;
@@ -396,6 +421,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lblWeight;
     private javax.swing.JLabel lblZipCode;
     private javax.swing.JTable tblView;
+    private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtBloodPressure;
     private javax.swing.JTextField txtContactNo;
     private javax.swing.JTextField txtDate;
