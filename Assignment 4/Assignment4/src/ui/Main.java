@@ -292,17 +292,17 @@ public class Main extends javax.swing.JFrame {
                                     .addComponent(btnUpdate))
                                 .addGap(484, 484, 484))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(rbtnCommunity1)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(rbtnCommunity2))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(rbtnHouse1)
                                         .addGap(18, 18, 18)
                                         .addComponent(rbtnHouse2)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(rbtnHouse3)))
+                                        .addComponent(rbtnHouse3))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(rbtnCommunity1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(rbtnCommunity2)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(rbtnHouse4)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
@@ -387,8 +387,9 @@ public class Main extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCommunity)
-                    .addComponent(rbtnCommunity1)
-                    .addComponent(rbtnCommunity2))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(rbtnCommunity1)
+                        .addComponent(rbtnCommunity2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -400,8 +401,7 @@ public class Main extends javax.swing.JFrame {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
         Patient_Directory pd = new Patient_Directory();
-        Patient pat = new Patient();
-        VitalSigns vs = new VitalSigns();
+        
         if(txtFirstName.getText().isEmpty() || txtLastName.getText().isEmpty() || txtContactNo.getText().isEmpty() ||txtZipCode.getText().isEmpty() || txtRespiratoryRate.getText().isEmpty()|| txtBloodPressure.getText().isEmpty()|| txtHeartRate.getText().isEmpty()|| txtWeight.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Don't leave empty","Error",JOptionPane.ERROR_MESSAGE);
         }
@@ -417,26 +417,56 @@ public class Main extends javax.swing.JFrame {
                 double weight = Double.parseDouble(txtWeight.getText());
                 String date = txtDate.getText();
                 int age = Integer.parseInt(txtAge.getText());
+                String id = txtID.getText();
+                String house = rbtnHouse;
+                String community = rbtnCommunity;
                 
-                pat.setFirstName(firstName);
-		pat.setLastName(lastName);
-		pat.setContact(contact);
-		pat.setZipcode(zipcode);
+                if(id=="1"){
+                    Patient pat1 = new Patient();
+                    VitalSigns vs1 = new VitalSigns();
                 
-                vs.setAge(age);
-		vs.setDate(date);
-		vs.setRes_rate(respiratoryrate);
-		vs.setHeart_rate(heartrate);
-		vs.setBlood_press(bloodpressure); 
-		vs.setWeight_kg(weight);
+                    pat1.setFirstName(firstName);
+                    pat1.setLastName(lastName);
+                    pat1.setContact(contact);
+                    pat1.setZipcode(zipcode);
+                    
+                    vs1.setAge(age);
+                    vs1.setDate(date);
+                    vs1.setRes_rate(respiratoryrate);
+                    vs1.setHeart_rate(heartrate);
+                    vs1.setBlood_press(bloodpressure); 
+                    vs1.setWeight_kg(weight);
+                    
+                    //Create Encounter for vs1
+                    Encounter en1 = new Encounter(vs1);
+                    //Add en1 to patient 1 encounter list
+                    pat1.Enclist.add(en1);
+                    //Add patient 1 to patient directory
+                    pd.addPatient(pat1);
+                }
+                else if(id=="2"){
+                    Patient pat2 = new Patient();
+                    VitalSigns vs2 = new VitalSigns();
                 
-                //Create Encounter for vs1
-		Encounter en = new Encounter(vs);
-		//Add en1 to patient 1 encounter list
-		pat.Enclist.add(en);
-		//Add patient 1 to patient directory
-		pd.addPatient(pat);
-                
+                    pat2.setFirstName(firstName);
+                    pat2.setLastName(lastName);
+                    pat2.setContact(contact);
+                    pat2.setZipcode(zipcode);
+                    
+                    vs2.setAge(age);
+                    vs2.setDate(date);
+                    vs2.setRes_rate(respiratoryrate);
+                    vs2.setHeart_rate(heartrate);
+                    vs2.setBlood_press(bloodpressure); 
+                    vs2.setWeight_kg(weight);
+                    
+                    //Create Encounter for vs2
+                    Encounter en1 = new Encounter(vs2);
+                    //Add en1 to patient 1 encounter list
+                    pat2.Enclist.add(en1);
+                    //Add patient 2 to patient directory
+                    pd.addPatient(pat2);
+                }
                 JOptionPane.showMessageDialog(this, "Information Added");
                 clearField();
             }catch (Exception e){
