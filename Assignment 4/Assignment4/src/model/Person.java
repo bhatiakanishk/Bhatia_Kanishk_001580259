@@ -14,13 +14,6 @@ public class Person extends Person_Directory {
     public String lastName;
     public String contact;
     public String zipcode;
-    
-    public Person(String firstName, String lastName, String contact, String zipcode){
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.contact = contact;
-        this.zipcode = zipcode;
-    }
  
     public String getFirstName() {
         return firstName;
