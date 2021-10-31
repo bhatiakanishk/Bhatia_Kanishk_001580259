@@ -9,14 +9,15 @@ import java.util.Scanner;
  *
  * @author kanis
  */
-public class Encounter extends Patient {
+public class Encounter extends Patient{
     public VitalSigns evs;
 	
 	public Encounter(VitalSigns vs) {
 		this.evs=vs;
 	}
-        @Override
+
+	@Override
 	public String toString() {
 		return "Encounter [evs=" + evs + "]";
-    }
+	}
 }
