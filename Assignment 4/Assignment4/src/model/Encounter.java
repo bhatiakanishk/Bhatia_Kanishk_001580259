@@ -10,7 +10,7 @@ import java.util.Scanner;
  * @author kanis
  */
 public class Encounter extends Patient {
-    VitalSigns evs;
+    public VitalSigns evs;
 	
 	public Encounter(VitalSigns vs) {
 		this.evs=vs;
