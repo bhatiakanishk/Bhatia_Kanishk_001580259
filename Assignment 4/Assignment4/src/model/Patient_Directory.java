@@ -10,8 +10,8 @@ import java.util.List;
  *
  * @author kanis
  */
-public class Patient_Directory extends Person_Directory {
-   public List <Patient> patient = new ArrayList<>();
+public class Patient_Directory extends Person_Directory{
+    public List <Patient> patient = new ArrayList<>();
 
 	 public void addPatient(Patient p) {
 	        this.patient.add(p);
