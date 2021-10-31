@@ -17,6 +17,8 @@ public class WorkArea extends javax.swing.JPanel {
      */
     public WorkArea() {
         initComponents();
+        Main test=new Main();
+        ; 
     }
 
     /**
