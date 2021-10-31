@@ -43,9 +43,9 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblBloodPressure" linkSize="2" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
-                          <Component id="lblTemperature" linkSize="2" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
-                          <Component id="lblPulse" linkSize="2" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
-                          <Component id="lblAge" linkSize="2" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
+                          <Component id="lblRespiratoryRate" linkSize="2" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
+                          <Component id="lblHeartRate" linkSize="2" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
+                          <Component id="lblWeight" linkSize="2" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
                           <Component id="lblDate" linkSize="2" alignment="1" min="-2" pref="103" max="-2" attributes="0"/>
                           <Component id="lblZipCode" linkSize="2" alignment="0" min="-2" pref="69" max="-2" attributes="0"/>
                           <Component id="lblFirstName" linkSize="2" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
@@ -60,10 +60,10 @@
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="txtBloodPressure" pref="170" max="32767" attributes="0"/>
-                                  <Component id="txtTemperature" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtAge" max="32767" attributes="0"/>
+                                  <Component id="txtRespiratoryRate" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtWeight" max="32767" attributes="0"/>
                                   <Component id="txtDate" max="32767" attributes="0"/>
-                                  <Component id="txtPulse" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtHeartRate" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtZipCode" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtContactNo" max="32767" attributes="0"/>
                               </Group>
@@ -122,8 +122,8 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtTemperature" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblTemperature" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtRespiratoryRate" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRespiratoryRate" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -132,13 +132,13 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblPulse" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtPulse" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblHeartRate" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtHeartRate" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblAge" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtAge" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblWeight" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtWeight" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="207" max="32767" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="236" max="-2" attributes="0"/>
@@ -148,9 +148,9 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="lblTemperature">
+    <Component class="javax.swing.JLabel" name="lblRespiratoryRate">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Temperature:"/>
+        <Property name="text" type="java.lang.String" value="Respiratory Rate:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblBloodPressure">
@@ -158,14 +158,14 @@
         <Property name="text" type="java.lang.String" value="Blood Pressure:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblPulse">
+    <Component class="javax.swing.JLabel" name="lblHeartRate">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Pulse:"/>
+        <Property name="text" type="java.lang.String" value="Heart Rate:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblAge">
+    <Component class="javax.swing.JLabel" name="lblWeight">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Age:"/>
+        <Property name="text" type="java.lang.String" value="Weight:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblDate">
@@ -175,11 +175,11 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtBloodPressure">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtTemperature">
+    <Component class="javax.swing.JTextField" name="txtRespiratoryRate">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtPulse">
+    <Component class="javax.swing.JTextField" name="txtHeartRate">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtAge">
+    <Component class="javax.swing.JTextField" name="txtWeight">
     </Component>
     <Component class="javax.swing.JTextField" name="txtDate">
     </Component>
@@ -287,7 +287,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblZipCode">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ZipCode:"/>
+        <Property name="text" type="java.lang.String" value="Zip Code:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtContactNo">
