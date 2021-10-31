@@ -6,12 +6,10 @@
 package model;
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  *
  * @author kanis
  */
 public class Person_Directory {
     public List <Person> person = new ArrayList<Person>();
-    
 }
