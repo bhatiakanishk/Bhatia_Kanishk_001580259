@@ -11,5 +11,5 @@ import java.util.List;
  * @author kanis
  */
 public class Community {
-    List <House> houses = new ArrayList <House>();
+    public List <House> houses = new ArrayList <House>();
 }
