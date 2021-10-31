@@ -36,7 +36,31 @@ public class Main extends javax.swing.JFrame {
     int col;
     String rbtnHouse;
     String rbtnCommunity;
-        
+    Patient_Directory pd = new Patient_Directory();
+    Patient pat1 = new Patient();
+    VitalSigns vs1 = new VitalSigns();
+    VitalSigns vs2 = new VitalSigns();
+    VitalSigns vs3 = new VitalSigns();
+    VitalSigns vs4 = new VitalSigns();
+    VitalSigns vs5 = new VitalSigns();
+    VitalSigns vs6 = new VitalSigns();
+    VitalSigns vs7 = new VitalSigns();
+    VitalSigns vs8 = new VitalSigns();
+    VitalSigns vs9 = new VitalSigns();
+    Encounter en1 = new Encounter(vs1);
+    Encounter en2 = new Encounter(vs2);
+    Encounter en3 = new Encounter(vs3);
+    Encounter en4 = new Encounter(vs4);
+    Encounter en5 = new Encounter(vs5);
+    Encounter en6 = new Encounter(vs6);
+    Encounter en8 = new Encounter(vs8);
+    Encounter en9 = new Encounter(vs9);
+    House house1 = new House();
+    House house2 = new House();
+    House house3 = new House();
+    House house4 = new House();
+    Community comm1 = new Community();
+    Community comm2 = new Community();
     /**
      * Creates new form Main
      */
@@ -47,8 +71,6 @@ public class Main extends javax.swing.JFrame {
         queryRes=new ArrayList<>();
         dtm = new DefaultTableModel(header,0);
         tblView.setModel(dtm);
-        dtm2 = new DefaultTableModel(header,0);
-        //tblSearch.setModel(dtm2);
         this.setLocationRelativeTo(null); //Set Interface to center
     }
     
@@ -109,6 +131,7 @@ public class Main extends javax.swing.JFrame {
         lblCommunity = new javax.swing.JLabel();
         rbtnCommunity1 = new javax.swing.JRadioButton();
         rbtnCommunity2 = new javax.swing.JRadioButton();
+        btnCheck = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -237,6 +260,13 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        btnCheck.setText("Check");
+        btnCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -287,10 +317,12 @@ public class Main extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGap(94, 94, 94)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnDelete)
-                                    .addComponent(btnUpdate))
-                                .addGap(484, 484, 484))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(btnDelete)
+                                        .addComponent(btnUpdate))
+                                    .addComponent(btnCheck))
+                                .addGap(481, 481, 481))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(layout.createSequentialGroup()
@@ -348,7 +380,9 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(lblDate))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                        .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCheck))))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRespiratoryRate)
@@ -443,30 +477,72 @@ public class Main extends javax.swing.JFrame {
                     pat1.Enclist.add(en1);
                     //Add patient 1 to patient directory
                     pd.addPatient(pat1);
-                }
-                else if(id=="2"){
-                    Patient pat2 = new Patient();
-                    VitalSigns vs2 = new VitalSigns();
-                
-                    pat2.setFirstName(firstName);
-                    pat2.setLastName(lastName);
-                    pat2.setContact(contact);
-                    pat2.setZipcode(zipcode);
-                    
-                    vs2.setAge(age);
-                    vs2.setDate(date);
-                    vs2.setRes_rate(respiratoryrate);
-                    vs2.setHeart_rate(heartrate);
-                    vs2.setBlood_press(bloodpressure); 
-                    vs2.setWeight_kg(weight);
-                    
-                    //Create Encounter for vs2
-                    Encounter en1 = new Encounter(vs2);
-                    //Add en1 to patient 1 encounter list
-                    pat2.Enclist.add(en1);
-                    //Add patient 2 to patient directory
-                    pd.addPatient(pat2);
-                }
+                    if(house=="1"){
+                        House house1 = new House();
+                        house1.prsn.add(pat1);
+                        if(community=="1"){
+                            Community comm1 = new Community();
+                            comm1.houses.add(house1);
+                                City city = new City();
+                                city.cmty.add(comm1);
+                        }
+                        else if(community=="2"){
+                            Community comm2 = new Community();
+                            comm2.houses.add(house1);
+                                City city = new City();
+                                city.cmty.add(comm2);
+                        }
+                        
+                    }
+                    else if(house=="2"){
+                        House house2 = new House();
+                        house2.prsn.add(pat1);
+                        if(community=="1"){
+                            Community comm1 = new Community();
+                            comm1.houses.add(house2);
+                                City city = new City();
+                                city.cmty.add(comm1);
+                        }
+                        else if(community=="2"){
+                            Community comm2 = new Community();
+                            comm2.houses.add(house2);
+                                City city = new City();
+                                city.cmty.add(comm2);
+                        }
+                    }
+                    else if(house=="3"){
+                        House house3 = new House();
+                        house3.prsn.add(pat1);
+                        if(community=="1"){
+                            Community comm1 = new Community();
+                            comm1.houses.add(house3);
+                                City city = new City();
+                                city.cmty.add(comm1);
+                        }
+                        else if(community=="2"){
+                            Community comm2 = new Community();
+                            comm2.houses.add(house3);
+                                City city = new City();
+                                city.cmty.add(comm2);
+                        }
+                    }
+                    else if(house=="4"){
+                        House house4 = new House();
+                        house4.prsn.add(pat1);
+                        if(community=="1"){
+                            Community comm1 = new Community();
+                            comm1.houses.add(house4);
+                                City city = new City();
+                                city.cmty.add(comm1);
+                        }
+                        else if(community=="2"){
+                            Community comm2 = new Community();
+                            comm2.houses.add(house4);
+                                City city = new City();
+                                city.cmty.add(comm2);
+                        }
+                    } 
+                }               
                 JOptionPane.showMessageDialog(this, "Information Added");
                 clearField();
             }catch (Exception e){
@@ -560,6 +636,40 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         rbtnCommunity="2";
     }//GEN-LAST:event_rbtnCommunity2ActionPerformed
+
+    private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
+        // TODO add your handling code here:
+        
+        int comm1cnt = 0;
+            for (House h : comm1.houses) {
+                for (Person p : h.prsn) {
+                    Patient pat = (Patient) p;
+                    
+                    if (!pat.Enclist.get(pat.Enclist.size() - 1).evs.isThisVitalSignNormal("BloodPressure")) {
+                        comm1cnt++;
+                       System.out.println("Patient with Abnormal Blood Pressure: " + pat);
+                    }
+
+                }
+            }
+        System.out.println("Count of patients with abnormal blood pressure for first comunity is: " + comm1cnt);
+        
+        
+        int comm2cnt= 0;
+        for (House h : comm2.houses) {
+                for (Person p : h.prsn) {
+                    Patient pat = (Patient) p;
+                    if (!pat.Enclist.get(pat.Enclist.size() - 1).evs.isThisVitalSignNormal("BloodPressure")) {
+                        comm2cnt++;
+                        System.out.println("patient with Abnormal Blood Pressure: " + pat);
+                    }
+                }
+            }
+        System.out.println("Count of patients with abnormal blood pressure for second comunity is: " + comm2cnt);
+        
+        int cityab = comm1cnt + comm2cnt;
+        System.out.println("Total number of patients with abnormal blood pressure in the entire city is: " + cityab);
+    }//GEN-LAST:event_btnCheckActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -597,6 +707,7 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnCheck;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
     private javax.swing.ButtonGroup buttonGroup1;
