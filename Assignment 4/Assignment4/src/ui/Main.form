@@ -64,24 +64,19 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtDate" linkSize="3" min="-2" pref="170" max="-2" attributes="0"/>
-                                          <Component id="txtRespiratoryRate" linkSize="3" min="-2" pref="170" max="-2" attributes="0"/>
-                                          <Component id="txtBloodPressure" linkSize="3" min="-2" pref="170" max="-2" attributes="0"/>
-                                          <Component id="txtHeartRate" linkSize="3" min="-2" pref="170" max="-2" attributes="0"/>
-                                          <Component id="txtWeight" linkSize="3" min="-2" pref="170" max="-2" attributes="0"/>
-                                          <Component id="txtAge" linkSize="3" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="0" pref="78" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="txtDate" linkSize="3" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="txtRespiratoryRate" linkSize="3" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="txtBloodPressure" linkSize="3" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="txtHeartRate" linkSize="3" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="txtWeight" linkSize="3" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="txtAge" linkSize="3" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                                   <Component id="txtFirstName" linkSize="3" min="-2" pref="248" max="-2" attributes="0"/>
                                   <Component id="txtLastName" linkSize="3" alignment="0" min="-2" pref="248" max="-2" attributes="0"/>
                                   <Component id="txtContactNo" linkSize="3" alignment="0" min="-2" pref="248" max="-2" attributes="0"/>
                                   <Component id="txtZipCode" linkSize="3" alignment="0" min="-2" pref="248" max="-2" attributes="0"/>
                                   <Component id="txtID" linkSize="3" min="-2" pref="170" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                              <EmptySpace min="94" pref="172" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="btnAdd" linkSize="1" alignment="1" min="-2" max="-2" attributes="0"/>
