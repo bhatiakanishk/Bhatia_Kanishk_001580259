@@ -4,18 +4,29 @@
  * and open the template in the editor.
  */
 package model;
+
 /**
  *
  * @author kanis
  */
 public class VitalSigns {
+    private int res_rate; //integer
+    private int heart_rate; // integer
+    private int sys_blood_press; //integer
+    private double weight_kgs; //floating point
+    private double weight_pounds; // floating point
+    private int age; //integer
+    private String date; // String
     
-    public int res_rate;
-    public int heart_rate;
-    public int blood_press;
-    public double weight_kg;
-    public int age;
-    public String date;
+    
+    
+    public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
 
     public int getRes_rate() {
         return res_rate;
@@ -33,52 +44,57 @@ public class VitalSigns {
         this.heart_rate = heart_rate;
     }
 
-    public int getBlood_press() {
-        return blood_press;
+    public int getSys_blood_press() {
+        return sys_blood_press;
     }
 
-    public void setBlood_press(int blood_press) {
-        this.blood_press = blood_press;
+    public void setSys_blood_press(int sys_blood_press) {
+        this.sys_blood_press = sys_blood_press;
     }
 
-    public double getWeight_kg() {
-        return weight_kg;
-    }
 
-    public void setWeight_kg(double weight_kg) {
-        this.weight_kg = weight_kg;
-    }
+    public double getWeight_kgs() {
+		return weight_kgs;
+	}
 
-    public int getAge() {
-        return age;
-    }
+	public void setWeight_kgs(double weight_kgs) {
+		this.weight_kgs = weight_kgs;
+	}
 
-    public void setAge(int age) {
-        this.age = age;
-    }
+	public double getWeight_pounds() {
+		return weight_pounds;
+	}
 
-    public String getDate() {
+	public void setWeight_pounds(double weight_pounds) {
+		this.weight_pounds = weight_pounds;
+	}
+
+	public String getDate() {
         return date;
     }
 
     public void setDate(String date) {
         this.date = date;
     }
-    @Override
+
+	@Override
 	public String toString() {
-		return "Vital_Signs [res_rate=" + res_rate + ", heart_rate=" + heart_rate + ", blood_press="
-				+ blood_press + ", weight_kg=" + weight_kg + ", date=" + date
+		return "Vital_Signs [res_rate=" + res_rate + ", heart_rate=" + heart_rate + ", sys_blood_press="
+				+ sys_blood_press + ", weight_kgs=" + weight_kgs + ", weight_pounds=" + weight_pounds + ", date=" + date
 				+ "]";
 	}
-        public boolean isPatientNormal() {
+    
+//Checks if all patient vitals all normal.
+		public boolean isPatientNormal() {
 			boolean check=false;
 		       
 		       switch(age){
 		           case 1: 
 		               if(res_rate>=30 && res_rate<=50 && 
 		                  heart_rate>=120 && heart_rate<=160 &&
-		                  blood_press>=50 && blood_press<=70 &&
-		                  weight_kg>= 2 && weight_kg<= 3){
+		                  sys_blood_press>=50 && sys_blood_press<=70 &&
+		                  weight_kgs>= 2 && weight_kgs<= 3 &&
+		                  weight_pounds >= 4.5 && weight_pounds <= 7){
 		                   
 		                   check = true;
 		               }else{
@@ -89,8 +105,9 @@ public class VitalSigns {
 		           case 2: 
 		               if(res_rate>=20 && res_rate<=30 && 
 		                  heart_rate>=80 && heart_rate<=140 &&
-		                  blood_press>=70 && blood_press<=100 &&
-		                  weight_kg>= 4 && weight_kg<= 10){
+		                  sys_blood_press>=70 && sys_blood_press<=100 &&
+		                  weight_kgs>= 4 && weight_kgs<= 10 &&
+		                  weight_pounds >= 9 && weight_pounds <= 22){
 		                   
 		                   check = true;
 		               }else{
@@ -101,8 +118,9 @@ public class VitalSigns {
 		           case 3: 
 		               if(res_rate>=20 && res_rate<=30 && 
 		                  heart_rate>=80 && heart_rate<=130 &&
-		                  blood_press>=80 && blood_press<=110 &&
-		                  weight_kg>= 10 && weight_kg<= 14){
+		                  sys_blood_press>=80 && sys_blood_press<=110 &&
+		                  weight_kgs>= 10 && weight_kgs<= 14 &&
+		                  weight_pounds >= 22 && weight_pounds <= 31){
 		                   
 		                   check = true;
 		               }else{
@@ -113,8 +131,9 @@ public class VitalSigns {
 		           case 4: 
 		               if(res_rate>=20 && res_rate<=30 && 
 		                  heart_rate>=80 && heart_rate<=120 &&
-		                  blood_press>=80 && blood_press<=110 &&
-		                  weight_kg>= 14 && weight_kg<= 18){
+		                  sys_blood_press>=80 && sys_blood_press<=110 &&
+		                  weight_kgs>= 14 && weight_kgs<= 18 &&
+		                  weight_pounds >= 31 && weight_pounds <= 40){
 		                   
 		                   check = true;
 		               }else{
@@ -125,8 +144,9 @@ public class VitalSigns {
 		           case 5: 
 		               if(res_rate>=20 && res_rate<=30 && 
 		                  heart_rate>=70 && heart_rate<=110 &&
-		                  blood_press>=80 && blood_press<=120 &&
-		                  weight_kg>= 20 && weight_kg<= 42){
+		                  sys_blood_press>=80 && sys_blood_press<=120 &&
+		                  weight_kgs>= 20 && weight_kgs<= 42 &&
+		                  weight_pounds >= 41 && weight_pounds <= 92){
 		                   
 		                   check = true;
 		               }else{
@@ -137,8 +157,9 @@ public class VitalSigns {
 		           case 6: 
 		               if(res_rate>=12 && res_rate<=20 && 
 		                  heart_rate>=55 && heart_rate<=105 &&
-		                  blood_press>=100 && blood_press<=120 &&
-		                  weight_kg>= 50){
+		                  sys_blood_press>=100 && sys_blood_press<=120 &&
+		                  weight_kgs>= 50 &&
+		                  weight_pounds >= 110 ){
 		                   
 		                   check = true;
 		               }else{
@@ -246,37 +267,37 @@ public class VitalSigns {
 	       } else if (vsign.equalsIgnoreCase("BloodPressure")) {
 	           switch (age) {
 	               case 1:
-	                   if (blood_press > 49 && blood_press < 71) {
+	                   if (sys_blood_press > 49 && sys_blood_press < 71) {
 	                       return true;
 	                   } else {
 	                       return false;
 	                   }
 	               case 2:
-	                   if (blood_press > 69 && blood_press < 101) {
+	                   if (sys_blood_press > 69 && sys_blood_press < 101) {
 	                       return true;
 	                   } else {
 	                       return false;
 	                   }
 	               case 3:
-	                   if (blood_press > 79 && blood_press < 111) {
+	                   if (sys_blood_press > 79 && sys_blood_press < 111) {
 	                       return true;
 	                   } else {
 	                       return false;
 	                   }
 	               case 4:
-	                   if (blood_press > 79 && blood_press < 111) {
+	                   if (sys_blood_press > 79 && sys_blood_press < 111) {
 	                       return true;
 	                   } else {
 	                       return false;
 	                   }
 	               case 5:
-	                   if (blood_press > 79 && blood_press < 121) {
+	                   if (sys_blood_press > 79 && sys_blood_press < 121) {
 	                       return true;
 	                   } else {
 	                       return false;
 	                   }
 	               case 6:
-	                   if (blood_press > 109 && blood_press < 121) {
+	                   if (sys_blood_press > 109 && sys_blood_press < 121) {
 	                       return true;
 	                   } else {
 	                       return false;
@@ -288,27 +309,57 @@ public class VitalSigns {
 
 	       } else if (vsign.equalsIgnoreCase("WeightKg")){
 	           switch(age){
-	           case 1: if (weight_kg>=2 && weight_kg<=3) 
+	           case 1: if (weight_kgs>=2 && weight_kgs<=3) 
 	                   return true;
 	                   else
 	                   return false;
-	           case 2: if (weight_kg>=4 && weight_kg<=10) 
+	           case 2: if (weight_kgs>=4 && weight_kgs<=10) 
 	                   return true;
 	                   else
 	                   return false;
-	           case 3: if (weight_kg>=10 && weight_kg<=14) 
+	           case 3: if (weight_kgs>=10 && weight_kgs<=14) 
 	                   return true;
 	                   else
 	                   return false;
-	           case 4: if (weight_kg>=14 && weight_kg<=18) 
+	           case 4: if (weight_kgs>=14 && weight_kgs<=18) 
 	                   return true;
 	                   else
 	                   return false;
-	           case 5: if (weight_kg>=20 && weight_kg<=42) 
+	           case 5: if (weight_kgs>=20 && weight_kgs<=42) 
 	                   return true;
 	                   else
 	                   return false;
-	           case 6: if (weight_kg>50) 
+	           case 6: if (weight_kgs>50) 
+	                   return true;
+	                   else
+	                   return false;
+	           
+	           default: return false;
+	       }
+	       }
+	       else if(vsign.equalsIgnoreCase("WeightLb")){
+	           switch(age){
+	           case 1: if (weight_pounds>=4.5 && weight_pounds<=7) 
+	                   return true;
+	                   else
+	                   return false;
+	           case 2: if (weight_pounds>=9 && weight_pounds<=12) 
+	                   return true;
+	                   else
+	                   return false;
+	           case 3: if (weight_pounds>=22 && weight_pounds<=31) 
+	                   return true;
+	                   else
+	                   return false;
+	           case 4: if (weight_pounds>=31 && weight_pounds<=40) 
+	                   return true;
+	                   else
+	                   return false;
+	           case 5: if (weight_pounds>=41 && weight_pounds<=92) 
+	                   return true;
+	                   else
+	                   return false;
+	           case 6: if (weight_pounds>110) 
 	                   return true;
 	                   else
 	                   return false;
@@ -317,6 +368,7 @@ public class VitalSigns {
 	       }
 	       }
 	       return false;
+	   
 	    }
 
 }
