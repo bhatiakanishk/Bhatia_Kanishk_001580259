@@ -11,5 +11,8 @@ import java.util.ArrayList;
  */
 public class Patient extends Person {
     ArrayList <Encounter> Enclist = new ArrayList<Encounter>();
-
+    @Override
+	public String toString() {
+        return  "Patient{"  +  "Encounter List"  +  Enclist  +  '}';
+	}
 }
