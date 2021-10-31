@@ -34,12 +34,8 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="700" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblBloodPressure" linkSize="2" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
@@ -59,6 +55,7 @@
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtAge" max="32767" attributes="0"/>
                                   <Component id="txtBloodPressure" pref="170" max="32767" attributes="0"/>
                                   <Component id="txtRespiratoryRate" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtWeight" max="32767" attributes="0"/>
@@ -76,6 +73,13 @@
                           <Component id="btnUpdate" linkSize="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="592" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane1" min="-2" pref="700" max="-2" attributes="0"/>
+                          <Component id="lblAge" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -115,7 +119,7 @@
                   <Component id="lblZipCode" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtZipCode" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="22" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtDate" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblDate" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -140,7 +144,12 @@
                   <Component id="lblWeight" min="-2" max="-2" attributes="0"/>
                   <Component id="txtWeight" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="207" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtAge" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="170" max="32767" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="236" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -291,6 +300,13 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtContactNo">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAge">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Age:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtAge">
     </Component>
   </SubComponents>
 </Form>
