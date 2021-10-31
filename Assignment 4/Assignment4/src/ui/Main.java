@@ -459,8 +459,8 @@ public class Main extends javax.swing.JFrame {
                     Patient pat1 = new Patient();
                     VitalSigns vs1 = new VitalSigns();
                 
-                    pat1.setFirstName(firstName);
-                    pat1.setLastName(lastName);
+                    pat1.setFirstname(firstName);
+                    pat1.setLastname(lastName);
                     pat1.setContact(contact);
                     pat1.setZipcode(zipcode);
                     
