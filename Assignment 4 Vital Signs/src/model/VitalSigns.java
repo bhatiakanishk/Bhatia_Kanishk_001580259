@@ -15,15 +15,17 @@ public class VitalSigns {
     private int bloodpressure;
     private int pulse;
     private int weight;
+    String contact;
     
     public VitalSigns(){
     }
     
-    public VitalSigns(int temperature, int bloodpressure, int pulse, int weight){
+    public VitalSigns(int temperature, int bloodpressure, int pulse, int weight, String contact){
         this.temperature = temperature;
         this.bloodpressure=bloodpressure;
         this.pulse=pulse;
         this.weight=weight;
+        this.contact=contact;
     }
 
     public double getTemperature() {
@@ -56,6 +58,14 @@ public class VitalSigns {
 
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
     }
    
 }
