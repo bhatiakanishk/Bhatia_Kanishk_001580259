@@ -97,7 +97,5 @@ public class Person {
     public void setCity(String city) {
         this.city = city;
     }
-    
-    
-    
+
 }
