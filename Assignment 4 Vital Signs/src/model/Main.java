@@ -557,7 +557,7 @@ public class Main extends javax.swing.JFrame {
             try{
                 String firstName = txtFirstName.getText();
                 String lastName = txtLastName.getText();
-                String age = txtAge.getText();
+                int age = Integer.parseInt(txtAge.getText());
                 String contactNumber = txtContactNumber.getText();
                 String houseNumber = txtHouseNumber.getText();
                 String community = txtCommunity.getText();
@@ -574,7 +574,7 @@ public class Main extends javax.swing.JFrame {
                 String temperature = txtTemperature.getText();
                 String bloodpressure = txtBloodPressure.getText();
                 String pulse = txtPulse.getText();
-                String weight = txtWeight.getText();
+                int weight = Integer.parseInt(txtWeight.getText());
                 /*encounterHistoryList.add(new PatientDirectory(date,doctor,issue,temperature,bloodpressure,pulse,weight));
                 dtm2.setRowCount(0);
                 for(int i=0; i<encounterHistoryList.size();i++){ 
@@ -616,7 +616,7 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         String updatefirstName = txtFirstName.getText();
         String updatelastName = txtLastName.getText();
-        String updateage = txtAge.getText();
+        int updateage = Integer.parseInt(txtAge.getText());
         String updatecontactNumber = txtContactNumber.getText();
         String updatehouseNumber = txtHouseNumber.getText();
         String updatecommunity = txtCommunity.getText();
@@ -640,7 +640,7 @@ public class Main extends javax.swing.JFrame {
         String updatetemperature = txtTemperature.getText();
         String updatebloodpressure = txtBloodPressure.getText();
         String updatepulse = txtPulse.getText();
-        String updateweight = txtWeight.getText();
+        int updateweight = Integer.parseInt(txtWeight.getText());
         encounterHistoryList.get(row).date = updatedate;
         encounterHistoryList.get(row).doctor = updatedoctor;
         encounterHistoryList.get(row).issue = updateissue;
@@ -801,6 +801,36 @@ public class Main extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
+        //Blood pressure
+        //Age 20-35: 125 to 75
+        //Age 36-50: 120 to 74
+        //Age 51-65: 118 to 70
+        //Age 66+: 119 to 72
+        int totalAbnormal = 0;
+        DefaultTableModel model = (DefaultTableModel) tblPatient.getModel();
+        model.setRowCount(0);
+        for(Patient p: patientData.getPatient()){
+            if(txtCommunity.getText().equalsIgnoreCase(p.getCommunity())){
+            Object[] r = new Object[7];
+            r[0] = p;
+            r[1] = p.getLastName();
+            r[2] = p.getAge();
+            r[3] = p.getContact();
+            r[4] = p.getHouse();
+            r[5] = p.getCommunity();
+            r[6] = p.getCity();
+            
+            if(p.getContact().equals(p.getEncounters().get(0).getContact())){
+            for(int i=0; i<p.getCount();i++){
+            if((p.getAge()>20 || p.getAge()<=35) && (p.getEncounters().get(i).getBloodpressure() >= 125 ||p.getEncounters().get(i).getBloodpressure() <= 75)){
+                model.addRow(r);
+                totalAbnormal++;
+                break;
+            }
+            }
+            }
+            }
+        }
         
     }//GEN-LAST:event_btnSearchActionPerformed
 
