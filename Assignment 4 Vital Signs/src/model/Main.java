@@ -657,7 +657,7 @@ public class Main extends javax.swing.JFrame {
 
     private void txtFirstNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFirstNameKeyReleased
         // TODO add your handling code here:
-        String PATTERN = "^[A-Za-z]\\w{5, 29}$";
+        String PATTERN = "^[A-Za-z]\\w{5,29}$";
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match=patt.matcher(txtFirstName.getText());
         if(!match.matches()){
@@ -670,7 +670,7 @@ public class Main extends javax.swing.JFrame {
 
     private void txtLastNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLastNameKeyReleased
         // TODO add your handling code here:
-        String PATTERN = "^[A-Za-z]\\w{5, 29}$";
+        String PATTERN = "^[A-Za-z]\\w{5,29}$";
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match=patt.matcher(txtLastName.getText());
         if(!match.matches()){
