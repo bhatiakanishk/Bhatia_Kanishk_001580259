@@ -34,7 +34,11 @@ public class Main extends javax.swing.JFrame {
     }
     
     public void addRowToTable(){
-    
+        dtm1.setRowCount(0);
+        for(int i=0; i<patient.size();i++){ //Print carlist on view table
+                    Object[] objs = {patient.get(i).firstName, patient.get(i).lastName, patient.get(i).age, patient.get(i).contact, patient.get(i).house, patient.get(i).community, patient.get(i).city};
+                    dtm1.addRow(objs);
+                }
     }
     
     
