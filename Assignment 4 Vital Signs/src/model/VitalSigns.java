@@ -14,13 +14,13 @@ public class VitalSigns {
     private String temperature;
     private String bloodpressure;
     private String pulse;
-    private String weight;
+    private int weight;
     private String contact;
     
     public VitalSigns(){
     }
     
-    public VitalSigns(String temperature, String bloodpressure, String pulse, String weight, String contact){
+    public VitalSigns(String temperature, String bloodpressure, String pulse, int weight, String contact){
         this.temperature = temperature;
         this.bloodpressure=bloodpressure;
         this.pulse=pulse;
@@ -52,15 +52,13 @@ public class VitalSigns {
         this.pulse = pulse;
     }
 
-    public String getWeight() {
+    public int getWeight() {
         return weight;
     }
 
-    public void setWeight(String weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
-
-    
 
     public String getContact() {
         return contact;
