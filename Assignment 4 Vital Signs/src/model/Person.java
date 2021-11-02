@@ -13,7 +13,7 @@ public class Person {
     private String firstName;
     private String lastName;
     private int age;
-    private int contact;
+    private String contact;
     private String isPatient;
     private int house;
     private String community;
@@ -23,7 +23,7 @@ public class Person {
         
     }
     
-    public Person(String firstName, String lastName, int age, int contact, String isPatient, int house, String community, String city){
+    public Person(String firstName, String lastName, int age, String contact, String isPatient, int house, String community, String city){
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -58,11 +58,11 @@ public class Person {
         this.age = age;
     }
 
-    public int getContact() {
+    public String getContact() {
         return contact;
     }
 
-    public void setContact(int contact) {
+    public void setContact(String contact) {
         this.contact = contact;
     }
 
