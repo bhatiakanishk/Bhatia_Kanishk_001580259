@@ -12,17 +12,17 @@ import java.util.ArrayList;
 public class EncounterHistory {
     private static ArrayList<Encounter> encounterArrayList;
     
-    public EncounterHistory() {
+    public EncounterHistory(){
         this.encounterArrayList = new ArrayList<Encounter>();
-        Encounter e1 = new Encounter("Dr. A", "Headache", 99.1, 100.0, 94, "21/07/98");
-        Encounter e2 = new Encounter("Dr. B", "Headache", 95.1, 109.0, 91, "21/07/55");
+        Encounter en1 = new Encounter("Dr.A", "Headache", "20/10/2021", 100,100,95,85);
+        Encounter en2 = new Encounter("Dr.B", "Fever", "25/10/2021", 90,90,90,89);
         
-        encounterArrayList.add(e1);
-        encounterArrayList.add(e2);
+        encounterArrayList.add(en1);
+        encounterArrayList.add(en2);
     }
     
     
     public ArrayList<Encounter> getEncounterArrayList(){
-    return encounterArrayList;
+        return encounterArrayList;
     }
 }
