@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package model;
+package Encounter;
 import model.Person;
 import model.Encounter;
 import model.EncounterHistory;
