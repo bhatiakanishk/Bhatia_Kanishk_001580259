@@ -57,6 +57,5 @@ public class VitalSigns {
     public void setWeight(int weight) {
         this.weight = weight;
     }
-
-    
+   
 }
