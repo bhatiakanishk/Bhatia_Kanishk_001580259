@@ -12,7 +12,7 @@ package model;
 public class Person {
     private String firstName;
     private String lastName;
-    private String age;
+    private int age;
     private String contact;
     private String house;
     private String community;
@@ -22,7 +22,7 @@ public class Person {
         
     }
     
-    public Person(String firstName, String lastName, String age, String contact, String house, String community, String city){
+    public Person(String firstName, String lastName, int age, String contact, String house, String community, String city){
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -73,13 +73,14 @@ public class Person {
         this.city = city;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
+
 
     public String getHouse() {
         return house;
