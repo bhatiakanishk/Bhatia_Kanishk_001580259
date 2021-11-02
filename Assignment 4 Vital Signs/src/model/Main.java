@@ -23,7 +23,7 @@ public class Main extends javax.swing.JFrame {
     ArrayList<EncounterHistory> encounterHistoryList;
     
     String header1[] = new String[] {"First Name","Last Name","Age","Contact Number","House Number","Community","City"};
-    String header2[] = new String[] {"Date","Doctor","Issue","Temperature","Blood Pressure","Pulse","Weight"};//Table Header
+    String header2[] = new String[] {"Date","Doctor","Issue","Temperature","Blood Pressure","Pulse","Weight"};
     DefaultTableModel dtm1;
     DefaultTableModel dtm2;
     /**
@@ -39,9 +39,9 @@ public class Main extends javax.swing.JFrame {
     }
     
     public void addRowToTable(){
-        dtm1.setRowCount(0);
+        dtm2.setRowCount(0);
         for(int i=0; i<encounterHistoryList.size();i++){ //Print carlist on view table
-                    Object[] objs = {encounterHistoryList.get(i).firstName, encounterHistoryList.get(i).lastName, encounterHistoryList.get(i).age, encounterHistoryList.get(i).contact, encounterHistoryList.get(i).house, encounterHistoryList.get(i).community, encounterHistoryList.get(i).city};
+                    Object[] objs = {encounterHistoryList.get(i).encounterDate, encounterHistoryList.get(i).encounterDoc, encounterHistoryList.get(i).age, encounterHistoryList.get(i).contact, encounterHistoryList.get(i).house, encounterHistoryList.get(i).community, encounterHistoryList.get(i).city};
                     dtm2.addRow(objs);
                 }
     }
