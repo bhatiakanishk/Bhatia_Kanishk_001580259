@@ -27,12 +27,12 @@ public class Patient extends Person{
         encounterData=new EncounterHistory();
         this.enounters = new ArrayList<Encounter>();
         enounters.clear();
-        /*for(Encounter e: encounterData.getEncounterArrayList()){
+        for(Encounter e: encounterData.getEncounterArrayList()){
             if(contact.equals(e.getContact())){
                 enounters.add(e);
                 count++;
             }
-        }*/
+        }
     }
     
     public EncounterHistory getEncounterData(){
