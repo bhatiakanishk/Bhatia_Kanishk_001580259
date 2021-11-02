@@ -17,7 +17,7 @@ public class Encounter extends VitalSigns{
     public Encounter(){
     }
 
-    public Encounter(String encounterDoc, String encounterIssue, String encounterDate, int temperature, int bloodpressure, int pulse, int weight, String contact) {
+    public Encounter(String encounterDoc, String encounterIssue, String encounterDate, String temperature, String bloodpressure, String pulse, String weight, String contact) {
         super(temperature, bloodpressure, pulse, weight, contact);
         this.encounterDoc = encounterDoc;
         this.encounterIssue = encounterIssue;
