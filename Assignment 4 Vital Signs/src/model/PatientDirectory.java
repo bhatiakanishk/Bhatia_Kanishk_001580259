@@ -25,8 +25,8 @@ public class PatientDirectory {
         this.patientArrayList = new ArrayList<Patient>();
         this.personData = new PersonDirectory();
         
-        Patient p1 = new Patient("Kanishk", "Bhatia", 22, "8879962666", "Yes", 1, "Longwood", "Boston");
-        Patient p2 = new Patient("Raj", "Mehta", 23, "9969293888", "No", 2, "Longwood", "Boston");
+        Patient p1 = new Patient("Kanishk", "Bhatia", "22", "8879962666", "1", "Longwood", "Boston");
+        Patient p2 = new Patient("Raj", "Mehta", "23", "9969293888", "2", "Longwood", "Boston");
         
         patientArrayList.add(p1);
         patientArrayList.add(p2);
