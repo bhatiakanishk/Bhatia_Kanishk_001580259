@@ -15,8 +15,8 @@ public class EncounterHistory {
     
     public EncounterHistory(){
         this.encounterArrayList = new ArrayList<Encounter>();
-        Encounter en1 = new Encounter("Dr.A", "Headache", "20/10/2021", "100","100","95","85", "8879962666");
-        Encounter en2 = new Encounter("Dr.B", "Fever", "25/10/2021", "90","90","90","89", "9969293888");
+        Encounter en1 = new Encounter("Dr.A", "Headache", "20/10/2021", "100","100","95",85, "8879962666");
+        Encounter en2 = new Encounter("Dr.B", "Fever", "25/10/2021", "90","90","90",89, "9969293888");
         
         encounterArrayList.add(en1);
         encounterArrayList.add(en2);
