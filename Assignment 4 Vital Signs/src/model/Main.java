@@ -28,6 +28,8 @@ public class Main extends javax.swing.JFrame {
     String header2[] = new String[] {"Date","Doctor","Issue","Temperature","Blood Pressure","Pulse","Weight"};
     DefaultTableModel dtm1;
     DefaultTableModel dtm2;
+    int row;
+    int col;
     /**
      * Creates new form Main
      */
@@ -184,9 +186,19 @@ public class Main extends javax.swing.JFrame {
 
         btnUpdate.setText("Update");
         btnUpdate.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnDelete.setText("Delete");
         btnDelete.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         btnSearch.setText("Search");
         btnSearch.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -393,6 +405,72 @@ public class Main extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Delete this data", "Delete", dialogButton);
+        if(dialogResult == 0){
+            dtm1.removeRow(row);
+            dtm2.removeRow(row);
+            encounterHistoryList.remove(row);
+            patientDirectoryList.remove(row);
+            dtm1.setRowCount(0);
+            dtm2.setRowCount(0);
+            /*for(int i=0; i<encounterHistoryList.size();i++){ 
+                    Object[] objs = {encounterHistoryList.get(i).date, encounterHistoryList.get(i).doctor, encounterHistoryList.get(i).issue, encounterHistoryList.get(i).temperature, encounterHistoryList.get(i).bloodpressure, encounterHistoryList.get(i).pulse, encounterHistoryList.get(i).weight};
+                dtm2.addRow(objs);
+            }
+            
+            for(int j=0; j<patientDirectoryList.size();j++){ 
+                    Object[] objs = {patientDirectoryList.get(j).firstName, patientDirectoryList.get(j).lastName, patientDirectoryList.get(j).age, patientDirectoryList.get(j).contactNumber, patientDirectoryList.get(j).houseNumber, patientDirectoryList.get(j).community, patientDirectoryList.get(j).city};
+            dtm1.addRow(objs);
+            }*/
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        String updatefirstName = txtFirstName.getText();
+        String updatelastName = txtLastName.getText();
+        String updateage = txtAge.getText();
+        String updatecontactNumber = txtContactNumber.getText();
+        String updatehouseNumber = txtHouseNumber.getText();
+        String updatecommunity = txtCommunity.getText();
+        String updatecity = txtCity.getText();
+        patientDirectoryList.get(row).firstName = updatefirstName;
+        patientDirectoryList.get(row).lastName = updatelastName;
+        patientDirectoryList.get(row).age = updateage;
+        patientDirectoryList.get(row).contactNumber = updatecontactNumber;
+        patientDirectoryList.get(row).houseNumber = updatehouseNumber;
+        patientDirectoryList.get(row).community = updatecommunity;
+        patientDirectoryList.get(row).city = updatecity;
+        dtm1.setRowCount(0);
+        /*for(int j=0; j<patientDirectoryList.size();j++){ 
+                    Object[] objs = {patientDirectoryList.get(j).firstName, patientDirectoryList.get(j).lastName, patientDirectoryList.get(j).age, patientDirectoryList.get(j).contactNumber, patientDirectoryList.get(j).houseNumber, patientDirectoryList.get(j).community, patientDirectoryList.get(j).city};
+            dtm1.addRow(objs);
+            }*/
+        
+        String updatedate = txtDate.getText();
+        String updatedoctor = txtDoctor.getText();
+        String updateissue = txtIssue.getText();
+        String updatetemperature = txtTemperature.getText();
+        String updatebloodpressure = txtBloodPressure.getText();
+        String updatepulse = txtPulse.getText();
+        String updateweight = txtWeight.getText();
+        encounterHistoryList.get(row).date = updatedate;
+        encounterHistoryList.get(row).doctor = updatedoctor;
+        encounterHistoryList.get(row).issue = updateissue;
+        encounterHistoryList.get(row).temperature = updatetemperature;
+        encounterHistoryList.get(row).bloodpressure = updatebloodpressure;
+        encounterHistoryList.get(row).pulse = updatepulse;
+        encounterHistoryList.get(row).weight = updateweight;
+        dtm2.setRowCount(0);
+        /*for(int i=0; i<encounterHistoryList.size();i++){ 
+                    Object[] objs = {encounterHistoryList.get(i).date, encounterHistoryList.get(i).doctor, encounterHistoryList.get(i).issue, encounterHistoryList.get(i).temperature, encounterHistoryList.get(i).bloodpressure, encounterHistoryList.get(i).pulse, encounterHistoryList.get(i).weight};
+                dtm2.addRow(objs);
+            }*/
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     /**
      * @param args the command line arguments
