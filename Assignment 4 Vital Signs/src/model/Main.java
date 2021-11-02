@@ -826,10 +826,22 @@ public class Main extends javax.swing.JFrame {
                 model.addRow(r);
                 totalAbnormal++;
                 break;
+            }else if((p.getAge()>36 || p.getAge()<=50) && (p.getEncounters().get(i).getBloodpressure() >= 120 ||p.getEncounters().get(i).getBloodpressure() <= 74)){
+                model.addRow(r);
+                totalAbnormal++;
+                break;
+            }else if((p.getAge()>51 || p.getAge()<=65) && (p.getEncounters().get(i).getBloodpressure() >= 118 ||p.getEncounters().get(i).getBloodpressure() <= 70)){
+                model.addRow(r);
+                totalAbnormal++;
+                break;
+            }else if((p.getAge()>66) && (p.getEncounters().get(i).getBloodpressure() >= 119 ||p.getEncounters().get(i).getBloodpressure() <= 72)){
+                model.addRow(r);
+                totalAbnormal++;
+                break;
+                }
+                }
             }
-            }
-            }
-            }
+        }
         }
         
     }//GEN-LAST:event_btnSearchActionPerformed
