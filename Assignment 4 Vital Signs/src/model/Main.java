@@ -19,14 +19,26 @@ import model.Patient;
  * @author kanis
  */
 public class Main extends javax.swing.JFrame {
-
+    
+    String header1[] = new String[] {"First Name","Last Name","Age","Contact Number","House Number","Community","City"};
+    String header2[] = new String[] {"Date","Doctor","Issue","Temperature","Blood Pressure","Pulse","Weight"};//Table Header
+    DefaultTableModel dtm1;
+    DefaultTableModel dtm2;
     /**
      * Creates new form Main
      */
     public Main() {
         initComponents();
+        dtm1 = new DefaultTableModel(header1,0);
+        dtm2 = new DefaultTableModel(header2,0);
     }
-
+    
+    public void addRowToTable(){
+    
+    }
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
