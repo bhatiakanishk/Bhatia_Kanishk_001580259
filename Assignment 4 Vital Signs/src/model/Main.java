@@ -20,7 +20,9 @@ import model.Patient;
  */
 public class Main extends javax.swing.JFrame {
     
+    
     ArrayList<EncounterHistory> encounterHistoryList;
+    ArrayList<PatientDirectory> patientDirectoryList;
     
     String header1[] = new String[] {"First Name","Last Name","Age","Contact Number","House Number","Community","City"};
     String header2[] = new String[] {"Date","Doctor","Issue","Temperature","Blood Pressure","Pulse","Weight"};
@@ -32,19 +34,38 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         encounterHistoryList = new ArrayList<>();   
+        patientDirectoryList = new ArrayList<>(); 
         dtm1 = new DefaultTableModel(header1,0);
         dtm2 = new DefaultTableModel(header2,0);
         tblVitalSigns.setModel(dtm1);
         tblPatient.setModel(dtm2);
+        this.setLocationRelativeTo(null);
     }
     
-    public void addRowToTable(){
+    private void clearField() {
+        txtFirstName.requestFocus();
+        txtFirstName.setText("");
+        txtLastName.setText("");
+        txtAge.setText("");
+        txtContactNumber.setText("");
+        txtHouseNumber.setText("");
+        txtCommunity.setText("");
+        txtCity.setText("");
+        txtDate.setText("");
+        txtDoctor.setText("");
+        txtIssue.setText("");
+        txtTemperature.setText(""); 
+        txtBloodPressure.setText("");
+        txtPulse.setText("");
+        txtWeight.setText(""); 
+    }
+    /*public void addRowToTable(){
         dtm2.setRowCount(0);
         for(int i=0; i<encounterHistoryList.size();i++){ //Print carlist on view table
                     Object[] objs = {encounterHistoryList.get(i).encounterDate, encounterHistoryList.get(i).encounterDoc, encounterHistoryList.get(i).age, encounterHistoryList.get(i).contact, encounterHistoryList.get(i).house, encounterHistoryList.get(i).community, encounterHistoryList.get(i).city};
                     dtm2.addRow(objs);
                 }
-    }
+    }*/
     
     
     
@@ -57,10 +78,45 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnDelete1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblVitalSigns = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblPatient = new javax.swing.JTable();
+        lblFirstName = new javax.swing.JLabel();
+        txtFirstName = new javax.swing.JTextField();
+        lblLastName = new javax.swing.JLabel();
+        txtLastName = new javax.swing.JTextField();
+        lblAge = new javax.swing.JLabel();
+        txtAge = new javax.swing.JTextField();
+        lblContactNumber = new javax.swing.JLabel();
+        txtContactNumber = new javax.swing.JTextField();
+        lblHouseNumber = new javax.swing.JLabel();
+        txtHouseNumber = new javax.swing.JTextField();
+        lblCommunity = new javax.swing.JLabel();
+        txtCommunity = new javax.swing.JTextField();
+        lblCity = new javax.swing.JLabel();
+        txtCity = new javax.swing.JTextField();
+        txtTemperature = new javax.swing.JTextField();
+        lblFirstName1 = new javax.swing.JLabel();
+        lblBloodPressure = new javax.swing.JLabel();
+        txtDate = new javax.swing.JTextField();
+        txtBloodPressure = new javax.swing.JTextField();
+        lblPulse = new javax.swing.JLabel();
+        txtPulse = new javax.swing.JTextField();
+        lblWeight = new javax.swing.JLabel();
+        lblDoctor = new javax.swing.JLabel();
+        txtWeight = new javax.swing.JTextField();
+        txtDoctor = new javax.swing.JTextField();
+        lblIssue = new javax.swing.JLabel();
+        txtIssue = new javax.swing.JTextField();
+        lblTemperature = new javax.swing.JLabel();
+        btnAdd = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
+
+        btnDelete1.setText("Delete");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,6 +146,51 @@ public class Main extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tblPatient);
 
+        lblFirstName.setText("First Name:");
+
+        lblLastName.setText("Last Name:");
+
+        lblAge.setText("Age:");
+
+        lblContactNumber.setText("Contact Number:");
+
+        lblHouseNumber.setText("House Number:");
+
+        lblCommunity.setText("Community:");
+
+        lblCity.setText("City:");
+
+        lblFirstName1.setText("Date:");
+
+        lblBloodPressure.setText("Blood Pressure:");
+
+        lblPulse.setText("Pulse:");
+
+        lblWeight.setText("Weight:");
+
+        lblDoctor.setText("Doctor:");
+
+        lblIssue.setText("Issue:");
+
+        lblTemperature.setText("Temperature:");
+
+        btnAdd.setText("Add");
+        btnAdd.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+
+        btnUpdate.setText("Update");
+        btnUpdate.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        btnDelete.setText("Delete");
+        btnDelete.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        btnSearch.setText("Search");
+        btnSearch.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -97,14 +198,152 @@ public class Main extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1388, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3))
+                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane3)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblFirstName)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblLastName)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblAge)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblContactNumber)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblHouseNumber)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtHouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblCommunity)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblCity)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(193, 193, 193)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblBloodPressure)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblPulse)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtPulse, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblWeight)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblFirstName1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblDoctor)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblIssue)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblTemperature)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(138, 138, 138)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnSearch)
+                                    .addComponent(btnDelete)
+                                    .addComponent(btnUpdate)
+                                    .addComponent(btnAdd))))
+                        .addGap(0, 375, Short.MAX_VALUE)))
                 .addContainerGap())
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblAge, lblCity, lblCommunity, lblContactNumber, lblFirstName, lblHouseNumber, lblLastName});
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblBloodPressure, lblDoctor, lblFirstName1, lblIssue, lblPulse, lblTemperature, lblWeight});
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAdd, btnDelete, btnSearch, btnUpdate});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(436, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblFirstName)
+                            .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblLastName)
+                            .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblAge)
+                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblContactNumber)
+                            .addComponent(txtContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblHouseNumber)
+                            .addComponent(txtHouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCommunity)
+                            .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCity)
+                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblFirstName1)
+                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAdd))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblDoctor)
+                            .addComponent(txtDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnUpdate))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblIssue)
+                            .addComponent(txtIssue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDelete))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblTemperature)
+                            .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSearch))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblBloodPressure)
+                            .addComponent(txtBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPulse)
+                            .addComponent(txtPulse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblWeight)
+                            .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -113,6 +352,47 @@ public class Main extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+        if(txtFirstName.getText().isEmpty()|| txtLastName.getText().isEmpty()|| txtAge.getText().isEmpty()|| txtContactNumber.getText().isEmpty()|| txtHouseNumber.getText().isEmpty()|| txtCommunity.getText().isEmpty() || txtCity.getText().isEmpty() || txtDate.getText().isEmpty() || txtDoctor.getText().isEmpty() || txtIssue.getText().isEmpty() || txtTemperature.getText().isEmpty() || txtBloodPressure.getText().isEmpty() || txtPulse.getText().isEmpty() || txtWeight.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Don't leave empty","Error",JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            try{
+                String firstName = txtFirstName.getText();
+                String lastName = txtLastName.getText();
+                String age = txtAge.getText();
+                String contactNumber = txtContactNumber.getText();
+                String houseNumber = txtHouseNumber.getText();
+                String community = txtCommunity.getText();
+                String city = txtCity.getText();
+                /*patientDirectoryList.add(new PatientDirectory(firstName,lastName,age,contactNumber,houseNumber,community,city));
+                dtm1.setRowCount(0);
+                for(int i=0; i<patientDirectoryList.size();i++){ 
+                    Object[] objs = {patientDirectoryList.get(i).firstName, patientDirectoryList.get(i).lastName, patientDirectoryList.get(i).age, patientDirectoryList.get(i).contactNumber, patientDirectoryList.get(i).houseNumber, patientDirectoryList.get(i).community, patientDirectoryList.get(i).city};
+                    dtm1.addRow(objs);
+                }*/
+                String date = txtDate.getText();
+                String doctor = txtDoctor.getText();
+                String issue = txtIssue.getText();
+                String temperature = txtTemperature.getText();
+                String bloodpressure = txtBloodPressure.getText();
+                String pulse = txtPulse.getText();
+                String weight = txtWeight.getText();
+                /*encounterHistoryList.add(new PatientDirectory(date,doctor,issue,temperature,bloodpressure,pulse,weight));
+                dtm2.setRowCount(0);
+                for(int i=0; i<encounterHistoryList.size();i++){ 
+                    Object[] objs = {encounterHistoryList.get(i).date, encounterHistoryList.get(i).doctor, encounterHistoryList.get(i).issue, encounterHistoryList.get(i).temperature, encounterHistoryList.get(i).bloodpressure, encounterHistoryList.get(i).pulse, encounterHistoryList.get(i).weight};
+                    dtm1.addRow(objs);
+                }*/
+                JOptionPane.showMessageDialog(this, "Information Added");
+                clearField();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_btnAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,9 +430,42 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnDelete1;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lblAge;
+    private javax.swing.JLabel lblBloodPressure;
+    private javax.swing.JLabel lblCity;
+    private javax.swing.JLabel lblCommunity;
+    private javax.swing.JLabel lblContactNumber;
+    private javax.swing.JLabel lblDoctor;
+    private javax.swing.JLabel lblFirstName;
+    private javax.swing.JLabel lblFirstName1;
+    private javax.swing.JLabel lblHouseNumber;
+    private javax.swing.JLabel lblIssue;
+    private javax.swing.JLabel lblLastName;
+    private javax.swing.JLabel lblPulse;
+    private javax.swing.JLabel lblTemperature;
+    private javax.swing.JLabel lblWeight;
     private javax.swing.JTable tblPatient;
     private javax.swing.JTable tblVitalSigns;
+    private javax.swing.JTextField txtAge;
+    private javax.swing.JTextField txtBloodPressure;
+    private javax.swing.JTextField txtCity;
+    private javax.swing.JTextField txtCommunity;
+    private javax.swing.JTextField txtContactNumber;
+    private javax.swing.JTextField txtDate;
+    private javax.swing.JTextField txtDoctor;
+    private javax.swing.JTextField txtFirstName;
+    private javax.swing.JTextField txtHouseNumber;
+    private javax.swing.JTextField txtIssue;
+    private javax.swing.JTextField txtLastName;
+    private javax.swing.JTextField txtPulse;
+    private javax.swing.JTextField txtTemperature;
+    private javax.swing.JTextField txtWeight;
     // End of variables declaration//GEN-END:variables
 }
