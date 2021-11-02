@@ -14,13 +14,14 @@ import model.PersonDirectory;
 import model.Encounter;
 import model.EncounterHistory;
 import model.Patient;
+import model.VitalSigns;
 /**
  *
  * @author kanis
  */
 public class Main extends javax.swing.JFrame {
     
-    
+    ArrayList<VitalSigns> vitalSignsList;
     ArrayList<EncounterHistory> encounterHistoryList;
     ArrayList<PatientDirectory> patientDirectoryList;
     
