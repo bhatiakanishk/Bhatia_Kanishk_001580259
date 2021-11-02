@@ -8,7 +8,6 @@ import java.util.regex.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
-import java.util.HashSet;
 import model.Person;
 import model.PersonDirectory;
 import model.Encounter;
