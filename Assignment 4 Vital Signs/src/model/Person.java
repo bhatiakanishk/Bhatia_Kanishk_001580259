@@ -12,10 +12,9 @@ package model;
 public class Person {
     private String firstName;
     private String lastName;
-    private int age;
+    private String age;
     private String contact;
-    private String isPatient;
-    private int house;
+    private String house;
     private String community;
     private String city;
     
@@ -23,12 +22,11 @@ public class Person {
         
     }
     
-    public Person(String firstName, String lastName, int age, String contact, String isPatient, int house, String community, String city){
+    public Person(String firstName, String lastName, String age, String contact, String house, String community, String city){
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.contact = contact;
-        this.isPatient = isPatient;
         this.house = house;
         this.community = community;
         this.city = city;
@@ -50,13 +48,6 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
 
     public String getContact() {
         return contact;
@@ -64,22 +55,6 @@ public class Person {
 
     public void setContact(String contact) {
         this.contact = contact;
-    }
-
-    public String getIsPatient() {
-        return isPatient;
-    }
-
-    public void setIsPatient(String isPatient) {
-        this.isPatient = isPatient;
-    }
-
-    public int getHouse() {
-        return house;
-    }
-
-    public void setHouse(int house) {
-        this.house = house;
     }
 
     public String getCommunity() {
@@ -98,4 +73,20 @@ public class Person {
         this.city = city;
     }
 
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getHouse() {
+        return house;
+    }
+
+    public void setHouse(String house) {
+        this.house = house;
+    }
+    
 }
