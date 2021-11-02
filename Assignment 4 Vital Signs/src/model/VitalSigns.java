@@ -11,26 +11,26 @@ package model;
  */
 public class VitalSigns {
     
-    private double temperature;
-    private double bloodpressure;
+    private int temperature;
+    private int bloodpressure;
     private int pulse;
-    private String date;
+    private int weight;
     
     public VitalSigns(){
     }
     
-    public VitalSigns(double temperature, double bloodpressure, int pulse, String date){
+    public VitalSigns(int temperature, int bloodpressure, int pulse, int weight){
         this.temperature = temperature;
         this.bloodpressure=bloodpressure;
         this.pulse=pulse;
-        this.date=date;
+        this.weight=weight;
     }
 
     public double getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(double temperature) {
+    public void setTemperature(int temperature) {
         this.temperature = temperature;
     }
 
@@ -38,7 +38,7 @@ public class VitalSigns {
         return bloodpressure;
     }
 
-    public void setBloodpressure(double bloodpressure) {
+    public void setBloodpressure(int bloodpressure) {
         this.bloodpressure = bloodpressure;
     }
 
@@ -50,11 +50,13 @@ public class VitalSigns {
         this.pulse = pulse;
     }
 
-    public String getDate() {
-        return date;
+    public double getWeight() {
+        return weight;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
+
+    
 }
