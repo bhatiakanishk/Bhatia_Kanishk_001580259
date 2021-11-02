@@ -35,6 +35,24 @@ public class Patient extends Person{
         }*/
     }
     
+    public EncounterHistory getEncounterData(){
+        return encounterData;
+    }
     
+    public void setEncounterData(EncounterHistory encounterData){
+        this.encounterData = encounterData;
+    }
+    
+    public ArrayList<Encounter> getEncounters(){
+        return enounters;
+    }
+    
+    public void setEncounters(ArrayList<Encounter> encounters){
+        this.enounters = encounters;
+    }
+    
+    public void deleteEncounter(Encounter e){
+        enounters.remove(e);
+    }
     
 }
