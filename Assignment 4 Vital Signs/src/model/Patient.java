@@ -22,8 +22,8 @@ public class Patient extends Person{
     public Patient(){
     }
 
-    public Patient(String firstName, String lastName, int age, String contact, String isPatient, int house, String community, String city) {
-        super(firstName, lastName, age, contact, isPatient, house, community, city);
+    public Patient(String firstName, String lastName, String age, String contact, String house, String community, String city) {
+        super(firstName, lastName, age, contact, house, community, city);
         encounterData=new EncounterHistory();
         this.enounters = new ArrayList<Encounter>();
         enounters.clear();
