@@ -21,8 +21,12 @@ import model.VitalSigns;
 public class Main extends javax.swing.JFrame {
     
     ArrayList<VitalSigns> vitalSignsList;
+    ArrayList<Encounter> encounterList;
     ArrayList<EncounterHistory> encounterHistoryList;
+    ArrayList<Patient> patientList;
     ArrayList<PatientDirectory> patientDirectoryList;
+    ArrayList<Person> personList;
+    ArrayList<PersonDirectory> personDirectoryList;
     
     String header1[] = new String[] {"First Name","Last Name","Age","Contact Number","House Number","Community","City"};
     String header2[] = new String[] {"Date","Doctor","Issue","Temperature","Blood Pressure","Pulse","Weight"};
@@ -35,8 +39,14 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
-        encounterHistoryList = new ArrayList<>();   
-        patientDirectoryList = new ArrayList<>(); 
+        vitalSignsList = new ArrayList<>(); 
+        encounterList = new ArrayList<>(); 
+        encounterHistoryList = new ArrayList<>(); 
+        patientList = new ArrayList<>();    
+        patientDirectoryList = new ArrayList<>();
+        personList = new ArrayList<>();
+        personDirectoryList = new ArrayList<>();
+
         dtm1 = new DefaultTableModel(header1,0);
         dtm2 = new DefaultTableModel(header2,0);
         tblVitalSigns.setModel(dtm1);
@@ -81,6 +91,7 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         btnDelete1 = new javax.swing.JButton();
+        lblCityVal4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblVitalSigns = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -100,7 +111,7 @@ public class Main extends javax.swing.JFrame {
         lblCity = new javax.swing.JLabel();
         txtCity = new javax.swing.JTextField();
         txtTemperature = new javax.swing.JTextField();
-        lblFirstName1 = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
         lblBloodPressure = new javax.swing.JLabel();
         txtDate = new javax.swing.JTextField();
         txtBloodPressure = new javax.swing.JTextField();
@@ -117,8 +128,26 @@ public class Main extends javax.swing.JFrame {
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
+        lblFirstNameVal = new javax.swing.JLabel();
+        lblLastNameVal = new javax.swing.JLabel();
+        lblAgeVal = new javax.swing.JLabel();
+        lblContactNumberVal = new javax.swing.JLabel();
+        lblHouseNumberVal = new javax.swing.JLabel();
+        lblCommunityVal = new javax.swing.JLabel();
+        lblCityVal = new javax.swing.JLabel();
+        lblDateVal = new javax.swing.JLabel();
+        lblDoctorVal = new javax.swing.JLabel();
+        lblIssueVal = new javax.swing.JLabel();
+        lblWeightVal = new javax.swing.JLabel();
+        lblPulseVal = new javax.swing.JLabel();
+        lblBloodPressureVal = new javax.swing.JLabel();
+        lblTemperatureVal = new javax.swing.JLabel();
 
         btnDelete1.setText("Delete");
+
+        lblCityVal4.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lblCityVal4.setForeground(new java.awt.Color(255, 0, 51));
+        lblCityVal4.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -150,27 +179,92 @@ public class Main extends javax.swing.JFrame {
 
         lblFirstName.setText("First Name:");
 
+        txtFirstName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtFirstNameKeyReleased(evt);
+            }
+        });
+
         lblLastName.setText("Last Name:");
+
+        txtLastName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtLastNameKeyReleased(evt);
+            }
+        });
 
         lblAge.setText("Age:");
 
+        txtAge.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtAgeKeyReleased(evt);
+            }
+        });
+
         lblContactNumber.setText("Contact Number:");
+        lblContactNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                lblContactNumberKeyReleased(evt);
+            }
+        });
 
         lblHouseNumber.setText("House Number:");
 
+        txtHouseNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtHouseNumberKeyReleased(evt);
+            }
+        });
+
         lblCommunity.setText("Community:");
+
+        txtCommunity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCommunityKeyReleased(evt);
+            }
+        });
 
         lblCity.setText("City:");
 
-        lblFirstName1.setText("Date:");
+        txtCity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCityKeyReleased(evt);
+            }
+        });
+
+        txtTemperature.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTemperatureKeyReleased(evt);
+            }
+        });
+
+        lblDate.setText("Date:");
 
         lblBloodPressure.setText("Blood Pressure:");
 
+        txtBloodPressure.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBloodPressureKeyReleased(evt);
+            }
+        });
+
         lblPulse.setText("Pulse:");
+
+        txtPulse.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPulseKeyReleased(evt);
+            }
+        });
 
         lblWeight.setText("Weight:");
 
         lblDoctor.setText("Doctor:");
+
+        txtWeight.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtWeightKeyReleased(evt);
+            }
+        });
 
         lblIssue.setText("Issue:");
 
@@ -202,6 +296,53 @@ public class Main extends javax.swing.JFrame {
 
         btnSearch.setText("Search");
         btnSearch.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        lblFirstNameVal.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lblFirstNameVal.setForeground(new java.awt.Color(255, 0, 51));
+
+        lblLastNameVal.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lblLastNameVal.setForeground(new java.awt.Color(255, 0, 51));
+
+        lblAgeVal.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lblAgeVal.setForeground(new java.awt.Color(255, 0, 51));
+
+        lblContactNumberVal.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lblContactNumberVal.setForeground(new java.awt.Color(255, 0, 51));
+
+        lblHouseNumberVal.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lblHouseNumberVal.setForeground(new java.awt.Color(255, 0, 51));
+
+        lblCommunityVal.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lblCommunityVal.setForeground(new java.awt.Color(255, 0, 51));
+
+        lblCityVal.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lblCityVal.setForeground(new java.awt.Color(255, 0, 51));
+
+        lblDateVal.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lblDateVal.setForeground(new java.awt.Color(255, 0, 51));
+
+        lblDoctorVal.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lblDoctorVal.setForeground(new java.awt.Color(255, 0, 51));
+
+        lblIssueVal.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lblIssueVal.setForeground(new java.awt.Color(255, 0, 51));
+
+        lblWeightVal.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lblWeightVal.setForeground(new java.awt.Color(255, 0, 51));
+
+        lblPulseVal.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lblPulseVal.setForeground(new java.awt.Color(255, 0, 51));
+
+        lblBloodPressureVal.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lblBloodPressureVal.setForeground(new java.awt.Color(255, 0, 51));
+
+        lblTemperatureVal.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        lblTemperatureVal.setForeground(new java.awt.Color(255, 0, 51));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -215,78 +356,106 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblFirstName)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblLastName)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblLastNameVal))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblAge)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblAgeVal))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblContactNumber)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblContactNumberVal))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblHouseNumber)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtHouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtHouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblHouseNumberVal))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblCommunity)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblCommunityVal))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblCity)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(193, 193, 193)
+                                .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblCityVal))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblFirstName)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblFirstNameVal)))
+                        .addGap(138, 138, 138)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblBloodPressure)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblBloodPressureVal))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblPulse)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtPulse, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtPulse, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblPulseVal))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblWeight)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblWeightVal))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblFirstName1)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblDoctor)
                                         .addGap(18, 18, 18)
-                                        .addComponent(txtDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblDoctorVal))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblIssue)
                                         .addGap(18, 18, 18)
-                                        .addComponent(txtIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblIssueVal))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblTemperature)
                                         .addGap(18, 18, 18)
-                                        .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(138, 138, 138)
+                                        .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblTemperatureVal))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblDate)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblDateVal)))
+                                .addGap(84, 84, 84)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnSearch)
                                     .addComponent(btnDelete)
                                     .addComponent(btnUpdate)
                                     .addComponent(btnAdd))))
-                        .addGap(0, 375, Short.MAX_VALUE)))
+                        .addGap(0, 448, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblAge, lblCity, lblCommunity, lblContactNumber, lblFirstName, lblHouseNumber, lblLastName});
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblBloodPressure, lblDoctor, lblFirstName1, lblIssue, lblPulse, lblTemperature, lblWeight});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblBloodPressure, lblDate, lblDoctor, lblIssue, lblPulse, lblTemperature, lblWeight});
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAdd, btnDelete, btnSearch, btnUpdate});
 
@@ -298,63 +467,77 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblFirstName)
-                            .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblFirstNameVal))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblLastName)
-                            .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblLastNameVal))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblAge)
-                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAgeVal))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblContactNumber)
-                            .addComponent(txtContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblContactNumberVal))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblHouseNumber)
-                            .addComponent(txtHouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtHouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblHouseNumberVal))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblCommunity)
-                            .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCommunityVal))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblCity)
-                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCityVal)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblFirstName1)
+                            .addComponent(lblDate)
                             .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAdd))
+                            .addComponent(btnAdd)
+                            .addComponent(lblDateVal))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblDoctor)
                             .addComponent(txtDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnUpdate))
+                            .addComponent(btnUpdate)
+                            .addComponent(lblDoctorVal))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblIssue)
                             .addComponent(txtIssue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDelete))
+                            .addComponent(btnDelete)
+                            .addComponent(lblIssueVal))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblTemperature)
                             .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSearch))
+                            .addComponent(btnSearch)
+                            .addComponent(lblTemperatureVal))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblBloodPressure)
-                            .addComponent(txtBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblBloodPressureVal))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblPulse)
-                            .addComponent(txtPulse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtPulse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPulseVal))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblWeight)
-                            .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblWeightVal))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -472,6 +655,155 @@ public class Main extends javax.swing.JFrame {
             }*/
     }//GEN-LAST:event_btnUpdateActionPerformed
 
+    private void txtFirstNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFirstNameKeyReleased
+        // TODO add your handling code here:
+        String PATTERN = "^[A-Za-z]\\w{5, 29}$";
+        Pattern patt=Pattern.compile(PATTERN);
+        Matcher match=patt.matcher(txtFirstName.getText());
+        if(!match.matches()){
+            lblFirstNameVal.setText("Invalid Input");
+        }
+        else{
+            lblFirstNameVal.setText(null);
+        }
+    }//GEN-LAST:event_txtFirstNameKeyReleased
+
+    private void txtLastNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLastNameKeyReleased
+        // TODO add your handling code here:
+        String PATTERN = "^[A-Za-z]\\w{5, 29}$";
+        Pattern patt=Pattern.compile(PATTERN);
+        Matcher match=patt.matcher(txtLastName.getText());
+        if(!match.matches()){
+            lblLastNameVal.setText("Invalid Input");
+        }
+        else{
+            lblLastNameVal.setText(null);
+        }
+    }//GEN-LAST:event_txtLastNameKeyReleased
+
+    private void txtAgeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAgeKeyReleased
+        // TODO add your handling code here:
+        String PATTERN = "^[1-9][0-9]?$|^100$";
+        Pattern patt=Pattern.compile(PATTERN);
+        Matcher match=patt.matcher(txtAge.getText());
+        if(!match.matches()){
+            lblAgeVal.setText("Invalid Input");
+        }
+        else{
+            lblAgeVal.setText(null);
+        }
+    }//GEN-LAST:event_txtAgeKeyReleased
+
+    private void lblContactNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblContactNumberKeyReleased
+        // TODO add your handling code here:
+        String PATTERN = "\\d{10}";
+        Pattern patt=Pattern.compile(PATTERN);
+        Matcher match=patt.matcher(txtContactNumber.getText());
+        if(!match.matches()){
+            lblContactNumberVal.setText("Invalid Input");
+        }
+        else{
+            lblContactNumberVal.setText(null);
+        }
+        
+    }//GEN-LAST:event_lblContactNumberKeyReleased
+
+    private void txtHouseNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHouseNumberKeyReleased
+        // TODO add your handling code here:
+        String PATTERN = "^\\d{1,9}$";
+        Pattern patt=Pattern.compile(PATTERN);
+        Matcher match=patt.matcher(txtHouseNumber.getText());
+        if(!match.matches()){
+            lblHouseNumberVal.setText("Invalid Input");
+        }
+        else{
+            lblHouseNumberVal.setText(null);
+        }
+    }//GEN-LAST:event_txtHouseNumberKeyReleased
+
+    private void txtCommunityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCommunityKeyReleased
+        // TODO add your handling code here:
+        String PATTERN = "^[A-Za-z]\\w{5, 29}$";
+        Pattern patt=Pattern.compile(PATTERN);
+        Matcher match=patt.matcher(txtCommunity.getText());
+        if(!match.matches()){
+            lblCommunityVal.setText("Invalid Input");
+        }
+        else{
+            lblCommunityVal.setText(null);
+        }
+    }//GEN-LAST:event_txtCommunityKeyReleased
+
+    private void txtCityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCityKeyReleased
+        // TODO add your handling code here:
+        String PATTERN = "^[A-Za-z]\\w{5, 29}$";
+        Pattern patt=Pattern.compile(PATTERN);
+        Matcher match=patt.matcher(txtCity.getText());
+        if(!match.matches()){
+            lblCityVal.setText("Invalid Input");
+        }
+        else{
+            lblCityVal.setText(null);
+        }
+    }//GEN-LAST:event_txtCityKeyReleased
+
+    private void txtTemperatureKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTemperatureKeyReleased
+        // TODO add your handling code here:
+        String PATTERN = "^[1-9][0-9][0-9]?$|^100$";
+        Pattern patt=Pattern.compile(PATTERN);
+        Matcher match=patt.matcher(txtTemperature.getText());
+        if(!match.matches()){
+            lblTemperatureVal.setText("Invalid Input");
+        }
+        else{
+            lblTemperatureVal.setText(null);
+        }
+    }//GEN-LAST:event_txtTemperatureKeyReleased
+
+    private void txtBloodPressureKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBloodPressureKeyReleased
+        // TODO add your handling code here:
+        String PATTERN = "^[1-9][0-9][0-9]?$|^100$";
+        Pattern patt=Pattern.compile(PATTERN);
+        Matcher match=patt.matcher(txtBloodPressure.getText());
+        if(!match.matches()){
+            lblBloodPressureVal.setText("Invalid Input");
+        }
+        else{
+            lblBloodPressureVal.setText(null);
+        }
+    }//GEN-LAST:event_txtBloodPressureKeyReleased
+
+    private void txtPulseKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPulseKeyReleased
+        // TODO add your handling code here:
+        String PATTERN = "^[1-9][0-9][0-9]?$|^100$";
+        Pattern patt=Pattern.compile(PATTERN);
+        Matcher match=patt.matcher(txtPulse.getText());
+        if(!match.matches()){
+            lblPulseVal.setText("Invalid Input");
+        }
+        else{
+            lblPulseVal.setText(null);
+        }
+    }//GEN-LAST:event_txtPulseKeyReleased
+
+    private void txtWeightKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtWeightKeyReleased
+        // TODO add your handling code here:
+        String PATTERN = "^[1-9][0-9][0-9]?$|^100$";
+        Pattern patt=Pattern.compile(PATTERN);
+        Matcher match=patt.matcher(txtWeight.getText());
+        if(!match.matches()){
+            lblWeightVal.setText("Invalid Input");
+        }
+        else{
+            lblWeightVal.setText(null);
+        }
+    }//GEN-LAST:event_txtWeightKeyReleased
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnSearchActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -516,19 +848,34 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblAge;
+    private javax.swing.JLabel lblAgeVal;
     private javax.swing.JLabel lblBloodPressure;
+    private javax.swing.JLabel lblBloodPressureVal;
     private javax.swing.JLabel lblCity;
+    private javax.swing.JLabel lblCityVal;
+    private javax.swing.JLabel lblCityVal4;
     private javax.swing.JLabel lblCommunity;
+    private javax.swing.JLabel lblCommunityVal;
     private javax.swing.JLabel lblContactNumber;
+    private javax.swing.JLabel lblContactNumberVal;
+    private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblDateVal;
     private javax.swing.JLabel lblDoctor;
+    private javax.swing.JLabel lblDoctorVal;
     private javax.swing.JLabel lblFirstName;
-    private javax.swing.JLabel lblFirstName1;
+    private javax.swing.JLabel lblFirstNameVal;
     private javax.swing.JLabel lblHouseNumber;
+    private javax.swing.JLabel lblHouseNumberVal;
     private javax.swing.JLabel lblIssue;
+    private javax.swing.JLabel lblIssueVal;
     private javax.swing.JLabel lblLastName;
+    private javax.swing.JLabel lblLastNameVal;
     private javax.swing.JLabel lblPulse;
+    private javax.swing.JLabel lblPulseVal;
     private javax.swing.JLabel lblTemperature;
+    private javax.swing.JLabel lblTemperatureVal;
     private javax.swing.JLabel lblWeight;
+    private javax.swing.JLabel lblWeightVal;
     private javax.swing.JTable tblPatient;
     private javax.swing.JTable tblVitalSigns;
     private javax.swing.JTextField txtAge;
