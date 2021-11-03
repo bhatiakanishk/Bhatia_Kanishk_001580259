@@ -13,12 +13,22 @@ public class Encounter extends VitalSigns{
     private String encounterDoc;
     private String encounterIssue;
     private String encounterDate;
-    
+    private String Temperature; 
+    private String Bloodpressure;
+    private String Pulse;
+    private int Weight;
+    private String Contact;
+   
     public Encounter(){
     }
 
-    public Encounter(String encounterDoc, String encounterIssue, String encounterDate, String temperature, String bloodpressure, String pulse, int weight, String contact) {
-        super(temperature, bloodpressure, pulse, weight, contact);
+    public Encounter(String encounterDoc, String encounterIssue, String encounterDate, String Temperature, String Bloodpressure,String Pulse, int Weight,String Contact) {
+        super();
+        this.Temperature = Temperature;
+        this.Bloodpressure = Bloodpressure;
+        this.Pulse = Pulse;
+        this.Weight = Weight;
+        this.Contact = Contact;
         this.encounterDoc = encounterDoc;
         this.encounterIssue = encounterIssue;
         this.encounterDate = encounterDate;
@@ -47,6 +57,27 @@ public class Encounter extends VitalSigns{
     public void setEncounterDate(String encounterDate) {
         this.encounterDate = encounterDate;
     }
+
+    public String getTemperature() {
+        return Temperature;
+    }
+
+    public String getBloodpressure() {
+        return Bloodpressure;
+    }
+
+    public String getPulse() {
+        return Pulse;
+    }
+
+    public int getWeight() {
+        return Weight;
+    }
+
+    public String getContact() {
+        return Contact;
+    }
+
     
     @Override
     public String toString(){
