@@ -847,42 +847,52 @@ public class Main extends javax.swing.JFrame {
         //Age 66+: 119 to 72
         int totalAbnormalLongwood = 0;
         int totalAbnormalAllston  = 0;
+        int totalBoston = 0;
         for(int i=0;i<encounterList.size();i++){
-            if(patientDirectoryList.get(i).getCommunity() == "Longwood"){
+            
+            if(patientDirectoryList.get(i).getCommunity().equalsIgnoreCase("Longwood")){
                 if(patientDirectoryList.get(i).getContact() == encounterList.get(i).getContact()){
-                    if((patientDirectoryList.get(i).getAge()>20 || patientDirectoryList.get(i).getAge()<=35) && (encounterList.get(i).getBloodpressure()>=125 || encounterList.get(i).getBloodpressure()<75)){
+                    
+                    if((patientDirectoryList.get(i).getAge()>20 && patientDirectoryList.get(i).getAge()<=35) && (encounterList.get(i).getBloodpressure()>=125 || encounterList.get(i).getBloodpressure()<75)){
                         totalAbnormalLongwood++;
                     }
-                    if((patientDirectoryList.get(i).getAge()>36 || patientDirectoryList.get(i).getAge()<=50) && (encounterList.get(i).getBloodpressure()>=120 || encounterList.get(i).getBloodpressure()<74)){
+                    else if((patientDirectoryList.get(i).getAge()>36 && patientDirectoryList.get(i).getAge()<=50) && (encounterList.get(i).getBloodpressure()>=120 || encounterList.get(i).getBloodpressure()<74)){
                         totalAbnormalLongwood++;
                     }
-                    if((patientDirectoryList.get(i).getAge()>51 || patientDirectoryList.get(i).getAge()<=65) && (encounterList.get(i).getBloodpressure()>=118 || encounterList.get(i).getBloodpressure()<70)){
+                    else if((patientDirectoryList.get(i).getAge()>51 && patientDirectoryList.get(i).getAge()<=65) && (encounterList.get(i).getBloodpressure()>=118 || encounterList.get(i).getBloodpressure()<70)){
                         totalAbnormalLongwood++;
                     }
-                    if((patientDirectoryList.get(i).getAge()>=66) || (encounterList.get(i).getBloodpressure()>=119 || encounterList.get(i).getBloodpressure()<72)){
+                    else if((patientDirectoryList.get(i).getAge()>=66) && (encounterList.get(i).getBloodpressure()>=119 || encounterList.get(i).getBloodpressure()<72)){
                         totalAbnormalLongwood++;
                     }
                }
             }
-            else if(patientDirectoryList.get(i).getCommunity() == "Allston"){
-                if(patientDirectoryList.get(i).getContact() == encounterList.get(i).getContact()){
-                    if((patientDirectoryList.get(i).getAge()>20 && patientDirectoryList.get(i).getAge()<=35) && (encounterList.get(i).getBloodpressure()>=125 && encounterList.get(i).getBloodpressure()<75)){
+            else{
+                if(patientDirectoryList.get(i).getContact().equals(encounterList.get(i).getContact())){
+                    
+                    if((patientDirectoryList.get(i).getAge()>20 && patientDirectoryList.get(i).getAge()<=35) && (encounterList.get(i).getBloodpressure()>=125 || encounterList.get(i).getBloodpressure()<75)){
+                        
                         totalAbnormalAllston++;
                     }
-                    if((patientDirectoryList.get(i).getAge()>36 && patientDirectoryList.get(i).getAge()<=50) && (encounterList.get(i).getBloodpressure()>=120 && encounterList.get(i).getBloodpressure()<74)){
+                    else if((patientDirectoryList.get(i).getAge()>36 && patientDirectoryList.get(i).getAge()<=50) && (encounterList.get(i).getBloodpressure()>=120 || encounterList.get(i).getBloodpressure()<74)){
+                        
                         totalAbnormalAllston++;
                     }
-                    if((patientDirectoryList.get(i).getAge()>51 && patientDirectoryList.get(i).getAge()<=65) && (encounterList.get(i).getBloodpressure()>=118 && encounterList.get(i).getBloodpressure()<70)){
+                    else if((patientDirectoryList.get(i).getAge()>51 && patientDirectoryList.get(i).getAge()<=65) && (encounterList.get(i).getBloodpressure()>=118 || encounterList.get(i).getBloodpressure()<70)){
+                        
                         totalAbnormalAllston++;
                     }
-                    if((patientDirectoryList.get(i).getAge()>=66) && (encounterList.get(i).getBloodpressure()>=119 && encounterList.get(i).getBloodpressure()<72)){
+                    else if((patientDirectoryList.get(i).getAge()>=66) && (encounterList.get(i).getBloodpressure()>=119 || encounterList.get(i).getBloodpressure()<72)){
+                        
                         totalAbnormalAllston++;
                     }
                 }
             }
-        }   
-        System.out.println(totalAbnormalLongwood);
-        System.out.println(totalAbnormalAllston);
+        }
+        totalBoston = totalAbnormalLongwood + totalAbnormalAllston; 
+        JOptionPane.showMessageDialog(this, "Total abnormal people in Longwood: " + totalAbnormalLongwood);
+        JOptionPane.showMessageDialog(this, "Total abnormal people in Allston: " + totalAbnormalAllston);
+        JOptionPane.showMessageDialog(this, "Total abnormal people in Boston: " + totalBoston);
     }//GEN-LAST:event_btnSearchActionPerformed
 
     /**
