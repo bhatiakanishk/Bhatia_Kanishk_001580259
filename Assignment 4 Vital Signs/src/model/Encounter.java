@@ -10,14 +10,14 @@ import model.VitalSigns;
  * @author kanis
  */
 public class Encounter extends VitalSigns{
-    private String encounterDoc;
-    private String encounterIssue;
-    private String encounterDate;
-    private String Temperature; 
-    private String Bloodpressure;
-    private String Pulse;
-    private int Weight;
-    private String Contact;
+    public String encounterDoc;
+    public String encounterIssue;
+    public String encounterDate;
+    public String Temperature; 
+    public String Bloodpressure;
+    public String Pulse;
+    public int Weight;
+    public String Contact;
    
     public Encounter(){
     }
