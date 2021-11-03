@@ -14,6 +14,13 @@ import javax.swing.JOptionPane;
  * @author kanis
  */
 public class Patient extends Person{
+    private String firstName;
+    private String lastName;
+    private int age;
+    private String contact;
+    private String house;
+    private String community;
+    private String city;
     
     private static EncounterHistory encounterData;
     private ArrayList<Encounter> enounters;
@@ -23,7 +30,14 @@ public class Patient extends Person{
     }
 
     public Patient(String firstName, String lastName, int age, String contact, String house, String community, String city) {
-        super(firstName, lastName, age, contact, house, community, city);
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.contact = contact;
+        this.house = house;
+        this.community = community;
+        this.city = city;
+        //super(firstName, lastName, age, contact, house, community, city);
         encounterData=new EncounterHistory();
         this.enounters = new ArrayList<Encounter>();
         enounters.clear();
@@ -62,4 +76,38 @@ public class Patient extends Person{
     public void setCount(int count){
         this.count = count;
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public String getHouse() {
+        return house;
+    }
+
+    public String getCommunity() {
+        return community;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public ArrayList<Encounter> getEnounters() {
+        return enounters;
+    }
+    
+    
 }
