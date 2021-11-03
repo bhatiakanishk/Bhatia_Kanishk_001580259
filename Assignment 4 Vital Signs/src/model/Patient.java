@@ -14,13 +14,13 @@ import javax.swing.JOptionPane;
  * @author kanis
  */
 public class Patient extends Person{
-    private String firstName;
-    private String lastName;
-    private int age;
-    private String contact;
-    private String house;
-    private String community;
-    private String city;
+    public String firstName;
+    public String lastName;
+    public int age;
+    public String contact;
+    public String house;
+    public String community;
+    public String city;
     
     private static EncounterHistory encounterData;
     private ArrayList<Encounter> enounters;
