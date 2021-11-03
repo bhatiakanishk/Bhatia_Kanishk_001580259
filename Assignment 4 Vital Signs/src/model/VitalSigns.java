@@ -11,11 +11,11 @@ package model;
  */
 public class VitalSigns {
     
-    private String temperature;
-    private String bloodpressure;
-    private String pulse;
-    private int weight;
-    private String contact;
+    public String temperature;
+    public String bloodpressure;
+    public String pulse;
+    public int weight;
+    public String contact;
     
     public VitalSigns(){
     }
