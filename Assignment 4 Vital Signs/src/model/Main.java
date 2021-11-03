@@ -20,11 +20,11 @@ import model.VitalSigns;
  */
 public class Main extends javax.swing.JFrame {
     
+    
+    ArrayList<Patient> patientDirectoryList;
     ArrayList<VitalSigns> vitalSignsList;
     ArrayList<Encounter> encounterList;
     ArrayList<EncounterHistory> encounterHistoryList;
-    ArrayList<Patient> patientList;
-    ArrayList<PatientDirectory> patientDirectoryList;
     ArrayList<Person> personList;
     ArrayList<PersonDirectory> personDirectoryList;
     
@@ -39,19 +39,75 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        addEncounterTable();
+        addPatientTable();
         vitalSignsList = new ArrayList<>(); 
         encounterList = new ArrayList<>(); 
-        encounterHistoryList = new ArrayList<>(); 
-        patientList = new ArrayList<>();    
+        encounterHistoryList = new ArrayList<>();  
         patientDirectoryList = new ArrayList<>();
         personList = new ArrayList<>();
         personDirectoryList = new ArrayList<>();
-
-        dtm1 = new DefaultTableModel(header1,0);
-        dtm2 = new DefaultTableModel(header2,0);
-        tblVitalSigns.setModel(dtm1);
-        tblPatient.setModel(dtm2);
+       
+        
+        PatientDirectory pd = new PatientDirectory();
+        patientDirectoryList = pd.getPatient();
+        //ENCOUNTER HISTORY plus vitals
+        encounterList = patientDirectoryList.get(0).getEncounterData().getEncounterArrayList();
+        for(int i=0;i<encounterList.size();i++){
+            System.out.println(encounterList.get(i).getEncounterDoc());
+            System.out.println(encounterList.get(i).getEncounterDate());
+            System.out.println(encounterList.get(i).getEncounterIssue());
+            System.out.println(encounterList.get(i).getTemperature());
+            System.out.println(encounterList.get(i).getBloodpressure());
+            System.out.println(encounterList.get(i).getPulse());
+            System.out.println(encounterList.get(i).getWeight());
+        }
+        
+        
+        //Patient
+        for(int i=0;i<encounterList.size();i++){
+            System.out.println(patientDirectoryList.get(i).getFirstName());
+        }
+        
+        
+        //System.out.println(patientDirectoryList.get(0).getEncounterData().getEncounterArrayList().get(0).getEncounterDoc());
         this.setLocationRelativeTo(null);
+    }
+    
+    private void addEncounterTable(){
+        PatientDirectory pd = new PatientDirectory();
+        patientDirectoryList = pd.getPatient();
+        encounterList = patientDirectoryList.get(0).getEncounterData().getEncounterArrayList();
+        DefaultTableModel model1 = (DefaultTableModel)tblVitalSigns.getModel();
+        Object encounterRow[] = new Object[7];
+        for(int i=0;i<encounterList.size();i++){
+            encounterRow[0] = encounterList.get(i).getEncounterDoc();
+            encounterRow[1] = encounterList.get(i).getEncounterDate();
+            encounterRow[2] = encounterList.get(i).getEncounterIssue();
+            encounterRow[3] = encounterList.get(i).getTemperature();
+            encounterRow[4] = encounterList.get(i).getBloodpressure();
+            encounterRow[5] = encounterList.get(i).getPulse();
+            encounterRow[6] = encounterList.get(i).getWeight();
+            model1.addRow(encounterRow);
+        }   
+    }
+    
+    private void addPatientTable(){
+        PatientDirectory pd = new PatientDirectory();
+        patientDirectoryList = pd.getPatient();
+        encounterList = patientDirectoryList.get(0).getEncounterData().getEncounterArrayList();
+        DefaultTableModel model2 = (DefaultTableModel)tblPatient.getModel();
+        Object patientRow[] = new Object[10];
+        for(int i=0;i<encounterList.size();i++){
+            patientRow[0] = patientDirectoryList.get(i).getFirstName();
+            patientRow[1] = patientDirectoryList.get(i).getLastName();
+            patientRow[2] = patientDirectoryList.get(i).getAge();
+            patientRow[3] = patientDirectoryList.get(i).getContact();
+            patientRow[4] = patientDirectoryList.get(i).getHouse();
+            patientRow[5] = patientDirectoryList.get(i).getCommunity();
+            patientRow[6] = patientDirectoryList.get(i).getCity();
+            model2.addRow(patientRow);
+        }   
     }
     
     private void clearField() {
@@ -538,9 +594,9 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(lblWeight)
                             .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblWeightVal))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(37, 37, 37)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -822,7 +878,7 @@ public class Main extends javax.swing.JFrame {
             
             if(p.getContact().equals(p.getEncounters().get(0).getContact())){
             for(int i=0; i<p.getCount();i++){
-            if((p.getAge()>20 || p.getAge()<=35) && (p.getEncounters().get(i).getBloodpressure() >= 125 ||p.getEncounters().get(i).getBloodpressure() <= 75)){
+            if((p.getAge()>20 && p.getAge()<=35) && (p.getEncounters().get(i).getBloodpressure() >= 125 ||p.getEncounters().get(i).getBloodpressure() <= 75)){
                 model.addRow(r);
                 totalAbnormal++;
                 break;
