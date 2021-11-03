@@ -49,31 +49,14 @@ public class Main extends javax.swing.JFrame {
         personDirectoryList = new ArrayList<>();
        
         
+                
         PatientDirectory pd = new PatientDirectory();
         patientDirectoryList = pd.getPatient();
         //ENCOUNTER HISTORY plus vitals
         encounterList = patientDirectoryList.get(0).getEncounterData().getEncounterArrayList();
-        for(int i=0;i<encounterList.size();i++){
-            System.out.println(encounterList.get(i).getEncounterDoc());
-            System.out.println(encounterList.get(i).getEncounterDate());
-            System.out.println(encounterList.get(i).getEncounterIssue());
-            System.out.println(encounterList.get(i).getTemperature());
-            System.out.println(encounterList.get(i).getBloodpressure());
-            System.out.println(encounterList.get(i).getPulse());
-            System.out.println(encounterList.get(i).getWeight());
-        }
-        
-        
-        //Patient
-        for(int i=0;i<encounterList.size();i++){
-            System.out.println(patientDirectoryList.get(i).getFirstName());
-        }
-        
-        
-        //System.out.println(patientDirectoryList.get(0).getEncounterData().getEncounterArrayList().get(0).getEncounterDoc());
         this.setLocationRelativeTo(null);
     }
-    
+    //Table
     private void addEncounterTable(){
         PatientDirectory pd = new PatientDirectory();
         patientDirectoryList = pd.getPatient();
@@ -680,8 +663,8 @@ public class Main extends javax.swing.JFrame {
         patientDirectoryList.get(row).firstName = updatefirstName;
         patientDirectoryList.get(row).lastName = updatelastName;
         patientDirectoryList.get(row).age = updateage;
-        patientDirectoryList.get(row).contactNumber = updatecontactNumber;
-        patientDirectoryList.get(row).houseNumber = updatehouseNumber;
+        patientDirectoryList.get(row).contact = updatecontactNumber;
+        patientDirectoryList.get(row).house = updatehouseNumber;
         patientDirectoryList.get(row).community = updatecommunity;
         patientDirectoryList.get(row).city = updatecity;
         dtm1.setRowCount(0);
@@ -697,13 +680,13 @@ public class Main extends javax.swing.JFrame {
         String updatebloodpressure = txtBloodPressure.getText();
         String updatepulse = txtPulse.getText();
         int updateweight = Integer.parseInt(txtWeight.getText());
-        encounterHistoryList.get(row).date = updatedate;
-        encounterHistoryList.get(row).doctor = updatedoctor;
-        encounterHistoryList.get(row).issue = updateissue;
-        encounterHistoryList.get(row).temperature = updatetemperature;
-        encounterHistoryList.get(row).bloodpressure = updatebloodpressure;
-        encounterHistoryList.get(row).pulse = updatepulse;
-        encounterHistoryList.get(row).weight = updateweight;
+        //encounterHistoryList.get(row).date = updatedate;
+        //encounterHistoryList.get(row).doctor = updatedoctor;
+        //encounterHistoryList.get(row).issue = updateissue;
+        //encounterHistoryList.get(row).temperature = updatetemperature;
+        //encounterHistoryList.get(row).bloodpressure = updatebloodpressure;
+        //encounterHistoryList.get(row).pulse = updatepulse;
+        //encounterHistoryList.get(row).weight = updateweight;
         dtm2.setRowCount(0);
         /*for(int i=0; i<encounterHistoryList.size();i++){ 
                     Object[] objs = {encounterHistoryList.get(i).date, encounterHistoryList.get(i).doctor, encounterHistoryList.get(i).issue, encounterHistoryList.get(i).temperature, encounterHistoryList.get(i).bloodpressure, encounterHistoryList.get(i).pulse, encounterHistoryList.get(i).weight};
@@ -862,44 +845,44 @@ public class Main extends javax.swing.JFrame {
         //Age 36-50: 120 to 74
         //Age 51-65: 118 to 70
         //Age 66+: 119 to 72
-        int totalAbnormal = 0;
-        DefaultTableModel model = (DefaultTableModel) tblPatient.getModel();
-        model.setRowCount(0);
-        for(Patient p: patientData.getPatient()){
-            if(txtCommunity.getText().equalsIgnoreCase(p.getCommunity())){
-            Object[] r = new Object[7];
-            r[0] = p;
-            r[1] = p.getLastName();
-            r[2] = p.getAge();
-            r[3] = p.getContact();
-            r[4] = p.getHouse();
-            r[5] = p.getCommunity();
-            r[6] = p.getCity();
-            
-            if(p.getContact().equals(p.getEncounters().get(0).getContact())){
-            for(int i=0; i<p.getCount();i++){
-            if((p.getAge()>20 && p.getAge()<=35) && (p.getEncounters().get(i).getBloodpressure() >= 125 ||p.getEncounters().get(i).getBloodpressure() <= 75)){
-                model.addRow(r);
-                totalAbnormal++;
-                break;
-            }else if((p.getAge()>36 || p.getAge()<=50) && (p.getEncounters().get(i).getBloodpressure() >= 120 ||p.getEncounters().get(i).getBloodpressure() <= 74)){
-                model.addRow(r);
-                totalAbnormal++;
-                break;
-            }else if((p.getAge()>51 || p.getAge()<=65) && (p.getEncounters().get(i).getBloodpressure() >= 118 ||p.getEncounters().get(i).getBloodpressure() <= 70)){
-                model.addRow(r);
-                totalAbnormal++;
-                break;
-            }else if((p.getAge()>66) && (p.getEncounters().get(i).getBloodpressure() >= 119 ||p.getEncounters().get(i).getBloodpressure() <= 72)){
-                model.addRow(r);
-                totalAbnormal++;
-                break;
-                }
+        int totalAbnormalLongwood = 0;
+        int totalAbnormalAllston  = 0;
+        for(int i=0;i<encounterList.size();i++){
+            if(patientDirectoryList.get(i).getCommunity() == "Longwood"){
+                if(patientDirectoryList.get(i).getContact() == encounterList.get(i).getContact()){
+                    if((patientDirectoryList.get(i).getAge()>20 || patientDirectoryList.get(i).getAge()<=35) && (encounterList.get(i).getBloodpressure()>=125 || encounterList.get(i).getBloodpressure()<75)){
+                        totalAbnormalLongwood++;
+                    }
+                    if((patientDirectoryList.get(i).getAge()>36 || patientDirectoryList.get(i).getAge()<=50) && (encounterList.get(i).getBloodpressure()>=120 || encounterList.get(i).getBloodpressure()<74)){
+                        totalAbnormalLongwood++;
+                    }
+                    if((patientDirectoryList.get(i).getAge()>51 || patientDirectoryList.get(i).getAge()<=65) && (encounterList.get(i).getBloodpressure()>=118 || encounterList.get(i).getBloodpressure()<70)){
+                        totalAbnormalLongwood++;
+                    }
+                    if((patientDirectoryList.get(i).getAge()>=66) || (encounterList.get(i).getBloodpressure()>=119 || encounterList.get(i).getBloodpressure()<72)){
+                        totalAbnormalLongwood++;
+                    }
+               }
+            }
+            else if(patientDirectoryList.get(i).getCommunity() == "Allston"){
+                if(patientDirectoryList.get(i).getContact() == encounterList.get(i).getContact()){
+                    if((patientDirectoryList.get(i).getAge()>20 && patientDirectoryList.get(i).getAge()<=35) && (encounterList.get(i).getBloodpressure()>=125 && encounterList.get(i).getBloodpressure()<75)){
+                        totalAbnormalAllston++;
+                    }
+                    if((patientDirectoryList.get(i).getAge()>36 && patientDirectoryList.get(i).getAge()<=50) && (encounterList.get(i).getBloodpressure()>=120 && encounterList.get(i).getBloodpressure()<74)){
+                        totalAbnormalAllston++;
+                    }
+                    if((patientDirectoryList.get(i).getAge()>51 && patientDirectoryList.get(i).getAge()<=65) && (encounterList.get(i).getBloodpressure()>=118 && encounterList.get(i).getBloodpressure()<70)){
+                        totalAbnormalAllston++;
+                    }
+                    if((patientDirectoryList.get(i).getAge()>=66) && (encounterList.get(i).getBloodpressure()>=119 && encounterList.get(i).getBloodpressure()<72)){
+                        totalAbnormalAllston++;
+                    }
                 }
             }
-        }
-        }
-        
+        }   
+        System.out.println(totalAbnormalLongwood);
+        System.out.println(totalAbnormalAllston);
     }//GEN-LAST:event_btnSearchActionPerformed
 
     /**
