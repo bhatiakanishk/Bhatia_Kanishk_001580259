@@ -14,7 +14,7 @@ public class Encounter extends VitalSigns{
     public String encounterIssue;
     public String encounterDate;
     public String Temperature; 
-    public String Bloodpressure;
+    public int Bloodpressure;
     public String Pulse;
     public int Weight;
     public String Contact;
@@ -22,7 +22,7 @@ public class Encounter extends VitalSigns{
     public Encounter(){
     }
 
-    public Encounter(String encounterDoc, String encounterIssue, String encounterDate, String Temperature, String Bloodpressure,String Pulse, int Weight,String Contact) {
+    public Encounter(String encounterDoc, String encounterIssue, String encounterDate, String Temperature, int Bloodpressure,String Pulse, int Weight,String Contact) {
         super();
         this.Temperature = Temperature;
         this.Bloodpressure = Bloodpressure;
@@ -62,9 +62,9 @@ public class Encounter extends VitalSigns{
         return Temperature;
     }
 
-    public String getBloodpressure() {
+    public int getBloodpressure() {
         return Bloodpressure;
-    }
+    }   
 
     public String getPulse() {
         return Pulse;
