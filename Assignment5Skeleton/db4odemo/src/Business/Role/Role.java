@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author raunak
+ * @author kanishk
  */
 public abstract class Role {
     
@@ -45,6 +45,5 @@ public abstract class Role {
     public String toString() {
         return this.getClass().getName();
     }
-    
-    
+   
 }
