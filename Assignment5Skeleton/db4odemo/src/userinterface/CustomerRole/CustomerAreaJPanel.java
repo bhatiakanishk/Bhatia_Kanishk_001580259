@@ -5,8 +5,8 @@
 package userinterface.CustomerRole;
 
 import Business.EcoSystem;
-
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.LabTestWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author raunak
+ * @author kanishk
  */
 public class CustomerAreaJPanel extends javax.swing.JPanel {
 
