@@ -8,7 +8,7 @@ import Business.UserAccount.UserAccount;
 import java.util.ArrayList;
 /**
  *
- * @author harold
+ * @author kanishk
  */
 public class DeliveryManDirectory {
     ArrayList<DeliveryMan> deliveryDir = new ArrayList<DeliveryMan>();
