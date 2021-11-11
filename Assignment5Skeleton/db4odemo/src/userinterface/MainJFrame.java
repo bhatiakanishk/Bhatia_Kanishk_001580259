@@ -6,16 +6,23 @@ package userinterface;
 
 import Business.EcoSystem;
 import Business.DB4OUtil.DB4OUtil;
-
-import Business.Organization;
+import Business.Customer.CustomerDirectory;
+import Business.DeliveryMan.DeliveryManDirectory;
+import Business.Restaurant.RestaurantDirectory;
+import Business.UserAccount.UserAccountDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import java.util.ArrayList;
+import userinterface.CustomerRole.Customer_RestaurantMenuJPanel;
+import userinterface.DeliveryManRole.DeliveryManWorkAreaJPanel;
+import userinterface.RestaurantAdminRole.AdminWorkAreaJPanel;
+import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
 
 /**
  *
- * @author Lingfeng
+ * @author kanishk
  */
 public class MainJFrame extends javax.swing.JFrame {
 
@@ -24,10 +31,15 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     private EcoSystem system;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    UserAccount usracc;
+    RestaurantDirectory rstdir;
 
     public MainJFrame() {
         initComponents();
         system = dB4OUtil.retrieveSystem();
+        if(system == null){
+            system = new EcoSystem(new RestaurantDirectory(),new CustomerDirectory(),new DeliveryManDirectory());
+        }
         this.setSize(1680, 1050);
     }
 
@@ -123,7 +135,69 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
         // Get user name
-       
+       String username = userNameJTextField.getText();
+        String password = passwordField.getText();
+        UserAccountDirectory userDirectory = system.getUserAccountDirectory();
+        if(userDirectory.verifyUserLogin(username, password))
+        {
+        ArrayList<UserAccount> usersList = userDirectory.getUserAccountList();
+        
+        this.usracc = userDirectory.authenticateUser(username, password);
+        if(usracc.getRole().toString().equals("Business.Role.SystemAdminRole"))
+        {
+            logoutJButton.setEnabled(true); 
+            userNameJTextField.setEnabled(false);
+            passwordField.setEnabled(false);
+            loginJButton.setEnabled(false);
+            
+            SystemAdminWorkAreaJPanel sa = new SystemAdminWorkAreaJPanel(container, system);
+            container.add("Sysadmin",sa);
+            CardLayout crdLyt = (CardLayout) container.getLayout();
+            crdLyt.next(container);
+        }
+        
+        else if(usracc.getRole().toString().equals("Business.Role.AdminRole"))
+        {
+            logoutJButton.setEnabled(true); 
+            userNameJTextField.setEnabled(false);
+            passwordField.setEnabled(false);
+            loginJButton.setEnabled(false);
+            
+            AdminWorkAreaJPanel aw = new AdminWorkAreaJPanel(container,usracc,system);
+            container.add("RestaurantAdmin",aw);
+            CardLayout crdLyt = (CardLayout) container.getLayout();
+            crdLyt.next(container);
+        }
+        
+        else if(usracc.getRole().toString().equals("Business.Role.DeliverManRole"))
+        {
+            logoutJButton.setEnabled(true); 
+            userNameJTextField.setEnabled(false);
+            passwordField.setEnabled(false);
+            loginJButton.setEnabled(false);
+            
+            DeliveryManWorkAreaJPanel dmw = new DeliveryManWorkAreaJPanel(container, usracc, system);
+            container.add("DeliveryMan",dmw);
+            CardLayout crdLyt = (CardLayout) container.getLayout();
+            crdLyt.next(container);
+        }
+        
+        else if(usracc.getRole().toString().equals("Business.Role.CustomerRole"))
+        {
+            logoutJButton.setEnabled(true); 
+            userNameJTextField.setEnabled(false);
+            passwordField.setEnabled(false);
+            loginJButton.setEnabled(false);
+            
+            Customer_RestaurantMenuJPanel ca = new Customer_RestaurantMenuJPanel(container, usracc,system);
+            container.add("Customer",ca);
+            CardLayout crdLyt = (CardLayout) container.getLayout();
+            crdLyt.next(container);
+        }
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Invalid credentials");
+        }
     }//GEN-LAST:event_loginJButtonActionPerformed
 
     private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed
