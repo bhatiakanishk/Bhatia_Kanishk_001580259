@@ -10,41 +10,60 @@ import java.util.ArrayList;
 
 /**
  *
- * @author raunak
+ * @author kanishk
  */
 public class UserAccountDirectory {
     
-    private ArrayList<UserAccount> userAccountList;
+    private ArrayList<UserAccount> userAccntLst;
 
     public UserAccountDirectory() {
-        userAccountList = new ArrayList();
+        userAccntLst = new ArrayList();
     }
 
     public ArrayList<UserAccount> getUserAccountList() {
-        return userAccountList;
+        return userAccntLst;
     }
     
-    public UserAccount authenticateUser(String username, String password){
-        for (UserAccount ua : userAccountList)
-            if (ua.getUsername().equals(username) && ua.getPassword().equals(password)){
+    public UserAccount authenticateUser(String uname, String pass){
+        for (UserAccount ua : userAccntLst)
+            if (ua.getUsername().equals(uname) && ua.getPassword().equals(pass)){
                 return ua;
             }
         return null;
     }
     
-    public UserAccount createUserAccount(String username, String password, Employee employee, Role role){
-        UserAccount userAccount = new UserAccount();
-        userAccount.setUsername(username);
-        userAccount.setPassword(password);
-        userAccount.setEmployee(employee);
-        userAccount.setRole(role);
-        userAccountList.add(userAccount);
-        return userAccount;
+    public boolean verifyUserLogin(String uname,String pass)
+    {
+        for (UserAccount ua : userAccntLst)
+            if (ua.getUsername().equals(uname) && ua.getPassword().equals(pass)){
+                return true;
+            }
+        return false;
     }
     
-    public boolean checkIfUsernameIsUnique(String username){
-        for (UserAccount ua : userAccountList){
-            if (ua.getUsername().equals(username))
+    public UserAccount createUserAccount(String uname, String pass, Employee emp, Role role){
+        UserAccount userAccount = new UserAccount();
+        userAccount.setUsername(uname);
+        userAccount.setPassword(pass);
+        userAccount.setEmployee(emp);
+        userAccount.setRole(role);
+        
+        userAccntLst.add(userAccount);
+        return userAccount;
+    }
+        public UserAccount getUserAccount(String uname) {
+        for(UserAccount useracc: userAccntLst)
+        {
+            if(useracc.getUsername().equals(uname))
+            {
+                return useracc;
+            }
+        }
+        return null;
+    }
+    public boolean checkIfUsernameIsUnique(String uname){
+        for (UserAccount useracc : userAccntLst){
+            if (useracc.getUsername().equals(uname))
                 return false;
         }
         return true;
