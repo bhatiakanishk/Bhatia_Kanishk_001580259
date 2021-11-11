@@ -4,7 +4,10 @@
  */
 package Business;
 
+import Business.Customer.CustomerDirectory;
+import Business.DeliveryMan.DeliveryManDirectory;
 import Business.Employee.EmployeeDirectory;
+import Business.Restaurant.RestaurantDirectory;
 import Business.Role.Role;
 import Business.UserAccount.UserAccountDirectory;
 import Business.WorkQueue.WorkQueue;
@@ -21,6 +24,9 @@ public abstract class Organization {
     private EmployeeDirectory employeeDirectory;
     private UserAccountDirectory userAccountDirectory;
     private int organizationID;
+    RestaurantDirectory rstDirectory;
+    DeliveryManDirectory dlvmnDirectory;
+    CustomerDirectory cstDirectory;
     private static int counter=0;
     
     public enum Type{
