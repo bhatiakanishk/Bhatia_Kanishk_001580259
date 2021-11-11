@@ -9,7 +9,7 @@ import Business.UserAccount.UserAccount;
 import java.util.ArrayList;
 /**
  *
- * @author harold
+ * @author kanishk
  */
 public class DeliveryMan {
     String name;
