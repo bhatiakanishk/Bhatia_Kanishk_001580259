@@ -14,7 +14,6 @@ import javax.swing.JPanel;
  * @author kanishk
  */
 
-
 public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;
