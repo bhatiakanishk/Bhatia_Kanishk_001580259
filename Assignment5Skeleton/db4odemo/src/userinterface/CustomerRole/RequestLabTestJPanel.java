@@ -7,11 +7,12 @@ package userinterface.CustomerRole;
 import Business.EcoSystem;
 import Business.Organization;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.LabTestWorkRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JPanel;
+import javax.swing.JPanel;;
 
 /**
  *
