@@ -6,16 +6,23 @@ package userinterface;
 
 import Business.EcoSystem;
 import Business.DB4OUtil.DB4OUtil;
-
-import Business.Organization;
+import Business.Customer.CustomerDirectory;
+import Business.DeliveryMan.DeliveryManDirectory;
+import Business.Restaurant.RestaurantDirectory;
+import Business.UserAccount.UserAccountDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import java.util.ArrayList;
+import userinterface.CustomerRole.Customer_RestaurantMenuJPanel;
+import userinterface.DeliveryManRole.DeliveryManWorkAreaJPanel;
+import userinterface.RestaurantAdminRole.AdminWorkAreaJPanel;
+import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
 
 /**
  *
- * @author Lingfeng
+ * @author kanishk
  */
 public class MainJFrame extends javax.swing.JFrame {
 
@@ -129,64 +136,69 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
         // Get user name
-        String userName = userNameJTextField.getText();
-        // Get Password
-        char[] passwordCharArray = passwordField.getPassword();
-        String password = String.valueOf(passwordCharArray);
+        String username = userNameJTextField.getText();
+        String password = passwordField.getText();
+        UserAccountDirectory userDirectory = system.getUserAccountDirectory();
+        if(userDirectory.verifyUserLogin(username, password))
+        {
+        ArrayList<UserAccount> usersList = userDirectory.getUserAccountList();
         
-        //Step1: Check in the system admin user account directory if you have the user
-        UserAccount userAccount=system.getUserAccountDirectory().authenticateUser(userName, password);
-        
-        Enterprise inEnterprise=null;
-        Organization inOrganization=null;
-        
-        if(userAccount==null){
-            //Step 2: Go inside each network and check each enterprise
-            for(Network network:system.getNetworkList()){
-                //Step 2.a: check against each enterprise
-                for(Enterprise enterprise:network.getEnterpriseDirectory().getEnterpriseList()){
-                    userAccount=enterprise.getUserAccountDirectory().authenticateUser(userName, password);
-                    if(userAccount==null){
-                       //Step 3:check against each organization for each enterprise
-                       for(Organization organization:enterprise.getOrganizationDirectory().getOrganizationList()){
-                           userAccount=organization.getUserAccountDirectory().authenticateUser(userName, password);
-                           if(userAccount!=null){
-                               inEnterprise=enterprise;
-                               inOrganization=organization;
-                               break;
-                           }
-                       }
-                        
-                    }
-                    else{
-                       inEnterprise=enterprise;
-                       break;
-                    }
-                    if(inOrganization!=null){
-                        break;
-                    }  
-                }
-                if(inEnterprise!=null){
-                    break;
-                }
-            }
+        this.usracc = userDirectory.authenticateUser(username, password);
+        if(usracc.getRole().toString().equals("Business.Role.SystemAdminRole"))
+        {
+            logoutJButton.setEnabled(true); 
+            userNameJTextField.setEnabled(false);
+            passwordField.setEnabled(false);
+            loginJButton.setEnabled(false);
+            
+            SystemAdminWorkAreaJPanel sa = new SystemAdminWorkAreaJPanel(container, system);
+            container.add("Sysadmin",sa);
+            CardLayout crdLyt = (CardLayout) container.getLayout();
+            crdLyt.next(container);
         }
         
-        if(userAccount==null){
-            JOptionPane.showMessageDialog(null, "Invalid credentials");
-            return;
+        else if(usracc.getRole().toString().equals("Business.Role.AdminRole"))
+        {
+            logoutJButton.setEnabled(true); 
+            userNameJTextField.setEnabled(false);
+            passwordField.setEnabled(false);
+            loginJButton.setEnabled(false);
+            
+            AdminWorkAreaJPanel aw = new AdminWorkAreaJPanel(container,usracc,system);
+            container.add("RestaurantAdmin",aw);
+            CardLayout crdLyt = (CardLayout) container.getLayout();
+            crdLyt.next(container);
+        }
+        
+        else if(usracc.getRole().toString().equals("Business.Role.DeliverManRole"))
+        {
+            logoutJButton.setEnabled(true); 
+            userNameJTextField.setEnabled(false);
+            passwordField.setEnabled(false);
+            loginJButton.setEnabled(false);
+            
+            DeliveryManWorkAreaJPanel dmw = new DeliveryManWorkAreaJPanel(container, usracc, system);
+            container.add("DeliveryMan",dmw);
+            CardLayout crdLyt = (CardLayout) container.getLayout();
+            crdLyt.next(container);
+        }
+        
+        else if(usracc.getRole().toString().equals("Business.Role.CustomerRole"))
+        {
+            logoutJButton.setEnabled(true); 
+            userNameJTextField.setEnabled(false);
+            passwordField.setEnabled(false);
+            loginJButton.setEnabled(false);
+            
+            Customer_RestaurantMenuJPanel ca = new Customer_RestaurantMenuJPanel(container, usracc,system);
+            container.add("Customer",ca);
+            CardLayout crdLyt = (CardLayout) container.getLayout();
+            crdLyt.next(container);
+        }
         }
         else{
-            CardLayout layout=(CardLayout)container.getLayout();
-            container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, system));
-            layout.next(container);
+            JOptionPane.showMessageDialog(this, "Invalid credentials");
         }
-        
-        loginJButton.setEnabled(false);
-        logoutJButton.setEnabled(true);
-        userNameJTextField.setEnabled(false);
-        passwordField.setEnabled(false);
-       
     }//GEN-LAST:event_loginJButtonActionPerformed
 
     private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed
