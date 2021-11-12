@@ -5,14 +5,13 @@
 package Business.Role;
 
 import Business.EcoSystem;
-
 import Business.Organization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 
 /**
  *
- * @author raunak
+ * @author kanishk
  */
 public abstract class Role {
     
@@ -44,7 +43,5 @@ public abstract class Role {
     @Override
     public String toString() {
         return this.getClass().getName();
-    }
-    
-    
+    }  
 }
