@@ -9,7 +9,7 @@ package Business.Restaurant;
  *
  * @author kanishk
  */
-public class Cart {
+public class Cart{
     String item;
     String restaurant;
 
