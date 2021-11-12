@@ -6,7 +6,7 @@ package Business.Employee;
 
 /**
  *
- * @author raunak
+ * @author kanishk
  */
 public class Employee {
     
@@ -26,7 +26,6 @@ public class Employee {
     public void setName(String name) {
         this.name = name;
     }
-
     
     public String getName() {
         return name;
