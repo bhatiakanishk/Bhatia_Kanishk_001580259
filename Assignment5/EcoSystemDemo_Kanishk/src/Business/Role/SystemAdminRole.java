@@ -5,14 +5,13 @@
 package Business.Role;
 
 import Business.EcoSystem;
-
 import Business.UserAccount.UserAccount;
 import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
 import javax.swing.JPanel;
 
 /**
  *
- * @author raunak
+ * @author kanishk
  */
 public class SystemAdminRole extends Role{
 
