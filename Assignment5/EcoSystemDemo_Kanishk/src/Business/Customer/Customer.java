@@ -61,7 +61,5 @@ public class Customer {
     public void setPreviousOrders(ArrayList<Order> previousOrders) {
         this.previousOrders = previousOrders;
     }
-    
-    
-    
+       
 }
