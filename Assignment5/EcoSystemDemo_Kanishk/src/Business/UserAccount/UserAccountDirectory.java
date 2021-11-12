@@ -10,26 +10,34 @@ import java.util.ArrayList;
 
 /**
  *
- * @author raunak
+ * @author kanishk
  */
 public class UserAccountDirectory {
     
-    private ArrayList<UserAccount> userAccountList;
+    private ArrayList<UserAccount> userAccntLst;
 
     public UserAccountDirectory() {
-        userAccountList = new ArrayList();
+        userAccntLst = new ArrayList();
     }
 
     public ArrayList<UserAccount> getUserAccountList() {
-        return userAccountList;
+        return userAccntLst;
     }
     
     public UserAccount authenticateUser(String username, String password){
-        for (UserAccount ua : userAccountList)
+        for (UserAccount ua : userAccntLst)
             if (ua.getUsername().equals(username) && ua.getPassword().equals(password)){
                 return ua;
             }
         return null;
+    }
+    
+    public boolean verifyUserLogin(String uname, String pass){
+        for(UserAccount ua: userAccntLst)
+            if(ua.getUsername().equals(uname) && ua.getPassword().equals(pass)){
+                return true;
+            }
+        return false;
     }
     
     public UserAccount createUserAccount(String username, String password, Employee employee, Role role){
@@ -38,12 +46,12 @@ public class UserAccountDirectory {
         userAccount.setPassword(password);
         userAccount.setEmployee(employee);
         userAccount.setRole(role);
-        userAccountList.add(userAccount);
+        userAccntLst.add(userAccount);
         return userAccount;
     }
     
     public boolean checkIfUsernameIsUnique(String username){
-        for (UserAccount ua : userAccountList){
+        for (UserAccount ua : userAccntLst){
             if (ua.getUsername().equals(username))
                 return false;
         }
