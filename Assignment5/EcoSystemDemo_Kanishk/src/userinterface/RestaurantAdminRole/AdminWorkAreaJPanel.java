@@ -1,25 +1,34 @@
-
-
 package userinterface.RestaurantAdminRole;
-
-
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import Business.EcoSystem;
+import Business.Restaurant.Restaurant;
+import Business.Restaurant.RestaurantDirectory;
+import Business.UserAccount.UserAccount;
 
 /**
  *
- * @author  raunak
+ * @author kanishk
  */
 public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     
     JPanel userProcessContainer;
+    EcoSystem ecosystem;
+    UserAccount usracc;
+    Restaurant rst;
+    RestaurantDirectory rstdir;
     
     /** Creates new form AdminWorkAreaJPanel */
-    public AdminWorkAreaJPanel(JPanel userProcessContainer) {
+    public AdminWorkAreaJPanel(JPanel userProcessContainer,UserAccount useracct ,EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
+        this.ecosystem = system;
+        this.usracc = useracct;
+        
+        rstdir = ecosystem.getRestaurantDirectory();
+        rst = rstdir.getRestaurant(useracct);
       
-        //valueLabel.setText();
+        valueLabel.setText(rst.getName());
     }
     
     /** This method is called from within the constructor to
