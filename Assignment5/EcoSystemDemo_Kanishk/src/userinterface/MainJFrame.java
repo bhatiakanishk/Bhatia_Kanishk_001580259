@@ -31,10 +31,15 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     private EcoSystem system;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    UserAccount usracc;
+    RestaurantDirectory rstdir;
 
     public MainJFrame() {
         initComponents();
         system = dB4OUtil.retrieveSystem();
+        if(system == null){
+            system = new EcoSystem(new RestaurantDirectory(),new CustomerDirectory(),new DeliveryManDirectory());
+        }
         this.setSize(1680, 1050);
     }
 
@@ -139,10 +144,8 @@ public class MainJFrame extends javax.swing.JFrame {
         String username = userNameJTextField.getText();
         String password = passwordField.getText();
         UserAccountDirectory userDirectory = system.getUserAccountDirectory();
-        if(userDirectory.verifyUserLogin(username, password))
-        {
+        if(userDirectory.verifyUserLogin(username, password)){
         ArrayList<UserAccount> usersList = userDirectory.getUserAccountList();
-        
         this.usracc = userDirectory.authenticateUser(username, password);
         if(usracc.getRole().toString().equals("Business.Role.SystemAdminRole"))
         {
