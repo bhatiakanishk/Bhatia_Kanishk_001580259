@@ -29,15 +29,17 @@
                       <Component id="valueLabel" min="-2" pref="130" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="190" pref="190" max="-2" attributes="0"/>
-                      <Component id="vieworderstatusJButton" min="-2" pref="180" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
+                      <Component id="vieworderstatusJButton" max="32767" attributes="0"/>
+                      <EmptySpace min="126" pref="126" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="200" pref="200" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="manageOrdersJButton" linkSize="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="manageMenuJButton" linkSize="1" min="-2" pref="150" max="-2" attributes="0"/>
+                          <Component id="manageOrdersJButton" max="32767" attributes="0"/>
+                          <Component id="manageMenuJButton" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
