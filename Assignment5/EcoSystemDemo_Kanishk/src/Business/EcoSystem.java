@@ -25,7 +25,16 @@ public class EcoSystem extends Organization{
     private RestaurantDirectory restaurantDirectory;
     private CustomerDirectory customerDirectory;
     private DeliveryManDirectory deliveryManDirectory;
+    private OrderDirectory orderDirectory;
 
+    public OrderDirectory getOrderDirectory() {
+        return orderDirectory;
+    }
+
+    public void setOrderDirectory(OrderDirectory orderDirectory) {
+        this.orderDirectory = orderDirectory;
+    }
+    
     public static EcoSystem getBusiness() {
         return business;
     }
