@@ -1,22 +1,17 @@
 
 
 package userinterface.RestaurantAdminRole;
-
-
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;
-import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
-import userinterface.SystemAdminWorkArea.CreateCustomersJPanel;
 
 
 public class AdminWorkAreaJPanel extends javax.swing.JPanel {
-    
     private JPanel userProcessContainer;
     private RestaurantDirectory restaurantDirectory;
     private EcoSystem system;
@@ -24,7 +19,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private OrderDirectory orderDirectory;
     private UserAccount account;
     private DeliveryManDirectory deliveryManDirectory;
-    //private Restaurant restaurant;
+
     /** Creates new form AdminWorkAreaJPanel */
     public AdminWorkAreaJPanel(JPanel userProcessContainer,UserAccount account, EcoSystem system, RestaurantDirectory restaurantDirectory,DeliveryManDirectory deliveryManDirectory,MenuDirectory menuDirectory, OrderDirectory orderDirectory) {
         initComponents();
@@ -35,8 +30,6 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         this.orderDirectory = orderDirectory;
         this.account = account;
         this.deliveryManDirectory = deliveryManDirectory;
-        //this.restaurant = restaurant;
-        //valueLabel.setText();
     }
     
     /** This method is called from within the constructor to
@@ -54,29 +47,32 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        userJButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         userJButton.setText("Manage Restaurant Info");
         userJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userJButtonActionPerformed(evt);
             }
         });
-        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 180, -1));
+        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 180, -1));
 
+        manageEmployeeJButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         manageEmployeeJButton.setText("Manage menu");
         manageEmployeeJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageEmployeeJButtonActionPerformed(evt);
             }
         });
-        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 150, -1));
+        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 180, -1));
 
+        manageOrganizationJButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         manageOrganizationJButton.setText("Manage Orders");
         manageOrganizationJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageOrganizationJButtonActionPerformed(evt);
             }
         });
-        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, -1));
+        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 180, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Restaurant :");
@@ -104,8 +100,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         userProcessContainer.add(manageResturantInfoJPanel);
         layout.next(userProcessContainer);
     }//GEN-LAST:event_manageOrganizationJButtonActionPerformed
-    
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JButton manageEmployeeJButton;
