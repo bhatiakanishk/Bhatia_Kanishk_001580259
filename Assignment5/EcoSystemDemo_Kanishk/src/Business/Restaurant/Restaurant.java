@@ -4,19 +4,24 @@
  * and open the template in the editor.
  */
 package Business.Restaurant;
-import Business.Restaurant.FinalOrder;
-import Business.Restaurant.Order;
-import Business.UserAccount.UserAccount;
-import java.util.ArrayList;
 /**
  *
  * @author kanishk
  */
 public class Restaurant {
-    String name;
-    String address;
-    String city;
-    UserAccount usrAcc;
+    private String restaurantId;
+    private String name;
+    private String phoneNo;
+    private String address;
+    private String managerName;
+
+    public String getRestaurantId() {
+        return restaurantId;
+    }
+
+    public void setRestaurantId(String restaurantId) {
+        this.restaurantId = restaurantId;
+    }
 
     public String getName() {
         return name;
@@ -24,6 +29,14 @@ public class Restaurant {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
     }
 
     public String getAddress() {
@@ -34,65 +47,19 @@ public class Restaurant {
         this.address = address;
     }
 
-    public String getCity() {
-        return city;
+    public String getManagerName() {
+        return managerName;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setManagerName(String managerName) {
+        this.managerName = managerName;
     }
 
-    public UserAccount getUsrAcc() {
-        return usrAcc;
-    }
-
-    public void setUsrAcc(UserAccount usrAcc) {
-        this.usrAcc = usrAcc;
-    }
-    
-    ArrayList<String> menu = new ArrayList<String>();
-    ArrayList<Order> orders = new ArrayList<Order>();
-    
-    public ArrayList<String> getMenu() {
-        return menu;
-    }
-
-    public void setMenu(ArrayList<String> menu) {
-        this.menu = menu;
-    }
-    
-     public void addToMenu(String item){
-        this.menu.add(item);
-    }
-     
-      public void RemoveFromMenu(String item){
-        this.menu.remove(item);
-    }
-     
-    public void addToOrder(Order order){
-        this.orders.add(order);
-    }
-
-    public ArrayList<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(ArrayList<Order> orders) {
-        this.orders = orders;
-    }
-    
-     ArrayList<FinalOrder> ordrAcptd = new ArrayList<FinalOrder>();
-
-    public ArrayList<FinalOrder> getOrdrAcptd() {
-        return ordrAcptd;
-    }
-
-    public void setOrdrAcptd(ArrayList<FinalOrder> ordrAcptd) {
-        this.ordrAcptd = ordrAcptd;
-    }
-     
-     public Restaurant(UserAccount ua)
-    {
-        this.usrAcc = ua;
+    public Restaurant(String restaurantId, String name, String phoneNo, String address, String managerName) {
+        this.restaurantId = restaurantId;
+        this.name = name;
+        this.phoneNo = phoneNo;
+        this.address = address;
+        this.managerName = managerName;
     }
 }
