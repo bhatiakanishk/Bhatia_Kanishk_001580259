@@ -3,9 +3,12 @@
  * and open the template in the editor.
  */
 package Business.Role;
-
+import Business.Customer.CustomerDirectory;
+import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
-import Business.Organization;
+import Business.Menu.MenuDirectory;
+import Business.Order.OrderDirectory;
+import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 
@@ -38,10 +41,15 @@ public abstract class Role {
     
     public abstract JPanel createWorkArea(JPanel userProcessContainer, 
             UserAccount account,  
-            EcoSystem business);
+            EcoSystem business,
+            CustomerDirectory customerDirectory,
+            RestaurantDirectory restaurantDirectory,
+            DeliveryManDirectory deliveryManDirectory,
+            MenuDirectory menuDirectory,
+            OrderDirectory orderDirectory);
 
     @Override
     public String toString() {
         return this.getClass().getName();
-    }  
+    }
 }
