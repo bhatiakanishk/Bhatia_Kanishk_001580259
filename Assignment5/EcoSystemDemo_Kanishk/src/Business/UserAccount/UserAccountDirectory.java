@@ -13,55 +13,55 @@ import java.util.ArrayList;
  */
 public class UserAccountDirectory {
     
-    private ArrayList<UserAccount> userAccntLst;
+    private ArrayList<UserAccount> userAccountList;
 
     public UserAccountDirectory() {
-        userAccntLst = new ArrayList();
+        userAccountList = new ArrayList();
     }
 
     public ArrayList<UserAccount> getUserAccountList() {
-        return userAccntLst;
+        return userAccountList;
     }
     
-    public UserAccount authenticateUser(String uname, String pass){
-        for (UserAccount ua : userAccntLst)
-            if (ua.getUsername().equals(uname) && ua.getPassword().equals(pass)){
+    public UserAccount authenticateUser(String username, String password){
+        for (UserAccount ua : userAccountList)
+            if (ua.getUsername().equals(username) && ua.getPassword().equals(password)){
                 return ua;
             }
         return null;
     }
     
-    public boolean verifyUserLogin(String uname,String pass){
-        for (UserAccount ua : userAccntLst)
-            if (ua.getUsername().equals(uname) && ua.getPassword().equals(pass)){
-                return true;
-            }
-        return false;
-    }
-    
-    public UserAccount createUserAccount(String uname, String pass, Employee emp, Role role){
+    public UserAccount createUserAccount(String username, String password, Employee employee, Role role){
         UserAccount userAccount = new UserAccount();
-        userAccount.setUsername(uname);
-        userAccount.setPassword(pass);
-        userAccount.setEmployee(emp);
+        userAccount.setUsername(username);
+        userAccount.setPassword(password);
+        userAccount.setEmployee(employee);
         userAccount.setRole(role);
-        
-        userAccntLst.add(userAccount);
+        userAccountList.add(userAccount);
         return userAccount;
     }
     
-    public UserAccount getUserAccount(String uname) {
-        for(UserAccount useracc: userAccntLst){
-            if(useracc.getUsername().equals(uname)){
-                return useracc;
+    public UserAccount getUserByEmployeeId(String id){
+        for(UserAccount user: userAccountList){
+            if(user.getEmployee().getName().equalsIgnoreCase(id)){
+                return user;
             }
         }
         return null;
     }
     
-    public boolean checkIfUsernameIsUnique(String uname){
-        for (UserAccount useracc : userAccntLst){
-            if (useracc.getUsername().equals(uname))
+    public void removeAllAccounts(){
+        for(int i =0 ; i< userAccountList.size();i++)
+            if(!userAccountList.get(i).getUsername().equalsIgnoreCase("sysadmin"))
+                userAccountList.remove(i);
+        
+        for(int i =0 ; i< userAccountList.size();i++)
+            System.out.println(userAccountList.get(i).getEmployee());
+    }
+    
+    public boolean checkIfUsernameIsUnique(String username){
+        for (UserAccount ua : userAccountList){
+            if (ua.getUsername().equals(username))
                 return false;
         }
         return true;
