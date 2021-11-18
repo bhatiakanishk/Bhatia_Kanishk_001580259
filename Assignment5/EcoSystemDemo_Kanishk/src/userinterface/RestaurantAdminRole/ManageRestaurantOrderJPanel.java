@@ -116,6 +116,7 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel9.setText("Orders");
 
         orderTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -146,6 +147,7 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(orderTable);
 
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setText("Confirm Order");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,6 +155,7 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton2.setText("Assign Delivery Man");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,17 +165,17 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
 
         deliveryTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Delivery Man Name", "Contact No", "Address", "Delivery Man Id"
+                "Delivery Man Name", "Contact No", "Delivery Man Id"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -181,6 +184,7 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(deliveryTable);
 
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton3.setText("Back");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,24 +197,24 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 935, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1)
-                                    .addComponent(jButton2))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton3)
-                .addGap(335, 335, 335)
-                .addComponent(jLabel9)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 935, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton3)
+                        .addGap(335, 335, 335)
+                        .addComponent(jLabel9)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2)
+                        .addGap(14, 14, 14))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addComponent(jButton2))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,15 +223,15 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addGap(30, 30, 30)
+                .addGap(34, 34, 34)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
