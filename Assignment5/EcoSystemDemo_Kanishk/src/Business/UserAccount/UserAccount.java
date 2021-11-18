@@ -3,7 +3,6 @@
  * and open the template in the editor.
  */
 package Business.UserAccount;
-
 import Business.Employee.Employee;
 import Business.Role.Role;
 import Business.WorkQueue.WorkQueue;
@@ -23,7 +22,7 @@ public class UserAccount {
     public UserAccount() {
         workQueue = new WorkQueue();
     }
-  
+    
     public String getUsername() {
         return username;
     }
@@ -59,10 +58,9 @@ public class UserAccount {
     public WorkQueue getWorkQueue() {
         return workQueue;
     }
-
+  
     @Override
     public String toString() {
         return username;
     }
-
 }
