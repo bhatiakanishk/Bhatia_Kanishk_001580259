@@ -4,36 +4,41 @@
  * and open the template in the editor.
  */
 package userinterface.RestaurantAdminRole;
+
 import Business.EcoSystem;
+import Business.Menu.FoodItem;
+import Business.Menu.MenuDirectory;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
-import java.util.ArrayList;
-import javax.swing.DefaultListModel;
+import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-/**
- *
- * @author kanishk
- */
+import javax.swing.table.DefaultTableModel;
+
 public class ManageMenuJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ManageMenujPanel
+     * Creates new form ManageMenuJPanel
      */
-    JPanel userProcessContainer;
-    UserAccount usracc;
-    EcoSystem ecosystem;
-    Restaurant rst;
-    RestaurantDirectory rstdir;
-    ArrayList<String> menu;
-    public ManageMenuJPanel(JPanel userProcessContainer ,Restaurant restaurant, EcoSystem system) {
+    private JPanel container;
+    private EcoSystem system;
+    private RestaurantDirectory restaurantDirectory;
+    private MenuDirectory menuDirectory;
+    private UserAccount account;
+    //private Restaurant restaurant;
+    public ManageMenuJPanel(JPanel userProcessContainer,UserAccount account, EcoSystem system, RestaurantDirectory restaurantDirectory, MenuDirectory menuDirectory) {
         initComponents();
-        this.ecosystem = system;
-        this.userProcessContainer = userProcessContainer;
-        this.rst = restaurant;
-        refreshTable();
+        this.container = userProcessContainer;
+        this.system = system;
+        this.restaurantDirectory = restaurantDirectory;
+        this.menuDirectory = menuDirectory;
+        this.account = account;
+        //this.restaurant = restaurant;
+        populate();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,146 +48,179 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        back = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        txtAddItem = new javax.swing.JTextField();
-        btnAddItem = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        btnRemItem = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        menuList = new javax.swing.JList<>();
+        menuJTable = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
 
-        back.setText("<< Back");
-        back.addActionListener(new java.awt.event.ActionListener() {
+        setToolTipText("");
+
+        jLabel1.setText("Menu");
+
+        menuJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Item Id", "Item Name", "Item Description", "Item Price"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(menuJTable);
+
+        jButton1.setText("Add Food Item");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Menu:");
-
-        btnAddItem.setText("Add Item");
-        btnAddItem.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Edit Food Item");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddItemActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Restaurant Menu");
-
-        jLabel3.setText("Dish Name:");
-
-        btnRemItem.setText("Remove Item");
-        btnRemItem.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.setText("Delete Food Item");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemItemActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
 
-        menuList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { " " };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        backBtn.setText("Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
         });
-        jScrollPane1.setViewportView(menuList);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(back)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtAddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnRemItem)
-                            .addComponent(btnAddItem))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(backBtn)
+                                .addGap(77, 77, 77)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton3)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAddItem, btnRemItem});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(back)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(backBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txtAddItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addComponent(btnAddItem)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnRemItem))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+    
+    public void populate(){
+        DefaultTableModel model = (DefaultTableModel) menuJTable.getModel();
 
-    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
+        model.setRowCount(0);
+            for (FoodItem foodItem : menuDirectory.getMenuDirectory()) {
+                if (foodItem.getRestaurantId().equalsIgnoreCase(account.getEmployee().getName())) {
+                    Object[] row = new Object[3];
+                    row[0] = foodItem.getItemId();
+                    row[1] = foodItem.getItemName();
+                    row[2] = foodItem.getPrice();
+                    model.addRow(row);
+                }
+        }
+    }
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        CardLayout crdLyt = (CardLayout) userProcessContainer.getLayout();
-        crdLyt.show(userProcessContainer,"RestaurantAdmin");
-    }//GEN-LAST:event_backActionPerformed
+        CardLayout layout = (CardLayout) container.getLayout();
+        CreateFoodItemJPanel createFoodItemJPanel = new CreateFoodItemJPanel(container,account, system, restaurantDirectory,menuDirectory);
+        container.add(createFoodItemJPanel);
+        layout.next(container);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnAddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddItemActionPerformed
-        // TODO add your handling code here:    
-        rst.addToMenu(txtAddItem.getText());
-        refreshTable();
-        txtAddItem.setText("");
-    }//GEN-LAST:event_btnAddItemActionPerformed
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+        container.remove(this);
+        Component[] componentArray = container.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.previous(container);
+    }//GEN-LAST:event_backBtnActionPerformed
 
-    private void btnRemItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemItemActionPerformed
-        //TODO add your handling code here:
-        rst.RemoveFromMenu(txtAddItem.getText());
-        refreshTable();
-        txtAddItem.setText("");
-    }//GEN-LAST:event_btnRemItemActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = menuJTable.getSelectedRow();
+        if (selectedRow >= 0) {
+            CardLayout layout = (CardLayout) container.getLayout();
+            String foodItemId = (String) menuJTable.getValueAt(selectedRow,0);
+            FoodItem foodItem = menuDirectory.getFoodItem(foodItemId);
+            ViewFoodItemJPanel viewCustomersJPanel = new ViewFoodItemJPanel(container, foodItem, menuDirectory);
+            container.add(viewCustomersJPanel);
+            layout.next(container);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = menuJTable.getSelectedRow();
+        if (selectedRow >= 0) {
+            int selectionButton = JOptionPane.YES_NO_OPTION;
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete??", "Warning", selectionButton);
+            if (selectionResult == JOptionPane.YES_OPTION) {
+                String foodItemId = (String) menuJTable.getValueAt(selectedRow,0);
+                menuDirectory.deleteItem(foodItemId);
+                populate();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton back;
-    private javax.swing.JButton btnAddItem;
-    private javax.swing.JButton btnRemItem;
+    private javax.swing.JButton backBtn;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList<String> menuList;
-    private javax.swing.JTextField txtAddItem;
+    private javax.swing.JTable menuJTable;
     // End of variables declaration//GEN-END:variables
-
-    private void refreshTable() {
-        menu = rst.getMenu();
-          DefaultListModel dlm = new DefaultListModel();
-          for(String s: menu){
-              dlm.addElement(s);
-          }
-        menuList.setModel(dlm);
-    }
 }

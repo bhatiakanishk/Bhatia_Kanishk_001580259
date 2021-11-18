@@ -4,11 +4,9 @@
  * and open the template in the editor.
  */
 package Business.Order;
+
 import java.util.ArrayList;
-/**
- *
- * @author kanishk
- */
+
 public class OrderDirectory {
     private ArrayList<Order> orderDirectory;
 

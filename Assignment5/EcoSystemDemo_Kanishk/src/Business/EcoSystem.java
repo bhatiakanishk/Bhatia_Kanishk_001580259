@@ -10,6 +10,7 @@ import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.Restaurant.RestaurantDirectory;
 import Business.Role.Role;
+import Business.Order.OrderDirectory;
 import Business.Role.SystemAdminRole;
 import Business.UserAccount.UserAccountDirectory;
 import Business.UserAccount.UserAccount;
@@ -26,7 +27,7 @@ public class EcoSystem extends Organization{
     private CustomerDirectory customerDirectory;
     private DeliveryManDirectory deliveryManDirectory;
     private OrderDirectory orderDirectory;
-
+    
     public OrderDirectory getOrderDirectory() {
         return orderDirectory;
     }
@@ -113,7 +114,6 @@ public class EcoSystem extends Organization{
     }
     private EcoSystem(){
         super(null);
-       // networkList=new ArrayList<Network>();
     }
 
     

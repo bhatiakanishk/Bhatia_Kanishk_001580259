@@ -1,33 +1,44 @@
+
+
 package userinterface.RestaurantAdminRole;
-import java.awt.CardLayout;
-import javax.swing.JPanel;
+
+
+import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
+import Business.Menu.MenuDirectory;
+import Business.Order.OrderDirectory;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+import userinterface.SystemAdminWorkArea.CreateCustomersJPanel;
 
-/**
- *
- * @author kanishk
- */
+
 public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     
-    JPanel userProcessContainer;
-    EcoSystem ecosystem;
-    UserAccount usracc;
-    Restaurant rst;
-    RestaurantDirectory rstdir;
+    private JPanel userProcessContainer;
+    private RestaurantDirectory restaurantDirectory;
+    private EcoSystem system;
+    private MenuDirectory menuDirectory;
+    private OrderDirectory orderDirectory;
+    private UserAccount account;
+    private DeliveryManDirectory deliveryManDirectory;
+    //private Restaurant restaurant;
     /** Creates new form AdminWorkAreaJPanel */
-    public AdminWorkAreaJPanel(JPanel userProcessContainer,UserAccount useracct ,EcoSystem system) {
+    public AdminWorkAreaJPanel(JPanel userProcessContainer,UserAccount account, EcoSystem system, RestaurantDirectory restaurantDirectory,DeliveryManDirectory deliveryManDirectory,MenuDirectory menuDirectory, OrderDirectory orderDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.ecosystem = system;
-        this.usracc = useracct;
-        
-        rstdir = ecosystem.getRestaurantDirectory();
-        rst = rstdir.getRestaurant(useracct);
-        valueLabel.setText(rst.getName());
+        this.restaurantDirectory = restaurantDirectory;
+        this.system = system;
+        this.menuDirectory = menuDirectory;
+        this.orderDirectory = orderDirectory;
+        this.account = account;
+        this.deliveryManDirectory = deliveryManDirectory;
+        //this.restaurant = restaurant;
+        //valueLabel.setText();
     }
+    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -36,119 +47,70 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        vieworderstatusJButton = new javax.swing.JButton();
-        manageMenuJButton = new javax.swing.JButton();
-        manageOrdersJButton = new javax.swing.JButton();
+        userJButton = new javax.swing.JButton();
+        manageEmployeeJButton = new javax.swing.JButton();
+        manageOrganizationJButton = new javax.swing.JButton();
         enterpriseLabel = new javax.swing.JLabel();
-        valueLabel = new javax.swing.JLabel();
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("My Work Area -Adminstrative Role");
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        vieworderstatusJButton.setText("View Order Status");
-        vieworderstatusJButton.addActionListener(new java.awt.event.ActionListener() {
+        userJButton.setText("Manage Restaurant Info");
+        userJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vieworderstatusJButtonActionPerformed(evt);
+                userJButtonActionPerformed(evt);
             }
         });
+        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 180, -1));
 
-        manageMenuJButton.setText("Manage menu");
-        manageMenuJButton.addActionListener(new java.awt.event.ActionListener() {
+        manageEmployeeJButton.setText("Manage menu");
+        manageEmployeeJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                manageMenuJButtonActionPerformed(evt);
+                manageEmployeeJButtonActionPerformed(evt);
             }
         });
+        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 150, -1));
 
-        manageOrdersJButton.setText("Manage Orders");
-        manageOrdersJButton.addActionListener(new java.awt.event.ActionListener() {
+        manageOrganizationJButton.setText("Manage Orders");
+        manageOrganizationJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                manageOrdersJButtonActionPerformed(evt);
+                manageOrganizationJButtonActionPerformed(evt);
             }
         });
+        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Restaurant :");
-
-        valueLabel.setText("<value>");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(190, 190, 190)
-                        .addComponent(vieworderstatusJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(126, 126, 126))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(200, 200, 200)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(manageOrdersJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(manageMenuJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(146, 146, 146)))
-                .addGap(91, 91, 91))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel1)
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(valueLabel)))
-                .addGap(28, 28, 28)
-                .addComponent(manageOrdersJButton)
-                .addGap(18, 18, 18)
-                .addComponent(manageMenuJButton)
-                .addGap(21, 21, 21)
-                .addComponent(vieworderstatusJButton)
-                .addContainerGap())
-        );
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 120, 30));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void vieworderstatusJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vieworderstatusJButtonActionPerformed
+    private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
         // TODO add your handling code here:
-        ViewOrderStatusJPanel vwordsts = new ViewOrderStatusJPanel(userProcessContainer, rst, ecosystem);
-        userProcessContainer.add("ViewOrderStatusJPanel",vwordsts);
-        CardLayout crdlyt = (CardLayout) userProcessContainer.getLayout();
-        crdlyt.show(userProcessContainer,"ViewOrderStatusJPanel");
-    }//GEN-LAST:event_vieworderstatusJButtonActionPerformed
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        ManageResturantInfoJPanel manageResturantInfoJPanel = new ManageResturantInfoJPanel(userProcessContainer,account, system, restaurantDirectory,menuDirectory);
+        userProcessContainer.add(manageResturantInfoJPanel);
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_userJButtonActionPerformed
 
-    private void manageMenuJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageMenuJButtonActionPerformed
-        // TODO add your handling code here:
-        ManageMenuJPanel mngmn = new ManageMenuJPanel(userProcessContainer, rst, ecosystem);
-        userProcessContainer.add("ManageMenuJPanel",mngmn);
-        CardLayout crdlyt = (CardLayout) userProcessContainer.getLayout();
-        crdlyt.show(userProcessContainer,"ManageMenuJPanel");
-    }//GEN-LAST:event_manageMenuJButtonActionPerformed
+    private void manageEmployeeJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeJButtonActionPerformed
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        ManageMenuJPanel manageMenuJPanel = new ManageMenuJPanel(userProcessContainer,account, system, restaurantDirectory,menuDirectory);
+        userProcessContainer.add(manageMenuJPanel);
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_manageEmployeeJButtonActionPerformed
 
-    private void manageOrdersJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrdersJButtonActionPerformed
-        // TODO add your handling code here:
-        ManageOrderJPanel mngordr = new ManageOrderJPanel( userProcessContainer, rst , ecosystem);
-        userProcessContainer.add("ManageOrderJPanel",mngordr);
-        CardLayout crdlyt = (CardLayout) userProcessContainer.getLayout();
-        crdlyt.show(userProcessContainer,"ManageOrderJPanel");
-    }//GEN-LAST:event_manageOrdersJButtonActionPerformed
+    private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        ManageRestaurantOrderJPanel manageResturantInfoJPanel = new ManageRestaurantOrderJPanel(userProcessContainer,account, system, restaurantDirectory,deliveryManDirectory,menuDirectory,orderDirectory);
+        userProcessContainer.add(manageResturantInfoJPanel);
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_manageOrganizationJButtonActionPerformed
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel enterpriseLabel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton manageMenuJButton;
-    private javax.swing.JButton manageOrdersJButton;
-    private javax.swing.JLabel valueLabel;
-    private javax.swing.JButton vieworderstatusJButton;
+    private javax.swing.JButton manageEmployeeJButton;
+    private javax.swing.JButton manageOrganizationJButton;
+    private javax.swing.JButton userJButton;
     // End of variables declaration//GEN-END:variables
-  
+    
 }

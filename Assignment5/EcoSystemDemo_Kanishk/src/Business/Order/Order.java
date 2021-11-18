@@ -4,15 +4,13 @@
  * and open the template in the editor.
  */
 package Business.Order;
+
 import Business.Customer.Customer;
 import Business.DeliveryMan.DeliveryMan;
 import Business.Menu.FoodItem;
 import Business.Restaurant.Restaurant;
 import Business.WorkQueue.WorkRequest;
-/**
- *
- * @author kanishk
- */
+
 public class Order extends WorkRequest{
     private String orderId;
     private int orderStatusPercentage;
@@ -23,20 +21,20 @@ public class Order extends WorkRequest{
     private int quantity;
     private String result;
 
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
     public String getOrderId() {
         return orderId;
     }
 
     public void setOrderId(String orderId) {
         this.orderId = orderId;
-    }
-
-    public int getOrderStatusPercentage() {
-        return orderStatusPercentage;
-    }
-
-    public void setOrderStatusPercentage(int orderStatusPercentage) {
-        this.orderStatusPercentage = orderStatusPercentage;
     }
 
     public FoodItem getFoodItem() {
@@ -79,11 +77,13 @@ public class Order extends WorkRequest{
         this.quantity = quantity;
     }
 
-    public String getResult() {
-        return result;
+
+    public int getOrderStatusPercentage() {
+        return orderStatusPercentage;
     }
 
-    public void setResult(String result) {
-        this.result = result;
-    }
+    public void setOrderStatusPercentage(int orderStatusPercentage) {
+        this.orderStatusPercentage = orderStatusPercentage;
+    } 
+    
 }
