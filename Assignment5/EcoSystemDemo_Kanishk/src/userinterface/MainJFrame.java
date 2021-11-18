@@ -3,22 +3,20 @@
  * and open the template in the editor.
  */
 package userinterface;
-
+import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
 import Business.DB4OUtil.DB4OUtil;
-import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
+import Business.Employee.EmployeeDirectory;
+import Business.Menu.MenuDirectory;
+import Business.Order.OrderDirectory;
 import Business.Restaurant.RestaurantDirectory;
-import Business.UserAccount.UserAccountDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import java.util.ArrayList;
-import userinterface.CustomerRole.Customer_RestaurantMenuJPanel;
-import userinterface.DeliveryManRole.DeliveryManWorkAreaJPanel;
-import userinterface.RestaurantAdminRole.AdminWorkAreaJPanel;
-import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JPanel;;
 
 /**
  *
@@ -31,16 +29,23 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     private EcoSystem system;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
-    UserAccount usracc;
-    RestaurantDirectory rstdir;
-
-    public MainJFrame() {
+    private CustomerDirectory customerDirectory;
+    private RestaurantDirectory restaurantDirectory;
+    private DeliveryManDirectory deliveryManDirectory;
+    private EmployeeDirectory employeeDirectory;
+    private MenuDirectory menuDirectory;
+    private OrderDirectory orderDirectory;
+    public MainJFrame() throws IOException {
         initComponents();
+        
         system = dB4OUtil.retrieveSystem();
-        if(system == null){
-            system = new EcoSystem(new RestaurantDirectory(),new CustomerDirectory(),new DeliveryManDirectory());
-        }
         this.setSize(1680, 1050);
+        customerDirectory = new CustomerDirectory();
+        restaurantDirectory = new RestaurantDirectory();
+        deliveryManDirectory = new DeliveryManDirectory();
+        employeeDirectory = new EmployeeDirectory();
+        menuDirectory = new MenuDirectory();
+        //orderDirectory = new OrderDirectory();
     }
 
     /**
@@ -97,17 +102,18 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(userNameJTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(logoutJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
-                            .addGap(26, 26, 26)
-                            .addComponent(loginJLabel)))
-                    .addComponent(loginJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(passwordField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(userNameJTextField)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(logoutJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                        .addGap(26, 26, 26)
+                        .addComponent(loginJLabel))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(loginJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,67 +147,21 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
         // Get user name
-        String username = userNameJTextField.getText();
-        String password = passwordField.getText();
-        UserAccountDirectory userDirectory = system.getUserAccountDirectory();
-        if(userDirectory.verifyUserLogin(username, password)){
-        ArrayList<UserAccount> usersList = userDirectory.getUserAccountList();
-        this.usracc = userDirectory.authenticateUser(username, password);
-        if(usracc.getRole().toString().equals("Business.Role.SystemAdminRole"))
-        {
+        String userName = userNameJTextField.getText();
+       // Get Password
+       char[] passwordCharArray = passwordField.getPassword();
+       String password = String.valueOf(passwordCharArray);
+       
+       //Step1: Check in the system admin user account directory if you have the user
+       UserAccount userAccount=system.getUserAccountDirectory().authenticateUser(userName, password);
+       if(userAccount != null){
+          CardLayout layout=(CardLayout)container.getLayout();
+            container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, system,customerDirectory,restaurantDirectory,deliveryManDirectory,menuDirectory,orderDirectory));
+            layout.next(container);
+            userNameJTextField.setText("");
+            passwordField.setText("");
             logoutJButton.setEnabled(true); 
-            userNameJTextField.setEnabled(false);
-            passwordField.setEnabled(false);
-            loginJButton.setEnabled(false);
-            
-            SystemAdminWorkAreaJPanel sa = new SystemAdminWorkAreaJPanel(container, system);
-            container.add("Sysadmin",sa);
-            CardLayout crdLyt = (CardLayout) container.getLayout();
-            crdLyt.next(container);
-        }
-        
-        else if(usracc.getRole().toString().equals("Business.Role.AdminRole"))
-        {
-            logoutJButton.setEnabled(true); 
-            userNameJTextField.setEnabled(false);
-            passwordField.setEnabled(false);
-            loginJButton.setEnabled(false);
-            
-            AdminWorkAreaJPanel aw = new AdminWorkAreaJPanel(container,usracc,system);
-            container.add("RestaurantAdmin",aw);
-            CardLayout crdLyt = (CardLayout) container.getLayout();
-            crdLyt.next(container);
-        }
-        
-        else if(usracc.getRole().toString().equals("Business.Role.DeliverManRole"))
-        {
-            logoutJButton.setEnabled(true); 
-            userNameJTextField.setEnabled(false);
-            passwordField.setEnabled(false);
-            loginJButton.setEnabled(false);
-            
-            DeliveryManWorkAreaJPanel dmw = new DeliveryManWorkAreaJPanel(container, usracc, system);
-            container.add("DeliveryMan",dmw);
-            CardLayout crdLyt = (CardLayout) container.getLayout();
-            crdLyt.next(container);
-        }
-        
-        else if(usracc.getRole().toString().equals("Business.Role.CustomerRole"))
-        {
-            logoutJButton.setEnabled(true); 
-            userNameJTextField.setEnabled(false);
-            passwordField.setEnabled(false);
-            loginJButton.setEnabled(false);
-            
-            Customer_RestaurantMenuJPanel ca = new Customer_RestaurantMenuJPanel(container, usracc,system);
-            container.add("Customer",ca);
-            CardLayout crdLyt = (CardLayout) container.getLayout();
-            crdLyt.next(container);
-        }
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "Invalid credentials");
-        }
+       } 
     }//GEN-LAST:event_loginJButtonActionPerformed
 
     private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed
@@ -255,7 +215,12 @@ public class MainJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainJFrame().setVisible(true);
+                try {
+                    new MainJFrame().setVisible(true);
+                     
+                } catch (IOException ex) {
+                    Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
