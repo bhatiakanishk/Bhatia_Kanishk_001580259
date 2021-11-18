@@ -4,31 +4,24 @@
  * and open the template in the editor.
  */
 package Business.DeliveryMan;
-import Business.Restaurant.FinalOrder;
-import Business.UserAccount.UserAccount;
-import java.util.ArrayList;
+
 /**
  *
  * @author kanishk
  */
 public class DeliveryMan {
-    String name;
-    String status;
-    UserAccount useracc;
-    ArrayList<FinalOrder> orderDelivered = new ArrayList<FinalOrder>();
+    private String deliveryId;
+    private String name;
+    private String phoneNo;
 
-    public ArrayList<FinalOrder> getOrderDelivered() {
-        return orderDelivered;
+    public String getDeliveryId() {
+        return deliveryId;
     }
 
-    public void setOrderDelivered(ArrayList<FinalOrder> orderDelivered) {
-        this.orderDelivered = orderDelivered;
+    public void setDeliveryId(String deliveryId) {
+        this.deliveryId = deliveryId;
     }
-     
-    public void addOrderDelivered(FinalOrder f){
-         orderDelivered.add(f);
-    }
-    
+
     public String getName() {
         return name;
     }
@@ -37,29 +30,17 @@ public class DeliveryMan {
         this.name = name;
     }
 
-    public String getStatus() {
-        return status;
+    public String getPhoneNo() {
+        return phoneNo;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
     }
 
-    public UserAccount getUseracc() {
-        return useracc;
+    public DeliveryMan(String deliveryId, String name, String phoneNo) {
+        this.deliveryId = deliveryId;
+        this.name = name;
+        this.phoneNo = phoneNo;
     }
-
-    public void setUseracc(UserAccount useracc) {
-        this.useracc = useracc;
-    }
-    
-    public void setUa(UserAccount useraccc) {
-        this.useracc = useraccc;
-    }
-    
-     public DeliveryMan(UserAccount ua)
-    {
-        this.useracc = ua;
-        this.name = ua.getUsername();
-    }  
 }
