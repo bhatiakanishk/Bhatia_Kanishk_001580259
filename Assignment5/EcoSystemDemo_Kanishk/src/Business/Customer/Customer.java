@@ -4,62 +4,53 @@
  * and open the template in the editor.
  */
 package Business.Customer;
-import Business.Restaurant.Cart;
-import Business.Restaurant.Order;
-import Business.UserAccount.UserAccount;
-import java.util.ArrayList;
 
 /**
  *
  * @author kanishk
  */
 public class Customer {
-    String CstmrName;
-    UserAccount UsrAcc;
-    
-    public Customer(UserAccount ua){
-        this.UsrAcc = ua;
-        this.CstmrName = ua.getUsername();
+    private String customerId;
+    private String name;
+    private String phoneNo;
+    private String address;
+
+    public String getCustomerId() {
+        return customerId;
     }
 
-    public String getCstmrName() {
-        return CstmrName;
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
     }
 
-    public void setCstmrName(String CstmrName) {
-        this.CstmrName = CstmrName;
+    public String getName() {
+        return name;
     }
 
-    public UserAccount getUsrAcc() {
-        return UsrAcc;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setUsrAcc(UserAccount UsrAcc) {
-        this.UsrAcc = UsrAcc;
-    }
-    
-    ArrayList<Cart> cart = new ArrayList<Cart>();
-    ArrayList<Order> previousOrders = new ArrayList<Order>();
-
-    public ArrayList<Cart> getCart() {
-        return cart;
+    public String getPhoneNo() {
+        return phoneNo;
     }
 
-    public void setCart(ArrayList<Cart> cart) {
-        this.cart = cart;
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
     }
 
-    public void addToCart(Cart cart)
-    {
-        this.cart.add(cart);
-    }
-    
-    public ArrayList<Order> getPreviousOrders() {
-        return previousOrders;
+    public String getAddress() {
+        return address;
     }
 
-    public void setPreviousOrders(ArrayList<Order> previousOrders) {
-        this.previousOrders = previousOrders;
+    public void setAddress(String address) {
+        this.address = address;
     }
-       
+
+    public Customer(String customerId, String name, String phoneNo, String address) {
+        this.customerId = customerId;
+        this.name = name;
+        this.phoneNo = phoneNo;
+        this.address = address;
+    }  
 }
