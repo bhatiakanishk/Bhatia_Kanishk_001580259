@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package userinterface.RestaurantAdminRole;
-
 import Business.Menu.FoodItem;
 import Business.Menu.MenuDirectory;
 import java.awt.CardLayout;
@@ -153,7 +152,7 @@ public class ViewFoodItemJPanel extends javax.swing.JPanel {
             itemDescriptionTextField.setEditable(false);
             itemPriceTextField.setEditable(false);
             itemIdTextField.setEditable(false);
-            JOptionPane.showMessageDialog(null, "Food Item updated succesfully!");
+            JOptionPane.showMessageDialog(null, "Food Item updated");
     }//GEN-LAST:event_saveBtnActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -173,8 +172,6 @@ public class ViewFoodItemJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) container.getLayout();
         layout.previous(container);
     }//GEN-LAST:event_jButton2ActionPerformed
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField itemDescriptionTextField;
