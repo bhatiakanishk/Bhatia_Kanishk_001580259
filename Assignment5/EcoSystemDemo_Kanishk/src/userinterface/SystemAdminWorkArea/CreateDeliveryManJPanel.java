@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package userinterface.SystemAdminWorkArea;
-
 import Business.DeliveryMan.DeliveryMan;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
@@ -13,9 +12,6 @@ import Business.Role.DeliverManRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -24,9 +20,6 @@ public class CreateDeliveryManJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateDeliveryManJPanel
      */
-    JFileChooser chooser;
-    File file;
-    BufferedImage img;
     private DeliveryManDirectory deliveryManDirectory;
     private EcoSystem system;
     private JPanel container;
@@ -153,8 +146,7 @@ public class CreateDeliveryManJPanel extends javax.swing.JPanel {
         String password = passwordTextField.getText();
         
             DeliveryMan deliveryMan = deliveryManDirectory.add(name,phone);
-            Employee employee = system.getEmployeeDirectory().createEmployee(deliveryMan.getDeliveryId());
-            
+            Employee employee = system.getEmployeeDirectory().createEmployee(deliveryMan.getDeliveryId());       
             UserAccount account = system.getUserAccountDirectory().createUserAccount(username, password, employee, new DeliverManRole());
             JOptionPane.showMessageDialog(null, "Delivery Man added!");
             nameTextField.setText("");
@@ -167,15 +159,13 @@ public class CreateDeliveryManJPanel extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         container.remove(this);
-         Component[] componentArray = container.getComponents();
+        Component[] componentArray = container.getComponents();
         Component component = componentArray[componentArray.length - 1];
         ManageDeliveryJPanel manageDeliveryJPanel = (ManageDeliveryJPanel) component;
         manageDeliveryJPanel.populate();
-
         CardLayout layout = (CardLayout) container.getLayout();
         layout.previous(container);
     }//GEN-LAST:event_jButton2ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBtn;
