@@ -1,5 +1,7 @@
-
-
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package userinterface.RestaurantAdminRole;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
@@ -9,7 +11,6 @@ import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
-
 
 public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
@@ -107,5 +108,4 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton manageOrganizationJButton;
     private javax.swing.JButton userJButton;
     // End of variables declaration//GEN-END:variables
-    
 }
