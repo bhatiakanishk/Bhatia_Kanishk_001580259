@@ -4,15 +4,10 @@
  * and open the template in the editor.
  */
 package userinterface.SystemAdminWorkArea;
-
 import Business.DeliveryMan.DeliveryMan;
 import Business.DeliveryMan.DeliveryManDirectory;
 import java.awt.CardLayout;
 import java.awt.Component;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -180,7 +175,6 @@ public class ViewDeliveryManJPanel extends javax.swing.JPanel {
         Component component = componentArray[componentArray.length - 1];
         ManageDeliveryJPanel manageDeliveryJPanel = (ManageDeliveryJPanel) component;
         manageDeliveryJPanel.populate();
-
         CardLayout layout = (CardLayout) container.getLayout();
         layout.previous(container);
     }//GEN-LAST:event_backBtnActionPerformed
