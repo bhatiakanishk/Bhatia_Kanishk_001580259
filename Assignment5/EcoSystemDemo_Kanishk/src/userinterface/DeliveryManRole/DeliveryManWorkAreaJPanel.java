@@ -11,7 +11,6 @@ import Business.Menu.MenuDirectory;
 import Business.Order.Order;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.RestaurantDirectory;
-
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.TestWorkRequest;
 import Business.WorkQueue.WorkRequest;
@@ -38,9 +37,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         this.account = account;
         this.business = business;
         this.deliveryManDirectory = deliveryManDirectory;
-        this.orderDirectory = orderDirectory;
-      
-        
+        this.orderDirectory = orderDirectory; 
         populateTable();
     }
     
@@ -57,7 +54,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                     row[3] = order.getStatus();
                     row[4] = order.getOrderId();
                     model.addRow(row);
-            }
+                }
             }
         }
     }
@@ -139,22 +136,17 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
 
     private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
         int selectedRow = workRequestJTable.getSelectedRow();
-        
         if (selectedRow < 0){
-            JOptionPane.showMessageDialog(null, "Select a row!");
+            JOptionPane.showMessageDialog(null, "Select a row");
             return;
         }
-        
         String selectedOrderId = (String) workRequestJTable.getValueAt(selectedRow, 4);
         Order order = business.getOrderDirectory().getOrderByOrderId(selectedOrderId);
-     
         order.setStatus("Processing");
-        
         ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, order);
         userProcessContainer.add("processWorkRequestJPanel", processWorkRequestJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-        
     }//GEN-LAST:event_processJButtonActionPerformed
 
     private void refreshJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshJButtonActionPerformed
