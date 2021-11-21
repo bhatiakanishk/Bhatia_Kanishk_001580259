@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -251,10 +251,10 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
             orderRequest.setSender(userAccount);
             orderRequest.setStatus(status);
             business.getWorkQueue().getWorkRequestList().add(orderRequest);
-            JOptionPane.showMessageDialog(null, "Your Order has been sucessfully placed!");
+            JOptionPane.showMessageDialog(null, "Order placed successfully");
         }
         else{
-            JOptionPane.showMessageDialog(null, "Please select one row!");
+            JOptionPane.showMessageDialog(null, "Select a row");
         }
         
     }//GEN-LAST:event_jButton2ActionPerformed
