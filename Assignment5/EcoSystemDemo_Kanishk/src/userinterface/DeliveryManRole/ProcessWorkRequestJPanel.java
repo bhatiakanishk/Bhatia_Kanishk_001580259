@@ -3,17 +3,13 @@
  * and open the template in the editor.
  */
 package userinterface.DeliveryManRole;
-
 import Business.Order.Order;
 import Business.WorkQueue.TestWorkRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JPanel;
 
-
-
 public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
-
     JPanel userProcessContainer;
     Order order;
     /**
@@ -95,8 +91,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         DeliveryManWorkAreaJPanel dwjp = (DeliveryManWorkAreaJPanel) component;
-        dwjp.populateTable();
-        
+        dwjp.populateTable(); 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJButtonActionPerformed
