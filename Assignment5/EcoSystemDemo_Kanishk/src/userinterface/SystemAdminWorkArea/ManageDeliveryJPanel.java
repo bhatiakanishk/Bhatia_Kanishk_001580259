@@ -4,12 +4,10 @@
  * and open the template in the editor.
  */
 package userinterface.SystemAdminWorkArea;
-
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryMan;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
-import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -203,13 +201,13 @@ public class ManageDeliveryJPanel extends javax.swing.JPanel {
         int selectedRow = deliveryJTable.getSelectedRow();
             if (selectedRow >= 0) {
             int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete??", "Warning", selectionButton);
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete?", "Warning", selectionButton);
             if (selectionResult == JOptionPane.YES_OPTION) {
                 deliveryManDirectory.deleteDeliveryMan(selectedRow,system);
                 populate();
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            JOptionPane.showMessageDialog(null, "Please select a row");
         }
     }//GEN-LAST:event_deleteBtnActionPerformed
 
@@ -224,14 +222,13 @@ public class ManageDeliveryJPanel extends javax.swing.JPanel {
             layout.next(container);
         }
          else {
-            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            JOptionPane.showMessageDialog(null, "Please select a row");
         }
     }//GEN-LAST:event_viewBtnActionPerformed
 
     private void viewOrdersBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewOrdersBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_viewOrdersBtnActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBtn;
