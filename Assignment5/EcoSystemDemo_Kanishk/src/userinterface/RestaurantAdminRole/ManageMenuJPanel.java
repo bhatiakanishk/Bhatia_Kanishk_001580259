@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package userinterface.RestaurantAdminRole;
-
 import Business.EcoSystem;
 import Business.Menu.FoodItem;
 import Business.Menu.MenuDirectory;
@@ -26,7 +25,7 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
     private RestaurantDirectory restaurantDirectory;
     private MenuDirectory menuDirectory;
     private UserAccount account;
-    //private Restaurant restaurant;
+    
     public ManageMenuJPanel(JPanel userProcessContainer,UserAccount account, EcoSystem system, RestaurantDirectory restaurantDirectory, MenuDirectory menuDirectory) {
         initComponents();
         this.container = userProcessContainer;
@@ -34,7 +33,6 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
         this.restaurantDirectory = restaurantDirectory;
         this.menuDirectory = menuDirectory;
         this.account = account;
-        //this.restaurant = restaurant;
         populate();
     }
 
@@ -156,7 +154,6 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
     
     public void populate(){
         DefaultTableModel model = (DefaultTableModel) menuJTable.getModel();
-
         model.setRowCount(0);
             for (FoodItem foodItem : menuDirectory.getMenuDirectory()) {
                 if (foodItem.getRestaurantId().equalsIgnoreCase(account.getEmployee().getName())) {
@@ -197,7 +194,7 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
             container.add(viewCustomersJPanel);
             layout.next(container);
         } else {
-            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            JOptionPane.showMessageDialog(null, "Please select a row");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -206,14 +203,14 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
         int selectedRow = menuJTable.getSelectedRow();
         if (selectedRow >= 0) {
             int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete??", "Warning", selectionButton);
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete?", "Warning", selectionButton);
             if (selectionResult == JOptionPane.YES_OPTION) {
                 String foodItemId = (String) menuJTable.getValueAt(selectedRow,0);
                 menuDirectory.deleteItem(foodItemId);
                 populate();
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            JOptionPane.showMessageDialog(null, "Please select a row");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
