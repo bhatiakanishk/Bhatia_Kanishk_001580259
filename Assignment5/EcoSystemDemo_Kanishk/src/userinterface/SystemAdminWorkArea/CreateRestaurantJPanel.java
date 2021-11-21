@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package userinterface.SystemAdminWorkArea;
-
 import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.Restaurant.Restaurant;
@@ -13,13 +12,6 @@ import Business.Role.AdminRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.imageio.ImageIO;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -28,9 +20,6 @@ public class CreateRestaurantJPanel extends javax.swing.JPanel {
     /**
      * Creates new form createRestaurantJPanel
      */
-    JFileChooser chooser;
-    File file;
-    BufferedImage img;
     private RestaurantDirectory restaurantDirectory;
     private JPanel container;
     private EcoSystem system;
@@ -191,7 +180,7 @@ public class CreateRestaurantJPanel extends javax.swing.JPanel {
             Restaurant restaurant = restaurantDirectory.add(managerName,name,phone,address);
             Employee employee = system.getEmployeeDirectory().createEmployee(restaurant.getRestaurantId());
             UserAccount account = system.getUserAccountDirectory().createUserAccount(username, password, employee, new AdminRole());
-            JOptionPane.showMessageDialog(null, "Restaurant added!");
+            JOptionPane.showMessageDialog(null, "Restaurant added");
             restaurantNameTextField.setText("");
             restaurantAddressTextField.setText("");
             restaurantPhoneNoTextField.setText("");
@@ -208,11 +197,9 @@ public class CreateRestaurantJPanel extends javax.swing.JPanel {
         Component component = componentArray[componentArray.length - 1];
         ManageRestaurantJPanel manageRestaurantJPanel = (ManageRestaurantJPanel) component;
         manageRestaurantJPanel.populate();
-
         CardLayout layout = (CardLayout) container.getLayout();
         layout.previous(container);
     }//GEN-LAST:event_backBtnActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addRestaurantBtn;
