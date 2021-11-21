@@ -4,17 +4,12 @@
  * and open the template in the editor.
  */
 package userinterface.RestaurantAdminRole;
-
 import Business.EcoSystem;
 import Business.Menu.MenuDirectory;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
-import java.awt.image.BufferedImage;
-import java.io.File;
-
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -23,9 +18,6 @@ public class CreateFoodItemJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateFoodItemJPanel
      */
-    JFileChooser chooser;
-    File file;
-    BufferedImage img;
     private JPanel userProcessContainer;
     private EcoSystem system;
     private RestaurantDirectory restaurantDirectory;
@@ -138,7 +130,7 @@ public class CreateFoodItemJPanel extends javax.swing.JPanel {
         double price = Double.parseDouble(itemPriceTextField.getText());
             String restaurantId = account.getEmployee().getName();
             menuDirectory.add(restaurantId,name,price);
-            JOptionPane.showMessageDialog(null, "Food Item added to Menu!");
+            JOptionPane.showMessageDialog(null, "Food added to menu!");
             itemNameTextField.setText("");
             itemPriceTextField.setText("");
         
