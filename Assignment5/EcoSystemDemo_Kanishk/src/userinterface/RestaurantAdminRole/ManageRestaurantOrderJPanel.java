@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package userinterface.RestaurantAdminRole;
-
-import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryMan;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
@@ -14,8 +12,6 @@ import Business.Order.Order;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.WorkQueue;
-import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
@@ -30,7 +26,6 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private UserAccount account;
     private EcoSystem business;
-    //private CustomerDirectory customerDirectory;
     private RestaurantDirectory restaurantDirectory;
     private DeliveryManDirectory deliveryManDirectory;
     private MenuDirectory menuDirectory;
@@ -41,7 +36,6 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.business = business;
-        //this.customerDirectory = customerDirectory;
         this.restaurantDirectory = restaurantDirectory;
         this.deliveryManDirectory = deliveryManDirectory;
         this.menuDirectory = menuDirectory;
@@ -74,7 +68,7 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
     public void populateDeliveryManTable(){
         DefaultTableModel model = (DefaultTableModel) deliveryTable.getModel();
         model.setRowCount(0);
-        for (DeliveryMan deliveryMan : deliveryManDirectory.getDeliveryManDirectory()) {
+        for(DeliveryMan deliveryMan : deliveryManDirectory.getDeliveryManDirectory()) {
                 Object[] row = new Object[3];
                 row[0] = deliveryMan.getName();
                 row[1] = deliveryMan.getPhoneNo();
@@ -240,12 +234,11 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
         int row = orderTable.getSelectedRow();
         if (row >= 0) {
             String id = (String)orderTable.getValueAt(row, 9);
-            Order order = business.getOrderDirectory().getOrderByOrderId(id);//orderDirectory.getOrderDirectory().get(row);
-            order.setStatus("Confirmed");
-            JOptionPane.showMessageDialog(null, "Order Confirmed!");
+            Order order = business.getOrderDirectory().getOrderByOrderId(id);
+            JOptionPane.showMessageDialog(null, "Order Confirmed");
             populate();
         } else {
-            JOptionPane.showMessageDialog(null, "Select a order!");
+            JOptionPane.showMessageDialog(null, "Select an order");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -263,16 +256,16 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
                     UserAccount user = business.getUserAccountDirectory().getUserByEmployeeId(empId);
                     order.setReceiver(user);
                     order.setStatus("Preparing Order");
-                    JOptionPane.showMessageDialog(null, "Delivery Man Assigned!");
+                    JOptionPane.showMessageDialog(null, "Delivery Man Assigned");
                     populate();
                 } else {
-                    JOptionPane.showMessageDialog(null, "Select a delivery man to assign from table!");
+                    JOptionPane.showMessageDialog(null, "Select a delivery man to assign from table");
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Order has not been confirmed! Please confirm the order before assigning!");
+                JOptionPane.showMessageDialog(null, "Order has not been confirmed. Please confirm the order before assigning");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Select a order!");
+            JOptionPane.showMessageDialog(null, "Select an order");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
