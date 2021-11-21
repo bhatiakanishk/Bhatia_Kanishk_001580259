@@ -37,7 +37,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private OrderDirectory orderDirectory;
     public MainJFrame() throws IOException {
         initComponents();
-        
         system = dB4OUtil.retrieveSystem();
         this.setSize(1680, 1050);
         customerDirectory = new CustomerDirectory();
@@ -152,13 +151,13 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
-        // Get user name
+        // Get the user name
         String userName = userNameJTextField.getText();
-       // Get Password
+       // Get the password
        char[] passwordCharArray = passwordField.getPassword();
        String password = String.valueOf(passwordCharArray);
        
-       //Step1: Check in the system admin user account directory if you have the user
+       //Step1: Check in the system admin user account directory if the user already exists
        UserAccount userAccount=system.getUserAccountDirectory().authenticateUser(userName, password);
        if(userAccount != null){
           CardLayout layout=(CardLayout)container.getLayout();
