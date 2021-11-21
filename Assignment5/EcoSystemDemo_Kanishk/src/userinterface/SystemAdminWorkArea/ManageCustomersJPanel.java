@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package userinterface.SystemAdminWorkArea;
-
 import Business.Customer.Customer;
 import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
@@ -191,10 +190,10 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
             ViewCustomersJPanel viewCustomersJPanel = new ViewCustomersJPanel(container, customer, customerDirectory);
             container.add(viewCustomersJPanel);
             layout.next(container);
-        }
+            }
         }
          else {
-            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            JOptionPane.showMessageDialog(null, "Please select a row");
         }
     }//GEN-LAST:event_viewCustomerActionPerformed
 
@@ -203,14 +202,14 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
         int selectedRow = customerJTable.getSelectedRow();
             if (selectedRow >= 0) {
             int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete??", "Warning", selectionButton);
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete?", "Warning", selectionButton);
             if (selectionResult == JOptionPane.YES_OPTION) {
                 customerDirectory.deleteCustomer(selectedRow,system);
                 populate();
             }
         }
         else {
-            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            JOptionPane.showMessageDialog(null, "Please select a row");
         }
     }//GEN-LAST:event_deleteCustomerActionPerformed
 
@@ -234,7 +233,6 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
     private void viewCustomerOrdersBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewCustomerOrdersBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_viewCustomerOrdersBtnActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addCustomerBtn;
