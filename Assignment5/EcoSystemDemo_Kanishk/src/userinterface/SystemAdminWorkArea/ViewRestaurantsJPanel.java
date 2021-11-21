@@ -183,7 +183,7 @@ public class ViewRestaurantsJPanel extends javax.swing.JPanel {
             restaurant.setAddress(addressTextField.getText());
             restaurant.setPhoneNo(contactTextField.getText());
             restaurant.setName(nameTextField.getText());
-            JOptionPane.showMessageDialog(null, "Changes saved sucessfully!");
+            JOptionPane.showMessageDialog(null, "Changes saved sucessfully");
             
             managerNameTextField.setEditable(false);
             contactTextField.setEditable(false);
@@ -198,7 +198,6 @@ public class ViewRestaurantsJPanel extends javax.swing.JPanel {
         Component component = componentArray[componentArray.length - 1];
         ManageRestaurantJPanel manageRestaurantJPanel = (ManageRestaurantJPanel) component;
         manageRestaurantJPanel.populate();
-
         CardLayout layout = (CardLayout) container.getLayout();
         layout.previous(container);
     }//GEN-LAST:event_backBtnActionPerformed
