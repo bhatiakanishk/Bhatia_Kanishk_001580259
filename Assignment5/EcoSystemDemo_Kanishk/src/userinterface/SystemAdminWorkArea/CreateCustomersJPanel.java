@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package userinterface.SystemAdminWorkArea;
-
 import Business.Customer.Customer;
 import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
@@ -166,10 +165,8 @@ public class CreateCustomersJPanel extends javax.swing.JPanel {
         String address = customerAddressTextField.getText();
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();
-
         Customer customer = customerDirectory.add(name, phone, address);
         Employee employee = system.getEmployeeDirectory().createEmployee(customer.getCustomerId());
-
         UserAccount account = system.getUserAccountDirectory().createUserAccount(username, password, employee, new CustomerRole());
         JOptionPane.showMessageDialog(null, "Customer added!");
         customerNameTextField.setText("");
@@ -177,7 +174,6 @@ public class CreateCustomersJPanel extends javax.swing.JPanel {
         customerAddressTextField.setText("");
         usernameTextField.setText("");
         passwordTextField.setText("");
-
     }//GEN-LAST:event_addCustomerBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
@@ -187,7 +183,6 @@ public class CreateCustomersJPanel extends javax.swing.JPanel {
         Component component = componentArray[componentArray.length - 1];
         ManageCustomersJPanel manageCustomersJPanel = (ManageCustomersJPanel) component;
         manageCustomersJPanel.populate();
-
         CardLayout layout = (CardLayout) container.getLayout();
         layout.previous(container);
     }//GEN-LAST:event_backBtnActionPerformed
