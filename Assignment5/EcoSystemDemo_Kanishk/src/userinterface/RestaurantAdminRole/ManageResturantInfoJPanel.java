@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package userinterface.RestaurantAdminRole;
-
 import Business.EcoSystem;
 import Business.Menu.MenuDirectory;
 import Business.Restaurant.Restaurant;
@@ -35,19 +34,16 @@ public class ManageResturantInfoJPanel extends javax.swing.JPanel {
         this.restaurantDirectory = restaurantDirectory;
         this.menuDirectory = menuDirectory;
         this.restaurant = restaurant;
-
         idTextField.setEditable(false);
         nameTextField.setEditable(false);
         managerTextField.setEditable(false);
         addressTextField.setEditable(false);
         contactTextField.setEditable(false);
-
         for (Restaurant rest : restaurantDirectory.getRestaurantDirectory()) {
             if (rest.getRestaurantId().equalsIgnoreCase(account.getEmployee().getName())) {
                 this.restaurant = rest;
             }
         }
-
         idTextField.setText(restaurant.getRestaurantId());
         nameTextField.setText(restaurant.getName());
         managerTextField.setText(restaurant.getManagerName());
@@ -209,9 +205,7 @@ public class ManageResturantInfoJPanel extends javax.swing.JPanel {
             restaurant.setAddress(address);
             restaurant.setPhoneNo(contact);
             restaurant.setName(name);
-            
-            JOptionPane.showMessageDialog(null, "Changes saved sucessfully!");
-            
+            JOptionPane.showMessageDialog(null, "Changes saved sucessfully");
             idTextField.setEditable(false);
             nameTextField.setEditable(false);
             managerTextField.setEditable(false);
@@ -227,7 +221,6 @@ public class ManageResturantInfoJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) container.getLayout();
         layout.previous(container);
     }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addressTextField;
