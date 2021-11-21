@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package userinterface.SystemAdminWorkArea;
-
 import Business.Customer.Customer;
 import Business.Customer.CustomerDirectory;
 import java.awt.CardLayout;
@@ -184,7 +183,7 @@ public class ViewCustomersJPanel extends javax.swing.JPanel {
         String phone = customerContactNoTextField.getText();
         String address = customerAddressTextField.getText();
             customerDirectory.updateCustomer(id,name,phone,address);
-            JOptionPane.showMessageDialog(null, "Customer details updated!");
+            JOptionPane.showMessageDialog(null, "Customer details updated");
             customerNameTextField.setEditable(false);
             customerContactNoTextField.setEditable(false);
             customerAddressTextField.setEditable(false);
