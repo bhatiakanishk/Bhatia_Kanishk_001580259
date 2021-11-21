@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package userinterface.SystemAdminWorkArea;
-
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
@@ -39,10 +38,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }
     
     public void populateTree(){
-        
-        //DefaultTreeModel model=(DefaultTreeModel)jTree.getModel();
-       // Add the code for draw your system structure shown by JTree
-        //model.reload();
     }
     /**
      * This method is called from within the constructor to initialize the form.
