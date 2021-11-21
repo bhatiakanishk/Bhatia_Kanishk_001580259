@@ -4,10 +4,7 @@
  * and open the template in the editor.
  */
 package userinterface.SystemAdminWorkArea;
-
-import Business.Customer.Customer;
 import Business.EcoSystem;
-import Business.Employee.Employee;
 import Business.Employee.EmployeeDirectory;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
@@ -187,7 +184,6 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
             }
         }
     }
-
     public void populateusername() {
         DefaultTableModel model = (DefaultTableModel) restaurantJTable.getModel();
         model.setRowCount(0);
@@ -217,7 +213,7 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         if(count == 1){
             if (selectedRow >= 0) {
             int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete??", "Warning", selectionButton);
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete?", "Warning", selectionButton);
             if (selectionResult == JOptionPane.YES_OPTION) {
                 restaurantDirectory.deleteRestaurant(selectedRow,system);
                 populate();
@@ -225,7 +221,7 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
             }
         }
          else {
-            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            JOptionPane.showMessageDialog(null, "Please select a row");
         }
     }//GEN-LAST:event_deleteRestaurantBtnActionPerformed
 
@@ -246,7 +242,6 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a Row!!");
         }
     }//GEN-LAST:event_viewRestaurantDetailsBtnActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addRestaurantBtn;
