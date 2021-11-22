@@ -23,7 +23,7 @@ public class MenuDirectory {
         this.menuDirectory = menuDirectory;
     }
 
-    public void add(String restaurantId, String name, String description,BufferedImage photo, double price) {
+    public void add(String restaurantId, String name, double price) {
         FoodItem item = new FoodItem("F"+(menuDirectory.size()+1),restaurantId,name,price);
         menuDirectory.add(item);
     }
@@ -37,7 +37,7 @@ public class MenuDirectory {
         return null;
     }
 
-    public void updateFoodItem(String itemId, String name, String description, Double price, BufferedImage img) {
+    public void updateFoodItem(String itemId, String name, Double price) {
         for(FoodItem item: menuDirectory){
             if(item.getItemId().equalsIgnoreCase(itemId)){
                 item.setItemName(name);
