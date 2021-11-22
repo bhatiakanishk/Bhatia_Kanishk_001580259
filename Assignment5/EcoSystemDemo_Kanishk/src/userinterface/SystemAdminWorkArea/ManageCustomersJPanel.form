@@ -28,7 +28,6 @@
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                               <Component id="addCustomerBtn" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="viewCustomer" min="-2" max="-2" attributes="0"/>
@@ -55,14 +54,14 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="109" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="addCustomerBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="viewCustomer" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="viewCustomerOrdersBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="deleteCustomer" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="483" max="32767" attributes="0"/>
+              <EmptySpace pref="458" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -132,6 +131,9 @@
     </Container>
     <Component class="javax.swing.JButton" name="viewCustomer">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="View Customer"/>
       </Properties>
       <Events>
@@ -140,6 +142,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="deleteCustomer">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Delete Customer"/>
       </Properties>
       <Events>
@@ -148,6 +153,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="addCustomerBtn">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Add Customer"/>
       </Properties>
       <Events>
@@ -156,6 +164,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="viewCustomerOrdersBtn">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="View Customer Orders"/>
       </Properties>
       <Events>
@@ -164,6 +175,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="backBtn">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Back"/>
       </Properties>
       <Events>

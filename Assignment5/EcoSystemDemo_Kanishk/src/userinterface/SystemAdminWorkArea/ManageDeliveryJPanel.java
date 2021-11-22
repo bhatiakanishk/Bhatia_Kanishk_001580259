@@ -95,6 +95,7 @@ public class ManageDeliveryJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(deliveryJTable);
 
+        addBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         addBtn.setText("Add Delivery Man");
         addBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +103,7 @@ public class ManageDeliveryJPanel extends javax.swing.JPanel {
             }
         });
 
+        viewBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         viewBtn.setText("View Delivery Man");
         viewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,6 +111,7 @@ public class ManageDeliveryJPanel extends javax.swing.JPanel {
             }
         });
 
+        viewOrdersBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         viewOrdersBtn.setText("View Delivery Man Orders");
         viewOrdersBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,6 +119,7 @@ public class ManageDeliveryJPanel extends javax.swing.JPanel {
             }
         });
 
+        deleteBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         deleteBtn.setText("Delete Delivery Man");
         deleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,6 +130,7 @@ public class ManageDeliveryJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel1.setText("Delivery Man");
 
+        backBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         backBtn.setText("Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,7 +158,7 @@ public class ManageDeliveryJPanel extends javax.swing.JPanel {
                         .addComponent(backBtn)
                         .addGap(368, 368, 368)
                         .addComponent(jLabel1)))
-                .addContainerGap(417, Short.MAX_VALUE))
+                .addContainerGap(390, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,13 +169,13 @@ public class ManageDeliveryJPanel extends javax.swing.JPanel {
                     .addComponent(backBtn))
                 .addGap(8, 8, 8)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addBtn)
                     .addComponent(viewBtn)
                     .addComponent(viewOrdersBtn)
                     .addComponent(deleteBtn))
-                .addContainerGap(460, Short.MAX_VALUE))
+                .addContainerGap(448, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
