@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package userinterface.RestaurantAdminRole;
+
+import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryMan;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
@@ -12,6 +14,8 @@ import Business.Order.Order;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.WorkQueue;
+import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
@@ -26,6 +30,7 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private UserAccount account;
     private EcoSystem business;
+    //private CustomerDirectory customerDirectory;
     private RestaurantDirectory restaurantDirectory;
     private DeliveryManDirectory deliveryManDirectory;
     private MenuDirectory menuDirectory;
@@ -36,6 +41,7 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.business = business;
+        //this.customerDirectory = customerDirectory;
         this.restaurantDirectory = restaurantDirectory;
         this.deliveryManDirectory = deliveryManDirectory;
         this.menuDirectory = menuDirectory;
@@ -68,11 +74,12 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
     public void populateDeliveryManTable(){
         DefaultTableModel model = (DefaultTableModel) deliveryTable.getModel();
         model.setRowCount(0);
-        for(DeliveryMan deliveryMan : deliveryManDirectory.getDeliveryManDirectory()) {
-                Object[] row = new Object[3];
+        for (DeliveryMan deliveryMan : deliveryManDirectory.getDeliveryManDirectory()) {
+                Object[] row = new Object[4];
                 row[0] = deliveryMan.getName();
                 row[1] = deliveryMan.getPhoneNo();
-                row[2] = deliveryMan.getDeliveryId();
+                row[2] = deliveryMan.getAddress();
+                row[3] = deliveryMan.getDeliveryId();
                 model.addRow(row);
         }
     }
@@ -110,7 +117,6 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel9.setText("Orders");
 
         orderTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -141,7 +147,6 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(orderTable);
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setText("Confirm Order");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,7 +154,6 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton2.setText("Assign Delivery Man");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,17 +163,17 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
 
         deliveryTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Delivery Man Name", "Contact No", "Delivery Man Id"
+                "Delivery Man Name", "Contact No", "Address", "Delivery Man Id"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -178,7 +182,6 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(deliveryTable);
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton3.setText("Back");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,24 +194,24 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 935, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addGap(335, 335, 335)
-                        .addComponent(jLabel9)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2)
-                        .addGap(14, 14, 14))
-                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 935, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton1)
+                                    .addComponent(jButton2))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton3)
+                .addGap(335, 335, 335)
+                .addComponent(jLabel9)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,15 +220,15 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jButton3))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
-                .addGap(34, 34, 34)
+                .addGap(30, 30, 30)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -234,11 +237,12 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
         int row = orderTable.getSelectedRow();
         if (row >= 0) {
             String id = (String)orderTable.getValueAt(row, 9);
-            Order order = business.getOrderDirectory().getOrderByOrderId(id);
-            JOptionPane.showMessageDialog(null, "Order Confirmed");
+            Order order = business.getOrderDirectory().getOrderByOrderId(id);//orderDirectory.getOrderDirectory().get(row);
+            order.setStatus("Confirmed");
+            JOptionPane.showMessageDialog(null, "Order Confirmed!");
             populate();
         } else {
-            JOptionPane.showMessageDialog(null, "Select an order");
+            JOptionPane.showMessageDialog(null, "Select a order!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -256,16 +260,16 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
                     UserAccount user = business.getUserAccountDirectory().getUserByEmployeeId(empId);
                     order.setReceiver(user);
                     order.setStatus("Preparing Order");
-                    JOptionPane.showMessageDialog(null, "Delivery Man Assigned");
+                    JOptionPane.showMessageDialog(null, "Delivery Man Assigned!");
                     populate();
                 } else {
-                    JOptionPane.showMessageDialog(null, "Select a delivery man to assign from table");
+                    JOptionPane.showMessageDialog(null, "Select a delivery man to assign from table!");
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Order has not been confirmed. Please confirm the order before assigning");
+                JOptionPane.showMessageDialog(null, "Order has not been confirmed! Please confirm the order before assigning!");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Select an order");
+            JOptionPane.showMessageDialog(null, "Select a order!");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

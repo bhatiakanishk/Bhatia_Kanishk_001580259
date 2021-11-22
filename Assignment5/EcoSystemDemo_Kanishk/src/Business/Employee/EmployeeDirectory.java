@@ -3,12 +3,9 @@
  * and open the template in the editor.
  */
 package Business.Employee;
+
 import java.util.ArrayList;
 
-/**
- *
- * @author kanishk
- */
 public class EmployeeDirectory {
     
     private ArrayList<Employee> employeeList;
@@ -22,9 +19,9 @@ public class EmployeeDirectory {
     }
     
     public Employee createEmployee(String name){
-        Employee emp = new Employee();
-        emp.setName(name);
-        employeeList.add(emp);
-        return emp;
+        Employee employee = new Employee();
+        employee.setName(name);
+        employeeList.add(employee);
+        return employee;
     }
 }

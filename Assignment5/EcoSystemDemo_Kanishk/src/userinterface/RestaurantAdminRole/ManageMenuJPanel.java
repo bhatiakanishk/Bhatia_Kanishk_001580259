@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package userinterface.RestaurantAdminRole;
+
 import Business.EcoSystem;
 import Business.Menu.FoodItem;
 import Business.Menu.MenuDirectory;
+import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -25,7 +27,7 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
     private RestaurantDirectory restaurantDirectory;
     private MenuDirectory menuDirectory;
     private UserAccount account;
-    
+    //private Restaurant restaurant;
     public ManageMenuJPanel(JPanel userProcessContainer,UserAccount account, EcoSystem system, RestaurantDirectory restaurantDirectory, MenuDirectory menuDirectory) {
         initComponents();
         this.container = userProcessContainer;
@@ -33,6 +35,7 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
         this.restaurantDirectory = restaurantDirectory;
         this.menuDirectory = menuDirectory;
         this.account = account;
+        //this.restaurant = restaurant;
         populate();
     }
 
@@ -55,22 +58,21 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
 
         setToolTipText("");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Menu");
 
         menuJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Item Id", "Item Name", "Item Price"
+                "Item Id", "Item Name", "Item Description", "Item Price"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -79,7 +81,6 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(menuJTable);
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setText("Add Food Item");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +88,6 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton2.setText("Edit Food Item");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,7 +95,6 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton3.setText("Delete Food Item");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,7 +102,6 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
             }
         });
 
-        backBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         backBtn.setText("Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,7 +129,7 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton3)))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -141,30 +139,32 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
                     .addComponent(backBtn))
-                .addGap(41, 41, 41)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
     
     public void populate(){
         DefaultTableModel model = (DefaultTableModel) menuJTable.getModel();
+
         model.setRowCount(0);
             for (FoodItem foodItem : menuDirectory.getMenuDirectory()) {
                 if (foodItem.getRestaurantId().equalsIgnoreCase(account.getEmployee().getName())) {
-                    Object[] row = new Object[3];
+                    Object[] row = new Object[4];
                     row[0] = foodItem.getItemId();
                     row[1] = foodItem.getItemName();
-                    row[2] = foodItem.getPrice();
+                    row[2] = foodItem.getDescription();
+                    row[3] = foodItem.getPrice();
                     model.addRow(row);
                 }
-            }
         }
+    }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -194,7 +194,7 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
             container.add(viewCustomersJPanel);
             layout.next(container);
         } else {
-            JOptionPane.showMessageDialog(null, "Please select a row");
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -203,14 +203,14 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
         int selectedRow = menuJTable.getSelectedRow();
         if (selectedRow >= 0) {
             int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete?", "Warning", selectionButton);
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete??", "Warning", selectionButton);
             if (selectionResult == JOptionPane.YES_OPTION) {
                 String foodItemId = (String) menuJTable.getValueAt(selectedRow,0);
                 menuDirectory.deleteItem(foodItemId);
                 populate();
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Please select a row");
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 

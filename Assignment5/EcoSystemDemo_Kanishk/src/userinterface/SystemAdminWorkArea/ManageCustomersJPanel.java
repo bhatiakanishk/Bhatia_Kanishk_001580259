@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package userinterface.SystemAdminWorkArea;
+
 import Business.Customer.Customer;
 import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
+import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -68,11 +70,9 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
         viewCustomerOrdersBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel1.setText("Customers");
 
-        customerJTable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         customerJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -94,43 +94,34 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(customerJTable);
 
-        viewCustomer.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         viewCustomer.setText("View Customer");
-        viewCustomer.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         viewCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewCustomerActionPerformed(evt);
             }
         });
 
-        deleteCustomer.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         deleteCustomer.setText("Delete Customer");
-        deleteCustomer.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         deleteCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteCustomerActionPerformed(evt);
             }
         });
 
-        addCustomerBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         addCustomerBtn.setText("Add Customer");
-        addCustomerBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         addCustomerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addCustomerBtnActionPerformed(evt);
             }
         });
 
-        viewCustomerOrdersBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         viewCustomerOrdersBtn.setText("View Customer Orders");
-        viewCustomerOrdersBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         viewCustomerOrdersBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewCustomerOrdersBtnActionPerformed(evt);
             }
         });
 
-        backBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         backBtn.setText("Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,40 +133,43 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(backBtn)
-                        .addGap(398, 398, 398)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(463, 463, 463)
+                        .addComponent(jLabel1)
+                        .addGap(0, 492, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(addCustomerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(viewCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(41, 41, 41)
+                        .addComponent(addCustomerBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(viewCustomer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(viewCustomerOrdersBtn)
-                        .addGap(18, 18, 18)
-                        .addComponent(deleteCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(433, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(deleteCustomer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(7, 7, 7)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
                     .addComponent(backBtn))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addCustomerBtn)
                     .addComponent(viewCustomer)
                     .addComponent(viewCustomerOrdersBtn)
                     .addComponent(deleteCustomer))
-                .addContainerGap(427, Short.MAX_VALUE))
+                .addContainerGap(483, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -190,10 +184,10 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
             ViewCustomersJPanel viewCustomersJPanel = new ViewCustomersJPanel(container, customer, customerDirectory);
             container.add(viewCustomersJPanel);
             layout.next(container);
-            }
+        }
         }
          else {
-            JOptionPane.showMessageDialog(null, "Please select a row");
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
         }
     }//GEN-LAST:event_viewCustomerActionPerformed
 
@@ -202,14 +196,14 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
         int selectedRow = customerJTable.getSelectedRow();
             if (selectedRow >= 0) {
             int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete?", "Warning", selectionButton);
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete??", "Warning", selectionButton);
             if (selectionResult == JOptionPane.YES_OPTION) {
                 customerDirectory.deleteCustomer(selectedRow,system);
                 populate();
             }
         }
         else {
-            JOptionPane.showMessageDialog(null, "Please select a row");
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
         }
     }//GEN-LAST:event_deleteCustomerActionPerformed
 
@@ -233,6 +227,7 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
     private void viewCustomerOrdersBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewCustomerOrdersBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_viewCustomerOrdersBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addCustomerBtn;

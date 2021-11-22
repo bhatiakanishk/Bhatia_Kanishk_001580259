@@ -4,12 +4,9 @@
  * and open the template in the editor.
  */
 package Business.Menu;
+
 import java.util.ArrayList;
 
-/**
- *
- * @author kanishk
- */
 public class Menu {
     private ArrayList<FoodItem> menu;
     
@@ -24,4 +21,5 @@ public class Menu {
     public void setMenu(ArrayList<FoodItem> menu) {
         this.menu = menu;
     }
+    
 }

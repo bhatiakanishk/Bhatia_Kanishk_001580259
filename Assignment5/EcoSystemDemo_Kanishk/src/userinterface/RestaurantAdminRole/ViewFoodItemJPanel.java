@@ -4,10 +4,17 @@
  * and open the template in the editor.
  */
 package userinterface.RestaurantAdminRole;
+
 import Business.Menu.FoodItem;
 import Business.Menu.MenuDirectory;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -16,9 +23,13 @@ public class ViewFoodItemJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewFoodItemJPanel
      */
+    JFileChooser chooser;
+    File file;
+    BufferedImage img;
     private JPanel container;
     private FoodItem foodItem;
     private MenuDirectory menuDirectory;
+    //private ;
     
     public ViewFoodItemJPanel(JPanel container,FoodItem foodItem, MenuDirectory menuDirectory) {
         initComponents();
@@ -26,12 +37,15 @@ public class ViewFoodItemJPanel extends javax.swing.JPanel {
         this.foodItem = foodItem;
         this.menuDirectory = menuDirectory;
         itemNameTextField.setText(foodItem.getItemName());
+        itemDescriptionTextField.setText(foodItem.getDescription());
         itemPriceTextField.setText(String.valueOf(foodItem.getPrice()));
         itemIdTextField.setText(foodItem.getItemId());
+        itemPhoto.setIcon(new ImageIcon(foodItem.getPhoto()));
         itemNameTextField.setEditable(false);
         itemDescriptionTextField.setEditable(false);
         itemPriceTextField.setEditable(false);
         itemIdTextField.setEditable(false);
+        img = foodItem.getPhoto();
     }
 
     /**
@@ -53,7 +67,6 @@ public class ViewFoodItemJPanel extends javax.swing.JPanel {
         saveBtn = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("View/ Edit Food Item");
 
         itemPhoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -61,7 +74,6 @@ public class ViewFoodItemJPanel extends javax.swing.JPanel {
         itemPhoto.setMinimumSize(new java.awt.Dimension(120, 120));
         itemPhoto.setPreferredSize(new java.awt.Dimension(120, 120));
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setText("Edit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,7 +81,6 @@ public class ViewFoodItemJPanel extends javax.swing.JPanel {
             }
         });
 
-        saveBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         saveBtn.setText("Save Changes");
         saveBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,7 +88,6 @@ public class ViewFoodItemJPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton2.setText("Back");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,29 +99,28 @@ public class ViewFoodItemJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(133, 133, 133))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(133, 133, 133))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(itemPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(67, 67, 67)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(itemIdTextField)
-                                    .addComponent(itemNameTextField)
-                                    .addComponent(itemDescriptionTextField)
-                                    .addComponent(itemPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(18, 18, 18)
-                                .addComponent(saveBtn)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(42, 42, 42)
+                        .addComponent(itemPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(itemIdTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                            .addComponent(itemNameTextField)
+                            .addComponent(itemDescriptionTextField)
+                            .addComponent(itemPriceTextField)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jButton1)
+                        .addGap(80, 80, 80)
+                        .addComponent(saveBtn)))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,24 +129,22 @@ public class ViewFoodItemJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jButton2))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(itemIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(itemNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(itemDescriptionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(itemPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(itemPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(saveBtn))))
-                .addContainerGap(56, Short.MAX_VALUE))
+                        .addComponent(itemDescriptionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(itemPhoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(itemPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(saveBtn))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -147,12 +154,13 @@ public class ViewFoodItemJPanel extends javax.swing.JPanel {
         String name = itemNameTextField.getText();
         String description = itemDescriptionTextField.getText();
         Double price = Double.parseDouble(itemPriceTextField.getText());
-            menuDirectory.updateFoodItem(foodItem.getItemId(),name,price);
+            menuDirectory.updateFoodItem(foodItem.getItemId(),name,description,price,img);
             itemNameTextField.setEditable(false);
             itemDescriptionTextField.setEditable(false);
             itemPriceTextField.setEditable(false);
             itemIdTextField.setEditable(false);
-            JOptionPane.showMessageDialog(null, "Food Item updated");
+            JOptionPane.showMessageDialog(null, "Food Item updated succesfully!");
+            itemPhoto.setIcon(new ImageIcon(foodItem.getPhoto()));
     }//GEN-LAST:event_saveBtnActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -172,6 +180,8 @@ public class ViewFoodItemJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) container.getLayout();
         layout.previous(container);
     }//GEN-LAST:event_jButton2ActionPerformed
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField itemDescriptionTextField;

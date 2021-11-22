@@ -5,15 +5,18 @@
  */
 package Business.Customer;
 
-/**
- *
- * @author kanishk
- */
 public class Customer {
-    private String customerId;
-    private String name;
-    private String phoneNo;
-    private String address;
+   private String customerId;
+   private String name;
+   private String phoneNo;
+   private String address;
+
+    public Customer(String customerId, String name, String phoneNo, String address) {
+        this.customerId = customerId;
+        this.name = name;
+        this.phoneNo = phoneNo;
+        this.address = address;
+    }
 
     public String getCustomerId() {
         return customerId;
@@ -46,11 +49,6 @@ public class Customer {
     public void setAddress(String address) {
         this.address = address;
     }
-
-    public Customer(String customerId, String name, String phoneNo, String address) {
-        this.customerId = customerId;
-        this.name = name;
-        this.phoneNo = phoneNo;
-        this.address = address;
-    }  
+   
+   
 }

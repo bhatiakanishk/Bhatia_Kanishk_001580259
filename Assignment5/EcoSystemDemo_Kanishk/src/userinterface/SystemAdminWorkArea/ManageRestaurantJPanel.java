@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package userinterface.SystemAdminWorkArea;
+
+import Business.Customer.Customer;
 import Business.EcoSystem;
+import Business.Employee.Employee;
 import Business.Employee.EmployeeDirectory;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
@@ -30,6 +33,8 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         this.container = container;
         this.restaurantDirectory = restaurantDirectory;
         this.system = system;
+        //this.employeeDirectory = employeeDirectory;
+
         populate();
     }
 
@@ -51,24 +56,22 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         deleteRestaurantBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel1.setText("Restaurants");
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        restaurantJTable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         restaurantJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Restaurant Id", "Restaurant Name", "Username", "Manager Name", "Address", "Contact Number"
+                "Restaurant Id", "Restaurant Name", "Username", "Manager Name", "Restaurant Address", "Restaurant Contact No", "License No"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -76,11 +79,7 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(restaurantJTable);
-        if (restaurantJTable.getColumnModel().getColumnCount() > 0) {
-            restaurantJTable.getColumnModel().getColumn(0).setResizable(false);
-        }
 
-        addRestaurantBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         addRestaurantBtn.setText("Add Restaurant");
         addRestaurantBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,7 +87,6 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
             }
         });
 
-        viewRestaurantOrdersBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         viewRestaurantOrdersBtn.setText("View Orders");
         viewRestaurantOrdersBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +94,6 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
             }
         });
 
-        viewRestaurantDetailsBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         viewRestaurantDetailsBtn.setText("View Details");
         viewRestaurantDetailsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,7 +101,6 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
             }
         });
 
-        deleteRestaurantBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         deleteRestaurantBtn.setText("Delete Restaurant");
         deleteRestaurantBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,7 +108,6 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
             }
         });
 
-        backBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         backBtn.setText("Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,40 +123,39 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(backBtn)
-                        .addGap(324, 324, 324)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(addRestaurantBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(viewRestaurantOrdersBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(viewRestaurantDetailsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(deleteRestaurantBtn)
-                                .addGap(0, 362, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1))
-                        .addContainerGap())))
+                        .addComponent(addRestaurantBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(viewRestaurantOrdersBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(viewRestaurantDetailsBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(deleteRestaurantBtn)
+                        .addGap(0, 490, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(backBtn)
+                .addGap(388, 388, 388)
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
                     .addComponent(backBtn))
-                .addGap(45, 45, 45)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addRestaurantBtn)
                     .addComponent(viewRestaurantOrdersBtn)
                     .addComponent(viewRestaurantDetailsBtn)
                     .addComponent(deleteRestaurantBtn))
-                .addGap(365, 365, 365))
+                .addGap(505, 505, 505))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -172,23 +166,28 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         for (UserAccount ua : system.getUserAccountDirectory().getUserAccountList()) {
             for (Restaurant restaurant : restaurantDirectory.getRestaurantDirectory()) {
                 if (restaurant.getRestaurantId().equalsIgnoreCase(ua.getEmployee().getName())) {
-                    Object[] row = new Object[6];
+                    Object[] row = new Object[7];
                     row[0] = restaurant.getRestaurantId();
                     row[1] = restaurant.getName();
                     row[2] = ua.getUsername();
                     row[3] = restaurant.getManagerName();
                     row[4] = restaurant.getPhoneNo();
                     row[5] = restaurant.getAddress();
+                    row[6] = restaurant.getLicenseNo();
                     model.addRow(row);
                 }
             }
         }
     }
+
     public void populateusername() {
         DefaultTableModel model = (DefaultTableModel) restaurantJTable.getModel();
+
         model.setRowCount(0);
+
     }
-    
+
+
     private void addRestaurantBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRestaurantBtnActionPerformed
         // TODO add your handling code here:
         CardLayout layout = (CardLayout) container.getLayout();
@@ -213,15 +212,15 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         if(count == 1){
             if (selectedRow >= 0) {
             int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete?", "Warning", selectionButton);
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete??", "Warning", selectionButton);
             if (selectionResult == JOptionPane.YES_OPTION) {
                 restaurantDirectory.deleteRestaurant(selectedRow,system);
                 populate();
-                }
             }
         }
+        }
          else {
-            JOptionPane.showMessageDialog(null, "Please select a row");
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
         }
     }//GEN-LAST:event_deleteRestaurantBtnActionPerformed
 
@@ -242,6 +241,7 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a Row!!");
         }
     }//GEN-LAST:event_viewRestaurantDetailsBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addRestaurantBtn;

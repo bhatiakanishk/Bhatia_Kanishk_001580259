@@ -4,13 +4,11 @@
  * and open the template in the editor.
  */
 package Business.DeliveryMan;
+
 import Business.EcoSystem;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-/**
- *
- * @author kanishk
- */
+
 public class DeliveryManDirectory {
     private ArrayList<DeliveryMan> deliveryManDirectory;
 
@@ -26,8 +24,8 @@ public class DeliveryManDirectory {
         this.deliveryManDirectory = deliveryManDirectory;
     }
     
-    public DeliveryMan add(String name, String phone){
-        DeliveryMan deliveryMan = new DeliveryMan("D"+(deliveryManDirectory.size()+1),name,phone);
+    public DeliveryMan add(String name, String phone, String address, BufferedImage photo){
+        DeliveryMan deliveryMan = new DeliveryMan("D"+(deliveryManDirectory.size()+1),name,phone,address,photo);
         deliveryManDirectory.add(deliveryMan);
         return deliveryMan;
     }
@@ -49,11 +47,12 @@ public class DeliveryManDirectory {
         return true;
     }
     
-    public void updateDeliveryMan(String id,String name,String phone){
+    public void updateDeliveryMan(String id,String name,String phone,String address){
         for(DeliveryMan deliveryMan: deliveryManDirectory){
             if(deliveryMan.getDeliveryId().equalsIgnoreCase(id)){
                 deliveryMan.setName(name);
                 deliveryMan.setPhoneNo(phone);
+                deliveryMan.setAddress(address);
             }
         }
     }

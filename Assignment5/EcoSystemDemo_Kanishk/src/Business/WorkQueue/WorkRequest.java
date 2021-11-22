@@ -3,14 +3,9 @@
  * and open the template in the editor.
  */
 package Business.WorkQueue;
-
 import Business.UserAccount.UserAccount;
 import java.util.Date;
 
-/**
- *
- * @author kanishk
- */
 public abstract class WorkRequest {
 
     private String message;

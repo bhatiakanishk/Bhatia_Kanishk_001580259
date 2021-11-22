@@ -5,15 +5,23 @@
  */
 package Business.DeliveryMan;
 
-/**
- *
- * @author kanishk
- */
+import java.awt.image.BufferedImage;
+
 public class DeliveryMan {
     private String deliveryId;
     private String name;
     private String phoneNo;
+    private String address;
+    private BufferedImage photo;
 
+    public DeliveryMan(String deliveryId, String name, String phoneNo, String address, BufferedImage photo) {
+        this.deliveryId = deliveryId;
+        this.name = name;
+        this.phoneNo = phoneNo;
+        this.address = address;
+        this.photo = photo;
+    }
+    
     public String getDeliveryId() {
         return deliveryId;
     }
@@ -38,9 +46,21 @@ public class DeliveryMan {
         this.phoneNo = phoneNo;
     }
 
-    public DeliveryMan(String deliveryId, String name, String phoneNo) {
-        this.deliveryId = deliveryId;
-        this.name = name;
-        this.phoneNo = phoneNo;
+    public String getAddress() {
+        return address;
     }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public BufferedImage getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(BufferedImage photo) {
+        this.photo = photo;
+    }
+    
+    
 }

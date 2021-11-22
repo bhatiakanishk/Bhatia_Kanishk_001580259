@@ -4,11 +4,10 @@
  * and open the template in the editor.
  */
 package Business.Menu;
+
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-/**
- *
- * @author kanishk
- */
+
 public class MenuDirectory {
     private ArrayList<FoodItem> menuDirectory;
     
@@ -24,8 +23,8 @@ public class MenuDirectory {
         this.menuDirectory = menuDirectory;
     }
 
-    public void add(String restaurantId, String name, double price) {
-        FoodItem item = new FoodItem("F"+(menuDirectory.size()+1),restaurantId,name,price);
+    public void add(String restaurantId, String name, String description,BufferedImage photo, double price) {
+        FoodItem item = new FoodItem("F"+(menuDirectory.size()+1),restaurantId,name,description,photo,price);
         menuDirectory.add(item);
     }
     
@@ -38,11 +37,13 @@ public class MenuDirectory {
         return null;
     }
 
-    public void updateFoodItem(String itemId, String name, Double price) {
+    public void updateFoodItem(String itemId, String name, String description, Double price, BufferedImage img) {
         for(FoodItem item: menuDirectory){
             if(item.getItemId().equalsIgnoreCase(itemId)){
                 item.setItemName(name);
+                item.setDescription(description);
                 item.setPrice(price);
+                item.setPhoto(img);
             }
         }
     }

@@ -4,14 +4,20 @@
  * and open the template in the editor.
  */
 package userinterface.SystemAdminWorkArea;
+
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;
+
+import Business.Organization;
 import Business.Restaurant.RestaurantDirectory;
 import java.awt.CardLayout;
+import java.util.ArrayList;
 import javax.swing.JPanel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
@@ -38,6 +44,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }
     
     public void populateTree(){
+        //DefaultTreeModel model=(DefaultTreeModel)jTree.getModel();
+       // Add the code for draw your system structure shown by JTree
+       
+        //model.reload();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -72,7 +82,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane.setLeftComponent(jPanel1);
 
-        btnManageCustomers.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnManageCustomers.setText("Manage All Customers");
         btnManageCustomers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,7 +89,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnManageRestaurants.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnManageRestaurants.setText("Manage Restaurants");
         btnManageRestaurants.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,7 +96,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnManageDelivery.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnManageDelivery.setText("Manage Deliveryman");
         btnManageDelivery.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,23 +108,23 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(266, 266, 266)
+                .addGap(253, 253, 253)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnManageRestaurants, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnManageCustomers, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                    .addComponent(btnManageDelivery, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(353, 353, 353))
+                    .addComponent(btnManageDelivery)
+                    .addComponent(btnManageRestaurants, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnManageCustomers))
+                .addContainerGap(358, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(135, 135, 135)
+                .addGap(74, 74, 74)
                 .addComponent(btnManageCustomers)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnManageRestaurants)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnManageDelivery)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addContainerGap(260, Short.MAX_VALUE))
         );
 
         jSplitPane.setRightComponent(jPanel2);
@@ -145,6 +152,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageDeliveryActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnManageCustomers;

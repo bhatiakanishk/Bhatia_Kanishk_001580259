@@ -4,17 +4,36 @@
  * and open the template in the editor.
  */
 package Business.Restaurant;
-/**
- *
- * @author kanishk
- */
+
+import java.awt.image.BufferedImage;
+
 public class Restaurant {
     private String restaurantId;
     private String name;
     private String phoneNo;
     private String address;
+    private BufferedImage photo;
     private String managerName;
+    private String licenseNo;
 
+    public Restaurant(String restaurantId,String managerName,String name,String phoneNo, String address, BufferedImage photo,String licenseNo){
+        this.managerName = managerName;
+        this.restaurantId =restaurantId;
+        this.name = name;
+        this.phoneNo = phoneNo;
+        this.address = address;
+        this.photo = photo;
+        this.licenseNo = licenseNo;
+    }
+
+    public String getManagerName() {
+        return managerName;
+    }
+
+    public void setManagerName(String managerName) {
+        this.managerName = managerName;
+    }
+    
     public String getRestaurantId() {
         return restaurantId;
     }
@@ -47,19 +66,20 @@ public class Restaurant {
         this.address = address;
     }
 
-    public String getManagerName() {
-        return managerName;
+    public BufferedImage getPhoto() {
+        return photo;
     }
 
-    public void setManagerName(String managerName) {
-        this.managerName = managerName;
+    public void setPhoto(BufferedImage photo) {
+        this.photo = photo;
     }
 
-    public Restaurant(String restaurantId, String name, String phoneNo, String address, String managerName) {
-        this.restaurantId = restaurantId;
-        this.name = name;
-        this.phoneNo = phoneNo;
-        this.address = address;
-        this.managerName = managerName;
+    public String getLicenseNo() {
+        return licenseNo;
     }
+
+    public void setLicenseNo(String licenseNo) {
+        this.licenseNo = licenseNo;
+    }
+
 }

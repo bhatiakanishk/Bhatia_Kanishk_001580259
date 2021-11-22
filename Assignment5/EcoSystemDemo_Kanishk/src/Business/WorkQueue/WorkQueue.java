@@ -3,13 +3,10 @@
  * and open the template in the editor.
  */
 package Business.WorkQueue;
+
 import java.util.ArrayList;
 
-/**
- *
- * @author kanishk
- */
-public class WorkQueue {
+public class WorkQueue extends WorkRequest{
     
     private ArrayList<WorkRequest> workRequestList;
 
@@ -20,4 +17,5 @@ public class WorkQueue {
     public ArrayList<WorkRequest> getWorkRequestList() {
         return workRequestList;
     }
+    
 }

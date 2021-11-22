@@ -4,10 +4,6 @@
  */
 package Business.Employee;
 
-/**
- *
- * @author kanishk
- */
 public class Employee {
     
     private String name;
@@ -26,6 +22,7 @@ public class Employee {
     public void setName(String name) {
         this.name = name;
     }
+
     
     public String getName() {
         return name;

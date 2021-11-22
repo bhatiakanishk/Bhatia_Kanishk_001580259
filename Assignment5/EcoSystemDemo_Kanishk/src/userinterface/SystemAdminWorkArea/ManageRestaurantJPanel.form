@@ -20,28 +20,26 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="backBtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="324" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="140" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="addRestaurantBtn" min="-2" pref="125" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="viewRestaurantOrdersBtn" min="-2" pref="129" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="viewRestaurantDetailsBtn" min="-2" pref="129" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="deleteRestaurantBtn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="362" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="jScrollPane1" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="jScrollPane1" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="addRestaurantBtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="viewRestaurantOrdersBtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="viewRestaurantDetailsBtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="deleteRestaurantBtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="490" max="32767" attributes="0"/>
+                  </Group>
               </Group>
+          </Group>
+          <Group type="102" attributes="0">
+              <Component id="backBtn" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="388" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -50,19 +48,19 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="backBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="161" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="93" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="addRestaurantBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="viewRestaurantOrdersBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="viewRestaurantDetailsBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="deleteRestaurantBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="365" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="505" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -71,10 +69,9 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="24" style="1"/>
+          <Font name="Lucida Grande" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Restaurants"/>
-        <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -86,24 +83,25 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="restaurantJTable">
           <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                <BevelBorder/>
-              </Border>
-            </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="6" rowCount="4">
+              <Table columnCount="7" rowCount="4">
                 <Column editable="false" title="Restaurant Id" type="java.lang.Object"/>
                 <Column editable="false" title="Restaurant Name" type="java.lang.Object"/>
                 <Column editable="false" title="Username" type="java.lang.Object"/>
                 <Column editable="false" title="Manager Name" type="java.lang.Object"/>
-                <Column editable="false" title="Address" type="java.lang.Object"/>
-                <Column editable="false" title="Contact Number" type="java.lang.Object"/>
+                <Column editable="false" title="Restaurant Address" type="java.lang.Object"/>
+                <Column editable="false" title="Restaurant Contact No" type="java.lang.Object"/>
+                <Column editable="false" title="License No" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -144,9 +142,6 @@
     </Container>
     <Component class="javax.swing.JButton" name="addRestaurantBtn">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="1"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Add Restaurant"/>
       </Properties>
       <Events>
@@ -155,9 +150,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="viewRestaurantOrdersBtn">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="1"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="View Orders"/>
       </Properties>
       <Events>
@@ -166,9 +158,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="viewRestaurantDetailsBtn">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="1"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="View Details"/>
       </Properties>
       <Events>
@@ -177,9 +166,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="deleteRestaurantBtn">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="1"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Delete Restaurant"/>
       </Properties>
       <Events>
@@ -188,9 +174,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="backBtn">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="1"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Back"/>
       </Properties>
       <Events>
