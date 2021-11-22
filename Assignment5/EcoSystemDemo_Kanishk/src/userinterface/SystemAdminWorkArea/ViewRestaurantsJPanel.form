@@ -33,13 +33,12 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -52,7 +51,6 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="addressTextField" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
                                   <Component id="contactTextField" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
-                                  <Component id="licenseNoTextField" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
                                   <Component id="nameTextField" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
                                   <Component id="restaurantIdTextField" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
                                   <Component id="managerNameTextField" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
@@ -98,12 +96,7 @@
                           <Component id="contactTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="licenseNoTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="editBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="saveBtn" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -179,13 +172,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backBtnActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel7">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Restaurant License No"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="licenseNoTextField">
     </Component>
   </SubComponents>
 </Form>

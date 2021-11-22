@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Business.Role;
-
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
@@ -15,6 +14,10 @@ import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import userinterface.DeliveryManRole.DeliveryManWorkAreaJPanel;
 
+/**
+ *
+ * @author kanishk
+ */
 public class DeliverManRole extends Role {
 
     @Override

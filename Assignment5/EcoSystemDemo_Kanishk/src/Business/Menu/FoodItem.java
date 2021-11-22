@@ -4,24 +4,24 @@
  * and open the template in the editor.
  */
 package Business.Menu;
-
 import java.awt.image.BufferedImage;
 
+/**
+ *
+ * @author kanishk
+ */
 public class FoodItem {
     
     private String itemId;
     private String restaurantId;
     private String itemName;
-    private String description;
-    private BufferedImage photo;
     private double price;
 
-    public FoodItem(String itemId, String restaurantId, String itemName, String description, BufferedImage photo, double price) {
+    public FoodItem(String itemId, String restaurantId, String itemName, double price) {
         this.itemId = itemId;
         this.restaurantId = restaurantId;
         this.itemName = itemName;
-        this.description = description;
-        this.photo = photo;
+
         this.price = price;
     }
 
@@ -47,22 +47,6 @@ public class FoodItem {
 
     public void setItemName(String itemName) {
         this.itemName = itemName;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public BufferedImage getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(BufferedImage photo) {
-        this.photo = photo;
     }
 
     public double getPrice() {

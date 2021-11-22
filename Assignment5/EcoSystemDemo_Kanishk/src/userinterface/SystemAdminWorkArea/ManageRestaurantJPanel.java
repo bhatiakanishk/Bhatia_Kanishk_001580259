@@ -166,14 +166,13 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         for (UserAccount ua : system.getUserAccountDirectory().getUserAccountList()) {
             for (Restaurant restaurant : restaurantDirectory.getRestaurantDirectory()) {
                 if (restaurant.getRestaurantId().equalsIgnoreCase(ua.getEmployee().getName())) {
-                    Object[] row = new Object[7];
+                    Object[] row = new Object[6];
                     row[0] = restaurant.getRestaurantId();
                     row[1] = restaurant.getName();
                     row[2] = ua.getUsername();
                     row[3] = restaurant.getManagerName();
                     row[4] = restaurant.getPhoneNo();
                     row[5] = restaurant.getAddress();
-                    row[6] = restaurant.getLicenseNo();
                     model.addRow(row);
                 }
             }
@@ -182,9 +181,7 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
 
     public void populateusername() {
         DefaultTableModel model = (DefaultTableModel) restaurantJTable.getModel();
-
         model.setRowCount(0);
-
     }
 
 

@@ -36,16 +36,13 @@ public class ViewFoodItemJPanel extends javax.swing.JPanel {
         this.container = container;
         this.foodItem = foodItem;
         this.menuDirectory = menuDirectory;
-        itemNameTextField.setText(foodItem.getItemName());
-        itemDescriptionTextField.setText(foodItem.getDescription());
+        itemNameTextField.setText(foodItem.getItemName());;
         itemPriceTextField.setText(String.valueOf(foodItem.getPrice()));
         itemIdTextField.setText(foodItem.getItemId());
-        itemPhoto.setIcon(new ImageIcon(foodItem.getPhoto()));
         itemNameTextField.setEditable(false);
         itemDescriptionTextField.setEditable(false);
         itemPriceTextField.setEditable(false);
         itemIdTextField.setEditable(false);
-        img = foodItem.getPhoto();
     }
 
     /**
@@ -160,7 +157,6 @@ public class ViewFoodItemJPanel extends javax.swing.JPanel {
             itemPriceTextField.setEditable(false);
             itemIdTextField.setEditable(false);
             JOptionPane.showMessageDialog(null, "Food Item updated succesfully!");
-            itemPhoto.setIcon(new ImageIcon(foodItem.getPhoto()));
     }//GEN-LAST:event_saveBtnActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

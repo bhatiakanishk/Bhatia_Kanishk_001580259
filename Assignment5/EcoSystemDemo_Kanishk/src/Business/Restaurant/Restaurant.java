@@ -5,25 +5,26 @@
  */
 package Business.Restaurant;
 
-import java.awt.image.BufferedImage;
+/**
+ *
+ * @author kanishk
+ */
 
 public class Restaurant {
     private String restaurantId;
     private String name;
     private String phoneNo;
     private String address;
-    private BufferedImage photo;
     private String managerName;
-    private String licenseNo;
 
-    public Restaurant(String restaurantId,String managerName,String name,String phoneNo, String address, BufferedImage photo,String licenseNo){
+
+    public Restaurant(String restaurantId,String managerName,String name,String phoneNo, String address){
         this.managerName = managerName;
         this.restaurantId =restaurantId;
         this.name = name;
         this.phoneNo = phoneNo;
         this.address = address;
-        this.photo = photo;
-        this.licenseNo = licenseNo;
+
     }
 
     public String getManagerName() {
@@ -65,21 +66,4 @@ public class Restaurant {
     public void setAddress(String address) {
         this.address = address;
     }
-
-    public BufferedImage getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(BufferedImage photo) {
-        this.photo = photo;
-    }
-
-    public String getLicenseNo() {
-        return licenseNo;
-    }
-
-    public void setLicenseNo(String licenseNo) {
-        this.licenseNo = licenseNo;
-    }
-
 }

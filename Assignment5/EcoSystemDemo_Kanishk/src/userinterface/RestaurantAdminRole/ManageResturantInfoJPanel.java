@@ -49,8 +49,6 @@ public class ManageResturantInfoJPanel extends javax.swing.JPanel {
         managerTextField.setEditable(false);
         addressTextField.setEditable(false);
         contactTextField.setEditable(false);
-        licenseTextField.setEditable(false);
-        changePicBtn.setVisible(false);
 
         for (Restaurant rest : restaurantDirectory.getRestaurantDirectory()) {
             if (rest.getRestaurantId().equalsIgnoreCase(account.getEmployee().getName())) {
@@ -63,8 +61,7 @@ public class ManageResturantInfoJPanel extends javax.swing.JPanel {
         managerTextField.setText(restaurant.getManagerName());
         addressTextField.setText(restaurant.getAddress());
         contactTextField.setText(restaurant.getPhoneNo());
-        licenseTextField.setText(restaurant.getLicenseNo());
-        img = restaurant.getPhoto();
+;
     }
 
     /**
@@ -87,10 +84,6 @@ public class ManageResturantInfoJPanel extends javax.swing.JPanel {
         managerTextField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         addressTextField = new javax.swing.JTextField();
-        licenseTextField = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        changePicBtn = new javax.swing.JButton();
         saveBtn = new javax.swing.JButton();
         editBtn = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -106,17 +99,6 @@ public class ManageResturantInfoJPanel extends javax.swing.JPanel {
         jLabel5.setText("Restaurant Manager");
 
         jLabel6.setText("Restaurant Address ");
-
-        jLabel7.setText("Restaurant License No");
-
-        jLabel8.setText("Change Picture");
-
-        changePicBtn.setText("Choose");
-        changePicBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                changePicBtnActionPerformed(evt);
-            }
-        });
 
         saveBtn.setText("Save Changes");
         saveBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -161,19 +143,14 @@ public class ManageResturantInfoJPanel extends javax.swing.JPanel {
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
+                                    .addComponent(jLabel6))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(idTextField)
-                                        .addComponent(nameTextField)
-                                        .addComponent(contactTextField)
-                                        .addComponent(managerTextField)
-                                        .addComponent(addressTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
-                                        .addComponent(licenseTextField))
-                                    .addComponent(changePicBtn)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(idTextField)
+                                    .addComponent(nameTextField)
+                                    .addComponent(contactTextField)
+                                    .addComponent(managerTextField)
+                                    .addComponent(addressTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(45, 45, 45)
                                 .addComponent(jLabel1)))))
@@ -207,15 +184,7 @@ public class ManageResturantInfoJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(addressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(licenseTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(changePicBtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveBtn)
                     .addComponent(editBtn))
@@ -230,21 +199,8 @@ public class ManageResturantInfoJPanel extends javax.swing.JPanel {
         managerTextField.setEditable(true);
         addressTextField.setEditable(true);
         contactTextField.setEditable(true);
-        licenseTextField.setEditable(false);
-        changePicBtn.setVisible(true);
-    }//GEN-LAST:event_editBtnActionPerformed
 
-    private void changePicBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePicBtnActionPerformed
-        // TODO add your handling code here:
-        chooser = new JFileChooser();
-        chooser.showOpenDialog(null);
-        file = chooser.getSelectedFile();
-        try {
-            img = ImageIO.read(file);
-        } catch (IOException e) {
-            img = restaurant.getPhoto();
-        }
-    }//GEN-LAST:event_changePicBtnActionPerformed
+    }//GEN-LAST:event_editBtnActionPerformed
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         // TODO add your handling code here:
@@ -253,22 +209,19 @@ public class ManageResturantInfoJPanel extends javax.swing.JPanel {
         String manager = managerTextField.getText();
         String address = addressTextField.getText();
         String contact = contactTextField.getText();
-        String license = licenseTextField.getText();
+
             restaurant.setManagerName(manager);
             restaurant.setAddress(address);
             restaurant.setPhoneNo(contact);
             restaurant.setName(name);
-            restaurant.setPhoto(img);
             
-            JOptionPane.showMessageDialog(null, "Changes saved sucessfully!");
+            JOptionPane.showMessageDialog(null, "Changes saved sucessfully");
             
             idTextField.setEditable(false);
             nameTextField.setEditable(false);
             managerTextField.setEditable(false);
             addressTextField.setEditable(false);
             contactTextField.setEditable(false);
-            licenseTextField.setEditable(false);
-            changePicBtn.setVisible(false);
     }//GEN-LAST:event_saveBtnActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -283,7 +236,6 @@ public class ManageResturantInfoJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addressTextField;
-    private javax.swing.JButton changePicBtn;
     private javax.swing.JTextField contactTextField;
     private javax.swing.JButton editBtn;
     private javax.swing.JTextField idTextField;
@@ -294,9 +246,6 @@ public class ManageResturantInfoJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField licenseTextField;
     private javax.swing.JTextField managerTextField;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JButton saveBtn;

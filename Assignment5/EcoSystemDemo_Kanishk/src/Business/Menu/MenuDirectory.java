@@ -24,7 +24,7 @@ public class MenuDirectory {
     }
 
     public void add(String restaurantId, String name, String description,BufferedImage photo, double price) {
-        FoodItem item = new FoodItem("F"+(menuDirectory.size()+1),restaurantId,name,description,photo,price);
+        FoodItem item = new FoodItem("F"+(menuDirectory.size()+1),restaurantId,name,price);
         menuDirectory.add(item);
     }
     
@@ -41,9 +41,7 @@ public class MenuDirectory {
         for(FoodItem item: menuDirectory){
             if(item.getItemId().equalsIgnoreCase(itemId)){
                 item.setItemName(name);
-                item.setDescription(description);
                 item.setPrice(price);
-                item.setPhoto(img);
             }
         }
     }

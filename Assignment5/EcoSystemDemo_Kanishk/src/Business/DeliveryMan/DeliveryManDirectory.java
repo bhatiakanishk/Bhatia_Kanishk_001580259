@@ -4,9 +4,7 @@
  * and open the template in the editor.
  */
 package Business.DeliveryMan;
-
 import Business.EcoSystem;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 public class DeliveryManDirectory {
@@ -24,8 +22,8 @@ public class DeliveryManDirectory {
         this.deliveryManDirectory = deliveryManDirectory;
     }
     
-    public DeliveryMan add(String name, String phone, String address, BufferedImage photo){
-        DeliveryMan deliveryMan = new DeliveryMan("D"+(deliveryManDirectory.size()+1),name,phone,address,photo);
+    public DeliveryMan add(String name, String phone, String address){
+        DeliveryMan deliveryMan = new DeliveryMan("D"+(deliveryManDirectory.size()+1),name,phone,address);
         deliveryManDirectory.add(deliveryMan);
         return deliveryMan;
     }

@@ -159,8 +159,7 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
                     Object[] row = new Object[4];
                     row[0] = foodItem.getItemId();
                     row[1] = foodItem.getItemName();
-                    row[2] = foodItem.getDescription();
-                    row[3] = foodItem.getPrice();
+                    row[2] = foodItem.getPrice();
                     model.addRow(row);
                 }
         }
