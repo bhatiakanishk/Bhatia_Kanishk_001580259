@@ -16,7 +16,7 @@ import java.awt.CardLayout;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JPanel;;
+import javax.swing.JPanel;
 
 /**
  *
@@ -158,7 +158,7 @@ public class MainJFrame extends javax.swing.JFrame {
        String password = String.valueOf(passwordCharArray);
        
        //Step1: Check in the system admin user account directory if the user already exists
-       UserAccount userAccount=system.getUserAccountDirectory().authenticateUser(userName, password);
+       UserAccount userAccount = system.getUserAccountDirectory().authenticateUser(userName, password);
        if(userAccount != null){
           CardLayout layout=(CardLayout)container.getLayout();
             container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, system,customerDirectory,restaurantDirectory,deliveryManDirectory,menuDirectory,orderDirectory));
