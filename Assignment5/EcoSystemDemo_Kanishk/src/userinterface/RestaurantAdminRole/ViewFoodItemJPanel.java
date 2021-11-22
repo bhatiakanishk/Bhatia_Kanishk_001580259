@@ -64,6 +64,7 @@ public class ViewFoodItemJPanel extends javax.swing.JPanel {
         saveBtn = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("View/ Edit Food Item");
 
         itemPhoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -71,6 +72,7 @@ public class ViewFoodItemJPanel extends javax.swing.JPanel {
         itemPhoto.setMinimumSize(new java.awt.Dimension(120, 120));
         itemPhoto.setPreferredSize(new java.awt.Dimension(120, 120));
 
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setText("Edit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,6 +80,7 @@ public class ViewFoodItemJPanel extends javax.swing.JPanel {
             }
         });
 
+        saveBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         saveBtn.setText("Save Changes");
         saveBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,6 +88,7 @@ public class ViewFoodItemJPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton2.setText("Back");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,7 +155,7 @@ public class ViewFoodItemJPanel extends javax.swing.JPanel {
         String name = itemNameTextField.getText();
         String description = itemDescriptionTextField.getText();
         Double price = Double.parseDouble(itemPriceTextField.getText());
-            menuDirectory.updateFoodItem(foodItem.getItemId(),name,description,price,img);
+            menuDirectory.updateFoodItem(foodItem.getItemId(),name,price);
             itemNameTextField.setEditable(false);
             itemDescriptionTextField.setEditable(false);
             itemPriceTextField.setEditable(false);
